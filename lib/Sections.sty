@@ -1,0 +1,165 @@
+
+
+% Chapter Format
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {}
+  {20pt}
+  {%
+    \begin{tcolorbox}[
+      enhanced,
+      colback=myblue,
+      boxrule=0.25cm,
+      colframe=titlebglight,
+      arc=0pt,
+      outer arc=0pt,
+      leftrule=0pt,
+      rightrule=0pt,
+      fontupper=\color{white}\sffamily\bfseries\huge,
+      enlarge left by=-1in-\hoffset-\oddsidemargin, 
+      enlarge right by=-\paperwidth+1in+\hoffset+\oddsidemargin+\textwidth,
+      width=\paperwidth, 
+      left=1in+\hoffset+\oddsidemargin, 
+      right=\paperwidth-1in-\hoffset-\oddsidemargin-\textwidth,
+      top=0.6cm, 
+      bottom=0.6cm,
+      overlay={
+        \node[
+          fill=myblue,
+          draw=titlebglight,
+          line width=0.15cm,
+          inner sep=0pt,
+          text width=1.7cm,
+          minimum height=1.7cm,
+          align=center,
+          font=\color{white}\sffamily\bfseries\fontsize{30}{36}\selectfont
+        ] 
+        (chapname)
+        at ([xshift=-4cm]frame.north east)
+        {\thechapter};
+        \node[font=\small,anchor=south,inner sep=2pt] at (chapname.north)
+        {\MakeUppercase\chaptertitlename};  % if using amsbook, this should be \chaptername
+      } 
+    ]
+    #1
+    \end{tcolorbox}%
+  }
+\titleformat{name=\chapter,numberless}[display]
+  {\normalfont\huge\bfseries}
+  {}
+  {20pt}
+  {%
+    \begin{tcolorbox}[
+      enhanced,
+      colback=myblue,
+      boxrule=0.25cm,
+      colframe=titlebglight,
+      arc=0pt,
+      outer arc=0pt,
+      remember as=title,
+      leftrule=0pt,
+      rightrule=0pt,
+      fontupper=\color{white}\sffamily\bfseries\huge,
+      enlarge left by=-1in-\hoffset-\oddsidemargin, 
+      enlarge right by=-\paperwidth+1in+\hoffset+\oddsidemargin+\textwidth,
+      width=\paperwidth, 
+      left=1in+\hoffset+\oddsidemargin, 
+      right=\paperwidth-1in-\hoffset-\oddsidemargin-\textwidth,
+      top=0.6cm, 
+      bottom=0.6cm, 
+    ]
+    #1
+    \end{tcolorbox}%
+  }
+\titlespacing*{\chapter}{0pt}{-50pt}{0pt}
+
+
+% Section, Subsection, Subsubsection Format
+
+
+\titleformat{\section}
+  {\addtolength{\titlewidth}{4pc}\normalfont\Large\sffamily\bfseries}
+  {\llap{\colorbox{myblue}{\parbox{2cm}{\strut\color{white}\hfill\thesection}\hspace{.5cm}}\hspace{0pt}}}
+  {.5cm}{#1}
+  [{\titleline*[l]{\hspace*{\dimexpr-2cm-20pt-2\fboxsep\relax}\color{myblue}\titlerule[1.5pt]}}]
+  
+\renewcommand*\thesection{\arabic{section}}
+
+\titleformat{\subsection}
+  {\addtolength{\titlewidth}{2pc}\normalfont\large\sffamily\bfseries}
+  {\llap{\colorbox{myblue}{\parbox{2cm}{\strut\color{white}\hfill\thesubsection}\hspace{.5cm}}\hspace{0pt}}}
+  {.5cm}{#1}
+  [{\titleline*[l]{\hspace*{\dimexpr-2cm-20pt-2\fboxsep\relax}\color{myblue}\titlerule[1.5pt]}}]
+
+
+% Example Format
+
+
+\tcbset{mystyle/.style={
+  breakable,
+  enhanced,
+  outer arc=0pt,
+  arc=0pt,
+  colframe=myblue,
+  colback=white,
+  attach boxed title to top left,
+  boxed title style={
+    colback=myblue,
+    outer arc=0pt,
+    arc=0pt,
+    top=3pt,
+    bottom=3pt,
+    },
+  fonttitle=\sffamily
+  }
+}
+
+\newtcolorbox[auto counter, number within = chapter]{example}[1][]{
+  mystyle,
+  title=Example~\thetcbcounter,
+  overlay unbroken and first={
+      \path
+        let
+        \p1=(title.north east),
+        \p2=(frame.north east)
+        in
+        node[anchor=west,font=\sffamily,color=myblue,text width=\x2-\x1] 
+        at (title.east) {#1};
+  }
+}
+
+\newcommand\Solution{\par\textbf{\textsf{Solution}}\par\medskip}
+
+
+% Test yourself
+\newtcolorbox{testyourself}[2][]{enhanced,skin=enhancedlast jigsaw,
+attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+fonttitle=\bfseries\sffamily,varwidth boxed title=0.7\linewidth,
+colbacktitle=myblue,colframe=red!50!black,
+interior style={top color=blue!10!white,bottom color=red!10!white},
+boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+underlay boxed title={
+\fill[blue!45!white] (title.north west) -- (title.north east)
+-- +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm)
+-- ([xshift=4mm,yshift=0.5mm]frame.north east) -- +(0mm,-1mm)
+-- (title.south west) -- cycle;
+\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north west)
+-- +(-0.4,0) -- +(0,-0.3) -- cycle;
+\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north east)
+-- +(0,-0.3) -- +(0.4,0) -- cycle; },
+title={#2},#1}
+
+
+%Summary
+\newtcolorbox{summary}[2][]{enhanced,title=Chapter Summary,
+colframe=blue!50!black,colback=white,colbacktitle=blue!5!yellow!10!white,
+fonttitle=\bfseries,coltitle=black,attach boxed title to top center=
+{yshift=-0.25mm-\tcboxedtitleheight/2,yshifttext=2mm-\tcboxedtitleheight/2},
+boxed title style={boxrule=0.5mm,
+frame code={ \path[tcb fill frame] ([xshift=-4mm]frame.west)
+-- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
+-- (frame.south east) -- (frame.south west) -- cycle; },
+interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
+-- (interior.north west) -- (interior.north east)
+-- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west)
+-- cycle;} }}

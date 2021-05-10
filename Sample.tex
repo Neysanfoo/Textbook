@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{book}
+
+\usepackage{lib/Textbook} 
+\exhyphenpenalty=10000\hyphenpenalty=10000
+%\sloppy
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{nccmath}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{tasks}
+\usetikzlibrary{shapes,arrows,decorations.pathreplacing,calc,positioning,intersections}
+\usepackage[export]{adjustbox}
+\usepackage{chngcntr}
+\usepackage{array}
+\usepackage{picture}
+\tikzstyle{Box} = [rectangle, minimum height=1cm, draw=black]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{label = Step \arabic*:}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\C}{\mathbb{C}}
+
+\usepackage{ulem}
+\usepackage{graphicx}
+
+\usepackage[english]{babel}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mathtools,amsfonts,amssymb,amsthm}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+
+\usepackage{fourier}
+
+
+
+
+\let\cleardoublepage=\clearpage
+
+
+% Start document
+\begin{document}
+
+\tableofcontents
+
+\chapter{This is a Chapter}
+
+\section{This is a Section}
+
+\subsection{This is a subsection}
+
+\begin{example}[Some text]
+\end{example}
+
+
+% End document
+\end{document}
