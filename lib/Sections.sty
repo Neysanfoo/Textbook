@@ -150,10 +150,13 @@ underlay boxed title={
 title={#2},#1}
 
 
+
+
 %Summary
-\newtcolorbox{summary}[2][]{enhanced,title=Chapter Summary,
-colframe=blue!50!black,colback=white,colbacktitle=blue!5!yellow!10!white,
-fonttitle=\bfseries,coltitle=black,attach boxed title to top center=
+\newtcolorbox{assignment}[2][]{enhanced,title={#2},#1,breakable,
+colframe=blue!50!black,colback=white,     frame hidden,
+colbacktitle=blue!5!yellow!10!white,    borderline north={1pt}{0pt}{blue!50!black},
+fonttitle=\bfseries\Large\sffamily, top=4pt, bottom=4pt, coltitle=black,attach boxed title to top center=
 {yshift=-0.25mm-\tcboxedtitleheight/2,yshifttext=2mm-\tcboxedtitleheight/2},
 boxed title style={boxrule=0.5mm,
 frame code={ \path[tcb fill frame] ([xshift=-4mm]frame.west)
@@ -163,3 +166,67 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 -- (interior.north west) -- (interior.north east)
 -- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west)
 -- cycle;} }}
+
+
+% Investigation
+\newtcolorbox{investigation}[2][]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=black!5,colframe=black!50,boxrule=0.2mm,
+attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+varwidth boxed title*=-3cm,
+boxed title style={frame code={
+\path[fill=tcbcolback!30!black]
+([yshift=-1mm,xshift=-1mm]frame.north west)
+arc[start angle=0,end angle=180,radius=1mm]
+([yshift=-1mm,xshift=1mm]frame.north east)
+arc[start angle=180,end angle=0,radius=1mm];
+\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+middle color=tcbcolback!80!black]
+([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+-- (frame.south east) -- (frame.south west)
+-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+[sharp corners]-- cycle;
+},interior engine=empty,
+},
+fonttitle=\bfseries,
+title={#2},#1}
+
+
+    
+%Question
+
+
+\newcommand{\questiontype}{Question}
+\newcommand{\writtensection}{0}
+
+
+\def\indented#1{\list{}{}\item[]}
+\let\indented=\endlist
+
+\newcounter{questionCounter}
+\newcounter{partCounter}[questionCounter]
+
+\newenvironment{namedquestion}[1][\arabic{questionCounter}]{%
+    \addtocounter{questionCounter}{1}%
+    \setcounter{partCounter}{0}%
+    \vspace{.2in}%
+        \noindent{\bf #1}%
+    \vspace{0.3em} \hrule \vspace{.1in}%
+}{}
+
+\newenvironment{numedquestion}[0]{%
+	\stepcounter{questionCounter}%
+    \vspace{.2in}%
+        \ifx\writtensection\undefined
+        \noindent{\bf \questiontype \; \arabic{questionCounter}. }%
+        \else
+          \if\writtensection0
+          \noindent{\bf \questiontype \; \arabic{questionCounter}. }%
+          \else
+          \noindent{\bf \questiontype \; \writtensection.\arabic{questionCounter} }%
+        \fi
+    \vspace{0.3em} \hrule \vspace{.1in}%
+}{}
+
+

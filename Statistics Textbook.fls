@@ -1,0 +1,1256 @@
+PWD /Users/neysanfoo/Documents/ALevel Notes/Book Package/Textbook Package
+INPUT /usr/local/texlive/2020/texmf.cnf
+INPUT /usr/local/texlive/2020/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT Statistics Textbook.tex
+OUTPUT Statistics Textbook.log
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/book.cls
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/book.cls
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/bk11.clo
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/bk11.clo
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT lib/Textbook.sty
+INPUT lib/Textbook.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lm/lmodern.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lm/lmodern.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/pgf.revision.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/pgf.revision.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfint.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/environ/environ.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/environ/environ.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/stringenc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/stringenc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+OUTPUT Statistics Textbook.pdf
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT lib/Sections.sty
+INPUT lib/Sections.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/background/background.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/background/background.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/everypage/everypage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/everypage/everypage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/afterpage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/afterpage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mdframed/mdframed.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mdframed/mdframed.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/zref/zref-abspage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/zref/zref-abspage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/zref/zref-base.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/zref/zref-base.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/needspace/needspace.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/needspace/needspace.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/ncctools/nccmath.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/ncctools/nccmath.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tasks/tasks.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tasks/tasks.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tasks/tasks.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tasks/tasks.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tasks/tasks.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/trimclip.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/trimclip.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/collectbox/collectbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/collectbox/collectbox.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/varwidth/varwidth.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/varwidth/varwidth.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/varwidth/varwidth.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/chngcntr/chngcntr.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/chngcntr/chngcntr.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/picture/picture.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/picture/picture.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/ulem/ulem.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/ulem/ulem.sty
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/babel/switch.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/babel-english/english.ldf
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/babel-english/english.ldf
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fourier.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fourier.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/t1futs.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/t1futs.fd
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fourier-orns.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fourier-orns.sty
+INPUT Statistics Textbook.aux
+INPUT Statistics Textbook.aux
+OUTPUT Statistics Textbook.aux
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmlfutm.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmlfutm.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmsfutm.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmsfutm.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmxfutm.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmxfutm.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+INPUT /usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+INPUT Statistics Textbook.out
+INPUT Statistics Textbook.out
+INPUT Statistics Textbook.out
+INPUT Statistics Textbook.out
+INPUT ./Statistics Textbook.out
+INPUT ./Statistics Textbook.out
+OUTPUT Statistics Textbook.out
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmss.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmss.fd
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT Statistics Textbook.toc
+INPUT Statistics Textbook.toc
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmlfutmi.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/fmlfutmi.fd
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futb8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt-bold.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futr8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+OUTPUT Statistics Textbook.toc
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmss10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmii.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmiib.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlitb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futbi8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futsy.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futb8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt-bold.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT lib/Graphics/CountingProductRule.png
+INPUT ./lib/Graphics/CountingProductRule.png
+INPUT ./lib/Graphics/CountingProductRule.png
+INPUT lib/Graphics/CountingProductRule1.png
+INPUT ./lib/Graphics/CountingProductRule1.png
+INPUT ./lib/Graphics/CountingProductRule1.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futb8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt-bold.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futr8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmii.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT lib/Graphics/CountingProductRule2.png
+INPUT ./lib/Graphics/CountingProductRule2.png
+INPUT ./lib/Graphics/CountingProductRule2.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/Diplomatsinacircle.png
+INPUT ./lib/Graphics/Diplomatsinacircle.png
+INPUT ./lib/Graphics/Diplomatsinacircle.png
+INPUT lib/Graphics/4FriendsHandCircle.png
+INPUT ./lib/Graphics/4FriendsHandCircle.png
+INPUT ./lib/Graphics/4FriendsHandCircle.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/ts1futs.fd
+INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/ts1futs.fd
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futsy.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futr8c.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/SlottingMethodCircle.png
+INPUT ./lib/Graphics/SlottingMethodCircle.png
+INPUT ./lib/Graphics/SlottingMethodCircle.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futri8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt-ita.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmii.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futsy.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futr8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmiib.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlitb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futbi8r.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT lib/Graphics/VennD7.png
+INPUT ./lib/Graphics/VennD7.png
+INPUT ./lib/Graphics/VennD7.png
+INPUT lib/Graphics/VennD1.png
+INPUT ./lib/Graphics/VennD1.png
+INPUT ./lib/Graphics/VennD1.png
+INPUT lib/Graphics/VennD2.png
+INPUT ./lib/Graphics/VennD2.png
+INPUT ./lib/Graphics/VennD2.png
+INPUT lib/Graphics/VennD6.png
+INPUT ./lib/Graphics/VennD6.png
+INPUT ./lib/Graphics/VennD6.png
+INPUT lib/Graphics/VennD9.png
+INPUT ./lib/Graphics/VennD9.png
+INPUT ./lib/Graphics/VennD9.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futb8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt-bold.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/MontyHallDoor.png
+INPUT ./lib/Graphics/MontyHallDoor.png
+INPUT ./lib/Graphics/MontyHallDoor.png
+INPUT lib/Graphics/MontyHallDoor2.png
+INPUT ./lib/Graphics/MontyHallDoor2.png
+INPUT ./lib/Graphics/MontyHallDoor2.png
+INPUT lib/Graphics/MontyHallDoor3.png
+INPUT ./lib/Graphics/MontyHallDoor3.png
+INPUT ./lib/Graphics/MontyHallDoor3.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/SpinnerDRV.png
+INPUT ./lib/Graphics/SpinnerDRV.png
+INPUT ./lib/Graphics/SpinnerDRV.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/NormalDistributionCurve.png
+INPUT ./lib/Graphics/NormalDistributionCurve.png
+INPUT ./lib/Graphics/NormalDistributionCurve.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futr8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmii.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futsy.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
+INPUT lib/Graphics/NormalDistributionCurve4.png
+INPUT ./lib/Graphics/NormalDistributionCurve4.png
+INPUT ./lib/Graphics/NormalDistributionCurve4.png
+INPUT lib/Graphics/NormalDistributionCurve5.png
+INPUT ./lib/Graphics/NormalDistributionCurve5.png
+INPUT ./lib/Graphics/NormalDistributionCurve5.png
+INPUT lib/Graphics/NormalDistributionCurve6.png
+INPUT ./lib/Graphics/NormalDistributionCurve6.png
+INPUT ./lib/Graphics/NormalDistributionCurve6.png
+INPUT lib/Graphics/NormalDistributionCurve2.png
+INPUT ./lib/Graphics/NormalDistributionCurve2.png
+INPUT ./lib/Graphics/NormalDistributionCurve2.png
+INPUT lib/Graphics/NormalDistributionCurve3.png
+INPUT ./lib/Graphics/NormalDistributionCurve3.png
+INPUT ./lib/Graphics/NormalDistributionCurve3.png
+INPUT lib/Graphics/NormalDistributionCurve7.png
+INPUT ./lib/Graphics/NormalDistributionCurve7.png
+INPUT ./lib/Graphics/NormalDistributionCurve7.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/invNorm1.png
+INPUT ./lib/GC Screenshots/invNorm1.png
+INPUT ./lib/GC Screenshots/invNorm1.png
+INPUT lib/GC Screenshots/invNorm2.png
+INPUT ./lib/GC Screenshots/invNorm2.png
+INPUT ./lib/GC Screenshots/invNorm2.png
+INPUT lib/Graphics/NormalExInvNorm1.png
+INPUT ./lib/Graphics/NormalExInvNorm1.png
+INPUT ./lib/Graphics/NormalExInvNorm1.png
+INPUT lib/GC Screenshots/invNorm3.png
+INPUT ./lib/GC Screenshots/invNorm3.png
+INPUT ./lib/GC Screenshots/invNorm3.png
+INPUT lib/GC Screenshots/invNorm4.png
+INPUT ./lib/GC Screenshots/invNorm4.png
+INPUT ./lib/GC Screenshots/invNorm4.png
+INPUT lib/Graphics/NormalExInvNorm2.png
+INPUT ./lib/Graphics/NormalExInvNorm2.png
+INPUT ./lib/Graphics/NormalExInvNorm2.png
+INPUT lib/GC Screenshots/invNorm5.png
+INPUT ./lib/GC Screenshots/invNorm5.png
+INPUT ./lib/GC Screenshots/invNorm5.png
+INPUT lib/GC Screenshots/invNorm6.png
+INPUT ./lib/GC Screenshots/invNorm6.png
+INPUT ./lib/GC Screenshots/invNorm6.png
+INPUT lib/Graphics/NormalExInvNorm3.png
+INPUT ./lib/Graphics/NormalExInvNorm3.png
+INPUT ./lib/Graphics/NormalExInvNorm3.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmii.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futsy.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mex.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmi.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmii.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmii.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmss8.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ManLooksAtLightBulb.png
+INPUT ./lib/Graphics/ManLooksAtLightBulb.png
+INPUT ./lib/Graphics/ManLooksAtLightBulb.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futr8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/OneTailRight.png
+INPUT ./lib/Graphics/OneTailRight.png
+INPUT ./lib/Graphics/OneTailRight.png
+INPUT lib/Graphics/OneTailLeft.png
+INPUT ./lib/Graphics/OneTailLeft.png
+INPUT ./lib/Graphics/OneTailLeft.png
+INPUT lib/Graphics/TwoTailTest.png
+INPUT ./lib/Graphics/TwoTailTest.png
+INPUT ./lib/Graphics/TwoTailTest.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/Lightbulbtailtest.png
+INPUT ./lib/Graphics/Lightbulbtailtest.png
+INPUT ./lib/Graphics/Lightbulbtailtest.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT lib/GC Screenshots/Z-Test1.png
+INPUT ./lib/GC Screenshots/Z-Test1.png
+INPUT ./lib/GC Screenshots/Z-Test1.png
+INPUT lib/GC Screenshots/Z-Test2.png
+INPUT ./lib/GC Screenshots/Z-Test2.png
+INPUT ./lib/GC Screenshots/Z-Test2.png
+INPUT lib/GC Screenshots/Z-Test3.png
+INPUT ./lib/GC Screenshots/Z-Test3.png
+INPUT ./lib/GC Screenshots/Z-Test3.png
+INPUT lib/Graphics/PValLOA.png
+INPUT ./lib/Graphics/PValLOA.png
+INPUT ./lib/Graphics/PValLOA.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmiib.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlitb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futbi8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futsy.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
+INPUT lib/Graphics/P-Value1.png
+INPUT ./lib/Graphics/P-Value1.png
+INPUT ./lib/Graphics/P-Value1.png
+INPUT lib/Graphics/P-Value2.png
+INPUT ./lib/Graphics/P-Value2.png
+INPUT ./lib/Graphics/P-Value2.png
+INPUT lib/Graphics/P-Value3.png
+INPUT ./lib/Graphics/P-Value3.png
+INPUT ./lib/Graphics/P-Value3.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8t.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmiib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futmib.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmiib.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlitb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mlb.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futbi8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futsy.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futb8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futb8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt-bold.tfm
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/Listdata1.png
+INPUT ./lib/GC Screenshots/Listdata1.png
+INPUT ./lib/GC Screenshots/Listdata1.png
+INPUT lib/GC Screenshots/Listdata3.png
+INPUT ./lib/GC Screenshots/Listdata3.png
+INPUT ./lib/GC Screenshots/Listdata3.png
+INPUT lib/GC Screenshots/Listdata4.png
+INPUT ./lib/GC Screenshots/Listdata4.png
+INPUT ./lib/GC Screenshots/Listdata4.png
+INPUT lib/GC Screenshots/Listdata5.png
+INPUT ./lib/GC Screenshots/Listdata5.png
+INPUT ./lib/GC Screenshots/Listdata5.png
+INPUT lib/GC Screenshots/Listdata6.png
+INPUT ./lib/GC Screenshots/Listdata6.png
+INPUT ./lib/GC Screenshots/Listdata6.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/Listdata7.png
+INPUT ./lib/GC Screenshots/Listdata7.png
+INPUT ./lib/GC Screenshots/Listdata7.png
+INPUT lib/GC Screenshots/Listdata8.png
+INPUT ./lib/GC Screenshots/Listdata8.png
+INPUT ./lib/GC Screenshots/Listdata8.png
+INPUT lib/GC Screenshots/Listdata9.png
+INPUT ./lib/GC Screenshots/Listdata9.png
+INPUT ./lib/GC Screenshots/Listdata9.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR3.png
+INPUT ./lib/GC Screenshots/CnR3.png
+INPUT ./lib/GC Screenshots/CnR3.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR1.png
+INPUT ./lib/GC Screenshots/CnR1.png
+INPUT ./lib/GC Screenshots/CnR1.png
+INPUT lib/GC Screenshots/Cnr2.png
+INPUT ./lib/GC Screenshots/Cnr2.png
+INPUT ./lib/GC Screenshots/Cnr2.png
+INPUT lib/GC Screenshots/CnR3.png
+INPUT ./lib/GC Screenshots/CnR3.png
+INPUT lib/Graphics/ScatterDiagramPostiveCorrelation.png
+INPUT ./lib/Graphics/ScatterDiagramPostiveCorrelation.png
+INPUT ./lib/Graphics/ScatterDiagramPostiveCorrelation.png
+INPUT lib/Graphics/ScatterDiagramNegativeCorrelation.png
+INPUT ./lib/Graphics/ScatterDiagramNegativeCorrelation.png
+INPUT ./lib/Graphics/ScatterDiagramNegativeCorrelation.png
+INPUT lib/Graphics/ScatterDiagramNoCorrelation.png
+INPUT ./lib/Graphics/ScatterDiagramNoCorrelation.png
+INPUT ./lib/Graphics/ScatterDiagramNoCorrelation.png
+INPUT lib/Graphics/ScatterDiagramLinear.png
+INPUT ./lib/Graphics/ScatterDiagramLinear.png
+INPUT ./lib/Graphics/ScatterDiagramLinear.png
+INPUT lib/Graphics/ScatterDiagramNonLinear.png
+INPUT ./lib/Graphics/ScatterDiagramNonLinear.png
+INPUT ./lib/Graphics/ScatterDiagramNonLinear.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramLinear.png
+INPUT ./lib/Graphics/ScatterDiagramLinear.png
+INPUT lib/Graphics/ScatterDiagramWeakLinear.png
+INPUT ./lib/Graphics/ScatterDiagramWeakLinear.png
+INPUT ./lib/Graphics/ScatterDiagramWeakLinear.png
+INPUT lib/Graphics/ScatterDiagramEx1a.png
+INPUT ./lib/Graphics/ScatterDiagramEx1a.png
+INPUT ./lib/Graphics/ScatterDiagramEx1a.png
+INPUT lib/Graphics/ScatterDiagramEx1b.png
+INPUT ./lib/Graphics/ScatterDiagramEx1b.png
+INPUT ./lib/Graphics/ScatterDiagramEx1b.png
+INPUT lib/Graphics/ScatterDiagramEx1c.png
+INPUT ./lib/Graphics/ScatterDiagramEx1c.png
+INPUT ./lib/Graphics/ScatterDiagramEx1c.png
+INPUT lib/Graphics/ScatterDiagramEx1d.png
+INPUT ./lib/Graphics/ScatterDiagramEx1d.png
+INPUT ./lib/Graphics/ScatterDiagramEx1d.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Spurious Correlations/SpuriousCorrelation1.png
+INPUT ./lib/Spurious Correlations/SpuriousCorrelation1.png
+INPUT ./lib/Spurious Correlations/SpuriousCorrelation1.png
+INPUT lib/Spurious Correlations/SpuriousCorrelation3.png
+INPUT ./lib/Spurious Correlations/SpuriousCorrelation3.png
+INPUT ./lib/Spurious Correlations/SpuriousCorrelation3.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR4.png
+INPUT ./lib/GC Screenshots/CnR4.png
+INPUT ./lib/GC Screenshots/CnR4.png
+INPUT lib/GC Screenshots/Cnr5.png
+INPUT ./lib/GC Screenshots/Cnr5.png
+INPUT ./lib/GC Screenshots/Cnr5.png
+INPUT lib/GC Screenshots/CnR6.png
+INPUT ./lib/GC Screenshots/CnR6.png
+INPUT ./lib/GC Screenshots/CnR6.png
+INPUT lib/GC Screenshots/CnR7.png
+INPUT ./lib/GC Screenshots/CnR7.png
+INPUT ./lib/GC Screenshots/CnR7.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
+INPUT lib/Graphics/ScatterDiagramEx1.png
+INPUT ./lib/Graphics/ScatterDiagramEx1.png
+INPUT ./lib/Graphics/ScatterDiagramEx1.png
+INPUT lib/GC Screenshots/CnR14.png
+INPUT ./lib/GC Screenshots/CnR14.png
+INPUT ./lib/GC Screenshots/CnR14.png
+INPUT lib/GC Screenshots/CnR15.png
+INPUT ./lib/GC Screenshots/CnR15.png
+INPUT ./lib/GC Screenshots/CnR15.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramLimitations.png
+INPUT ./lib/Graphics/ScatterDiagramLimitations.png
+INPUT ./lib/Graphics/ScatterDiagramLimitations.png
+INPUT lib/GC Screenshots/CnR10.png
+INPUT ./lib/GC Screenshots/CnR10.png
+INPUT ./lib/GC Screenshots/CnR10.png
+INPUT lib/Graphics/ScatterDiagramOutlier.png
+INPUT ./lib/Graphics/ScatterDiagramOutlier.png
+INPUT ./lib/Graphics/ScatterDiagramOutlier.png
+INPUT lib/GC Screenshots/CnR13.png
+INPUT ./lib/GC Screenshots/CnR13.png
+INPUT ./lib/GC Screenshots/CnR13.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR17.png
+INPUT ./lib/GC Screenshots/CnR17.png
+INPUT ./lib/GC Screenshots/CnR17.png
+INPUT lib/GC Screenshots/CnR18.png
+INPUT ./lib/GC Screenshots/CnR18.png
+INPUT ./lib/GC Screenshots/CnR18.png
+INPUT lib/Graphics/ScatterDiagramEx2.png
+INPUT ./lib/Graphics/ScatterDiagramEx2.png
+INPUT ./lib/Graphics/ScatterDiagramEx2.png
+INPUT lib/GC Screenshots/CnR20.png
+INPUT ./lib/GC Screenshots/CnR20.png
+INPUT ./lib/GC Screenshots/CnR20.png
+INPUT lib/GC Screenshots/CnR21.png
+INPUT ./lib/GC Screenshots/CnR21.png
+INPUT ./lib/GC Screenshots/CnR21.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramRegression.png
+INPUT ./lib/Graphics/ScatterDiagramRegression.png
+INPUT ./lib/Graphics/ScatterDiagramRegression.png
+INPUT lib/GC Screenshots/CnR7.png
+INPUT ./lib/GC Screenshots/CnR7.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramExtrapolation.png
+INPUT ./lib/Graphics/ScatterDiagramExtrapolation.png
+INPUT ./lib/Graphics/ScatterDiagramExtrapolation.png
+INPUT lib/Graphics/ScatterDiagramDiscusExtrapolate.png
+INPUT ./lib/Graphics/ScatterDiagramDiscusExtrapolate.png
+INPUT ./lib/Graphics/ScatterDiagramDiscusExtrapolate.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramEx3a.png
+INPUT ./lib/Graphics/ScatterDiagramEx3a.png
+INPUT ./lib/Graphics/ScatterDiagramEx3a.png
+INPUT lib/GC Screenshots/CnR22.png
+INPUT ./lib/GC Screenshots/CnR22.png
+INPUT ./lib/GC Screenshots/CnR22.png
+INPUT lib/GC Screenshots/CnR24.png
+INPUT ./lib/GC Screenshots/CnR24.png
+INPUT ./lib/GC Screenshots/CnR24.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramRegressionHorizontal.png
+INPUT ./lib/Graphics/ScatterDiagramRegressionHorizontal.png
+INPUT ./lib/Graphics/ScatterDiagramRegressionHorizontal.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR4.png
+INPUT ./lib/GC Screenshots/CnR4.png
+INPUT lib/GC Screenshots/CnR6.png
+INPUT ./lib/GC Screenshots/CnR6.png
+INPUT lib/GC Screenshots/CnR26.png
+INPUT ./lib/GC Screenshots/CnR26.png
+INPUT ./lib/GC Screenshots/CnR26.png
+INPUT lib/GC Screenshots/CnR7.png
+INPUT ./lib/GC Screenshots/CnR7.png
+INPUT lib/GC Screenshots/CnR25.png
+INPUT ./lib/GC Screenshots/CnR25.png
+INPUT ./lib/GC Screenshots/CnR25.png
+INPUT lib/GC Screenshots/CnR27.png
+INPUT ./lib/GC Screenshots/CnR27.png
+INPUT ./lib/GC Screenshots/CnR27.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR40.png
+INPUT ./lib/GC Screenshots/CnR40.png
+INPUT ./lib/GC Screenshots/CnR40.png
+INPUT lib/GC Screenshots/CnR41.png
+INPUT ./lib/GC Screenshots/CnR41.png
+INPUT ./lib/GC Screenshots/CnR41.png
+INPUT lib/GC Screenshots/CnR42.png
+INPUT ./lib/GC Screenshots/CnR42.png
+INPUT ./lib/GC Screenshots/CnR42.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramEx7a.png
+INPUT ./lib/Graphics/ScatterDiagramEx7a.png
+INPUT ./lib/Graphics/ScatterDiagramEx7a.png
+INPUT lib/GC Screenshots/CnR45.png
+INPUT ./lib/GC Screenshots/CnR45.png
+INPUT ./lib/GC Screenshots/CnR45.png
+INPUT lib/GC Screenshots/CnR43.png
+INPUT ./lib/GC Screenshots/CnR43.png
+INPUT ./lib/GC Screenshots/CnR43.png
+INPUT lib/GC Screenshots/CnR44.png
+INPUT ./lib/GC Screenshots/CnR44.png
+INPUT ./lib/GC Screenshots/CnR44.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR28.png
+INPUT ./lib/GC Screenshots/CnR28.png
+INPUT ./lib/GC Screenshots/CnR28.png
+INPUT lib/GC Screenshots/CnR29.png
+INPUT ./lib/GC Screenshots/CnR29.png
+INPUT ./lib/GC Screenshots/CnR29.png
+INPUT lib/Graphics/ScatterDiagramEx4a.png
+INPUT ./lib/Graphics/ScatterDiagramEx4a.png
+INPUT ./lib/Graphics/ScatterDiagramEx4a.png
+INPUT lib/GC Screenshots/CnR31.png
+INPUT ./lib/GC Screenshots/CnR31.png
+INPUT ./lib/GC Screenshots/CnR31.png
+INPUT lib/GC Screenshots/CnR32.png
+INPUT ./lib/GC Screenshots/CnR32.png
+INPUT ./lib/GC Screenshots/CnR32.png
+INPUT lib/GC Screenshots/CnR33.png
+INPUT ./lib/GC Screenshots/CnR33.png
+INPUT ./lib/GC Screenshots/CnR33.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/GC Screenshots/CnR34.png
+INPUT ./lib/GC Screenshots/CnR34.png
+INPUT ./lib/GC Screenshots/CnR34.png
+INPUT lib/GC Screenshots/CnR35.png
+INPUT ./lib/GC Screenshots/CnR35.png
+INPUT ./lib/GC Screenshots/CnR35.png
+INPUT lib/GC Screenshots/CnR36.png
+INPUT ./lib/GC Screenshots/CnR36.png
+INPUT ./lib/GC Screenshots/CnR36.png
+INPUT lib/Graphics/ScatterDiagramEx5a.png
+INPUT ./lib/Graphics/ScatterDiagramEx5a.png
+INPUT ./lib/Graphics/ScatterDiagramEx5a.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/Graphics/ScatterDiagramEx6a.png
+INPUT ./lib/Graphics/ScatterDiagramEx6a.png
+INPUT ./lib/Graphics/ScatterDiagramEx6a.png
+INPUT lib/GC Screenshots/CnR38.png
+INPUT ./lib/GC Screenshots/CnR38.png
+INPUT ./lib/GC Screenshots/CnR38.png
+INPUT lib/GC Screenshots/CnR39.png
+INPUT ./lib/GC Screenshots/CnR39.png
+INPUT ./lib/GC Screenshots/CnR39.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT lib/img/PageBookBoarder.png
+INPUT ./lib/img/PageBookBoarder.png
+INPUT Statistics Textbook.aux
+INPUT ./Statistics Textbook.out
+INPUT ./Statistics Textbook.out
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-mlitb.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss10.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb
