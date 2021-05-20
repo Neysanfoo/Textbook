@@ -1,4 +1,5 @@
 .DS_Store
+book.tex
 book.aux
 book.log
 book.out
@@ -13,3 +14,11 @@ Sample.synctex.gz
 Sample.toc
 Sample.fls
 lib/texput.log
+Calculus\ Textbook.aux
+Calculus\ Textbook.log
+Calculus\ Textbook.out
+Calculus\ Textbook.pdf
+Calculus\ Textbook.synctex.gz
+Calculus\ Textbook.tex
+Calculus\ Textbook.toc
+Sample.tex

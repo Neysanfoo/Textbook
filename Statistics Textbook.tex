@@ -204,7 +204,7 @@ The answer is $7!=5040$.
 
 \end{example}
 
-The simplicity of the answer to the this question was due to several
+The simplicity of the answer to this question was due to several
 factors: we used each of our objects exactly once, the order of the
 objects mattered, and the objects were all different. In the rest
 of this section we will study problems without one or more of these
@@ -380,12 +380,15 @@ Hence the total number of passwords is
 
 \subsection{Permutations in a Circle }
 
+\begin{example}
+
 At a meeting of diplomats, the six participants are to be seated around
 a circular table. Since the table has no ends to confer particular
-status, it doesn\textquoteright t matter who sits in which chair.
+status, it doesn't matter who sits in which chair.
 But it does matter how the diplomats are seated relative to each other.
-In other words, two seatings are considered the same if one is a rotation
-of the other. How many different ways can the diplomats be seated?
+In other words, two seatings are considered the same if one is a rotation of the other. How many different ways can the diplomats be seated?
+
+\Solution
 
 Call the diplomats by the letters $A$, $B$, $C$, $D$, $E$, and
 $F$. Since only relative position matters, you can start with any
@@ -394,6 +397,8 @@ one way to do this. Then consider all arrangements of the other diplomats
 around that one. The five diplomats $B$ through $F$ can be arranged
 in the seats around diplomat $A$ in all possible orders. So there
 are $5!=120$ ways to seat the group.
+
+\end{example}
 
 \begin{minipage}{.5\textwidth}
 \begin{center}
@@ -415,7 +420,7 @@ would be $n!$ ways of arranging the diplomats.
 
 \medskip
 
-\centerline{\begin{minipage}{.78\textwidth}
+\centerline{\begin{minipage}{.73\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
 The number of ways of arranging $n$ different objects in a circle
@@ -456,7 +461,7 @@ $\text{Number of ways}=\left(4-1\right)!=3!=6$
 
 \section{Combinations }
 
-\centerline{\begin{minipage}{.89\textwidth}
+\centerline{\begin{minipage}{.82\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
 A \textbf{combination} is a selection of objects \textbf{without regard
@@ -464,10 +469,14 @@ to order or arrangement}.
 \end{tcolorbox}
 \end{minipage}}
 
+\medskip
+
 How many combinations of 3 letter strings can be taken from the set
 of 4 letters $\left\{ A,B,C,D\right\} $?
 
 There are $4$ combinations: $ABC$, $BCD$, $ABD$, $ACD$.
+
+\medskip
 
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
@@ -1104,7 +1113,7 @@ $A'$ is called the complement of $A$. It is the shaded region which includes eve
 
 \section{Independent Events}
 
-\centerline{\begin{minipage}{.70\textwidth}
+\centerline{\begin{minipage}{.67\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
 \textbf{Independent events} are events where the occurrence of one
@@ -1122,10 +1131,10 @@ are independent events.
 
 \medskip
 
-\centerline{\begin{minipage}{.75\textwidth}
+\centerline{\begin{minipage}{.69\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
-If $A$ and $B$ are \textbf{independent events} then $\text{P}\left(A\textbf{ and }B\right)=\text{P}\left(A\right)\times\text{P}\left(B\right)$
+If $A$ and $B$ are \textbf{independent events} then $\text{P}\left(A\textbf{ and }B\right)=\text{P}\left(A\right)\times\text{P}\left(B\right)$.
 \end{tcolorbox}
 \end{minipage}}
 
@@ -1184,7 +1193,7 @@ events}.
 
 \medskip
 
-\centerline{\begin{minipage}{.65\textwidth}
+\centerline{\begin{minipage}{.62\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
 \textbf{Dependent events} are events where the occurrence of one of
@@ -1924,6 +1933,8 @@ Thus is it more likely that we roll at least one six in four rolls.
 
 \end{example}
 
+\newpage
+
 \section{Newton-Pepys Problem}
 
 \begin{example}[Newton-Pepys Problem]
@@ -1975,43 +1986,6 @@ $
 $
 
 \end{example}
-
-\section{The St. Petersberg Paradox}
-
-A casino offers a game of chance for a single player in which a fair
-coin is tossed at each stage. The initial stake begins at 2 dollars
-and is doubled every time heads appears. The first time tails appears,
-the game ends and the player wins whatever is in the pot. Thus the
-player wins 2 dollars if tails appears on the first toss, 4 dollars
-if heads appears on the first toss and tails on the second, 8 dollars
-if heads appears on the first two tosses and tails on the third, and
-so on.
-
-Mathematically, the player wins $2^{k}$ dollars, where $k$ is the
-number of consecutive head tosses. What would be a fair price to pay
-the casino for entering the game?
-
-To answer this, one needs to consider what would be the expected payout
-at each stage: with probability ${\displaystyle \frac{1}{2}}$ the
-player wins 2 dollars; with probability ${\displaystyle \frac{1}{4}}$
-the player wins 4 dollars; with probability ${\displaystyle \frac{1}{8}}$
-the player wins 8 dollars, and so on. Assuming the game can continue
-as long as the coin toss results in heads and, in particular, that
-the casino has unlimited resources, the expected value is thus
-
-\begin{align*}
-\text{E}\left(X\right) & =\frac{1}{2}\times2+\frac{1}{4}\times4+\frac{1}{8}\times8+\frac{1}{16}\times16+\ldots\\
- & =1+1+1+1+\ldots\\
- & =\infty
-\end{align*}
-
-Considering nothing but the expected value of the net change in one's
-monetary wealth, one should therefore play the game at any price if
-offered the opportunity. In a strict logical sense, the St. Petersburg
-paradox is not a paradox because no formal contradiction is derived.
-However, to claim that a rational agent should pay millions, or even
-billions, for playing this game seems absurd. Few of us would be willing
-to pay even $\$20$ to enter such a game.
 
 \newpage{}
 
@@ -2417,6 +2391,8 @@ ${\displaystyle \frac{8}{15}}$
 
 \section{Expected Value of a Random Variable}
 
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
 The \textbf{expected value} or \textbf{mean} of a discrete random
 variable of $X$, $E\left(X\right)$, is given by:
 \[
@@ -2424,6 +2400,8 @@ variable of $X$, $E\left(X\right)$, is given by:
 \]
 
 $\text{E}\left(X\right)$ is also denoted by the symbol $\mu$.
+
+\end{tcolorbox}
 
 \begin{example}[Finding Expected Value Using a Probability Distribution]
 
@@ -2744,6 +2722,179 @@ deviation of $X$.
 \end{align*}
 
 \end{example}
+
+\newpage
+
+\section{The St. Petersberg Paradox}
+
+A casino offers a game of chance for a single player in which a fair
+coin is tossed at each stage. The initial stake begins at 2 dollars
+and is doubled every time heads appears. The first time tails appears,
+the game ends and the player wins whatever is in the pot. Thus the
+player wins 2 dollars if tails appears on the first toss, 4 dollars
+if heads appears on the first toss and tails on the second, 8 dollars
+if heads appears on the first two tosses and tails on the third, and
+so on.
+
+Mathematically, the player wins $2^{k}$ dollars, where $k$ is the
+number of consecutive head tosses. What would be a fair price to pay
+the casino for entering the game?
+
+To answer this, one needs to consider what would be the expected payout
+at each stage: with probability ${\displaystyle \frac{1}{2}}$ the
+player wins 2 dollars; with probability ${\displaystyle \frac{1}{4}}$
+the player wins 4 dollars; with probability ${\displaystyle \frac{1}{8}}$
+the player wins 8 dollars, and so on. Assuming the game can continue
+as long as the coin toss results in heads and, in particular, that
+the casino has unlimited resources, the expected value is thus
+
+\begin{align*}
+\text{E}\left(X\right) & =\frac{1}{2}\times2+\frac{1}{4}\times4+\frac{1}{8}\times8+\frac{1}{16}\times16+\ldots\\
+ & =1+1+1+1+\ldots\\
+ & =\infty
+\end{align*}
+
+Considering nothing but the expected value of the net change in one's
+monetary wealth, one should therefore play the game at any price if
+offered the opportunity. In a strict logical sense, the St. Petersburg
+paradox is not a paradox because no formal contradiction is derived.
+However, to claim that a rational agent should pay millions, or even
+billions, for playing this game seems absurd. Few of us would be willing
+to pay even $\$20$ to enter such a game.
+
+\newpage
+
+\section*{Discrete Random Variables Summary}
+
+\bigskip
+
+\begin{itemize}
+
+\item A \textbf{random variable} is a numerical quantity that is generated
+by a random experiment, we denote random variables by capital letters
+such as $X$.
+
+\item A random variable $X$ is called \textbf{discrete} if it has a \textbf{countable} number of possible values.
+
+
+\end{itemize}
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+
+For a discrete random variable $X$, the sum of probabilities is $\textbf{1}$:
+\[
+\sum_{\text{all}\,x}\text{P}\left(X=x\right)=1
+\]
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+
+The \textbf{expected value} or \textbf{mean} of a discrete random
+variable of $X$, $E\left(X\right)$, is given by:
+\[
+\text{E}\left(X\right)=\sum_{\text{all}\,x}x\text{P}\left(X=x\right)
+\]
+
+$\text{E}\left(X\right)$ is also denoted by the symbol $\mu$.
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+Let $X$ be a discrete random variable which takes values from a set
+$S$.
+
+If $g\left(X\right)$ is a function of $X$, then $g\left(X\right)$
+is also a discrete random variable and 
+\[
+E\left[g\left(x\right)\right]=\sum_{\text{all}\,x}g\left(x\right)\text{P}\left(X=x\right)
+\]
+where the summation is over all elements $x$ in $S$.
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+For any random variable $X$ with $E\left(X\right)=\mu$, the variance
+of $X$, $\text{Var}\left(X\right)$, is given by:
+\[
+\text{Var}\left(X\right)=E\left[\left(X-\mu\right)^{2}\right]=\sum_{\text{all}\,x}\left(x-\mu\right)^{2}\text{P}\left(X=x\right)
+\]
+
+Alternatively, 
+\[
+\text{Var}\left(X\right)=E\left(X^{2}\right)-\mu^{2}
+\]
+
+\begin{itemize}
+\item $\text{Var}\left(X\right)$ is also denoted by the symbol $\sigma^{2}$. 
+\item $\text{Var}\left(X\right)$ is a non-negative value.
+\end{itemize}
+The standard deviation, $\sigma$, of $X$ is given by 
+\[
+\sigma=\sqrt{\text{Var}\left(X\right)}
+\]
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+For any random variables $X$ and $Y$, and constants $a$ and $b$,
+
+\medskip{}
+
+\begin{minipage}[t]{0.5\textwidth} 
+
+\begin{enumerate}[label=(\alph*)] 
+
+\item  $\text{E}\left(a\right)=a$
+
+\item  $\text{E}\left(aX\right)=a\text{E}\left(X\right)$
+
+\item  $\text{E}\left(aX\pm b\right)=a\text{E}\left(X\right)\pm b$
+
+\item  $\text{E}\left(aX\pm bY\right)=a\text{E}\left(X\right)\pm b\text{E}\left(Y\right)$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth} 
+
+\begin{enumerate}[label=(\alph*)] 
+
+\item  $\text{Var}\left(a\right)=0$
+
+\item $\text{Var}\left(aX\right)=a^{2}\text{Var}\left(X\right)$
+
+\item $\text{Var}\left(aX\pm b\right)=a^{2}\text{Var}\left(X\right)$
+
+\item  If $X$ and $Y$ are \textbf{independent}, then
+
+$\text{Var}\left(aX\pm bY\right)=a^{2}\text{Var}\left(X\right)+b^{2}\text{Var}\left(Y\right)$
+
+\end{enumerate}
+
+\end{minipage}
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+Consider a random variable $X$. Take $n$ observations $X_{1},X_{2},\ldots,X_{n}$
+from $X$, then 
+\[
+\text{E}\left(X_{1}+X_{2}+\ldots+X_{n}\right)=n\text{E}\left(X\right)
+\]
+
+If $X_{1},X_{2},\ldots,X_{n}$ are independent, then
+\[
+\text{Var}\left(X_{1}+X_{2}+\ldots+X_{n}\right)=n\text{Var}\left(X\right)
+\]
 
 \chapter{Binomial Distribution}
 
@@ -3269,6 +3420,96 @@ $
 
 \end{example}
 
+\newpage
+
+\section*{Binomial Distribution Summary}
+The characteristics of a binomial experiment are as follows:
+
+\begin{enumerate}[leftmargin=2cm]
+
+\item  The experiment has $n$ repeated and independent trials.
+
+\item  Each trial has only two possible outcomes, "success'' and
+"failure''.
+
+\item  The probability of success for each trial, $p$, remains
+constant.
+
+\end{enumerate}
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+If $X\sim\text{B}\left(n,p\right)$, then the probability distribution
+function of $X$ is given by 
+\[
+\text{P}\left(X=r\right)=\begin{pmatrix}n\\
+r
+\end{pmatrix}p^{r}\left(1-p\right)^{n-r}
+\]
+where
+
+\begin{itemize}
+
+\item  $n$ is the number of trials,
+
+\item  $p$ is the probability of success
+
+\item  $r=0,1,2,\ldots,n$
+
+\end{itemize}
+
+If $X\sim\text{B}\left(n,p\right)$, using the graphic calculator
+to find:
+
+\begin{itemize}
+
+\item $\text{P}\left(X=r\right)$ 
+
+\begin{steps}[leftmargin=2cm]
+
+\item  Press \tcbox[box align=base,nobeforeafter,colback=blue!40, colframe=blue!40,size=small]{\textbf{\textcolor{white}{2ND}}}
+ \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{VARS}}}
+
+\item  Select A:binompdf and key the values in the format $n$, $p$,
+$r$.
+
+\end{steps}
+
+\item  $\text{P}\left(X\leq r\right)$ 
+
+\begin{steps}[leftmargin=2cm]
+
+\item  Press \tcbox[box align=base,nobeforeafter,colback=blue!40, colframe=blue!40,size=small]{\textbf{\textcolor{white}{2ND}}}    
+ \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{VARS}}}
+
+\item  Select B:binomcdf and key the values in the format $n$, $p$,
+$r$.
+
+\end{steps}
+
+\end{itemize}
+
+\vspace{5pt}
+\hrule
+\vspace{6pt}
+
+For a binomial distribution $X\sim\text{B}\left(n,p\right)$,
+\[
+\text{Expected value or mean of \ensuremath{X}}=\text{E}\left(X\right)=\mu=np
+\]
+
+\[
+\text{Variance of \ensuremath{X}}=\text{Var}\left(X\right)=\sigma^{2}=np\left(1-p\right)
+\]
+
+\[
+\text{Standard Deviation of \ensuremath{X}}=\sqrt{\text{Var}\left(X\right)}=\sigma=\sqrt{np\left(1-p\right)}
+\]
+
+
+
 \chapter{Normal Distribution}
 \section{The Normal Distribution}
 
@@ -3549,7 +3790,7 @@ find the standard deviation of $X$.
 
 \begin{align*}
 \text{P}\left(X\geq15\right) & =0.0668\\
-\text{P}\left(Z<\frac{15-12}{\sigma}\right) & =0.0668
+\text{P}\left(Z\geq\frac{15-12}{\sigma}\right) & =0.0668
 \end{align*}
 
 From GC,
@@ -5374,6 +5615,7 @@ of a university graduate differs from $\$2700$.
 
 \newpage
 
+\section*{Hypothesis Testing Summary}
 
 \begin{center}
 \begin{tabular}{|>{\raggedright}m{5.6cm}|>{\centering}m{5cm}|>{\centering}m{5cm}|}
@@ -5550,6 +5792,8 @@ From the general shape formed from the dots, we can see that as the
 
 \end{minipage}
 
+\newpage
+
 To plot a scatter diagram using our GC,
 
 \begin{steps}[leftmargin=1.5cm]
@@ -5640,6 +5884,8 @@ For randomly scattered points, with no upward or downward trend, we
 say that there is \textbf{no correlation}.
 
 \end{minipage}
+
+\newpage
 
 \subsection{Linearity}
 
