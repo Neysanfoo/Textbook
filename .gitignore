@@ -13,6 +13,7 @@ Sample.pdf
 Sample.synctex.gz
 Sample.toc
 Sample.fls
+Sample.tex
 lib/texput.log
 Calculus\ Textbook.aux
 Calculus\ Textbook.log
@@ -21,4 +22,3 @@ Calculus\ Textbook.pdf
 Calculus\ Textbook.synctex.gz
 Calculus\ Textbook.tex
 Calculus\ Textbook.toc
-Sample.tex
