@@ -380,7 +380,7 @@ Hence the total number of passwords is
 
 \subsection{Permutations in a Circle }
 
-\begin{example}
+\begin{example}[Meeting of Diplomats]
 
 At a meeting of diplomats, the six participants are to be seated around
 a circular table. Since the table has no ends to confer particular
@@ -1212,7 +1212,7 @@ probabilities for simple combined events.
 \subsection{Possibility Diagrams}
 
 A fair die has the numbers $1,2,3,4,5,6$. It is rolled \textit{twice}.
-We can illustrate the sameple space using a 2D grid, known as a \textbf{possibility
+We can illustrate the sample space using a 2D grid, known as a \textbf{possibility
 diagram}.
 
 \begin{center}
@@ -2602,7 +2602,7 @@ where $a$ and $b$ are constants.
 
 \begin{example}[Expectation of $g(X)$]
 
-With $X$ as defined in \textsf{Example 2.6}, find $\text{E}\left(X^{2}\right)$
+With $X$ as defined in \textsf{Example 3.6}, find $\text{E}\left(X^{2}\right)$
 and $\text{E}\left(\left|X+1\right|\right)$.
 
 Hence, find the value of $\text{E}\left(3X^{2}-2\left|X+1\right|\right)$.
@@ -2704,7 +2704,7 @@ If $X_{1},X_{2},\ldots,X_{n}$ are independent, then
 
 \begin{example}[Variance and Standard Deviation of $X$]
 
-With $X$ as defined in \textsf{Example 2.6}, find the variance and standard
+With $X$ as defined in \textsf{Example 3.6}, find the variance and standard
 deviation of $X$.
 
 \Solution
@@ -7109,11 +7109,21 @@ moment correlation coefficient between
 \item  Use your answers in parts (a) and (b) to explain which of
 $y=a+bx$ or $y=c+d\ln x$ is the better model.
 
-\item  It is required to estimate the value of $x$ for which $y=17.2$.
-Find the equation of a suitable regression line and use it to find
-the required estimate.
+\end{enumerate}
+
+It is required to estimate the value of $x$ for which $y=17.2$. 
+
+\begin{enumerate}[label=(\alph*),start=4] 
+
+\item  Explain why neither the regression line of $x$ on $y$ nor
+the regression line of $\ln x$ on $y$ should be used.
+
+\item  Find the equation of a suitable regression line and use it
+to find the required estimate.
 
 \end{enumerate}
+
+\newpage
 
 \Solution
 
@@ -7140,6 +7150,10 @@ $x$ and $y$. In addition, the product moment correlation coefficient
 between $\ln x$ and $y$, 0.9942, is closer to 1 as compared to that
 between $x$ and $y$, $0.9541$. Hence, $y=c+d\ln x$ is the better
 model.
+
+\item  Since $x$ is the independent variable, neither the regression
+line of $x$ on $y$ or the regression line of $\ln x$ on $y$ should
+be used to estimate the value of $x$ when $y=17.2$. 
 
 \item  Equation of regression line of $y$ on $\ln x$ is
 \begin{align*}
