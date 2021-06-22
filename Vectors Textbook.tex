@@ -1,0 +1,6355 @@
+\documentclass[11pt,a4paper]{book}
+
+\usepackage{lib/Textbook}
+\exhyphenpenalty=10000\hyphenpenalty=10000
+%\sloppy
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{nccmath}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{tasks}
+\usetikzlibrary{shapes,arrows,decorations.pathreplacing,calc,positioning,intersections}
+\usepackage[export]{adjustbox}
+\usepackage{chngcntr}
+\usepackage{array}
+\usepackage{picture}
+\tikzstyle{Box} = [rectangle, minimum height=1cm, draw=black]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{label = Step \arabic*:}
+
+\newlist{inlinelist}{enumerate*}{1}
+\setlist[inlinelist]{itemjoin = \hspace{.5in}, label=(\alph*)}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\C}{\mathbb{C}}
+
+\usepackage{ulem}
+\usepackage{graphicx}
+
+\usepackage[english]{babel}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mathtools,amsfonts,amssymb,amsthm}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+
+\usepackage{fourier}
+
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\makeatletter
+\newcommand{\newparallel}{\mathrel{\mathpalette\new@parallel\relax}}
+\newcommand{\new@parallel}[2]{%
+  \begingroup
+  \sbox\z@{$#1T$}% get the height of an uppercase letter
+  \resizebox{!}{\ht\z@}{\raisebox{\depth}{$\m@th#1/\mkern-5mu/$}}%
+  \endgroup
+}
+\makeatother
+
+
+\let\cleardoublepage=\clearpage
+
+
+% Start document
+\begin{document}
+
+\tableofcontents
+\chapter{Vectors in 2 and 3 Dimensions}
+
+
+\section{Introduction to Vectors}
+
+A vector represents the shortest path in space starting at some initial
+point $A$ and terminating at another point $B$. Unlike a segment,
+a vector is represented as an arrow, whose length indicates the distance
+required to move in a straight line from $A$ to $B$, and whose arrow
+head indicates the direction of the movement. Two vectors are equal
+if they have the same magnitude and the same direction, irrespective
+of their initial point.
+
+\subsection{Vectors and Scalars}
+\begin{center}
+\tcbox[box align=base,nobeforeafter,colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]{
+\begin{minipage}[t]{.72\textwidth}
+Quantities which have only magnitude are called \textbf{scalars}.
+
+\medskip{}
+
+Quantities which have both magnitude and direction are called \textbf{vectors}.
+\end{minipage}
+}
+\par\end{center}
+
+The speed of an aeroplane is a scalar.
+
+The velocity of an aeroplane is a vector. It includes both its speed
+and also its direction.
+
+Other examples of vector quantities are:
+\begin{itemize}
+\item Acceleration
+\item Force
+\item Displacement
+\item Momentum
+\end{itemize}
+
+\subsection{Vector Notation}
+
+Consider the vector from the origin $O$ to the point $A$. We call
+this the position vector of point $A$.
+
+\medskip
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=4.5cm]{\string"lib/Graphics/Vector1.2\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{0.6\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{itemize}
+\item This \textbf{position vector} could be represented by $\overrightarrow{OA}$\hspace{0.5cm}or\hspace{0.5cm}$\textbf{a}$\hspace{0.5cm}or\hspace{0.5cm}$\underset{\sim}{a}$.
+\item The \textbf{magnitude} (length) could be represented by $\left|\overrightarrow{OA}\right|$\hspace{0.5cm}or\hspace{0.5cm}$\left|\textbf{a}\right|$\hspace{0.5cm}or\hspace{0.5cm}$\left|\underset{\sim}{a}\right|$.
+\end{itemize}
+\end{tcolorbox}
+
+\end{minipage}
+
+Now consider the vector $\overrightarrow{AB}$ which originates at
+$A$ and terminates at $B$.
+
+\medskip
+
+\begin{minipage}[t]{0.35\textwidth}
+\begin{center}
+\includegraphics[width=4.5cm]{\string"lib/Graphics/Vector1.2.2\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{0.62\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+We say that $\overrightarrow{AB}$ is a \textbf{displacement vector
+}of $B$ relative to $A$.
+
+\medskip{}
+
+For example, given two position vectors $\overrightarrow{OA}$ and
+$\overrightarrow{OB}$. Then $\overrightarrow{AB}=\overrightarrow{OB}-\overrightarrow{OA}$
+\end{tcolorbox}
+
+\end{minipage}
+
+The bold text $\textbf{a}$ is used in textbooks and $\underset{\sim}{a}$
+is used when writing by hand.
+
+\subsection{Zero Vector }
+
+A vector with magnitude $0$ is called the zero vector. It is denoted
+by $\textbf{0}$ in print or $\underset{\sim}{0}$. For any vector
+$\textbf{a}$, $\textbf{a}+\textbf{0}=\textbf{a}$.
+
+
+\subsection{Negative Vectors}
+
+If a vector $\textbf{a}$ has the same magnitude as a vector $\textbf{b}$
+but in opposite direction to that of $\textbf{b}$, we say the vector
+$\textbf{a}$ is the negative of vector $\textbf{b}$.
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=4.5cm]{\string"lib/Graphics/Vector1.3\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{0.6\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+$\overrightarrow{AB}$ and $\overrightarrow{BA}$ have the same length,
+but opposite directions.
+
+\medskip{}
+
+Thus $\overrightarrow{BA}$ is the negative of $\overrightarrow{AB}$
+and we write their relation as $\overrightarrow{AB}=-\overrightarrow{BA}$.
+
+\medskip{}
+
+Note that the magnitude is the same for both vectors,
+
+$\left|\textbf{a}\right|=\left|-\textbf{a}\right|$.
+\end{tcolorbox}
+
+\end{minipage}
+
+\subsection{Unit Vector}
+\begin{center}
+\tcbox[box align=base,nobeforeafter,colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]{
+A unit vector is a vector whose length is equal to one unit. In other words, $\left|\textbf{a}\right|=1$.
+}
+\par\end{center}
+
+For example, the vector ${\displaystyle{\textbf{a}}=\frac{1}{\sqrt{3}}\begin{bmatrix}1\\
+1\\
+1
+\end{bmatrix}}$ is a unit vector.
+
+\[
+\left|\ensuremath{\textbf{a}}\right|=\frac{1}{\sqrt{3}}\begin{bmatrix}1\\
+1\\
+1
+\end{bmatrix}=\sqrt{\left(\frac{1}{\sqrt{3}}\right)^{2}+\left(\frac{1}{\sqrt{3}}\right)^{2}+\left(\frac{1}{\sqrt{3}}\right)^{2}}=1
+\]
+
+Given a vector $\ensuremath{\textbf{a}}$, the unit vector along the
+direction of $\ensuremath{\textbf{a}}$ is given by ${\displaystyle \frac{\ensuremath{\textbf{a}}}{\left|\ensuremath{\textbf{a}}\right|}}$.
+
+We commonly use $\hat{\textbf{a}}$, read ``a cap'' to denote ${\displaystyle \frac{\ensuremath{\textbf{a}}}{\left|\ensuremath{\textbf{a}}\right|}}$.
+
+\section{Operations of Vectors}
+
+\subsection{Addition and Subtraction}
+
+Two vectors can be added or subtracted geometrically by using either
+the triangle rule or parallelogram rule.
+
+\subsubsection{Triangle Rule}
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=4.5cm]{\string"lib/Graphics/VectorTRule\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{0.6\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Suppose we have two vectors $\textbf{a}$ and $\textbf{b}$.
+
+\medskip{}
+
+Let $\overrightarrow{AB}$ and $\overrightarrow{BC}$ represent the
+vectors $\textbf{a}$ and $\textbf{b}$ respectively.
+
+\medskip{}
+
+Then, $\overrightarrow{AC}$ represents the sum of vectors $\textbf{a}$
+and $\textbf{b}$.
+
+\medskip{}
+
+So, $\overrightarrow{AC}=\overrightarrow{AB}+\overrightarrow{BC}$.
+\end{tcolorbox}
+
+\end{minipage}
+
+\subsubsection{Parallelogram Rule}
+
+\begin{minipage}[t]{0.45\textwidth}
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/VectorPRule\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{0.6\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Suppose we have two vectors $\textbf{a}$ and $\textbf{b}$.
+
+\medskip{}
+
+Let $\overrightarrow{AB}$ and $\overrightarrow{BC}$ represent the
+vectors $\textbf{a}$ and $\textbf{b}$ respectively.
+
+\medskip{}
+
+Then, $\overrightarrow{AC}$ represents the sum of vectors $\textbf{a}$
+and $\textbf{b}$.
+
+\medskip{}
+
+So, $\overrightarrow{AC}=\overrightarrow{AB}+\overrightarrow{BC}$.
+\end{tcolorbox}
+
+\end{minipage}
+
+\subsection{Scalar Multiplication}
+
+The product of a vector $\textbf{a}$ and a scalar quantity $\lambda$,
+denoted by $\lambda\textbf{a}$, is also a vector.
+\begin{center}
+\includegraphics[width=10cm]{\string"lib/Graphics/VectorScalarMul\string".png}
+\par\end{center}
+
+\begin{center}
+\tcbox[box align=base,nobeforeafter,colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]{
+\begin{minipage}[t]{.7\textwidth}
+If $\textbf{a}$ is a vector and $\lambda$ is a scalar, then $\lambda\textbf{a}$ is also a vector and we are performing \textbf{scalar multiplication}.
+
+\medskip{}
+\setlength\parindent{48pt}
+
+If $\lambda>0$, then $\lambda\textbf{a}$ and $\textbf{a}$ have the same direction.
+
+\medskip{}
+
+If $\lambda<0$, then $\lambda\textbf{a}$ and $\textbf{a}$ have opposite direction.
+
+\medskip{}
+
+If $\lambda=0$, then $\lambda\textbf{a}=\textbf{0}$.
+\end{minipage}
+}
+\par\end{center}
+
+\subsection{Properties of Operations }
+
+Let $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$ be vectors, and
+let $\lambda$ and $\mu$ be scalar variables. We have the following
+basic properties for scalar addition and scalar multiplication.
+
+\begin{enumerate}
+
+\item Commutative Law: $\textbf{a}+\textbf{b}=\textbf{b}+\textbf{a}$
+
+\item Associative Law: $\left(\textbf{a}+\textbf{b}\right)+\textbf{c}=\textbf{a}+\left(\textbf{b}+\textbf{c}\right)$
+
+\item Distributive Law:
+
+\begin{enumerate}[label=(\roman*)]
+
+\item $\lambda\left(\textbf{a}+\textbf{b}\right)=\lambda\textbf{a}+\lambda\textbf{b}$
+
+\item $\left(\lambda+\mu\right)\textbf{a}=\lambda\textbf{a}+\mu\textbf{a}$
+
+\item $\lambda\left(\mu\textbf{a}\right)=\left(\lambda\mu\right)\textbf{a}$
+
+\end{enumerate}
+
+\end{enumerate}
+
+\newpage{}
+
+\section{Vectors in Two Dimensions}
+
+So far we have examined vectors from their geometric representation.
+We have used arrows where:
+\begin{itemize}
+\item the length of the arrow represents size (magnitude)
+\item the arrowhead indicates direction.
+\end{itemize}
+Here we will see how to represent vectors in\textbf{ component form}.
+
+If we let $\textbf{i}$ and $\textbf{j}$ be unit vectors along the
+positive $x-$axis and the positive $y-$axis respectively, and let
+$R\left(x,y\right)$ be any point that lies on the $xy$ plane. Then
+we can express the position vector $\textbf{r}=\overrightarrow{OR}$
+as
+\[
+\textbf{r}=x\textbf{i}+y\textbf{j}
+\]
+
+\begin{minipage}[t]{0.45\textwidth}
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/Vectorin2D\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{0.6\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+We can also write this as a row or column vector.
+
+\medskip{}
+
+In \textbf{row vector} form, we have $\textbf{r}=\left[x,y\right]$.
+
+In \textbf{column vector} form, we have $\textbf{r}=\begin{bmatrix}x\\
+y
+\end{bmatrix}$.
+
+Using the Pythagoras Theorem, the \textbf{magnitude} of the vector
+$\overrightarrow{OR}$ is
+\[
+\left|\textbf{r}\right|=\sqrt{x^{2}+y^{2}}
+\]
+
+The \textbf{unit vector} along this direction is
+\[
+\hat{\textbf{r}}=\frac{1}{\sqrt{x^{2}+y^{2}}}\begin{bmatrix}x\\
+y
+\end{bmatrix}
+\]
+\end{tcolorbox}
+
+\end{minipage}
+
+\subsection{Operations of Vector in Two Dimensions}
+
+If $\textbf{a}=\begin{bmatrix}x_{1}\\
+y_{1}
+\end{bmatrix}$, $\textbf{b}=\begin{bmatrix}x_{2}\\
+y_{2}
+\end{bmatrix}$ and $\lambda$ is a constant, then
+
+\centerline{\begin{minipage}{.40\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{align*}
+\textbf{a}+\textbf{b} & =\begin{bmatrix}x_{1}\\
+y_{1}
+\end{bmatrix}+\begin{bmatrix}x_{2}\\
+y_{2}
+\end{bmatrix}=\begin{bmatrix}x_{1}+x_{2}\\
+y_{1}+y_{2}
+\end{bmatrix}\\
+\textbf{a}-\textbf{b} & =\begin{bmatrix}x_{1}\\
+y_{1}
+\end{bmatrix}-\begin{bmatrix}x_{2}\\
+y_{2}
+\end{bmatrix}=\begin{bmatrix}x_{1}-x_{2}\\
+y_{1}-y_{2}
+\end{bmatrix}\\
+\textbf{a}\lambda & =\lambda\begin{bmatrix}x_{1}\\
+y_{1}
+\end{bmatrix}=\begin{bmatrix}\lambda x_{1}\\
+\lambda y_{1}
+\end{bmatrix}
+\end{align*}
+\end{tcolorbox}
+\end{minipage}}
+
+\newpage
+
+\begin{example}
+
+Given $A\left(-1,3\right)$ and $B\left(2,5\right)$ find
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\overrightarrow{AB}$,
+
+\item  the magnitude of $\overrightarrow{AB}$,
+
+\item  the unit vector in the direction of $\overrightarrow{AB}$.
+
+\end{enumerate}
+
+\newpage
+
+\Solution
+
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
+
+\task
+$
+\begin{aligned}[t]
+\overrightarrow{AB} & =\overrightarrow{OB}-\overrightarrow{OA}\\
+ & =\begin{bmatrix}2\\
+5
+\end{bmatrix}-\begin{bmatrix}-1\\
+3
+\end{bmatrix}\\
+ & =\begin{bmatrix}3\\
+2
+\end{bmatrix}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\left|\overrightarrow{AB}\right| & =\sqrt{3^{2}+2^{2}}\\
+ & =\sqrt{13}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\widehat{\overrightarrow{AB}} & =\frac{\overrightarrow{AB}}{\left|\overrightarrow{AB}\right|}\\
+ & =\frac{1}{\sqrt{13}}\begin{bmatrix}3\\
+2
+\end{bmatrix}
+\end{aligned}
+$
+
+\end{tasks}
+
+
+\end{example}
+
+
+\section{Vectors in Three Dimensions}
+
+A vector has exactly the same meaning in three dimensions as it does
+in the plane. It represents the shortest path through space starting
+at some initial point $A$ and terminating at another point $B$.
+
+When drawing the axes for three dimensional space, it is convention
+to to consider $x$ and $y$ in the horizontal, and to add a $z-$axis
+pointing vertically upwards.
+
+Let $\textbf{i}$, $\textbf{j}$ and $\textbf{k}$ be unit vectors
+along the positive $x-$axis, positive $y-$axis and positive $z-$axis
+respectively. If $R\left(x,y,z\right)$ is any point in space, then
+we can represent the position vector $\textbf{r}=\overrightarrow{OR}$
+as
+\[
+\textbf{r}=x\textbf{i}+y\textbf{j}+z\textbf{k}
+\]
+
+\begin{minipage}[t]{0.55\textwidth}
+\begin{center}
+\includegraphics[width=8.5cm]{\string"lib/Graphics/Vectorin3D\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{0.50\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+In \textbf{row vector} form, we have $\textbf{r}=\left[x,y,z\right]$.
+
+In \textbf{column vector} form, we have $\textbf{r}=\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}$.
+
+The \textbf{magnitude} of the vector $\overrightarrow{OR}$ is
+\[
+\left|\textbf{r}\right|=\sqrt{x^{2}+y^{2}+z^{2}}
+\]
+
+The \textbf{unit vector} along this direction is
+\[
+\hat{\textbf{r}}=\frac{1}{\sqrt{x^{2}+y^{2}+z^{2}}}\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}
+\]
+\end{tcolorbox}
+
+\end{minipage}
+
+\newpage
+
+\begin{example}
+
+The position vectors of $A$, $B$ and $C$ relative to the origin
+$O$ are $\textbf{a}=2\textbf{i}-\textbf{j}+\textbf{k}$ and $\textbf{b}=3\textbf{i}+5\textbf{j}-4\textbf{k}$
+and $\textbf{c}=4\textbf{i}+\textbf{j}$
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\overrightarrow{AB}$,
+
+\item  the magnitude of $\overrightarrow{AB}$,
+
+\item  the position vector of $D$ if $ABCD$ forms a parallelogram,
+
+\item  the position vector $E$ such that $\overrightarrow{BE}=3\overrightarrow{AC}$.-
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+\begin{align*}
+\overrightarrow{AB} & =\overrightarrow{OB}-\overrightarrow{OA}\\
+ & =\begin{bmatrix}3\\
+5\\
+-4
+\end{bmatrix}-\begin{bmatrix}2\\
+-1\\
+1
+\end{bmatrix}\\
+ & =\begin{bmatrix}1\\
+6\\
+-5
+\end{bmatrix}
+\end{align*}
+
+\item
+\begin{align*}
+\left|\overrightarrow{AB}\right| & =\sqrt{1^{2}+6^{2}+\left(-5\right)^{2}}\\
+ & =\sqrt{62}
+\end{align*}
+
+\item  Given $ABCD$ forms a parallelogram, then $\overrightarrow{AB}=\overrightarrow{DC}$.
+
+\begin{align*}
+\overrightarrow{DC} & =\overrightarrow{OC}-\overrightarrow{OD}\\
+\overrightarrow{AB} & =\overrightarrow{OC}-\overrightarrow{OD}\\
+\begin{bmatrix}1\\
+6\\
+-5
+\end{bmatrix} & =\begin{bmatrix}4\\
+1\\
+0
+\end{bmatrix}-\overrightarrow{OD}\\
+\overrightarrow{OD} & =\begin{bmatrix}3\\
+-5\\
+5
+\end{bmatrix}
+\end{align*}
+
+\item Given that $\overrightarrow{BE}=3\overrightarrow{AC}$,
+\begin{align*}
+\overrightarrow{OE}-\overrightarrow{OB} & =3\overrightarrow{AC}\\
+\overrightarrow{OE}-\begin{bmatrix}3\\
+5\\
+-4
+\end{bmatrix} & =3\begin{bmatrix}2\\
+2\\
+-1
+\end{bmatrix}\\
+\overrightarrow{OE} & =\begin{bmatrix}9\\
+11\\
+-7
+\end{bmatrix}
+\end{align*}
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\section{Ratio Theorem \& Collinear Points}
+
+\subsection{Ratio Theorem }
+
+The diagram shows point $P$ divides the line segment $AB$ internally
+in the ratio $\lambda:\mu$. Let $\textbf{a}$, $\textbf{b}$ and
+$\textbf{p}$ be the position vectors of $A$, $B$ and $P$ relative
+to the origin respectively.
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{fleqn}
+
+Proof:
+\begin{align*}
+\frac{\left|\overrightarrow{AP}\right|}{\left|\overrightarrow{PB}\right|} & =\frac{\lambda}{\mu}\\
+\mu\left|\overrightarrow{AP}\right| & =\lambda\left|\overrightarrow{PB}\right|
+\end{align*}
+
+$\overrightarrow{AP}$ and $\overrightarrow{PB}$ have the same direction,
+thus
+\begin{align*}
+\mu\overrightarrow{AP} & =\lambda\overrightarrow{PB}\\
+\mu\left(\overrightarrow{OP}-\overrightarrow{OA}\right) & =\lambda\left(\overrightarrow{OB}-\overrightarrow{OP}\right)\\
+\overrightarrow{OP}\left(\mu+\lambda\right) & =\mu\overrightarrow{OA}+\lambda\overrightarrow{OB}\\
+\overrightarrow{OP} & =\frac{\mu\overrightarrow{OA}+\lambda\overrightarrow{OB}}{\mu+\lambda}\\
+ & =\frac{\mu\textbf{a}+\lambda\textbf{b}}{\mu+\lambda}
+\end{align*}
+
+\end{fleqn}
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=7cm]{\string"lib/Graphics/VectorRatioTheorem\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The ratio theorem states that the point $P$ dividing $AB$ in the
+ratio $\lambda:\mu$ has the position vector
+\[
+\textbf{p}=\frac{\mu\textbf{a}+\lambda\textbf{b}}{\mu+\lambda}
+\]
+
+If $P$ is the midpoint of $AB$, i.e. $\lambda=\mu=1$, then
+\[
+\textbf{p}=\frac{1}{2}\left(\textbf{a}+\textbf{b}\right)
+\]
+\end{tcolorbox}
+
+When using the ratio theorem,
+
+\begin{itemize}
+
+\item  all three vectors must be pointing outwards or inwards form
+a common point,
+
+\item  the common point need not necessarily be the origin.
+
+\end{itemize}
+
+\newpage
+
+\begin{example}
+
+The points $A$, $B$ have coordinates $\left(2,3,-4\right)$ and
+$\left(5,-1,2\right)$ respectively. Find the position vector of $P$
+on $AB$ if $AP:PB=2:1$.
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+By the ratio theorem,
+\begin{align*}
+\overrightarrow{OP} & =\frac{\textbf{a}+2\textbf{b}}{3}\\
+ & =\frac{1}{3}\left(\begin{bmatrix}2\\
+3\\
+-4
+\end{bmatrix}+2\begin{bmatrix}5\\
+-1\\
+2
+\end{bmatrix}\right)\\
+ & =\frac{1}{3}\begin{bmatrix}12\\
+1\\
+0
+\end{bmatrix}\\
+ & =\begin{bmatrix}4\\
+\frac{1}{3}\\
+0
+\end{bmatrix}
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=7cm]{\string"lib/Graphics/VectorExample3\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\end{example}
+
+\subsection{Collinear Points}
+
+Two vectors are collinear, if they lie on the same line or parallel
+lines.
+
+If $\overrightarrow{AB}$ is collinear to $\overrightarrow{BC}$,
+then $\overrightarrow{AB}=\lambda\overrightarrow{BC}$, $\lambda\in\R$
+and $\lambda\neq0$.
+\begin{center}
+\includegraphics[width=7cm]{\string"lib/Graphics/VectorCollinear\string".png}
+\par\end{center}
+
+\begin{example}
+
+The position vectors of the points $A$, $B$ and $C$ are given by
+$\textbf{a}=2\textbf{i}+3\textbf{j}-4\textbf{k}$, $\textbf{b}=5\textbf{i}-\textbf{j}+2\textbf{k}$
+and $\textbf{c}=11\textbf{i}+\lambda\textbf{j}+14\textbf{k}$ respectively.
+Find the value of $\lambda$ if $A$, $B$ and $C$ are collinear.
+
+\Solution
+
+Given that $A$, $B$ and $C$ are collinear, $\overrightarrow{AB}=\mu\overrightarrow{BC}$.
+
+Finding $\overrightarrow{AB}$,
+
+\begin{align*}
+\overrightarrow{AB} & =\overrightarrow{OB}-\overrightarrow{OA}\\
+ & =\begin{bmatrix}5\\
+-1\\
+2
+\end{bmatrix}-\begin{bmatrix}2\\
+3\\
+-4
+\end{bmatrix}\\
+ & =\begin{bmatrix}3\\
+-4\\
+6
+\end{bmatrix}
+\end{align*}
+
+Finding $\overrightarrow{BC}$,
+\begin{align*}
+\overrightarrow{BC} & =\overrightarrow{OC}-\overrightarrow{OB}\\
+ & =\begin{bmatrix}11\\
+\lambda\\
+14
+\end{bmatrix}-\begin{bmatrix}5\\
+-1\\
+2
+\end{bmatrix}\\
+ & =\begin{bmatrix}6\\
+\lambda+1\\
+12
+\end{bmatrix}
+\end{align*}
+
+Thus,
+\[
+\begin{bmatrix}3\\
+-4\\
+6
+\end{bmatrix}=\mu\begin{bmatrix}6\\
+\lambda+1\\
+12
+\end{bmatrix}
+\]
+By equating the $x$, $y$ and $z$ components we have
+\begin{align*}
+3 & =6\mu\tag{1}\\
+-4 & =\mu\left(\lambda+1\right)\tag{2}\\
+6 & =12\mu\tag{3}
+\end{align*}
+
+From $\left(1\right)$ and $\left(3\right)$, we have ${\displaystyle \mu=\frac{1}{2}}$.
+
+Putting ${\displaystyle \mu=\frac{1}{2}}$ into $\left(2\right)$,
+\begin{align*}
+-4 & =\frac{1}{2}\left(\lambda+1\right)\\
+-8 & =\lambda+1\\
+\lambda & =-9
+\end{align*}
+
+\end{example}
+
+
+
+\section{Dot (Scalar) Product }
+
+The dot product (also known as the scalar product) of vectors $\textbf{a}$
+and $\textbf{b}$ is written $\textbf{a}\bigcdot\textbf{b}$ and is
+defined as follows:
+\begin{center}
+If $\textbf{a}=\begin{bmatrix}x_{1}\\
+y_{1}
+\end{bmatrix}$ and $\textbf{b}=\begin{bmatrix}x_{2}\\
+y_{2}
+\end{bmatrix}$, then $\textbf{a}\bigcdot\textbf{b}=x_{1}x_{2}+y_{1}y_{2}$
+\par\end{center}
+
+The scalar product is called that because the result is a scalar number,
+not a vector. It\textquoteright s also called the dot product because
+the operation is written with a dot between the two vectors.
+
+If the vectors are in three dimensions, the scalar product also includes
+the product of their $z-$coordinate values.
+\begin{center}
+If $\textbf{a}=\begin{bmatrix}x_{1}\\
+y_{1}\\
+z_{1}
+\end{bmatrix}$ and $\textbf{b}=\begin{bmatrix}x_{2}\\
+y_{2}\\
+z_{2}
+\end{bmatrix}$, then $\textbf{a}\bigcdot\textbf{b}=x_{1}x_{2}+y_{1}y_{2}+z_{1}z_{2}$
+\par\end{center}
+
+An alternate definition of the dot product is
+\[
+\textbf{a}\bigcdot\textbf{b}=\left|\textbf{a}\right|\left|\textbf{b}\right|\cos\theta
+\]
+
+This definition will come in handy when we discuss \textbf{vector
+projection} and how to find the\textbf{ angle between vectors}.
+
+\subsection{Properties of The Dot Product}
+
+Let $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$ be vectors, and
+let $\lambda$ be a scalar variable. We have the following properties
+of dot product.
+
+\begin{enumerate}
+
+\item $\textbf{a}\bigcdot\textbf{b}=\textbf{b}\bigcdot\textbf{a}$
+(Commutative Law)
+
+\item $\textbf{a}\bigcdot\left(\textbf{b}+\textbf{c}\right)=\textbf{a}\bigcdot\textbf{b}+\textbf{a}\bigcdot\textbf{c}$
+(Distributive Law)
+
+\item $\lambda\left(\textbf{a}\bigcdot\textbf{b}\right)=\left(\lambda\textbf{a}\right)\bigcdot\textbf{b}=\textbf{a}\bigcdot\left(\lambda\textbf{b}\right)$
+
+\item $\textbf{a}\bigcdot\textbf{a}=\left|\textbf{a}\right|^{2}$
+
+\item $\textbf{a}\bigcdot\textbf{0}=0$
+
+\item When $\textbf{a}\perp\textbf{b}$, then $\textbf{a}\bigcdot\textbf{b}=0$
+
+\item If $\textbf{a}\newparallel\textbf{b}$, in the same direction,
+then $\textbf{a}\bigcdot\textbf{b}=\left|\textbf{a}\right|\left|\textbf{b}\right|$
+
+\item If $\textbf{a}\newparallel\textbf{b}$, in the opposite direction,
+then $\textbf{a}\bigcdot\textbf{b}=-\left|\textbf{a}\right|\left|\textbf{b}\right|$
+
+\end{enumerate}
+
+\begin{example}
+
+Given that $\textbf{a}=2\textbf{i}+\textbf{j}-3\textbf{k}$ and $\textbf{b}=-2\textbf{i}+4\textbf{j}+\textbf{k}$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Find $\textbf{a}\bigcdot\textbf{b}$.
+
+\item If $\textbf{c}=\textbf{i}+\lambda\textbf{j}+3\textbf{k}$,
+find the value of $\lambda$ such that $\textbf{a}$ is perpendicular
+to $\textbf{c}$.
+
+\end{enumerate}
+
+\Solution
+
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task
+$
+\begin{aligned}[t]
+\textbf{a}\bigcdot\textbf{b} & =\begin{bmatrix}2\\
+1\\
+-3
+\end{bmatrix}\bigcdot\begin{bmatrix}-2\\
+4\\
+1
+\end{bmatrix}\\
+ & =-4+4-3\\
+ & =-3
+\end{aligned}
+$
+
+\task Since $\textbf{a}\perp\textbf{c}$, $\textbf{a}\bigcdot\textbf{c}=0$,
+
+$
+\begin{aligned}[t]
+\begin{bmatrix}2\\
+1\\
+-3
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+\lambda\\
+3
+\end{bmatrix} & =0\\
+2+\lambda-9 & =0\\
+\lambda & =7
+\end{aligned}
+$
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\subsection{Length of Projection}
+\begin{minipage}[t]{0.75\textwidth}
+
+The diagram shows two position vectors $\textbf{a}$ and $\textbf{b}$.
+If $C$ is the foot of the perpendicular from the line $OB$ to the
+point $A$, then $OC$ is called the length of projection of a vector
+$\textbf{a}$ onto $\textbf{b}$.
+
+\[
+\text{Length of projection of }\textbf{a}\text{ onto }\textbf{b}=\frac{\left|\textbf{a}\bigcdot\textbf{b}\right|}{\left|\textbf{b}\right|}
+\]
+
+
+\subsection{Vector Projection}
+
+From the diagram, the vector projection of $\textbf{a}$ onto $\textbf{b}$
+refers to the vector $\overrightarrow{OC}$.
+
+\[
+\text{Vector projection of }\textbf{a}\text{ onto }\textbf{b}=\frac{\textbf{a}\bigcdot\textbf{b}}{\left|\textbf{b}\right|^{2}}\textbf{b}
+\]
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/LengthofProj\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{example}
+
+Given that $\textbf{a}=\begin{bmatrix}2\\
+3\\
+1
+\end{bmatrix}$ and $\textbf{b}=\begin{bmatrix}-1\\
+0\\
+-3
+\end{bmatrix}$, find
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  the length of projection of $\textbf{a}$ onto $\textbf{b}$,
+
+\item  the vector projection of $\textbf{b}$ onto $\textbf{a}$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+$
+\begin{aligned}[t]
+\text{Length of projection of }\textbf{a}\text{ onto }\textbf{b} & =\frac{\left|\textbf{a}\bigcdot\textbf{b}\right|}{\left|\textbf{b}\right|}\\
+ & =\frac{1}{\sqrt{\left(-1\right)^{2}+0^{2}+\left(-3\right)^{2}}}\left|\begin{bmatrix}2\\
+3\\
+1
+\end{bmatrix}\bigcdot\begin{bmatrix}-1\\
+0\\
+-3
+\end{bmatrix}\right|\\
+ & =\frac{\left|-5\right|}{\sqrt{10}}\\
+ & =\frac{5}{\sqrt{10}}
+\end{aligned}
+$
+
+\item
+$
+\begin{aligned}[t]
+\text{Projection vector of }\textbf{b}\text{ onto }\textbf{a} & =\frac{\textbf{b}\bigcdot\textbf{a}}{\left|\textbf{a}\right|^{2}}\textbf{a}\\
+ & =\frac{1}{2^{2}+3^{2}+1^{2}}\left(\begin{bmatrix}-1\\
+0\\
+-3
+\end{bmatrix}\bigcdot\begin{bmatrix}2\\
+3\\
+1
+\end{bmatrix}\right)\begin{bmatrix}2\\
+3\\
+1
+\end{bmatrix}\\
+ & =\frac{-5}{14}\begin{bmatrix}2\\
+3\\
+1
+\end{bmatrix}\\
+ & =\begin{bmatrix}-\frac{5}{7}\\
+-\frac{15}{14}\\
+-\frac{5}{14}
+\end{bmatrix}
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\section{Cross Product}
+
+The cross product of two vectors $\textbf{a}$ and $\textbf{b}$ is
+written $\textbf{a}\times\textbf{b}$ and is defined as follows:
+\begin{center}
+If $\textbf{a}=\begin{bmatrix}x_{1}\\
+y_{1}\\
+z_{1}
+\end{bmatrix}$ and $\textbf{b}=\begin{bmatrix}x_{2}\\
+y_{2}\\
+z_{2}
+\end{bmatrix}$, then $\textbf{a}\times\textbf{b}=\begin{bmatrix}y_{1}z_{2}-z_{1}y_{2}\\
+z_{1}x_{2}-x_{1}z_{2}\\
+x_{1}y_{2}-y_{1}x_{2}
+\end{bmatrix}$
+\par\end{center}
+
+The cross product is only defined for three dimensional space. When
+we take the cross product of two vectors, we get back a vector.
+
+An alternate definition of the cross product is
+\[
+\textbf{a}\times\textbf{b}=\left|\textbf{a}\right|\left|\textbf{b}\right|\sin\theta\,\hat{\textbf{n}}
+\]
+
+\begin{itemize}
+
+\item $\textbf{a}\times\textbf{b}$ is a vector which is perpendicular
+to both $\textbf{a}$ and $\textbf{b}$
+
+\item $\hat{\textbf{n}}$ is the unit vector perpendicular to the
+plane containing both $\textbf{a}$ and $\textbf{b}$.
+
+\item The direction of $\textbf{a}\times\textbf{b}$ is determined
+by the right hand grip rule.
+
+i.e. if the fingers of the right had are curled so that they go from
+$\textbf{a}$ to $\textbf{b}$ through the angle $\theta$, then the
+thumb points in the direction of $\textbf{a}\times\textbf{b}$.
+
+\end{itemize}
+
+\subsection{Properties of The Cross Product}
+
+Let $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$ be vectors, and
+let $\lambda$ and $\mu$ be scalar variables. We have the following
+properties of the cross product.
+
+\begin{minipage}[t]{0.5\textwidth}
+\begin{enumerate}
+
+\item  $\textbf{a}\times\textbf{b}=-\textbf{b}\times\textbf{a}$
+
+\item  $\textbf{a}\times\left(\textbf{b}+\textbf{c}\right)=\textbf{a}\times\textbf{b}+\textbf{a}\times\textbf{c}$
+
+\item  $\left(\textbf{a}+\textbf{b}\right)\times\textbf{c}=\textbf{a}\times\textbf{c}+\textbf{b}\times\textbf{c}$
+
+\item  $\lambda\textbf{a}\times\mu\textbf{b}=\lambda\mu\left(\textbf{a}\times\textbf{b}\right)$
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{enumerate}[start=5]
+
+\item  $\textbf{a}\times\textbf{0}=\textbf{0}\times\textbf{a}=\textbf{0}$
+
+\item  $\textbf{a}\times\textbf{a}=\textbf{0}$
+
+\item  $\textbf{a}\perp\textbf{b}\Leftrightarrow\textbf{a}\times\textbf{b}=\left|\textbf{a}\right|\left|\textbf{b}\right|\hat{\textbf{n}}$
+
+\item  $\textbf{a}\newparallel\textbf{b}\Leftrightarrow\textbf{a}\times\textbf{b}=\textbf{0}$
+
+\end{enumerate}
+\end{minipage}
+
+
+\begin{example}
+
+Given that $\textbf{a}=2\textbf{i}+\textbf{j}-\textbf{k}$, $\textbf{b}=\textbf{i}+2\textbf{j}+3\textbf{k}$
+and $\textbf{c}=2\textbf{i}+4\textbf{k}$, find
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\textbf{b}\times\textbf{c}$
+
+\item  $\textbf{a}\bigcdot\left(\textbf{b}\times\textbf{c}\right)$
+
+\end{enumerate}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task
+$
+\begin{aligned}[t]
+\textbf{b}\times\textbf{c} & =\begin{bmatrix}1\\
+2\\
+3
+\end{bmatrix}\times\begin{bmatrix}2\\
+0\\
+4
+\end{bmatrix}\\
+ & =\begin{bmatrix}8-0\\
+6-4\\
+0-4
+\end{bmatrix}=\begin{bmatrix}8\\
+2\\
+-4
+\end{bmatrix}
+\end{aligned}
+$
+
+
+\task
+$
+\begin{aligned}[t]
+\textbf{a}\bigcdot\left(\textbf{b}\times\textbf{c}\right) & =\begin{bmatrix}2\\
+1\\
+-1
+\end{bmatrix}\bigcdot\begin{bmatrix}8\\
+2\\
+-4
+\end{bmatrix}\\
+ & =16+2+4\\
+ & =22
+\end{aligned}
+$
+
+\end{tasks}
+\end{example}
+
+
+\subsection{Length of the Sides of a Right Angle Triangle}
+
+\begin{minipage}[t]{0.65\textwidth}
+
+The diagram shows a right angle triangle $OAB$. We can find the length
+of $AB$ as follows:
+
+By definition of the cross product,
+\begin{align*}
+\textbf{a}\times\textbf{b} & =\left|\textbf{a}\right|\left|\textbf{b}\right|\sin\theta\,\hat{\textbf{n}}\\
+ & =\left|\overrightarrow{OA}\right|\left|\textbf{b}\right|\sin\theta\,\hat{\textbf{n}}\\
+\textbf{a}\times\hat{\textbf{b}} & =\left|\overrightarrow{OA}\right|\sin\theta\,\hat{\textbf{n}}\\
+ & =\left|\overrightarrow{OA}\right|\frac{\left|\overrightarrow{AB}\right|}{\left|\overrightarrow{OA}\right|}\,\hat{\textbf{n}}\\
+ & =\left|\overrightarrow{AB}\right|\hat{\textbf{n}}\\
+\text{Length of }AB & =\left|\textbf{a}\times\hat{\textbf{b}}\right|
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\begin{center}
+\includegraphics[width=3.5cm]{\string"lib/Graphics/CrossProd\string".png}
+\par\end{center}
+
+\end{minipage}
+
+
+\subsection{Area of a Parallelogram}
+
+\begin{minipage}[t]{0.65\textwidth}
+
+The diagram shows a parallelogram $OACB$.
+
+\begin{align*}
+\sin\theta & =\frac{\left|\overrightarrow{AD}\right|}{\left|\overrightarrow{OA}\right|}\\
+\left|\overrightarrow{AD}\right| & =\left|\overrightarrow{OA}\right|\sin\theta\tag{1}
+\end{align*}
+
+\begin{align*}
+\text{Area of parallelogram} & =\text{Base}\times\text{Height}\\
+ & =\left|\overrightarrow{OB}\right|\left|\overrightarrow{AD}\right|\hspace{1.6cm}\triangleleft\text{Substitute in \ensuremath{\left(1\right)}}\\
+ & =\left|\overrightarrow{OB}\right|\left|\overrightarrow{OA}\right|\sin\theta\\
+ & =\left|\overrightarrow{OA}\times\overrightarrow{OB}\right|
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\begin{center}
+\includegraphics[width=7.5cm]{\string"lib/Graphics/AreaofParallelogram\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\subsection{Area of Triangle}
+
+\begin{minipage}[t]{0.65\textwidth}
+
+The diagram shows a triangle $OAB$.
+
+\begin{align*}
+\sin\theta & =\frac{\left|\overrightarrow{AC}\right|}{\left|\overrightarrow{OA}\right|}\\
+\left|\overrightarrow{AC}\right| & =\left|\overrightarrow{OA}\right|\sin\theta\tag{1}
+\end{align*}
+
+\begin{align*}
+\text{Area of triangle} & =\frac{1}{2}\left(\text{Base}\times\text{Height}\right)\\
+ & =\frac{1}{2}\left|\overrightarrow{OB}\right|\left|\overrightarrow{AC}\right|\hspace{1.6cm}\triangleleft\text{Substitute in \ensuremath{\left(1\right)}}\\
+ & =\frac{1}{2}\left|\overrightarrow{OB}\right|\left|\overrightarrow{OA}\right|\sin\theta\\
+ & =\frac{1}{2}\left|\overrightarrow{OA}\times\overrightarrow{OB}\right|
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/AreaofTriangle\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\newpage
+
+\begin{example}
+
+The position vectors of $L$ and $M$ with respect to the origin are
+$4\textbf{i}+2\textbf{j}-\textbf{k}$ and $3\textbf{i}+6\textbf{j}+2\textbf{k}$
+respectively. It is given that $\overrightarrow{MN}$ is perpendicular
+to $\overrightarrow{LN}$, where $\overrightarrow{LN}$ is parallel
+to $2\textbf{i}-2\textbf{j}+\textbf{k}$. Find the shortest distance
+from $M$ to $N$.
+
+\Solution
+
+\begin{minipage}[t]{1\textwidth}
+
+\begin{align*}
+\overrightarrow{LM} & =\overrightarrow{OM}-\overrightarrow{OL}\\
+ & =\begin{bmatrix}3\\
+6\\
+2
+\end{bmatrix}-\begin{bmatrix}4\\
+2\\
+-1
+\end{bmatrix}\\
+ & =\begin{bmatrix}-1\\
+4\\
+3
+\end{bmatrix}
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\begin{center}
+\includegraphics[width=3.5cm]{\string"lib/Graphics/VectorsIExample8\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{align*}
+\widehat{\overrightarrow{LN}} & =\frac{\overrightarrow{LN}}{\left|\overrightarrow{LN}\right|}\\
+ & =\frac{1}{\sqrt{2^{2}+\left(-2\right)^{2}+1^{2}}}\begin{bmatrix}2\\
+-2\\
+1
+\end{bmatrix}\\
+ & =\frac{1}{3}\begin{bmatrix}2\\
+-2\\
+1
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+\text{Shortest distance from \ensuremath{M} to \ensuremath{N}} & =\left|\overrightarrow{LM}\times\widehat{\overrightarrow{LN}}\right|\\
+ & =\frac{1}{3}\left|\begin{bmatrix}-1\\
+4\\
+3
+\end{bmatrix}\times\begin{bmatrix}2\\
+-2\\
+1
+\end{bmatrix}\right|\\
+ & =\frac{1}{3}\left|\begin{bmatrix}4+6\\
+6+1\\
+2-8
+\end{bmatrix}\right|\\
+ & =\frac{1}{3}\left|\begin{bmatrix}10\\
+7\\
+-6
+\end{bmatrix}\right|\\
+ & =\frac{1}{3}\sqrt{10^{2}+7^{2}+\left(-6\right)^{2}}\\
+ & =\frac{1}{3}\sqrt{185}
+\end{align*}
+
+\end{example}
+
+
+
+\newpage
+
+
+\begin{example}
+
+$ABCD$ is a parallelogram where the position vectors of $A$, $B$
+and $C$ are $\overrightarrow{OA}=-\textbf{i}+3\textbf{j}+2\textbf{k}$,
+$\overrightarrow{OB}=2\textbf{i}+4\textbf{k}$ and $\overrightarrow{OC}=-\textbf{i}-2\textbf{j}+5\textbf{k}$
+respectively. Find
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  the coordinates of $D$,
+
+\item  the area of $ABCD$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Since $ABCD$ is a parallelogram, $\overrightarrow{AD}=\overrightarrow{BC}$
+\begin{align*}
+\overrightarrow{OD}-\overrightarrow{OA} & =\overrightarrow{OC}-\overrightarrow{OB}\\
+\overrightarrow{OD}-\begin{bmatrix}-1\\
+3\\
+2
+\end{bmatrix} & =\begin{bmatrix}-1\\
+-2\\
+5
+\end{bmatrix}-\begin{bmatrix}2\\
+0\\
+4
+\end{bmatrix}\\
+\overrightarrow{OD} & =\begin{bmatrix}-4\\
+1\\
+3
+\end{bmatrix}
+\end{align*}
+$\therefore$ the coordinates of $D$ are $\left(-4,1,3\right)$.
+
+\item
+\begin{align*}
+\text{Area of \ensuremath{ABCD}} & =\left|\overrightarrow{AB}\times\overrightarrow{AD}\right|\\
+ & =\left|\left(\begin{bmatrix}2\\
+0\\
+4
+\end{bmatrix}-\begin{bmatrix}-1\\
+3\\
+2
+\end{bmatrix}\right)\times\left(\begin{bmatrix}-4\\
+1\\
+3
+\end{bmatrix}-\begin{bmatrix}-1\\
+3\\
+2
+\end{bmatrix}\right)\right|\\
+ & =\left|\begin{bmatrix}3\\
+-3\\
+2
+\end{bmatrix}\times\begin{bmatrix}-3\\
+-2\\
+1
+\end{bmatrix}\right|\\
+ & =\left|\begin{bmatrix}1\\
+-9\\
+-15
+\end{bmatrix}\right|\\
+ & =\sqrt{1^{2}+\left(-9\right)^{2}+\left(-15\right)^{2}}\\
+ & =\sqrt{307}
+\end{align*}
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\section{Angle Between Two Vectors}
+
+To find the angle between two vectors $\textbf{a}$ and $\textbf{b}$,
+we can use the formula
+\[
+\cos\theta=\frac{\textbf{a}\bigcdot\textbf{b}}{\left|\textbf{a}\right|\left|\textbf{b}\right|}
+\]
+
+For angles specified with $3$ points, the vectors used must be both
+directed away from the angle (or both direction towards the angle),
+otherwise the angle found will be the exterior or supplementary angle.
+
+\begin{example}
+
+
+Find the angle between the vectors $\textbf{a}=3\textbf{i}+4\textbf{j}-\textbf{k}$
+and $\textbf{b}=2\textbf{i}+\textbf{j}$.
+
+\Solution
+
+\begin{align*}
+\cos\theta & =\frac{\textbf{a}\bigcdot\textbf{b}}{\left|\textbf{a}\right|\left|\textbf{b}\right|}\\
+ & =\frac{1}{\sqrt{3^{2}+4^{2}+\left(-1\right)^{2}}\sqrt{2^{2}+1^{2}}}\begin{bmatrix}3\\
+4\\
+-1
+\end{bmatrix}\bigcdot\begin{bmatrix}2\\
+1\\
+0
+\end{bmatrix}\\
+ & =\frac{6+4}{\sqrt{26}\sqrt{5}}\\
+ & =\frac{\sqrt{130}}{13}\\
+\theta & =\cos^{-1}\frac{\sqrt{130}}{13}\\
+ & =28.7\text{°}
+\end{align*}
+
+\end{example}
+
+
+\section{Geometrical Interpretation of Dot and Cross Product}
+
+If $\textbf{a}$ and $\textbf{b}$ are any two vectors
+
+\setlength{\extrarowheight}{6pt}
+
+\begin{tabular}{|>{\centering}p{2cm}|>{\raggedright}p{11cm}|}
+\hline
+ & \textbf{\hspace{3cm}Geometrical Interpretation}\tabularnewline
+\hline
+$\left|\textbf{a}\bigcdot\hat{\textbf{b}}\right|$ & The length of projection of $\textbf{a}$ onto $\textbf{b}$.\tabularnewline
+\hline
+$\textbf{a}\bigcdot\textbf{b}$ & The product of the length of $\textbf{b}$ by the length of projection
+of $\textbf{a}$ onto $\textbf{b}$.\tabularnewline
+\hline
+$\textbf{a}\times\textbf{b}$ & A vector that is perpendicular to both $\textbf{a}$ and $\textbf{b}$\tabularnewline
+\hline
+$\left|\textbf{a}\times\hat{\textbf{b}}\right|$ & The length of side opposite to acute angle formed by $\textbf{a}$
+and $\textbf{b}$.\tabularnewline
+\hline
+$\left|\textbf{a}\times\textbf{b}\right|$ & Area of a parallelogram defined by the vectors $\textbf{a}$ and $\textbf{b}$.\tabularnewline
+\hline
+${\displaystyle \frac{1}{2}\left|\textbf{a}\times\textbf{b}\right|}$ & Area of a triangle defined by the vectors $\textbf{a}$ and $\textbf{b}$.\tabularnewline
+\hline
+\end{tabular}
+
+\newpage
+
+
+\chapter{Lines in Space}
+
+\section{Vector Equation of a Line}
+
+\subsection{Vector Equation of a Line}
+In both 2-D and 3-D space, a \textbf{fixed line} is determined when
+it has a \textbf{given direction} and passes through a\textbf{ fixed
+point}.
+
+Consider a line $l$ parallel to the vector $\textbf{d}$ and passing
+through a fixed point $A$ (where $\overrightarrow{OA}=\textbf{a}$).
+
+Let $R$ be any point on the line (where $\overrightarrow{OR}=\textbf{r}$).
+
+If $R$ lies on this line, $\overrightarrow{AR}=\lambda\textbf{d}$,
+where $\lambda$ is a variable scalar called the parameter.
+
+Then
+\begin{align*}
+\overrightarrow{OR} & =\overrightarrow{OA}+\overrightarrow{AR}\\
+\textbf{r} & =\textbf{a}+\lambda\textbf{d},\quad\lambda\in\R
+\end{align*}
+
+This equation is the \textbf{vector equation} of the line. Each value
+of $\lambda$ gives the position vector of a unique point on the line.
+\begin{center}
+\includegraphics[width=8.5cm]{\string"lib/Graphics/VectorEquationLine\string".png}
+\par\end{center}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The vector equation of the line $l$ through the point $A$ with position
+vector $\textbf{a}$ in the direction $\textbf{d}$ is given by
+
+\begin{align*}
+\textbf{r} & =\textbf{a}+\lambda\textbf{d},\quad\lambda\in\R
+\end{align*}
+
+where
+\begin{itemize}
+\item $\textbf{r}$ is the position vector of any point on the line
+\item $\textbf{a}$ is a fixed point on the line
+\item $\textbf{d}$ is a direction vector of the line (which is a vector
+parallel to the line)
+\item $\lambda$ is a parameter
+\end{itemize}
+\end{tcolorbox}
+
+\newpage
+
+We can form the vector equation of a line given:
+\begin{itemize}
+\item a fixed point and a direction vector, or
+\item two fixed points
+\end{itemize}
+
+\begin{example}
+
+Find an equation of the line $l_{AB}$ passing through two points
+$A\left(5,2,6\right)$ and $B\left(-3,6,2\right)$. Determine if the
+points $C\left(3,3,5\right)$ and $D\left(1,2,3\right)$ lie on the
+same line.
+
+\Solution
+
+Finding the direction vector of the line,
+
+\renewcommand\arraystretch{.7}
+
+\begin{align*}
+\overrightarrow{AB} & =\overrightarrow{OB}-\overrightarrow{OA}\\
+ & =\begin{bmatrix}-3\\
+6\\
+2
+\end{bmatrix}-\begin{bmatrix}5\\
+2\\
+6
+\end{bmatrix}\\
+ & =4\begin{bmatrix}-2\\
+1\\
+-1
+\end{bmatrix}
+\end{align*}
+Thus, the direction vector of the line is $\begin{bmatrix}-2\\
+1\\
+-1
+\end{bmatrix}$.
+
+So,
+\[
+l_{AB}:\textbf{r}=\begin{bmatrix}5\\
+2\\
+6
+\end{bmatrix}+\lambda\begin{bmatrix}-2\\
+1\\
+-1
+\end{bmatrix},\:\lambda\in\R
+\]
+Consider point $C\left(3,3,5\right)$. When $\lambda=1$,
+\[
+\textbf{r}=\begin{bmatrix}5\\
+2\\
+6
+\end{bmatrix}+\begin{bmatrix}-2\\
+1\\
+-1
+\end{bmatrix}=\begin{bmatrix}3\\
+3\\
+5
+\end{bmatrix}
+\]
+Thus the point $C$ lies on the line $AB$.
+
+To check whether $D\left(1,2,3\right)$ lies on the line $AB$, we
+set
+\[
+\begin{bmatrix}1\\
+2\\
+3
+\end{bmatrix}=\begin{bmatrix}5\\
+2\\
+6
+\end{bmatrix}+\lambda\begin{bmatrix}-2\\
+1\\
+-1
+\end{bmatrix}
+\]
+Equate the components and solve for $\lambda$ in each equation.
+\begin{align*}
+1 & =5-2\lambda\Rightarrow\lambda=2\\
+2 & =2+\lambda\Rightarrow\lambda=0\\
+3 & =6-\lambda\Rightarrow\lambda=3
+\end{align*}
+Since we cannot find a unique solution for $\lambda$, $D\left(1,2,3\right)$
+does not lie on the line.
+
+\end{example}
+
+\newpage
+
+\subsection{Parametric Equations of a Line}
+
+\renewcommand\arraystretch{.7}
+Consider a line whose vector equation is
+\[
+\textbf{r}=\begin{bmatrix}a_{1}\\
+a_{2}\\
+a_{3}
+\end{bmatrix}+\lambda\begin{bmatrix}d_{1}\\
+d_{2}\\
+d_{3}
+\end{bmatrix},\quad\lambda\in\R
+\]
+If we let $\textbf{r}=\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}$,
+\[
+\textbf{\ensuremath{\begin{bmatrix}x\\
+ y\\
+ z
+\end{bmatrix}}}=\begin{bmatrix}a_{1}\\
+a_{2}\\
+a_{3}
+\end{bmatrix}+\lambda\begin{bmatrix}d_{1}\\
+d_{2}\\
+d_{3}
+\end{bmatrix}
+\]
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+By equating the $x$, $y$ and $z$ components we have
+\begin{align*}
+x & =a_{1}+\lambda d_{1}\\
+y & =a_{2}+\lambda d_{2}\\
+z & =a_{3}+\lambda d_{3}
+\end{align*}
+This set of 3 equations are known as the \textbf{parametric equations}
+for the line.
+\end{tcolorbox}
+
+
+\subsection{Cartesian Equation of a Line}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+By expressing each of our parametric equations in terms of $\lambda$
+and equating the results, we get
+\[
+\frac{x-a_{1}}{d_{1}}=\frac{y-a_{2}}{d_{2}}=\frac{z-a_{3}}{d_{3}}
+\]
+We call this the \textbf{Cartesian equation} of the line.
+\end{tcolorbox}
+
+\begin{example}
+
+\renewcommand\arraystretch{.7}
+
+Convert the following vector equations of the lines $l_{1}$ and $l_{2}$
+into Cartesian form.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $l_{1}:\textbf{r}=\begin{bmatrix}2\\
+1\\
+-3
+\end{bmatrix}+\lambda\begin{bmatrix}1\\
+1\\
+2
+\end{bmatrix}$
+
+\item  $l_{2}:\textbf{r}=\begin{bmatrix}2\\
+-3\\
+1
+\end{bmatrix}+\mu\begin{bmatrix}1\\
+0\\
+-4
+\end{bmatrix}$
+
+\end{enumerate}
+
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Let $\textbf{r}=\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}=\begin{bmatrix}2\\
+1\\
+-3
+\end{bmatrix}+\lambda\begin{bmatrix}1\\
+1\\
+2
+\end{bmatrix}$
+
+Equating the $x$, $y$ and $z$ components,
+\begin{align*}
+x & =2+\lambda\\
+y & =1+\lambda\\
+z & =-3+2\lambda
+\end{align*}
+Making $\lambda$ the subject,
+\begin{align*}
+\lambda & =x-2\\
+\lambda & =y-1\\
+\lambda & =\frac{z+3}{2}
+\end{align*}
+Thus the Cartesian equation of $l_{1}$ is,
+\[
+x-2=y-1=\frac{z+3}{2}
+\]
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  Let $\textbf{r}=\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}=\begin{bmatrix}3\\
+-3\\
+1
+\end{bmatrix}+\mu\begin{bmatrix}1\\
+0\\
+-4
+\end{bmatrix}$
+
+Equating the $x$, $y$ and $z$ components,
+\begin{align*}
+x & =3+\mu\\
+y & =-3\\
+z & =1-4\mu
+\end{align*}
+Making $\mu$ the subject,
+\begin{align*}
+\mu & =x-3\\
+y & =-3\\
+\mu & =\frac{1-z}{4}
+\end{align*}
+Thus the Cartesian equation of $l_{2}$ is,
+\[
+x-3=\frac{1-z}{4},\:y=-3
+\]
+
+\end{enumerate}
+
+\end{minipage}
+
+\end{example}
+
+\begin{example}
+
+Convert the following Cartesian equations into vector form.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  ${\displaystyle l_{1}:x+4=\frac{3-y}{4}=\frac{z}{6}}$
+
+\item  ${\displaystyle l_{2}:x=2,\:\frac{y+4}{2}=\frac{z-6}{3}}$
+
+\end{enumerate}
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Let ${\displaystyle \lambda=x+4=\frac{3-y}{4}=\frac{z}{6}}$
+
+In parametric form,
+\begin{align*}
+x & =-4+\lambda\\
+y & =3-4\lambda\\
+z & =0+6\lambda
+\end{align*}
+Thus, the vector equation of $l_{1}$ is
+\[
+\textbf{r}=\begin{bmatrix}-4\\
+3\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}1\\
+-4\\
+6
+\end{bmatrix},\:\lambda\in\R
+\]
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  Let ${\displaystyle \mu=\frac{y+4}{2}=\frac{z-6}{3}}$
+
+In parametric form,
+\begin{align*}
+x & =2\\
+y & =-4+2\mu\\
+z & =6+3\mu
+\end{align*}
+Thus, the vector equation of $l_{2}$ is
+\[
+\textbf{r}=\begin{bmatrix}2\\
+-4\\
+6
+\end{bmatrix}+\lambda\begin{bmatrix}0\\
+2\\
+3
+\end{bmatrix},\:\mu\in\R
+\]
+
+\end{enumerate}
+
+\end{minipage}
+
+\end{example}
+
+\section{Relationship Between a Point and a Line}
+
+\subsection{Verifying a Point Lies on a Line}
+
+Say we have a line whose vector equation is $\textbf{r}=\begin{bmatrix}a_{1}\\
+a_{2}\\
+a_{3}
+\end{bmatrix}+\lambda\begin{bmatrix}d_{1}\\
+d_{2}\\
+d_{3}
+\end{bmatrix}$ and we want to determine whether a point $P$ with position vector
+$\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}$ lies on the line. We can use the following guideline.
+
+\begin{steps}[leftmargin=2cm]
+
+\item  Assume that the point $P$ lies on the line. Substitute the
+point $\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}$ into $\textbf{r}=\begin{bmatrix}a_{1}\\
+a_{2}\\
+a_{3}
+\end{bmatrix}+\lambda\begin{bmatrix}d_{1}\\
+d_{2}\\
+d_{3}
+\end{bmatrix}$.
+\[
+\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}=\begin{bmatrix}a_{1}\\
+a_{2}\\
+a_{3}
+\end{bmatrix}+\lambda\begin{bmatrix}d_{1}\\
+d_{2}\\
+d_{3}
+\end{bmatrix}
+\]
+
+\item  Split the vector equations into three simultaneous equations.
+\begin{align*}
+x & =a_{1}+\lambda d_{1}\\
+y & =a_{2}+\lambda d_{2}\\
+z & =a_{3}+\lambda d_{3}
+\end{align*}
+
+\item  Solve each of the equations for $\lambda$. If we obtain the
+same of $\lambda$ for all three equations, we can verify that point
+$P$ lies on the line.
+
+\end{steps}
+
+(Refer to example 1)
+
+\subsection{Foot of Perpendicular and Perpendicular Distance From a Point to a Line}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+The diagram shows a point $P$ and a line whose vector equation is
+given by $l:\textbf{r}=\textbf{a}+\lambda\textbf{d},\;\lambda\in\R$.
+A dotted line is drawn perpendicular from $P$ to $l$. The point
+of intersection $N$ is called the \textbf{foot of the perpendicular}
+from $P$ to the line $l$.
+
+\end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/FootPerpendicular\string".png}
+\par\end{center}
+
+\end{minipage}
+
+To find the foot of the perpendicular $\overrightarrow{ON}$ and the
+perpendicular distance $\left|\overrightarrow{PN}\right|$, we can
+use the following guideline.
+
+\begin{steps}[leftmargin=2cm]
+
+\item  Let $\overrightarrow{ON}$ be the position vector of the foot
+of the perpendicular. Since $N$ lies on $l$, thus $\overrightarrow{ON}=\textbf{a}+\lambda\textbf{d},\quad\text{for some }\lambda\in\R$.
+
+\item  Find the direction vector $\overrightarrow{PN}=\overrightarrow{ON}-\overrightarrow{OP}$.
+
+\item  Since $\overrightarrow{PN}$ is perpendicular to the direction
+of the line, therefore $\overrightarrow{PN}\bigcdot\textbf{d}=0$,
+and we can solve for $\lambda$.
+
+\item Thus, we can find the foot of the perpendicular by substituting
+$\lambda$ into $\overrightarrow{ON}=\textbf{a}+\lambda\textbf{d}$.
+
+\item  We can then find the perpendicular distance $\left|\overrightarrow{PN}\right|$
+by substituting $\lambda$ into the equation found in step 2 and taking
+the magnitude.
+
+\end{steps}
+
+Alternatively, to find the perpendicular distance $\left|\overrightarrow{PN}\right|$,
+recall the method of finding the sides of right angle triangle in
+the previous chapter.
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/FootPerpendicular2\string".png}
+\[
+\text{Length of }PN=\frac{\left|\overrightarrow{AP}\times\overrightarrow{AN}\right|}{\left|\overrightarrow{AN}\right|}
+\]
+\par\end{center}
+
+\begin{example}
+
+Find the coordinates of the foot of the perpendicular from the point
+$P\left(1,3,2\right)$ to the line $l:\textbf{r}=\begin{bmatrix}1\\
+2\\
+2
+\end{bmatrix}+\lambda\begin{bmatrix}-1\\
+-3\\
+0
+\end{bmatrix},\:\lambda\in\R$. Hence find the perpendicular distance from $P$ to $l$.
+
+\Solution
+
+Let $\overrightarrow{ON}$ be the position vector of the foot of the
+perpendicular.
+
+Since $N$ lies on $l$,
+\[
+\overrightarrow{ON}=\begin{bmatrix}1\\
+2\\
+2
+\end{bmatrix}+\lambda\begin{bmatrix}-1\\
+-3\\
+0
+\end{bmatrix},\:\text{for some}\,\lambda\in\R\tag{1}
+\]
+Finding the direction vector $\overrightarrow{PN}$,
+\begin{align*}
+\overrightarrow{PN} & =\overrightarrow{ON}-\overrightarrow{OP}\\
+ & =\begin{bmatrix}1-\lambda\\
+2-3\lambda\\
+2
+\end{bmatrix}-\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix}\\
+ & =\begin{bmatrix}-\lambda\\
+-1-3\lambda\\
+0
+\end{bmatrix}\tag{2}
+\end{align*}
+Since $\overrightarrow{PN}$ is perpendicular to the direction vector
+of $l$,
+\begin{align*}
+\overrightarrow{PN}\bigcdot\begin{bmatrix}-1\\
+-3\\
+0
+\end{bmatrix} & =0\\
+\begin{bmatrix}-\lambda\\
+-1-3\lambda\\
+0
+\end{bmatrix}\bigcdot\begin{bmatrix}-1\\
+-3\\
+0
+\end{bmatrix} & =0\\
+\lambda+3+9\lambda & =0\\
+\lambda & =-\frac{3}{10}
+\end{align*}
+Substituting ${\displaystyle \lambda=-\frac{3}{10}}$ into (1) gives
+\begin{align*}
+\overrightarrow{ON} & =\begin{bmatrix}1-\left(-\frac{3}{10}\right)\\
+2-3\left(-\frac{3}{10}\right)\\
+2
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{13}{10}\\
+\frac{29}{10}\\
+2
+\end{bmatrix}
+\end{align*}
+Thus the coordinates of $N$ are ${\displaystyle \left(\frac{13}{10},\frac{29}{10},2\right)}$.
+
+Substituting ${\displaystyle \lambda=-\frac{3}{10}}$ into (2) gives
+\begin{align*}
+\overrightarrow{PN} & =\frac{1}{10}\begin{bmatrix}3\\
+-1\\
+0
+\end{bmatrix}\\
+\left|\overrightarrow{PN}\right| & =\sqrt{\left(\frac{3}{10}\right)^{2}+\left(-\frac{1}{10}\right)^{2}+0^{2}}\\
+ & =\sqrt{\frac{10}{100}}\\
+ & =\frac{\sqrt{10}}{10}
+\end{align*}
+Thus, the perpendicular distance from $P$ to $l$ is ${\displaystyle \frac{\sqrt{10}}{10}}$.
+
+\end{example}
+
+\subsection{Reflection of a Point in the Line}
+
+\begin{minipage}[t]{0.65\textwidth}
+
+The diagram shows a point $P$ reflected in the line $l$ to give
+the point $P'$. The vector equation of the line is given by $l:\textbf{r}=\textbf{a}+\lambda\textbf{d},\;\lambda\in\R$.
+
+To find the position vector of $P'$ we can use the following guideline.
+
+\begin{steps}[leftmargin=2cm]
+
+\item  Find the foot of the perpendicular $\overrightarrow{ON}$.
+
+\item  Use the Ratio Theorem, ${\displaystyle \overrightarrow{ON}=\frac{\overrightarrow{OP}+\overrightarrow{OP'}}{2}}$,
+to solve for $\overrightarrow{OP'}$.
+
+\end{steps}
+
+To find $\overrightarrow{ON}$, refer to steps $1-4$ in section $2.1$.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/ReflectionPointLine\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{example}
+
+The points $A$, $B$ and $C$ have the position vectors $7\textbf{i}+8\textbf{j}+9\textbf{k}$,
+$-\textbf{i}-8\textbf{j}+\textbf{k}$ and $\textbf{i}+8\textbf{j}+3\textbf{k}$
+respectively.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Find a vector equation of the line through $A$ and $B$.
+
+\end{enumerate}
+
+The perpendicular from $C$ meets the line at the point $N$.
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item Find the position vector of $N$.
+
+\item Find the position vector of $C'$, which is the mirror image
+of $C$ in the line $AB$.
+
+\item Determine the vector equation of the line which is a reflection
+of the line $AC$ in the line $AB$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Let $l_{AB}$ be the vector equation of the line through $A$
+and $B$.
+\begin{align*}
+\overrightarrow{AB} & =\begin{bmatrix}-1\\
+-8\\
+1
+\end{bmatrix}-\begin{bmatrix}7\\
+8\\
+9
+\end{bmatrix}\\
+ & =-8\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}
+\end{align*}
+Thus the direction vector of $l_{AB}$ is $\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}$.
+\[
+l_{AB}:\textbf{r}=\begin{bmatrix}7\\
+8\\
+9
+\end{bmatrix}+\lambda\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix},\:\lambda\in\R
+\]
+
+\item  Since $N$ lies on $l_{AB}$,
+\[
+\overrightarrow{ON}=\begin{bmatrix}7+\lambda\\
+8+2\lambda\\
+9+\lambda
+\end{bmatrix},\:\text{for some}\,\lambda\in\R\tag{1}
+\]
+Finding the direction vector $\overrightarrow{CN}$,
+\begin{align*}
+\overrightarrow{CN} & =\begin{bmatrix}7+\lambda\\
+8+2\lambda\\
+9+\lambda
+\end{bmatrix}-\begin{bmatrix}1\\
+8\\
+3
+\end{bmatrix}=\begin{bmatrix}6+\lambda\\
+2\lambda\\
+6+\lambda
+\end{bmatrix}
+\end{align*}
+Since $\overrightarrow{CN}$ is perpendicular to the direction vector
+of $l_{AB}$,
+\begin{align*}
+\begin{bmatrix}6+\lambda\\
+2\lambda\\
+6+\lambda
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix} & =0\\
+6+\lambda+4\lambda+6+\lambda & =0\\
+\lambda & =-2
+\end{align*}
+Substitute $\lambda=-2$ into (1) gives
+\[
+\overrightarrow{ON}=\begin{bmatrix}7-2\\
+8-4\\
+9-2
+\end{bmatrix}=\begin{bmatrix}5\\
+4\\
+7
+\end{bmatrix}
+\]
+
+\item  By the ratio theorem, ${\displaystyle \overrightarrow{ON}=\frac{\overrightarrow{OC}+\overrightarrow{OC'}}{2}}$
+\begin{align*}
+\begin{bmatrix}5\\
+4\\
+7
+\end{bmatrix} & =\frac{1}{2}\left(\begin{bmatrix}1\\
+8\\
+3
+\end{bmatrix}+\overrightarrow{OC'}\right)\\
+\overrightarrow{OC'} & =2\begin{bmatrix}5\\
+4\\
+7
+\end{bmatrix}-\begin{bmatrix}1\\
+8\\
+3
+\end{bmatrix}=\begin{bmatrix}9\\
+0\\
+11
+\end{bmatrix}
+\end{align*}
+
+\item  Let $l_{AC'}$ be the equation of the line $AC$ in the line
+$AB$.
+\begin{align*}
+\overrightarrow{AC'} & =\begin{bmatrix}9\\
+0\\
+11
+\end{bmatrix}-\begin{bmatrix}7\\
+8\\
+9
+\end{bmatrix}=2\begin{bmatrix}1\\
+-4\\
+1
+\end{bmatrix}
+\end{align*}
+Thus, the equation of the line is
+\[
+l_{AC'}:\textbf{r}=\begin{bmatrix}7\\
+8\\
+9
+\end{bmatrix}+\mu\begin{bmatrix}1\\
+-4\\
+1
+\end{bmatrix},\:\mu\in\R
+\]
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\section{Relationship Between Two Lines}
+
+In 2-D, lines are either
+
+\begin{itemize}
+
+\item Intersecting (meet at a point, with a unique solution)
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/VectorLinesIntersect\string".png}
+\par\end{center}
+
+\item Parallel (do not meet at all, i.e. no solution)
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/VectorLinesParallel\string".png}
+\par\end{center}
+
+\item Coincident (i.e. the same line, all points satisfy both equations)
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/VectorLinesCoincident\string".png}
+\par\end{center}
+
+\end{itemize}
+
+\begin{minipage}[t]{0.4\textwidth}
+
+In 3-D, lines are either
+
+\begin{itemize}
+
+\item Coplanar
+
+\begin{itemize}
+
+\item Intersecting
+
+\item Parallel
+
+\item Coincident
+
+\end{itemize}
+
+\item Skew (not coplanar)
+
+\end{itemize}
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/CoplanarLines\string".png}
+\par\end{center}
+
+\end{minipage}
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/SkewLines\string".png}
+\par\end{center}
+
+\begin{center}
+\tcbox[box align=base,nobeforeafter,colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]{
+Skew lines are any lines which are neither parallel nor intersecting.
+}
+\par\end{center}
+
+Suppose we have two lines with the following vector equations, $l_{1}:\textbf{r}_{1}=\textbf{a}_{1}+\lambda\textbf{d}_{1},\;\lambda\in\R$
+and $l_{2}:\textbf{r}_{2}=\textbf{a}_{2}+\mu\textbf{d}_{2},\;\mu\in\R$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item If $l_{1}$ and $l_{2}$ are parallel, then $\textbf{d}_{1}=k\textbf{d}_{2}$,
+where $k$ is a constant.
+
+\item If $l_{1}$ and $l_{2}$ intersect,
+
+\begin{steps}[leftmargin=1cm]
+
+\item Equate the lines to give, $\textbf{a}_{1}+\lambda\textbf{d}_{1}=\textbf{a}_{2}+\mu\textbf{d}_{2}$.
+
+\item Split the vector equation into the $x$, $y$ and $z$ components
+and solve the sets of linear equations to find \textbf{unique values}
+of $\lambda$ and $\mu$.
+
+\item Substitute the values of $\lambda$ into $\textbf{r}_{1}=\textbf{a}_{1}+\lambda\textbf{d}_{1}$
+to find the point of intersection. Alternatively, substitute the value
+of $\mu$ into $\textbf{r}_{2}=\textbf{a}_{2}+\mu\textbf{d}_{2}$.
+
+\end{steps}
+
+\item If $l_{1}$ and $l_{2}$ do not intersect, then the values
+of $\lambda$ and $\mu$ are \textbf{not unique}.
+
+\end{enumerate}
+
+\begin{example}
+
+Determine if the following pair of lines are parallel, intersecting
+or skew.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $l_{1}:\textbf{r}=\begin{bmatrix}0\\
+1\\
+2
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+-1\\
+3
+\end{bmatrix},\:\lambda\in\R$ and $l_{2}:\textbf{r}=\begin{bmatrix}3\\
+1\\
+-2
+\end{bmatrix}+\mu\begin{bmatrix}4\\
+-2\\
+6
+\end{bmatrix}\:\mu\in\R$
+
+\item $l_{3}:\textbf{r}=\begin{bmatrix}1\\
+-1\\
+3
+\end{bmatrix}+\lambda\begin{bmatrix}1\\
+-1\\
+1
+\end{bmatrix}\:\lambda\in\R$ and $l_{4}:\textbf{r}=\begin{bmatrix}2\\
+4\\
+6
+\end{bmatrix}+\mu\begin{bmatrix}2\\
+1\\
+3
+\end{bmatrix}\:\mu\in\R$
+
+\item $l_{5}:\textbf{r}=\begin{bmatrix}2\\
+3\\
+-1
+\end{bmatrix}+\lambda\begin{bmatrix}5\\
+0\\
+1
+\end{bmatrix}\:\lambda\in\R$ and $l_{6}:\textbf{r}=\begin{bmatrix}1\\
+2\\
+2
+\end{bmatrix}+\mu\begin{bmatrix}2\\
+-1\\
+8
+\end{bmatrix}\:\mu\in\R$
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  \uline{First, check whether the lines are parallel.}
+
+Since $\begin{bmatrix}4\\
+-2\\
+6
+\end{bmatrix}=2\begin{bmatrix}2\\
+-1\\
+3
+\end{bmatrix}$, the direction vectors are parallel and thus the lines are \textbf{parallel}.
+
+\item  \uline{First, check whether the lines are parallel.}
+
+Since $\begin{bmatrix}2\\
+1\\
+3
+\end{bmatrix}\neq k\begin{bmatrix}1\\
+-1\\
+1
+\end{bmatrix}$, where $k$ is a constant. The lines are not parallel.
+
+\uline{Secondly, check whether the lines are intersecting or skew.}
+
+Let $\begin{bmatrix}2\\
+3\\
+-1
+\end{bmatrix}+\lambda\begin{bmatrix}5\\
+0\\
+1
+\end{bmatrix}=\begin{bmatrix}2\\
+4\\
+6
+\end{bmatrix}+\mu\begin{bmatrix}2\\
+1\\
+3
+\end{bmatrix}$
+
+Equating the $x$, $y$ and $z$ components,
+\begin{align*}
+1+\lambda & =2+2\mu\Rightarrow\lambda-2\mu=1\tag{1}\\
+-1-\lambda & =4+\mu\Rightarrow\lambda+\mu=-5\tag{2}\\
+3+\lambda & =6+3\mu\Rightarrow\lambda-3\mu=3\tag{3}
+\end{align*}
+Using GC to solve (1), (2) and (3), we have $\lambda=-3$ and $\mu=-2$.
+
+Since we have unique solutions for $\lambda$ and $\mu$, the lines
+are \textbf{intersecting}.
+
+\item  \uline{First, check whether the lines are parallel.}
+
+Since $\begin{bmatrix}2\\
+-1\\
+8
+\end{bmatrix}\neq k\begin{bmatrix}5\\
+0\\
+1
+\end{bmatrix}$, where $k$ is a constant. The lines are not parallel.
+
+\uline{Secondly, check whether the lines are intersecting or skew.}
+
+Let $\begin{bmatrix}2\\
+3\\
+-1
+\end{bmatrix}+\lambda\begin{bmatrix}5\\
+0\\
+1
+\end{bmatrix}=\begin{bmatrix}1\\
+2\\
+2
+\end{bmatrix}+\mu\begin{bmatrix}2\\
+-1\\
+8
+\end{bmatrix}$
+
+Equating the $x$, $y$ and $z$ components,
+\begin{align*}
+2+5\lambda & =1+2\mu\Rightarrow5\lambda-2\mu=-1\tag{1}\\
+3 & =2-\mu\Rightarrow\mu=-1\tag{2}\\
+-1+\lambda & =2+8\mu\Rightarrow\lambda-8\mu=3\tag{3}
+\end{align*}
+Substituting (2) into (1) gives
+\begin{align*}
+5\lambda-2\left(-1\right) & =-1\\
+\lambda & =-\frac{3}{5}
+\end{align*}
+Substituting ${\displaystyle \lambda=-\frac{3}{5}}$ and $\mu=-1$ into (3) gives
+\begin{align*}
+\text{LHS} & =-1-8\left(-\frac{3}{5}\right)\\
+ & =\frac{19}{5}\neq\text{RHS}
+\end{align*}
+Since we do not have unique solutions for $\lambda$ and $\mu$, the
+lines are \textbf{skew}.
+
+\end{enumerate}
+
+\end{example}
+
+
+\section{Length of Projection of a Vector onto a Line}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+The diagram shows a line whose vector equation is given by $l:r=a+\lambda\textbf{d},\;\lambda\in\R$
+and a vector $\overrightarrow{PQ}$.
+
+\[
+\text{Length of Projection of }\overrightarrow{PQ}\text{ onto }l=\left|\overrightarrow{PQ}\bigcdot\hat{\textbf{d}}\right|
+\]
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/ProjVectorOntoLine\string".png}
+\par\end{center}
+
+\end{minipage}
+
+
+\begin{example}
+
+Given the points $A\left(2,2,-3\right)$ and $B\left(1,4,2\right)$.
+Find the length of projection of $\overrightarrow{AB}$ onto the line
+$l:\textbf{r}=\begin{bmatrix}1\\
+2\\
+3
+\end{bmatrix}+\lambda\begin{bmatrix}-1\\
+2\\
+3
+\end{bmatrix},\:\lambda\in\R$.
+
+\Solution
+
+\[
+\overrightarrow{AB}=\begin{bmatrix}1\\
+4\\
+2
+\end{bmatrix}-\begin{bmatrix}2\\
+2\\
+-3
+\end{bmatrix}=\begin{bmatrix}-1\\
+2\\
+5
+\end{bmatrix}
+\]
+
+\begin{align*}
+\text{Length of projection of \ensuremath{\overrightarrow{AB}} onto }l & =\left|\begin{bmatrix}-1\\
+2\\
+5
+\end{bmatrix}\bigcdot\begin{bmatrix}-1\\
+2\\
+3
+\end{bmatrix}\right|\frac{1}{\sqrt{\left(-1\right)^{2}+2^{2}+3^{2}}}\\
+ & =\frac{20}{\sqrt{14}}
+\end{align*}
+
+\end{example}
+
+
+\section{Angle Between Two Lines}
+
+Recall that the angle between two vectors $\textbf{a}$ and $\textbf{b}$
+is
+\[
+\cos\theta=\frac{\textbf{a}\bigcdot\textbf{b}}{\left|\textbf{a}\right|\left|\textbf{b}\right|}
+\]
+
+Suppose we have two lines with the following vector equations,
+\[
+l_{1}:\textbf{r}=a_{1}+\lambda\textbf{d}_{1},\;\lambda\in\R
+\]
+\[
+l_{2}:\textbf{r}=a_{2}+\mu\textbf{d}_{2},\;\mu\in\R
+\]
+
+Clearly the angle between two lines is the angle between the direction
+vectors of these two lines. However, lines \textbf{do not have a specific
+direction} like vectors (lines go both ways). Thus angle between two
+direction vectors may be obtuse or acute, but we are really only interested
+in the acute angle between two lines.
+
+The \textbf{acute angle }between the lines, $\theta$, is given by
+\[
+\cos\theta=\frac{\left|\textbf{d}_{1}\bigcdot\textbf{d}_{2}\right|}{\left|\textbf{d}_{1}\right|\left|\textbf{d}_{2}\right|}
+\]
+
+\begin{example}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Find the acute angles between $l_{1}:\textbf{r}=\begin{bmatrix}1\\
+4\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}3\\
+1\\
+-2
+\end{bmatrix},\:\lambda\in\R$ and $l_{2}:\textbf{r}=\begin{bmatrix}3\\
+-1\\
+2
+\end{bmatrix}+\mu\begin{bmatrix}2\\
+0\\
+5
+\end{bmatrix},\:\mu\in\R$.
+
+\item  Find the acute angle between the line $\textbf{r}=\begin{bmatrix}1\\
+-2\\
+1
+\end{bmatrix}+t\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix},\:t\in\R$ and the $z-$axis.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Let $\theta$ be the acute angle between $l_{1}$ and $l_{2}$.
+\begin{align*}
+\cos\theta & =\frac{1}{\sqrt{14}}\frac{1}{\sqrt{29}}\left|\begin{bmatrix}3\\
+1\\
+-2
+\end{bmatrix}\bigcdot\begin{bmatrix}2\\
+0\\
+5
+\end{bmatrix}\right|\\
+ & =\frac{4}{\sqrt{406}}\\
+\theta & =\cos^{-1}\left(\frac{4}{\sqrt{406}}\right)\\
+\theta & =78.5\text{°}
+\end{align*}
+
+\item  Let $\theta$ be the acute angle between the line and the
+$z-$axis.
+\begin{align*}
+\cos\theta & =\frac{1}{\sqrt{14}}\frac{1}{\sqrt{1}}\left|\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix}\bigcdot\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix}\right|\\
+ & =\frac{2}{\sqrt{14}}\\
+\theta & =\cos^{-1}\left(\frac{2}{\sqrt{14}}\right)\\
+\theta & =57.7\text{°}
+\end{align*}
+
+\end{enumerate}
+
+\end{example}
+
+
+\chapter{Planes in Space}
+
+\section{Equation of a Plane}
+
+\subsection{Vector Equation of a Plane}
+
+To find the equation of a plane, we need to have \textbf{two non-zero,
+non-parallel direction vectors}, $\textbf{d}_{1}$ and $\textbf{d}_{2}$,
+which lie on the plane and a \textbf{fixed point} $A$ with position
+vector $\textbf{a}$.
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/EquationofPlane\string".png}
+\par\end{center}
+
+Let $R$ be any point on the line (where $\overrightarrow{OR}=\textbf{r}$).
+
+Since $\overrightarrow{AR}$, $\textbf{d}_{1}$ and $\textbf{d}_{2}$
+are coplanar, there exists $\lambda$, $\mu$ such that
+\[
+\overrightarrow{AR}=\lambda\textbf{d}_{1}+\mu\textbf{d}_{2},\;\text{where }\lambda,\mu\in\R
+\]
+Then
+\begin{align*}
+\overrightarrow{OR}-\overrightarrow{OA} & =\lambda\textbf{d}_{1}+\mu\textbf{d}_{2}\\
+\overrightarrow{OR} & =\overrightarrow{OA}+\lambda\textbf{d}_{1}+\mu\textbf{d}_{2}\\
+\textbf{r} & =\textbf{a}+\lambda\textbf{d}_{1}+\mu\textbf{d}_{2}
+\end{align*}
+This equation is the \textbf{vector equation} of the plane. Each value
+of $\lambda$ and $\mu$ gives the position vector of a unique point
+on the plane.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The vector equation of the plane $\Pi$ through the point $A$ with
+position vector $\textbf{a}$ and parallel to $\textbf{d}_{1}$ and
+$\textbf{d}_{2}$ is given by
+\begin{align*}
+\textbf{r} & =\textbf{a}+\lambda\textbf{d}_{1}+\mu\textbf{d}_{2},\quad\lambda,\mu\in\R
+\end{align*}
+
+where
+\begin{itemize}
+\item $\textbf{r}$ is the position vector of any point on the plane
+\item $\textbf{a}$ is a fixed point on the plane
+\item $\textbf{d}_{1}$ and $\textbf{d}_{2}$ are non-zero, non-parallel
+vectors on the plane
+\item $\lambda$ and $\mu$ are two independent parameters
+\end{itemize}
+\end{tcolorbox}
+
+\newpage
+
+We can form the vector equation of a plane given:
+\begin{itemize}
+\item a fixed point and two direction vectors, or
+\item two fixed points and a direction vector
+\item three fixed points
+\end{itemize}
+
+\begin{example}
+
+Find a vector equation for each of the following planes.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  The plane containing the line $\textbf{r}=\begin{bmatrix}1\\
+-1\\
+4
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+0\\
+3
+\end{bmatrix},\:\lambda\in\R$, and parallel to the vector $\begin{bmatrix}2\\
+1\\
+-6
+\end{bmatrix}$.
+
+\item  The plane that passes through the origin $O$ and the points
+$A\left(-3,0,1\right)$ and $B\left(1,1,-7\right)$.
+
+\item  The plane that contains the point $C\left(-2,1,-2\right)$
+and the line $\textbf{r}=\begin{bmatrix}1\\
+-2\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}3\\
+2\\
+1
+\end{bmatrix},\:\lambda\in\R$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  The plane has the vector equation
+\[
+\textbf{r}=\begin{bmatrix}1\\
+-1\\
+4
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+0\\
+3
+\end{bmatrix}+\mu\begin{bmatrix}2\\
+1\\
+-6
+\end{bmatrix},\:\lambda,\mu\in\R
+\]
+
+\item  Since the plane passes through the origin, and is parallel
+to $\overrightarrow{OA}=\begin{bmatrix}-3\\
+0\\
+1
+\end{bmatrix}$ and $\overrightarrow{OB}=\begin{bmatrix}1\\
+1\\
+-7
+\end{bmatrix}$, the plane has the vector equation
+\[
+\textbf{r}=\lambda\begin{bmatrix}-3\\
+0\\
+1
+\end{bmatrix}+\mu\begin{bmatrix}1\\
+1\\
+-7
+\end{bmatrix},\:\lambda,\mu\in\R
+\]
+
+\item  The plane is parallel to $\begin{bmatrix}3\\
+2\\
+1
+\end{bmatrix}$ and $\begin{bmatrix}1\\
+-2\\
+0
+\end{bmatrix}-\begin{bmatrix}-2\\
+1\\
+-2
+\end{bmatrix}=\begin{bmatrix}3\\
+-3\\
+2
+\end{bmatrix}$. Thus the plane has the vector equation
+\[
+\textbf{r}=\begin{bmatrix}1\\
+-2\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}3\\
+2\\
+1
+\end{bmatrix}+\mu\begin{bmatrix}3\\
+-3\\
+2
+\end{bmatrix},\:\lambda,\mu\in\R
+\]
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\subsection{Equation of a Plane in Scalar Product Form}
+
+Another way we can define the equation of a plane is to consider the
+cross product of our two direction vectors $\textbf{d}_{1}$ and $\textbf{d}_{2}$.
+
+Let $\textbf{n}$ be the normal vector to the plane where $\textbf{n}=\textbf{d}_{1}\times\textbf{d}_{2}$.
+
+$\textbf{n}$ is perpendicular to $\textbf{d}_{1}$ and $\textbf{d}_{2}$
+and consequently is perpendicular to any vector or line in the plane.
+
+\begin{minipage}[t]{0.6\textwidth}
+
+Consider a plane $\Pi$ that passes through a given point $A$ with
+position vector $\textbf{a}$ and is perpendicular to $\textbf{n}$.
+
+Let $R$ be any point on the plane (where $\overrightarrow{OR}=\textbf{r}$).
+
+Since $AR$ lies on $\Pi$, the vector $\overrightarrow{AR}\perp\textbf{n}$
+\begin{align*}
+\overrightarrow{AR}\bigcdot\textbf{n} & =0\\
+\left(\overrightarrow{OR}-\overrightarrow{OA}\right)\bigcdot\textbf{n} & =0\\
+\left(\textbf{r}-\textbf{a}\right)\bigcdot\textbf{n} & =0\\
+\textbf{r}\bigcdot\textbf{n} & =\textbf{a}\bigcdot\textbf{n}\\
+\textbf{r}\bigcdot\textbf{n} & =d
+\end{align*}
+Note that $\textbf{a}\bigcdot\textbf{n}$ is a constant value we represent
+by $d$.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/DotProductPlane\string".png}
+\par\end{center}
+
+\end{minipage}
+
+This equation is called the \textbf{scalar/dot product} equation of
+a plane.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The scalar product equation of the plane $\Pi$ through the point
+$A$ with position vector $\textbf{a}$ and perpendicular to the normal
+$\textbf{n}$ is given by
+\begin{align*}
+\textbf{r}\bigcdot\textbf{n} & =\textbf{a}\bigcdot\textbf{n}
+\end{align*}
+
+where
+\begin{itemize}
+\item $\textbf{r}$ is the position vector of any point on the plane
+\item $\textbf{a}$ is a fixed point on the plane
+\item $\textbf{n}$ is a normal vector to the plane
+\end{itemize}
+\end{tcolorbox}
+\begin{example}
+Find the equation of each of the following planes in scalar product
+form.
+\begin{enumerate}[label=(\alph*)]
+\item  The plane that passes through $A\left(1,2,-2\right)$ and is perpendicular to the vector $\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix}$.
+\item  The plane that passes through $B\left(-3,0,1\right)$ and
+is parallel to the plane ${\displaystyle \textbf{r}\bigcdot\begin{bmatrix}1\\
+2\\
+-2
+\end{bmatrix}=\frac{\sqrt{3}}{2}}$.
+\item  The plane that contains the lines $\textbf{r}=\begin{bmatrix}1\\
+-2\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}3\\
+2\\
+1
+\end{bmatrix},\:\lambda\in\R$ and $\textbf{r}=\begin{bmatrix}0\\
+2\\
+-3
+\end{bmatrix}+\mu\begin{bmatrix}1\\
+3\\-1\end{bmatrix},\:\mu\in\R$.
+\item  The $xy$ plane.
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  The equation of the plane in scalar product form is
+\begin{align*}
+\textbf{r}\bigcdot\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix} & =\begin{bmatrix}1\\
+2\\
+-2
+\end{bmatrix}\bigcdot\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix}\\
+\textbf{r}\bigcdot\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix} & =4
+\end{align*}
+
+\item  The equation of the plane in scalar product form is
+\begin{align*}
+\textbf{r}\bigcdot\begin{bmatrix}1\\
+2\\
+-2
+\end{bmatrix} & =\begin{bmatrix}-3\\
+0\\
+1
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+-2
+\end{bmatrix}\\
+\textbf{r}\bigcdot\begin{bmatrix}1\\
+2\\
+-2
+\end{bmatrix} & =-5
+\end{align*}
+
+\item  Let $\textbf{n}$ be a normal to the plane.
+\[
+\textbf{n}=\begin{bmatrix}3\\
+2\\
+1
+\end{bmatrix}\times\begin{bmatrix}1\\
+3\\
+-1
+\end{bmatrix}=\begin{bmatrix}-5\\
+4\\
+7
+\end{bmatrix}
+\]
+The equation of the plane in scalar product form is
+\begin{align*}
+\textbf{r}\bigcdot\begin{bmatrix}-5\\
+4\\
+7
+\end{bmatrix} & =\begin{bmatrix}1\\
+-2\\
+0
+\end{bmatrix}\bigcdot\begin{bmatrix}-5\\
+4\\
+7
+\end{bmatrix}\\
+\textbf{r}\bigcdot\begin{bmatrix}-5\\
+4\\
+7
+\end{bmatrix} & =-13
+\end{align*}
+
+\item  The $xy$ plane has a normal vector $\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix}$ and passes through the origin.
+
+The equation of the $xy$ plane in scalar product form is
+\[
+\textbf{r}\bigcdot\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix}=0
+\]
+
+\end{enumerate}
+
+\end{example}{}
+
+\newpage
+
+\begin{example}
+
+Convert the vector equation of the plane $\Pi:\textbf{r}=\textbf{i}+\textbf{j}+\lambda\left(\textbf{i}-\textbf{j}+3\textbf{k}\right)+\mu\left(-\textbf{i}+2\textbf{j}+\textbf{k}\right),\:\text{where}\:\lambda,\mu\in\R$
+into scalar product form.
+
+\Solution
+
+Let $\textbf{n}$ be a normal to the plane.
+\[
+\textbf{n}=\begin{bmatrix}1\\
+-1\\
+3
+\end{bmatrix}\times\begin{bmatrix}-1\\
+2\\
+1
+\end{bmatrix}=\begin{bmatrix}-7\\
+-4\\
+1
+\end{bmatrix}
+\]
+Thus the equation of the plane in scalar product form is
+\begin{align*}
+\textbf{n}\bigcdot\begin{bmatrix}-7\\
+-4\\
+1
+\end{bmatrix} & =\begin{bmatrix}1\\
+1\\
+0
+\end{bmatrix}\bigcdot\begin{bmatrix}-7\\
+-4\\
+1
+\end{bmatrix}\\
+\textbf{n}\bigcdot\begin{bmatrix}-7\\
+-4\\
+1
+\end{bmatrix} & =-11
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\subsection{Cartesian Equation of a Plane}
+
+Consider a plane whose equation in scalar product form is
+\[
+\textbf{r}\bigcdot\begin{bmatrix}n_{1}\\
+n_{2}\\
+n_{3}
+\end{bmatrix}=d
+\]
+If we let $\textbf{r}=\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}$,
+\[
+\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}\bigcdot\begin{bmatrix}n_{1}\\
+n_{2}\\
+n_{3}
+\end{bmatrix}=d
+\]
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+This gives us the \textbf{Cartesian equation} of a plane
+\[
+n_{1}x+n_{2}y+n_{3}z=d
+\]
+\end{tcolorbox}
+
+Planes through the origin must have standard equations of the form
+\[
+n_{1}x+n_{2}y+n_{3}z=0
+\]
+Since the values $x=0$, $y=0$, and $z=0$ must satisfy the equation.
+
+
+\begin{example}
+
+Convert the equation of the plane $\Pi:x-y+2z=3$, from Cartesian
+form to scalar product form and vector form.
+
+\Solution
+
+The equation of the plane in scalar product form is
+\[
+\Pi:\textbf{r}\bigcdot\begin{bmatrix}1\\
+-1\\
+2
+\end{bmatrix}=3
+\]
+To find the vector equation of the plane, we let $y=\lambda$ and
+$z=\mu$ in the Cartesian equation. Then $x-\lambda+2\mu=3\Rightarrow x=3+\lambda-2\mu$.
+\begin{align*}
+\Pi & :\textbf{r}=\begin{bmatrix}x\\
+y\\
+z
+\end{bmatrix}=\begin{bmatrix}3+\lambda-2\mu\\
+\lambda\\
+\mu
+\end{bmatrix}\\
+ & \textbf{r}=\begin{bmatrix}3\\
+0\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}1\\
+1\\
+0
+\end{bmatrix}+\mu\begin{bmatrix}-2\\
+0\\
+1
+\end{bmatrix}\:\lambda,\mu\in\R
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\subsection{Equations of Some Special Planes}
+
+Below we see the equations of planes when considering the axes in pairs.
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/SpecialEquationsofPlanes\string".png}
+\par\end{center}
+
+\subsubsection{Equation of the $\textbf{xy}$ plane}
+
+\begin{tabular}{>{\centering}p{5cm}>{\centering}p{5cm}>{\centering}p{5cm}}
+Vector Form & Dot Product Form & Cartesian Form\tabularnewline
+ &  & \tabularnewline
+$\textbf{r}=\lambda\begin{bmatrix}1\\
+0\\
+0
+\end{bmatrix}+\mu\begin{bmatrix}0\\
+1\\
+0
+\end{bmatrix},\;\lambda,\mu\in\R$ & $\textbf{r}\bigcdot\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix}=0$
+
+ & $z=0$\tabularnewline
+\end{tabular}
+
+\subsubsection{Equation of the $\textbf{yz}$ plane}
+
+\begin{tabular}{>{\centering}p{5cm}>{\centering}p{5cm}>{\centering}p{5cm}}
+Vector Form & Dot Product Form & Cartesian Form\tabularnewline
+ &  & \tabularnewline
+$\textbf{r}=\lambda\begin{bmatrix}0\\
+1\\
+0
+\end{bmatrix}+\mu\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix},\;\lambda,\mu\in\R$ & $\textbf{r}\bigcdot\begin{bmatrix}1\\
+0\\
+0
+\end{bmatrix}=0$ & $x=0$\tabularnewline
+\end{tabular}
+
+\subsubsection{Equation of the $\textbf{xz}$ plane}
+
+\begin{tabular}{>{\centering}p{5cm}>{\centering}p{5cm}>{\centering}p{5cm}}
+Vector Form & Dot Product Form & Cartesian Form\tabularnewline
+ &  & \tabularnewline
+$\textbf{r}=\lambda\begin{bmatrix}1\\
+0\\
+0
+\end{bmatrix}+\mu\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix},\;\lambda,\mu\in\R$ & $\textbf{r}\bigcdot\begin{bmatrix}0\\
+1\\
+0
+\end{bmatrix}=0$ & $y=0$\tabularnewline
+\end{tabular}
+
+\newpage
+
+\begin{example}
+
+Find the coordinates of the point where the line passing through
+$A\left(3,4,1\right)$ and $B\left(6,1,5\right)$ crosses the $xy$
+plane.
+
+\Solution
+
+Let $\overrightarrow{OP}$ be the position vector where the line intersects
+the plane.
+
+The equation of the line through $AB$ is
+\[
+l_{AB}:\textbf{r}=\begin{bmatrix}3\\
+4\\
+1
+\end{bmatrix}+\lambda\begin{bmatrix}3\\
+-3\\
+4
+\end{bmatrix}
+\]
+Since $\overrightarrow{OP}$ lies on the line,
+\[
+\overrightarrow{OP}=\begin{bmatrix}3\\
+4\\
+1
+\end{bmatrix}+\lambda\begin{bmatrix}3\\
+-3\\
+4
+\end{bmatrix},\:\text{for some }\lambda\in\R\tag{1}
+\]
+The equation of the $xy$ plane is given by
+\[
+\Pi:\textbf{r}\bigcdot\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix}=0\tag{2}
+\]
+Substituting (1) into (2),
+\begin{align*}
+\begin{bmatrix}3+3\lambda\\
+4-3\lambda\\
+1+4\lambda
+\end{bmatrix}\bigcdot\begin{bmatrix}0\\
+0\\
+1
+\end{bmatrix} & =0\\
+1+4\lambda & =0\\
+\lambda & =-\frac{1}{4}
+\end{align*}
+Substituting ${\displaystyle \lambda=-\frac{1}{4}}$ into (1),
+\[
+\overrightarrow{OP}=\begin{bmatrix}2.25\\
+4.75\\
+0
+\end{bmatrix}
+\]
+Thus the coordinates of $P$ are $\left(2.25,4.75,0\right)$.
+
+\end{example}
+
+\newpage
+
+\section{Relationship Between a Line and a Plane}
+
+There are three possible relationships between a line $l:\textbf{r}=\textbf{a}+\lambda\textbf{d},\:\lambda\in\R$
+and a plane $\Pi:\textbf{r}\bigcdot\textbf{n}=d$.
+
+\begin{tabular}{>{\centering}p{5cm}>{\centering}p{5cm}>{\centering}p{5cm}}
+Case 1: Line parallel to plane & Case 2: Line lies on plane & Case 3: Line intersects plane\tabularnewline
+ &  & \tabularnewline
+\centering{}\includegraphics[width=5cm]{\string"lib/Graphics/ParallelLinePlane\string".png} & \centering{}\includegraphics[width=5cm]{\string"lib/Graphics/LineLiesOnPlane\string".png} & \centering{}\includegraphics[width=5cm]{\string"lib/Graphics/IntersectionLinePlaneSmaller\string".png}\tabularnewline
+Direction vector $\textbf{d}$ is parallel to the plane $\Pi$ thus
+$\textbf{d}\bigcdot\textbf{n}=0$ & Direction vector $\textbf{d}$ is parallel to the plane $\Pi$ thus
+$\textbf{d}\bigcdot\textbf{n}=0$
+
+AND
+
+$\textbf{a}$ satisfies the equation $\Pi:\textbf{a}\bigcdot\textbf{n}=d$ & Direction vector $\textbf{d}$ is not parallel to the plane $\Pi$,
+i.e. $\textbf{d}\bigcdot\textbf{n}\neq0$\tabularnewline
+ &  & \tabularnewline
+\end{tabular}
+
+\begin{example}
+
+Determine the point relationship between the plane $\Pi:\textbf{r}\bigcdot\left(\textbf{i}+2\textbf{j}+\textbf{k}\right)=5$
+and each of the following lines.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $l_{1}:{\displaystyle \frac{1-x}{2}=y,\,z=-2}$
+
+\item  $l_{2}:\textbf{r}=\left(2-\mu\right)\textbf{i}+\textbf{j}+\left(1+\mu\right)\textbf{k},\:\mu\in\R$
+
+\item  $l_{3}:\textbf{r}=\textbf{i}+3\textbf{j}+\textbf{k}+t\left(\textbf{i}-2\textbf{j}+\textbf{k}\right),\:t\in\R$
+
+\end{enumerate}
+
+\Solution
+
+The normal vector of $\Pi$ is $\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Let $\lambda={\displaystyle \frac{1-x}{2}=y}$
+
+In parametric form,
+\begin{align*}
+x & =1-2\lambda\\
+y & =\lambda\\
+z & =-2
+\end{align*}
+Thus the vector equation of $l_{1}$ is
+\[
+\textbf{r}=\begin{bmatrix}1\\
+0\\
+-2
+\end{bmatrix}+\lambda\begin{bmatrix}-2\\
+1\\
+0
+\end{bmatrix},\:\lambda\in\R
+\]
+Since $\begin{bmatrix}-2\\
+1\\
+0
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}=0$, thus $l_{1}$ is parallel to $\Pi$.
+
+The point with position vector $\begin{bmatrix}1\\
+0\\
+-2
+\end{bmatrix}$ does not lie on the plane since
+\[
+\begin{bmatrix}1\\
+0\\
+-2
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}=-1\neq5
+\]
+Therefore $l_{1}$ is parallel to $\Pi$ but does not lie on $\Pi$.
+
+\item  $l_{2}:\textbf{r}=\begin{bmatrix}2\\
+1\\
+1
+\end{bmatrix}+\mu\begin{bmatrix}-1\\
+0\\
+1
+\end{bmatrix},\:\mu\in\R$
+
+Since $\begin{bmatrix}-1\\
+0\\
+1
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}=0$, thus $l_{2}$ is parallel to $\Pi$.
+
+The point with position vector $\begin{bmatrix}2\\
+1\\
+1
+\end{bmatrix}$ does lie on $\Pi$ since
+\[
+\begin{bmatrix}2\\
+1\\
+1
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}=5
+\]
+Therefore, $l_{2}$ lies completely on the plane $\Pi$.
+
+\item  $l_{3}:\textbf{r}=\begin{bmatrix}1\\
+3\\
+1
+\end{bmatrix}+t\begin{bmatrix}1\\
+-2\\
+1
+\end{bmatrix},\:t\in\R$
+
+Since $\begin{bmatrix}1\\
+-2\\
+1
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}\neq0$, thus $l_{3}$ is not parallel to $\Pi$ and must intersect $\Pi$
+at exactly one point.
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\subsection{Point of Intersection Between a Line and a Plane}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows a plane with equation $\Pi:\textbf{r}\bigcdot\textbf{n}=d$
+and a line $l:\textbf{r}=\textbf{a}+\lambda\textbf{d},\;\lambda\in\R$
+intersecting the plane at one point.
+
+There is only one value of $\lambda$ that satisfies $\left(\textbf{a}+\lambda\textbf{d}\right)\bigcdot\textbf{n}=d$.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/IntersectionLinePlane\string".png}
+\par\end{center}
+
+\end{minipage}
+
+We can use the following guideline to find the point of intersection
+between a line and a plane.
+
+\begin{steps}[leftmargin=2cm]
+
+\item Substitute the equation of the line $\textbf{r}=\textbf{a}+\lambda\textbf{d}$
+into the equation of the plane $\textbf{r}\bigcdot\textbf{n}=d$ and
+solve for $\lambda$.
+
+\item By substituting back the value of $\lambda$ into $\textbf{r}=\textbf{a}+\lambda\textbf{d}$,
+we will obtain the position vector of the point of intersection, $\overrightarrow{OP}$.
+
+\end{steps}
+
+\begin{example}
+
+Find the coordinates of the point of intersection between the line
+$l_{3}:\textbf{r}=\begin{bmatrix}1\\
+3\\
+1
+\end{bmatrix}+t\begin{bmatrix}1\\
+-2\\
+1
+\end{bmatrix},\:t\in\R$ and the plane $\Pi:\textbf{r}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}=5$.
+
+\Solution
+
+Since $\overrightarrow{ON}$ lies on the line $l_{3}$,
+\[
+\overrightarrow{ON}=\begin{bmatrix}1+t\\
+3-2t\\
+1+t
+\end{bmatrix},\:\text{for some \ensuremath{t}\ensuremath{\in\R}}\tag{1}
+\]
+Since $\overrightarrow{ON}$ also lies on the plane $\Pi$, $\overrightarrow{ON}$
+must satisfy the equation of $\Pi$,
+\begin{align*}
+\begin{bmatrix}1+t\\
+3-2t\\
+1+t
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix} & =5\\
+1+t+6-4t+1+t & =5\\
+t & =\frac{3}{2}
+\end{align*}
+Substituting ${\displaystyle t=\frac{3}{2}}$ into (1),
+\[
+\overrightarrow{ON}=\begin{bmatrix}2.5\\
+0\\
+2.5
+\end{bmatrix}
+\]
+Thus the coordinates of the point of intersection are $\left(2.5,0,2.5\right)$.
+
+\end{example}
+
+\subsection{Angle Between a Line and a Plane}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows a plane with equation $\Pi:\textbf{r}\bigcdot\textbf{n}=d$
+and a line $l:\textbf{r}=\textbf{a}+\lambda\textbf{d},\;\lambda\in\R$
+intersecting the plane at one point.
+
+The angle between the plane and the line is $\theta$, thus the angle
+between the normal and the line is ${\displaystyle \frac{\pi}{2}-\theta}$.
+
+We know that the angle between the vectors $\textbf{n}$ and $\textbf{d}$
+is
+\[
+\cos\left(\frac{\pi}{2}-\theta\right)=\frac{\textbf{n}\bigcdot\textbf{d}}{\left|\textbf{n}\right|\left|\textbf{d}\right|}
+\]
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/AngleLinePlane\string".png}
+\par\end{center}
+
+\end{minipage}
+
+Using the trigonometric identity ${\displaystyle \sin\theta=\cos\left(\frac{\pi}{2}-\theta\right)}$,
+we can find the angle $\theta$ with the following formula
+\[
+\sin\theta=\frac{\textbf{n}\bigcdot\textbf{d}}{\left|\textbf{n}\right|\left|\textbf{d}\right|}
+\]
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The acute angle between a line and a plane is given by
+\[
+\sin\theta=\frac{\left|\textbf{n}\bigcdot\textbf{d}\right|}{\left|\textbf{n}\right|\left|\textbf{d}\right|}
+\]
+where
+\begin{itemize}
+\item $\textbf{d}$ is the direction vector of the line
+\item $\textbf{n}$ is the normal vector to the plane
+\end{itemize}
+\end{tcolorbox}
+
+\begin{example}
+
+Find the acute angle between the line $l:\textbf{r}=3\textbf{k}+\lambda\left(7\textbf{i}-\textbf{j}+4\textbf{k}\right)$
+and the plane $\Pi:\textbf{r}\bigcdot\left(2\textbf{i}-5\textbf{j}-2\textbf{k}\right)=8$.
+
+\Solution
+
+Let $\theta$ be the required angle.
+\begin{align*}
+\sin\theta & =\frac{\left|\textbf{n}\bigcdot\textbf{d}\right|}{\left|\textbf{n}\right|\left|\textbf{d}\right|}\\
+ & =\frac{1}{\sqrt{33}\sqrt{66}}\left|\begin{bmatrix}2\\
+-5\\
+-2
+\end{bmatrix}\bigcdot\begin{bmatrix}7\\
+-1\\
+4
+\end{bmatrix}\right|\\
+ & =\frac{1}{3\sqrt{2}}\\
+\theta & =\sin^{-1}\left(\frac{1}{3\sqrt{2}}\right)\\
+ & =13.6\text{°}
+\end{align*}
+
+\end{example}
+
+\subsection{Length of Projection of a Vector Onto a Plane}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows a plane with equation $\Pi:\textbf{r}\bigcdot\textbf{n}=d$
+and a vector $\overrightarrow{PQ}$. The point $P$ lies on the plane
+and the point $Q$ is perpendicular to the plane such that $QN$ is
+the shortest distance from $Q$ to the plane.
+
+The length of projection of $\overrightarrow{PQ}$ onto the plane
+$\Pi$ refers to $\left|\overrightarrow{PN}\right|$.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/LengthProjectionLinePlane\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The length of projection of $\overrightarrow{PQ}$ onto the plane
+$\Pi$ is given by
+\[
+\left|\overrightarrow{PN}\right|=\frac{\left|\overrightarrow{PQ}\times\textbf{n}\right|}{\left|\textbf{n}\right|}
+\]
+where $\textbf{n}$ is the normal vector to the plane
+\end{tcolorbox}
+
+
+\begin{example}
+With respect to the origin, the position vectors of $P$ and $Q$
+are $\textbf{i}+2\textbf{j}+\textbf{k}$ and $2\textbf{i}+4\textbf{j}+4\textbf{k}$
+respectively. Find the length of projection of the vector $\overrightarrow{PQ}$
+onto the plane $\textbf{r}\bigcdot\begin{bmatrix}-1\\
+4\\
+5
+\end{bmatrix}=3$.
+
+\Solution
+
+\[
+\overrightarrow{PQ}=\begin{bmatrix}2\\
+4\\
+4
+\end{bmatrix}-\begin{bmatrix}1\\
+2\\
+1
+\end{bmatrix}=\begin{bmatrix}1\\
+2\\
+3
+\end{bmatrix}
+\]
+
+\begin{align*}
+\text{Length of Projection of \ensuremath{\overrightarrow{PQ}} onto the plane } & =\frac{1}{\sqrt{42}}\left|\begin{bmatrix}1\\
+2\\
+3
+\end{bmatrix}\times\begin{bmatrix}-1\\
+4\\
+5
+\end{bmatrix}\right|\\
+ & =\frac{1}{\sqrt{42}}\left|\begin{bmatrix}-2\\
+-8\\
+6
+\end{bmatrix}\right|\\
+ & =\frac{\sqrt{104}}{\sqrt{42}}\\
+ & =\sqrt{\frac{52}{21}}
+\end{align*}
+
+\end{example}
+\subsection{Reflection of the Line in the Plane}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows a plane with equation $\Pi:\textbf{r}\bigcdot\textbf{n}=d$
+and a line $l:\textbf{r}=\textbf{a}+\lambda\textbf{d},\;\lambda\in\R$
+intersecting the plane at one point.
+
+The line $l'$ is the reflection of $l$ in the plane $\Pi$. The
+point $N$ is the foot of the perpendicular from the point $Q$ to
+the plane and is also the midpoint of $QQ'$.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/ReflectionLinePlane\string".png}
+\par\end{center}
+
+\end{minipage}
+
+We can use the following guideline to find the equation of $l'$.
+
+\begin{steps}[leftmargin=2cm]
+
+\item  Find the position vector of the point of intersection between
+the line and the plane, $\overrightarrow{OP}$.
+
+\item  Find the position vector of the foot of the perpendicular
+from $Q$ to the plane, $\overrightarrow{ON}$.
+
+\item  Use the ratio theorem to find the image of the point $Q$,
+i.e. $Q'$.
+
+\item  Find the equation of the line $l'$, by finding the direction
+vector $\overrightarrow{PQ'}$ and using the point $P$.
+
+\end{steps}
+
+
+\begin{example}
+
+The points $P$ and $Q$ have position vectors $\textbf{i}-\textbf{j}$
+and $3\textbf{i}+13\textbf{j}+6\textbf{k}$ respectively. The plane
+$\Pi$ contains the point $P$ and the line ${\displaystyle \frac{x}{2}=-1-z,\,y=0}$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Find the equation of the plane $\Pi$ in scalar product form.
+
+\item  Find the position vector of the foot of the perpendicular
+from $Q$ to $\Pi$.
+
+\end{enumerate}
+
+The line $l_{1}$ passes through the points $P$ and $Q$.
+
+\begin{enumerate}[label=(\alph*),start=3]
+
+\item The line $l_{2}$ is the reflection of the line $l_{1}$ about
+the plane $\Pi$ . Find a vector equation of $l_{2}$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Let ${\displaystyle \lambda=\frac{x}{2}=-1-z}$
+
+In parametric form,
+\begin{align*}
+x & =2\lambda\\
+y & =0\\
+z & =-1-\lambda
+\end{align*}
+Thus the equation of the line on the plane $\Pi$ is
+\[
+\textbf{r}=\begin{bmatrix}0\\
+0\\
+-1
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix},\:\lambda\in\R
+\]
+The two direction vectors on the plane are $\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix}$ and $\begin{bmatrix}1\\
+-1\\
+0
+\end{bmatrix}-\begin{bmatrix}0\\
+0\\
+-1
+\end{bmatrix}=\begin{bmatrix}1\\
+-1\\
+1
+\end{bmatrix}$.
+
+\[
+\begin{bmatrix}1\\
+-1\\
+1
+\end{bmatrix}\times\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix}=\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix}
+\]
+Thus the normal to the plane $\Pi$ is $\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix}$.
+\begin{align*}
+\Pi:\textbf{r}\bigcdot\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix} & =\begin{bmatrix}0\\
+0\\
+-1
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix}\\
+\Pi:\textbf{r}\bigcdot\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix} & =-2
+\end{align*}
+
+\item  Let $N$ be the foot of the perpendicular from $Q$ to the
+plane.
+
+\[
+\overrightarrow{ON}=\begin{bmatrix}3\\
+13\\
+6
+\end{bmatrix}+\mu\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix},\:\text{for some }\mu\tag{1}
+\]
+Since $\overrightarrow{ON}$ lies on the plane $\Pi$,
+\begin{align*}
+\begin{bmatrix}3+\mu\\
+13+3\mu\\
+6+2\mu
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix} & =-2\\
+3+\mu+39+9\mu+12+4\mu & =-2\\
+14\mu & =-56\\
+\mu & =-4
+\end{align*}
+Putting $\mu=-4$ into (1),
+\[
+\overrightarrow{ON}=\begin{bmatrix}3\\
+13\\
+6
+\end{bmatrix}-4\begin{bmatrix}1\\
+3\\
+2
+\end{bmatrix}=\begin{bmatrix}-1\\
+1\\
+-2
+\end{bmatrix}
+\]
+
+\item  Let $Q'$ be the reflection of point $Q$ in the plane $\Pi$.
+
+By the ratio theorem,
+\begin{align*}
+\frac{\overrightarrow{OQ}+\overrightarrow{OQ'}}{2} & =\overrightarrow{ON}\\
+\overrightarrow{OQ'} & =2\overrightarrow{ON}-\overrightarrow{OQ}\\
+ & =2\begin{bmatrix}-1\\
+1\\
+-2
+\end{bmatrix}-\begin{bmatrix}3\\
+13\\
+6
+\end{bmatrix}\\
+ & =\begin{bmatrix}-5\\
+-11\\
+-10
+\end{bmatrix}
+\end{align*}
+The direction vector of $l_{2}$ is
+\begin{align*}
+\overrightarrow{OP}-\overrightarrow{OQ'} & =\begin{bmatrix}1\\
+-1\\
+0
+\end{bmatrix}-\begin{bmatrix}-5\\
+-11\\
+-10
+\end{bmatrix}\\
+ & =2\begin{bmatrix}3\\
+5\\
+5
+\end{bmatrix}
+\end{align*}
+Thus the equation of $l_{2}$ is
+\[
+l_{2}:\textbf{r}=\begin{bmatrix}-5\\
+-11\\
+-10
+\end{bmatrix}+t\begin{bmatrix}3\\
+5\\
+5
+\end{bmatrix},\:t\in\R
+\]
+
+\end{enumerate}
+\end{example}
+
+\section{Relationship Between a Point and a Plane}
+
+\subsection{Foot of Perpendicular and Length of Perpendicular From a Point to a Plane}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows a plane with equation $\Pi:\textbf{r}\bigcdot\textbf{n}=d$
+and a point $P$. The point $N$ is the foot of the perpendicular
+from $P$ to the plane $\Pi$.
+
+We can find the point $N$ by first finding the equation of a line
+that passes through both $P$ and $N$. And then finding the point
+where this line intersects the plane $\Pi$.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/FootPerpPointPlane\string".png}
+\par\end{center}
+
+\end{minipage}
+
+We can use the following guideline to find the foot of the perpendicular
+from a point to a plane.
+
+\begin{steps}[leftmargin=2cm]
+
+\item  Form a vector equation of the line $\overrightarrow{PN}$
+using $\textbf{n}$ as the direction vector and $P$ as the fixed
+point.
+
+\item  Substitute the equation of the line into the equation of the
+plane and solve for $\lambda$.
+
+\item  Substitute $\lambda$ back into the equation of the line to
+find $\overrightarrow{ON}$.
+
+\end{steps}
+
+\subsection{Reflection of a Point in a Plane}
+
+To find the reflection of a point in a plane, we use the ratio theorem.
+
+\begin{example}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Find the position vector of the foot of the perpendicular
+from a point $A(2,1,4)$ to the plane $\Pi:2x+3y=-6$.
+
+\item  Find the point of reflection of $A$ in the plane $\Pi$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Let $N$ be the foot of the perpendicular from $A$ on $\Pi$.
+
+The equation of the plane is
+\[
+\Pi:\textbf{r}\bigcdot\begin{bmatrix}2\\
+3\\
+0
+\end{bmatrix}=-6\tag{1}
+\]
+
+The equation of the line $AN$ is
+\[
+\textbf{r}=\begin{bmatrix}2\\
+1\\
+4
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+3\\
+0
+\end{bmatrix},\:\lambda\in\R
+\]
+Since $\overrightarrow{ON}$ lies on the line $AN$,
+\[
+\overrightarrow{ON}=\begin{bmatrix}2+2\lambda\\
+1+3\lambda\\
+4
+\end{bmatrix},\:\text{for some }\lambda\in\R\tag{2}
+\]
+Putting (2) into (1),
+\begin{align*}
+\begin{bmatrix}2+2\lambda\\
+1+3\lambda\\
+4
+\end{bmatrix}\bigcdot\begin{bmatrix}2\\
+3\\
+0
+\end{bmatrix} & =-6\\
+4+4\lambda+3+9\lambda & =-6\\
+13\lambda & =-13\\
+\lambda & =-1
+\end{align*}
+Substituting $\lambda=-1$ into $\overrightarrow{ON}$ into (2),
+\[
+\overrightarrow{ON}=\begin{bmatrix}0\\
+-2\\
+4
+\end{bmatrix}
+\]
+
+\item Let $A'$ be the reflection of the point $A$ in the plane.
+
+By the ratio theorem,
+\begin{align*}
+\frac{\overrightarrow{OA}+\overrightarrow{OA'}}{2} & =\overrightarrow{ON}\\
+\overrightarrow{OA'} & =2\overrightarrow{ON}-\overrightarrow{OA}\\
+ & =2\begin{bmatrix}0\\
+-2\\
+4
+\end{bmatrix}-\begin{bmatrix}2\\
+1\\
+4
+\end{bmatrix}\\
+ & =\begin{bmatrix}-2\\
+-5\\
+4
+\end{bmatrix}
+\end{align*}
+Thus the coordinates of $A'$ are $\left(-2,-5,4\right)$.
+
+\end{enumerate}
+\end{example}
+
+\section{Relationship Between Two Planes}
+
+\subsection{Two Parallel Planes}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows two planes with equation $\Pi_{1}:\textbf{r}_{1}\bigcdot\textbf{n}_{1}=d_{1}$
+and $\Pi_{2}:\textbf{r}_{2}\bigcdot\textbf{n}_{2}=d_{2}$.
+
+If the planes are parallel, then $\textbf{n}_{1}=k\textbf{n}_{2}$,
+where $k$ is a constant.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/TwoPlanes\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{example}
+
+Show that $\Pi_{1}:\textbf{r}\bigcdot\begin{bmatrix}1\\
+-3\\
+2
+\end{bmatrix}=4$ and $\Pi_{2}:\textbf{r}\bigcdot\begin{bmatrix}-2\\
+6\\
+-4
+\end{bmatrix}=2$ are parallel.
+
+\Solution
+
+Since $\begin{bmatrix}-2\\
+6\\
+-4
+\end{bmatrix}=-2\begin{bmatrix}1\\
+-3\\
+2
+\end{bmatrix}$, this means that the normal vector of $\Pi_{2}$ is a scalar multiple
+of the normal vector of $\Pi_{1}$ and thus the two planes are parallel.
+
+\end{example}
+
+\subsection{Distance Between two Parallel Planes}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows two parallel planes with equation $\Pi_{1}:\textbf{r}_{1}\bigcdot\textbf{n}_{1}=d_{1}$
+and $\Pi_{2}:\textbf{r}_{2}\bigcdot\textbf{n}_{2}=d_{2}$.
+
+To find the distance $D$ between these two planes, we can use the
+projection method.
+
+\[
+D=\frac{\left|\overrightarrow{AB}\bigcdot\textbf{n}\right|}{\left|\textbf{n}\right|}
+\]
+
+Alternatively (and more easily), if we have two planes in the form
+$\Pi_{1}:ax+by+cz=d_{1}$ and $\Pi_{1}:ax+by+cz=d_{2}$, then the
+distance $D$ can be found using the formula
+\[
+D=\frac{\left|d_{2}-d_{1}\right|}{\sqrt{a^{2}+b^{2}+c^{2}}}
+\]
+
+
+
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/DistanceTwoPlanes\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\newpage
+
+\begin{example}
+
+The equations for planes $\Pi_{1}$ and $\Pi_{2}$ are $\textbf{r}\bigcdot\left(\textbf{i}+3\textbf{j}+\textbf{k}\right)=5$
+and $\textbf{r}\bigcdot\left(\textbf{i}+3\textbf{j}+\textbf{k}\right)=7$
+respectively. Find the distance between the planes.
+
+\Solution
+
+By observing the equations, we notice that the normal vectors of both
+planes are the same. Thus we can conclude that $\Pi_{1}$ and $\Pi_{2}$
+are parallel.
+
+Pick a point on $\Pi_{1}$ and call this point $A$,
+\[
+\overrightarrow{OA}=\begin{bmatrix}5\\
+0\\
+0
+\end{bmatrix}
+\]
+Pick a point on $\Pi_{2}$ and call this point $B$,
+\[
+\overrightarrow{OB}=\begin{bmatrix}0\\
+0\\
+7
+\end{bmatrix}
+\]
+Find the direction vector $\overrightarrow{AB}$,
+\begin{align*}
+\overrightarrow{AB} & =\begin{bmatrix}0\\
+0\\
+7
+\end{bmatrix}-\begin{bmatrix}5\\
+0\\
+0
+\end{bmatrix}\\
+ & =\begin{bmatrix}-5\\
+0\\
+7
+\end{bmatrix}
+\end{align*}
+Thus the perpendicular distance between $\Pi_{1}$ and $\Pi_{2}$
+is
+\begin{align*}
+\frac{\left|\overrightarrow{AB}\bigcdot\textbf{n}\right|}{\left|\textbf{n}\right|} & =\frac{1}{\sqrt{11}}\left|\begin{bmatrix}-5\\
+0\\
+7
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+3\\
+1
+\end{bmatrix}\right|\\
+ & =\frac{2}{\sqrt{11}}\\
+ & =\frac{2\sqrt{11}}{11}
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\subsection{Two Perpendicular Planes}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows two planes with equation $\Pi_{1}:\textbf{r}_{1}\bigcdot\textbf{n}_{1}=d_{1}$
+and $\Pi_{2}:\textbf{r}_{2}\bigcdot\textbf{n}_{2}=d_{2}$.
+
+If the planes are perpendicular, then $\textbf{n}_{1}\bigcdot\textbf{n}_{2}=0$
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/TwoPlanesPerpendicular\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{example}
+
+Show that $\Pi_{1}:\textbf{r}\bigcdot\begin{bmatrix}3\\
+-1\\
+2
+\end{bmatrix}=4$ and $\Pi_{2}:\textbf{r}\bigcdot\begin{bmatrix}1\\
+3\\
+0
+\end{bmatrix}=-2$ are perpendicular planes.
+
+\Solution
+
+Let $\textbf{n}_{1}=\begin{bmatrix}3\\
+-1\\
+2
+\end{bmatrix}$ and $\textbf{n}_{2}=\begin{bmatrix}1\\
+3\\
+0
+\end{bmatrix}$.
+\begin{align*}
+\textbf{n}_{1}\times\textbf{n}_{2} & =\begin{bmatrix}3\\
+-1\\
+2
+\end{bmatrix}\bigcdot\begin{bmatrix}1\\
+3\\
+0
+\end{bmatrix}\\
+ & =0
+\end{align*}
+Since the scalar product of the normal vectors gives $0$, the angle
+between the normal vectors is $90\text{°}$ and thus we can conclude
+that the two planes are perpendicular.
+
+\end{example}
+
+\subsection{Two Intersecting Planes}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows two planes with equation $\Pi_{1}:\textbf{r}_{1}\bigcdot\textbf{n}_{1}=d_{1}$
+and $\Pi_{2}:\textbf{r}_{2}\bigcdot\textbf{n}_{2}=d_{2}$.
+
+If the planes are not parallel, then they will intersect to form a
+common line known as the \textbf{line of intersection}, labelled $l$
+in the diagram.
+
+We have three ways to solve such questions depending on the form of
+the equation of our plane.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/TwoPlanesIntersect\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\newpage
+
+\uline{Method 1 (Vector Equation)}
+
+\begin{steps}[leftmargin=2cm]
+
+\item Set the equations of $\Pi_{1}$ and $\Pi_{2}$ equal to each
+other.
+
+\item Use GC APPS to solve the simultaneous equations.
+
+\item Substitute the constant found back into either the equation
+of $\Pi_{1}$ or $\Pi_{2}$.
+
+\end{steps}
+
+\uline{Method 2 (Cartesian Equation)}
+
+\begin{steps}[leftmargin=2cm]
+
+\item Use GC APPS to solve the simultaneous equations.
+
+\item Let $z=\lambda$ to obtain the vector equation of the line.
+
+\end{steps}
+
+\uline{Method 3 (Scalar Product Equation)}
+
+\begin{steps}[leftmargin=2cm]
+
+\item Find the direction vector of the line by finding $\textbf{n}_{1}\times\textbf{n}_{2}$.
+
+\item Find a point on the line by setting $x=0$ or $y=0$ or $z=0$
+in the system and solving the remaining simultaneous equations.
+
+\item Using the point and direction vector form the equation of the
+line.
+
+\end{steps}
+
+\begin{example}
+
+Find an equation of the line of intersection, $l$ , of the two planes,
+\[
+\Pi_{1}:\textbf{r}=\begin{bmatrix}0\\
+3\\
+2
+\end{bmatrix}+\alpha\begin{bmatrix}-1\\
+1\\
+5
+\end{bmatrix}+\beta\begin{bmatrix}-5\\
+-2\\
+4
+\end{bmatrix}\quad\text{and}\quad\Pi_{2}:\textbf{r}=\begin{bmatrix}0\\
+2\\
+8
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix}+\mu\begin{bmatrix}-6\\
+-1\\
+9
+\end{bmatrix}
+\]
+
+where $\beta,\lambda,\mu\in\R$.
+
+\Solution
+
+Set
+\[
+\begin{bmatrix}0\\
+3\\
+2
+\end{bmatrix}+\alpha\begin{bmatrix}-1\\
+1\\
+5
+\end{bmatrix}+\beta\begin{bmatrix}-5\\
+-2\\
+4
+\end{bmatrix}=\begin{bmatrix}0\\
+2\\
+8
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix}+\mu\begin{bmatrix}-6\\
+-1\\
+9
+\end{bmatrix}
+\]
+We get the following system of equations
+\begin{align*}
+-\alpha-5\beta-2\lambda+6\mu & =0\tag{1}\\
+\alpha-2\beta+\mu & =-1\tag{2}\\
+5\alpha+4\beta+\lambda-9\mu & =6\tag{3}
+\end{align*}
+Using GC to solve (1), (2) and (3), we obtain $\alpha=1+\mu$, $\beta=1+\mu$
+and $\lambda=-3$.
+
+Substitute $\lambda=-3$ into $\Pi_{2}:\textbf{r}=\begin{bmatrix}0\\
+2\\
+8
+\end{bmatrix}+\lambda\begin{bmatrix}2\\
+0\\
+-1
+\end{bmatrix}+\mu\begin{bmatrix}-6\\
+-1\\
+9
+\end{bmatrix}$,
+\begin{align*}
+l & :\textbf{r}=\begin{bmatrix}-6\\
+2\\
+11
+\end{bmatrix}+\mu\begin{bmatrix}-6\\
+-1\\
+9
+\end{bmatrix},\:\mu\in\R
+\end{align*}
+
+\end{example}
+
+\begin{example}
+
+Find an equation of the line of intersection, $l$, of the two planes
+\[
+\Pi_{1}:x+2y-2z=3\quad\text{and}\quad\Pi_{2}:\textbf{r}=3x-2y+4z=5
+\]
+
+\Solution
+
+\begin{align*}
+x+2y-2z & =3\tag{1}\\
+3x-2y+4z & =5\tag{2}
+\end{align*}
+
+Using GC to solve (1) and (2), we have
+\begin{align*}
+x & =2-\frac{1}{2}z\\
+y & =\frac{1}{2}+\frac{5}{4}z\\
+z & =z
+\end{align*}
+Let $z=\lambda$, thus the line of intersection is
+\[
+l:\textbf{r}=\begin{bmatrix}2\\
+\frac{1}{2}\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}-\frac{1}{2}\\
+\frac{5}{4}\\
+1
+\end{bmatrix},\:\lambda\in\R
+\]
+
+\end{example}
+
+\begin{example}
+Find an equation of the line of intersection, $l$, of the two planes
+\[
+\Pi_{1}:\textbf{r}\bigcdot\begin{bmatrix}2\\
+-3\\
+4
+\end{bmatrix}=3\quad\text{and}\quad\Pi_{2}:\textbf{r}\bigcdot\begin{bmatrix}1\\
+4\\
+-2
+\end{bmatrix}=7
+\]
+
+\Solution
+
+Finding a direction vector of $l$,
+\[
+\begin{bmatrix}2\\
+-3\\
+4
+\end{bmatrix}\times\begin{bmatrix}1\\
+4\\
+-2
+\end{bmatrix}=\begin{bmatrix}-10\\
+8\\
+11
+\end{bmatrix}
+\]
+Set $z=0$ in the system,
+\begin{align*}
+2x-3y & =3\tag{1}\\
+x+4y & =7\tag{2}
+\end{align*}
+Using GC to solve (1) and (2), we obtain $x=3$ and $y=1$.
+
+Thus the line of intersection is
+\[
+l:\textbf{r}=\begin{bmatrix}3\\
+1\\
+0
+\end{bmatrix}+\lambda\begin{bmatrix}-10\\
+8\\
+11
+\end{bmatrix},\:\lambda\in\R
+\]
+
+\end{example}
+
+
+\subsection{Angle Between Two Planes}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+The diagram shows two planes with equation
+
+ $\Pi_{1}:\textbf{r}_{1}\bigcdot\textbf{n}_{1}=d_{1}$
+and $\Pi_{2}:\textbf{r}_{2}\bigcdot\textbf{n}_{2}=d_{2}$.
+
+Notice that the angle between the two normal vectors is equal to the angle between the two planes. So to find the angle between two planes, we just need to find the angle between the two normal vectors.
+
+The acute angle between two planes is given by
+\[
+\cos\theta=\frac{\left|\textbf{n}_{1}\bigcdot\textbf{n}_{2}\right|}{\left|\textbf{n}_{1}\right|\left|\textbf{n}_{2}\right|}
+\]
+where $\textbf{n}_{1}$ and $\textbf{n}_{2}$ are the normal vectors
+to $\Pi_{1}$ and $\Pi_{2}$ respectively.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=8cm]{\string"lib/Graphics/AngleBetweenTwoPlanes\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{example}
+
+Given two planes $\Pi_{1}:-2x+y+4z=3$ and $\Pi_{2}:y-3z=1$, find
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  the acute angle between $\Pi_{1}$ and $\Pi_{2}$,
+
+\item  the plane $\Pi_{3}$ which is perpendicular to both $\Pi_{1}$
+and $\Pi_{2}$ and passes through the origin.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Let $\textbf{n}_{1}$ and $\textbf{n}_{2}$ be the normal vectors
+to $\Pi_{1}$ and $\Pi_{2}$ respectively.
+
+Let $\theta$ be the acute angle between $\Pi_{1}$ and $\Pi_{2}$.
+\begin{align*}
+\cos\theta & =\frac{\left|\textbf{n}_{1}\bigcdot\textbf{n}_{2}\right|}{\left|\textbf{n}_{1}\right|\left|\textbf{n}_{2}\right|}\\
+ & =\frac{1}{\sqrt{21}\sqrt{10}}\left|\begin{bmatrix}-2\\
+1\\
+4
+\end{bmatrix}\bigcdot\begin{bmatrix}0\\
+1\\
+-3
+\end{bmatrix}\right|\\
+ & =\frac{11}{\sqrt{210}}\\
+\theta & =\cos^{-1}\left(\frac{11}{\sqrt{210}}\right)\\
+ & =40.6\text{°}
+\end{align*}
+
+\item  Since $\textbf{n}_{1}$ and $\textbf{n}_{2}$ are perpendicular
+to $\Pi_{1}$ and $\Pi_{2}$, the $\Pi_{3}$ would be parallel to
+$\textbf{n}_{1}$ and $\textbf{n}_{2}$. Thus, $\textbf{n}_{1}$ and
+$\textbf{n}_{2}$ can form the direction vectors of $\Pi_{3}$. Thus
+the equation of $\Pi_{3}$ is
+\[
+\Pi_{3}:\textbf{r}=\lambda\begin{bmatrix}-2\\
+1\\
+4
+\end{bmatrix}+\mu\begin{bmatrix}0\\
+1\\
+-3
+\end{bmatrix},\ \lambda,\mu\in\R
+\]
+
+\end{enumerate}
+
+\end{example}
+
+\chapter{Complex Numbers}
+\section{Real Quadratics With Complex Solutions}
+
+We have previously seen that:
+
+\medskip{}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+If $ax^{2}+bx+c=0,\:a\neq0$ and $a,b,c\in\R$, then the solutions
+or roots are found using the \textbf{quadratic formula}
+\[
+{\displaystyle x=\frac{-b+\sqrt{b^{2}-4ac}}{2a}}
+\]
+\end{tcolorbox}
+We also observed that if $b^{2}-4ac<0$, the equation has no real
+solutions. There are no real numbers whose squares are negative, so
+we cannot place the square root of any negative number on the real
+number line.
+
+However, mathematicians define an \textbf{imaginary} number to allow
+us to consider such square roots.
+
+\medskip{}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The\textbf{ imaginary number} is defined as $i=\sqrt{-1}$
+with the propertry that $i\times i=\sqrt{-1}\times\sqrt{-1}=-1$.
+\end{tcolorbox}
+
+It is called ``imaginary'' because we cannot place it on the real
+number line.
+
+Consider $x^{2}+1=0$.
+
+With $i=\sqrt{-1}$ defined,
+\begin{align*}
+x^{2} & =-1\\
+x & =\pm\sqrt{-1}\\
+ & =\pm i
+\end{align*}
+So with this definition of $i$ we can now express any square root
+of negative numbers in terms of $i$. For example, $\sqrt{-4}=\sqrt{4}\times\sqrt{-1}=4i$.
+
+\newpage
+
+\begin{example}
+
+Write the following in terms of $i$.
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\sqrt{-9}$
+
+\addtocounter{enumi}{1}
+
+\item  $-\sqrt{-28}$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $-\sqrt{-64}$
+
+\addtocounter{enumi}{1}
+
+\item ${\displaystyle \sqrt{-\frac{1}{4}}}$
+
+\end{enumerate}
+
+\end{minipage}
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+$
+\begin{aligned}[t]
+\sqrt{-9} & =\sqrt{9}\times\sqrt{-1}\\
+ & =9i
+\end{aligned}
+$
+
+
+
+\addtocounter{enumi}{1}
+
+\item
+
+$
+\begin{aligned}[t]
+-\sqrt{-28} & =-\sqrt{28}\times\sqrt{-1}\\
+ & =-2i\sqrt{7}
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item
+$
+\begin{aligned}[t]
+-\sqrt{-64} & =-\sqrt{64}\times\sqrt{-1}\\
+ & =-8i
+\end{aligned}
+$
+
+\addtocounter{enumi}{1}
+
+\item
+$
+\begin{aligned}[t]
+{\displaystyle \sqrt{-\frac{1}{4}}} & =\sqrt{\frac{1}{4}}\times\sqrt{-1}\\
+ & =\frac{1}{2}i
+\end{aligned}
+$
+
+\addtocounter{enumi}{1}
+
+\end{enumerate}
+
+\end{minipage}
+
+\end{example}
+
+
+\begin{example}
+
+Solve for $x$ using the quadratic formula.
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $x^{2}-4x+13=0$
+
+\addtocounter{enumi}{1}
+
+\item  $x^{2}+6x+25=0$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $x^{2}-10x+29=0$
+
+\addtocounter{enumi}{1}
+
+\item  $3x^{2}+6x+5=0$
+
+\end{enumerate}
+
+\end{minipage}
+
+\medskip{}
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+$
+\begin{aligned}[t]
+x & =\frac{4\pm\sqrt{\left(-4\right)^{2}-4\left(1\right)\left(13\right)}}{2}\\
+ & =\frac{4\pm\sqrt{-36}}{2}\\
+ & =2\pm3i
+\end{aligned}
+$
+
+\addtocounter{enumi}{1}
+
+\item
+$
+\begin{aligned}[t]
+x & =\frac{-6\pm\sqrt{\left(6\right)^{2}-4\left(1\right)\left(25\right)}}{2}\\
+ & =\frac{-6\pm\sqrt{-64}}{2}\\
+ & =-3\pm4i
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item
+$
+\begin{aligned}[t]
+x & =\frac{10\pm\sqrt{\left(-10\right)^{2}-4\left(1\right)\left(29\right)}}{2}\\
+ & =\frac{10\pm\sqrt{-16}}{2}\\
+ & =5\pm2i
+\end{aligned}
+$
+
+\addtocounter{enumi}{1}
+
+\item
+$
+\begin{aligned}[t]
+x & =\frac{-6\pm\sqrt{\left(6\right)^{2}-4\left(3\right)\left(5\right)}}{6}\\
+ & =\frac{-6\pm\sqrt{-24}}{6}\\
+ & =-1\pm\frac{\sqrt{6}}{3}i
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{minipage}
+
+\end{example}
+
+\newpage
+
+\section{Complex Numbers}
+
+The solutions to quadratic equations with $b^{2}-4ac<0$ have the
+form $x=a+bi$, where $a$ and $b$ are real.
+
+\medskip{}
+
+\centerline{\begin{minipage}{.92\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Any number of the form $a+bi$ where $a,b\in\R$ and $i=\sqrt{-1}$
+is called a \textbf{complex number}.
+\end{tcolorbox}
+\end{minipage}}
+
+\medskip{}
+
+The set of complex numbers is denoted by the symbol $\C$.
+
+Notice that:
+
+\begin{itemize}
+
+\item  All real numbers can be written has complex numbers by simply
+choosing $b=0$.
+
+\item  In the special case where $a=0$, we say this number is \textbf{purely
+imaginary}.
+
+\end{itemize}
+
+\subsection{Real and Imaginary Parts}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+If $z=a+bi$ where $a,b\in\R$, then
+
+\begin{itemize}
+
+\item  %
+\begin{tabular}{>{\raggedright}p{4.8cm}>{\raggedright}p{4.5cm}}
+$a$ is the \textbf{real part} of $z$, & written $\text{Re}\left(z\right)=a$.\tabularnewline
+\end{tabular}
+
+\item  %
+\begin{tabular}{>{\raggedright}p{4.8cm}>{\raggedright}p{4.5cm}}
+$b$ is the \textbf{imaginary part} of $z$, & written $\text{Im}\left(z\right)=b$\tabularnewline
+\end{tabular}
+
+\end{itemize}
+\end{tcolorbox}
+
+Note that $\text{Im}\left(z\right)=b$ is a real number. $\text{Im}\left(z\right)$
+is \textbf{not }$bi$.
+
+For example,
+
+\begin{itemize}
+
+\item  %
+\begin{tabular}{>{\raggedright}p{2cm}>{\raggedright}p{2.4cm}>{\centering}p{0.8cm}>{\raggedright}p{2.5cm}}
+If $z=3-5i$,  & then $\text{Re}\left(z\right)=3$ & and  & $\text{Im}\left(z\right)=-5$.\tabularnewline
+\end{tabular}
+
+\item  %
+\begin{tabular}{>{\raggedright}p{2cm}>{\raggedright}p{2.4cm}>{\centering}p{0.8cm}>{\raggedright}p{2.5cm}}
+If $z=\sqrt{3}i$, & then $\text{Re}\left(z\right)=0$ & and  & $\text{Im}\left(z\right)=\sqrt{3}$.\tabularnewline
+\end{tabular}
+
+\end{itemize}
+
+
+\subsection{Complex Conjugates}
+
+\centerline{\begin{minipage}{.81\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Suppose $z=a+bi$ where $a,b\in\R$. The \textbf{complex conjugate}
+of $z$ is $z^{*}=a-bi$.
+\end{tcolorbox}
+\end{minipage}}
+
+For example, if $z=2+i$ then $z^{*}=2-i$.
+
+\begin{example}
+
+Given the complex numbers $z=-1+4i$ and $w=6-5i$, find:
+
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\text{Re}\left(z\right)$
+
+\addtocounter{enumi}{2}
+
+\item  $w^{*}$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $\text{Im}\left(w\right)$
+
+\addtocounter{enumi}{2}
+
+\item  $\text{Im}\left(z^{*}\right)$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=3]
+
+\item  $z^{*}$
+
+\addtocounter{enumi}{2}
+
+\item  $\text{Re}\left(w^{*}\right)$
+
+\end{enumerate}
+
+\end{minipage}
+
+\medskip{}
+
+\Solution
+
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\text{Re}\left(z\right)=-1$
+
+\addtocounter{enumi}{2}
+
+\item  $w^{*}=6+5i$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $\text{Im}\left(w\right)=-5$
+
+\addtocounter{enumi}{2}
+
+\item  $\text{Im}\left(z^{*}\right)=-4$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=3]
+
+\item  $z^{*}=-1-4i$
+
+\addtocounter{enumi}{2}
+
+\item  $\text{Re}\left(w^{*}\right)=6$
+
+\end{enumerate}
+
+\end{minipage}
+
+\end{example}
+
+\newpage
+
+\section{Operations With Complex Numbers}
+
+\subsection{Addition and Subtraction }
+
+In the addition and subtraction of complex numbers, we collect and
+combine the real and imaginary terms to obtain another complex number.
+
+Suppose $z_{1}=a_{1}+b_{1}i$ and $z_{2}=a_{2}+b_{2}i$ are any two
+complex numbers. Then,
+
+\medskip{}
+
+\centerline{\begin{minipage}{.75\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{align*}
+z_{1}+z_{2}=\left(a_{1}+b_{1}i\right)+\left(a_{2}+b_{2}i\right) & =\left(a_{1}+a_{2}\right)+\left(b_{1}+b_{2}\right)i\quad\textbf{addition}\\
+z_{1}-z_{2}=\left(a_{1}+b_{1}i\right)-\left(a_{2}+b_{2}i\right) & =\left(a_{1}-a_{2}\right)+\left(b_{1}-b_{2}\right)i\quad\textbf{subtraction}
+\end{align*}
+\end{tcolorbox}
+\end{minipage}}
+
+\begin{example}
+
+Express the following in the form $a+bi$, where $a,b\in\R$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\left(2+5i\right)+\left(2-3i\right)$
+
+\item  $\left(4-7i\right)-\left(-3+3i\right)$
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\left(2+5i\right)+\left(2-3i\right)=4+2i$
+
+\item  $\left(4-7i\right)-\left(-3+3i\right)=7-10i$
+
+\end{enumerate}
+
+\end{example}
+
+
+\subsection{Multiplication }
+
+We apply the distributive law of multiplication to obtain the product
+of two complex numbers.
+
+Suppose $z_{1}=a_{1}+b_{1}i$ and $z_{2}=a_{2}+b_{2}i$ are any two
+complex numbers. Then,
+
+\medskip{}
+
+\centerline{\begin{minipage}{.44\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{align*}
+z_{1}z_{2} & =\left(a_{1}+b_{1}i\right)\left(a_{2}+b_{2}i\right)\\
+ & =a_{1}a_{2}+a_{1}b_{2}i+b_{1}a_{2}i+b_{1}b_{2}i^{2}\\
+ & =\left(a_{1}a_{2}-b_{1}b_{2}\right)+\left(a_{1}b_{2}+b_{1}a_{2}\right)i
+\end{align*}
+\end{tcolorbox}
+\end{minipage}}
+
+\begin{example}
+
+If $z=2-3i$ and $w=4+i$, find in simplest form:
+
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $2z$
+
+\addtocounter{enumi}{2}
+
+\item  $zw$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $iw$
+
+\addtocounter{enumi}{2}
+
+\item  $w^{2}$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=3]
+
+\item  $2z-3w$
+
+\addtocounter{enumi}{2}
+
+\item  $zz^{*}$
+
+\end{enumerate}
+
+\end{minipage}
+
+\medskip{}
+
+\Solution
+
+\begin{tasks}[label=(\alph*), column-sep={1cm}](3)
+
+\task
+$
+\begin{aligned}[t]
+2z & =2\left(2-3i\right)\\
+ & =4-6i
+\end{aligned}
+$
+
+
+\task
+$
+\begin{aligned}[t]
+zw & =\left(2-3i\right)\left(4+i\right)\\
+ & =8+2i-12i-3i^{2}\\
+ & =11-10i
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+iw & =i\left(4+i\right)\\
+ & =-1+4i
+\end{aligned}
+$
+
+
+\task
+$
+\begin{aligned}[t]
+w^{2} & =\left(4+i\right)^{2}\\
+ & =16+8i+i^{2}\\
+ & =15+8i
+\end{aligned}
+$
+
+
+
+\task
+$
+\begin{aligned}[t]
+2z-3w & =2\left(2-3i\right)-3\left(4+i\right)\\
+ & =-8-9i
+\end{aligned}
+$
+
+
+\task
+$
+\begin{aligned}[t]
+zz^{*} & =\left(2-3i\right)\left(2+3i\right)\\
+ & =4-9i^{2}\\
+ & =13
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\subsection{Division}
+
+When we perform division with complex numbers, we use the complex
+conjugate of the denominator to obtain a rational denominatior.
+
+\medskip{}
+
+\centerline{\begin{minipage}{.44\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{align*}
+\frac{z_{1}}{z_{2}} & =\frac{a_{1}+b_{1}i}{a_{2}+b_{2}i}\\
+ & =\frac{a_{1}+b_{1}i}{a_{2}+b_{2}i}\times\frac{a_{2}-b_{2}i}{a_{2}-b_{2}i}\\
+ & =\frac{a_{1}a_{2}-a_{1}b_{2}i+b_{1}a_{2}i+b_{1}b_{2}}{{a_{2}}^{2}+{b_{2}}^{2}}\\
+ & =\frac{a_{1}a_{2}+b_{1}b_{2}}{{a_{2}}^{2}+{b_{2}}^{2}}+\left(\frac{b_{1}a_{2}-a_{1}b_{2}}{{a_{2}}^{2}+{b_{2}}^{2}}\right)i
+\end{align*}
+\end{tcolorbox}
+\end{minipage}}
+
+\begin{example}
+
+If $z=2-i$ and $w=3+i$. Write in the form $a+bi$ where $a,b\in\R$
+are given exactly:
+
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  ${\displaystyle \frac{z}{w}}$
+
+\addtocounter{enumi}{1}
+
+\item  ${\displaystyle \frac{w}{iz}}$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.33\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  ${\displaystyle \frac{i}{z}}$
+
+\addtocounter{enumi}{1}
+
+\item  ${\displaystyle \frac{z^{2}}{w-i}}$
+
+\end{enumerate}
+
+\end{minipage}
+
+\medskip{}
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+$
+\begin{aligned}[t]
+\frac{z}{w} & =\frac{2-i}{3+i}\\
+ & =\frac{\left(2-i\right)\left(3-i\right)}{\left(3+i\right)\left(3-i\right)}\\
+ & =\frac{6-5i+i^{2}}{3^{2}-i^{2}}\\
+ & =\frac{5-5i}{10}=\frac{1}{2}-\frac{1}{2}i
+\end{aligned}
+$
+
+\addtocounter{enumi}{1}
+
+\item
+$
+\begin{aligned}[t]
+\frac{w}{iz} & =\frac{3+i}{i\left(2-i\right)}\\
+ & =\frac{3+i}{1+2i}\\
+ & =\frac{\left(3+i\right)\left(1-2i\right)}{\left(1+2i\right)\left(1-2i\right)}\\
+ & =\frac{3-5i-2i^{2}}{1-4i^{2}}\\
+ & =\frac{5-5i}{5}=1-i
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item
+$
+\begin{aligned}[t]
+\frac{i}{z} & =\frac{i}{2-i}\\
+ & =\frac{i\left(2+i\right)}{\left(2-i\right)\left(2+i\right)}\\
+ & =\frac{2i+i^{2}}{4-i^{2}}\\
+ & =\frac{-1+2i}{5}=-\frac{1}{5}+\frac{2}{5}i
+\end{aligned}
+$
+
+\addtocounter{enumi}{1}
+
+\item
+$
+\begin{aligned}[t]
+\frac{z^{2}}{w-i} & =\frac{\left(2-i\right)^{2}}{\left(3+i\right)-i}\\
+ & =\frac{2-4i+i^{2}}{3}\\
+ & =\frac{1-4i}{3}=\frac{1}{3}-\frac{4}{3}i
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{minipage}
+
+\end{example}
+
+\newpage
+
+\section{Equality of Complex Numbers}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Two complex numbers are \textbf{equal} when their \textbf{real parts}
+are equal and their \textbf{imaginary parts} are equal.
+\[
+\text{If }a+bi=c+di,\text{ then }a=c\text{\text{ and }}b=d
+\]
+\end{tcolorbox}
+
+\begin{example}
+
+Find the real numbers $a$ and $b$ such that ${\displaystyle \frac{a}{2+i}+\frac{b}{2+3i}=4+i}$.
+
+\Solution
+
+\begin{align*}
+\frac{a}{2+i}+\frac{b}{2+3i} & =4+i\\
+a\left(2+3i\right)+b\left(2+i\right) & =\left(4+i\right)\left(2+i\right)\left(2+3i\right)\quad\triangleleft\text{Use GC to evaluate.}\\
+\left(2a+2b\right)+\left(3a+b\right)i & =-4+33i\tag{1}
+\end{align*}
+Comparing real parts of (1),
+\begin{align*}
+2a+2b & =-4\\
+a+b & =-2\tag{2}
+\end{align*}
+Comparing imaginary parts of (1),
+\[
+3a+b=33\tag{3}
+\]
+Solving (2) and (3) gives ${\displaystyle a=\frac{35}{2}}$ and ${\displaystyle b=-\frac{39}{2}}$.
+
+\end{example}
+
+\newpage
+
+\section{Solving Equations Involving Complex Coefficients and Roots}
+Some useful techniques for solving equations with complex coefficients and roots are as follows:
+\begin{enumerate}
+\item Let $z=a+bi$. Simplify and compare real and imaginary parts.
+\item Make $z$ the subject by algebraic manipulation.
+\item Use the quadratic formula.
+\end{enumerate}
+\subsection{Solving Equations with Complex Numbers }
+
+\begin{example}
+
+The complex number $z$ satisfies the equation $3z+17i=iz+11$. Find the value of $z$ in the form $a+bi$ where $a,b\in\R$.
+
+\Solution
+
+\begin{align*}
+3z+17i & =iz+11\\
+3z-iz & =11-17i\\
+z & =\frac{11-17i}{3-i}\\
+ & =\frac{\left(11-17i\right)\left(3+i\right)}{\left(3-i\right)\left(3+i\right)}\\
+ & =\frac{33-40i-17i^{2}}{3^{2}-i^{2}}\\
+ & =\frac{50-40i}{10}=5-4i
+\end{align*}
+
+\end{example}
+
+\subsection{Solving Simultaneous Equations with Complex Numbers }
+
+\begin{example}
+
+Solve the simultaneous equations $z+w=4+3i$ and $z+iw=3+2i$.
+
+\Solution
+
+\begin{align*}
+z+w & =4+3i\tag{1}\\
+z+iw & =3+2i\tag{2}
+\end{align*}
+
+$\left(1\right)-\left(2\right)$:
+\begin{align*}
+w-iw & =1+i\\
+w & =\frac{1+i}{1-i}\\
+ & =i
+\end{align*}
+Substituting $w=i$ into $\left(1\right)$ gives
+\[
+z=4+2i
+\]
+Thus we have $w=i$ and $z=4+2i$.
+
+\end{example}
+
+\newpage
+
+\subsection{Finding the Square Root of a Complex Number}
+
+\begin{example}
+
+Find the square roots of $3+4i$.
+
+\Solution
+
+Let $\sqrt{3+4i}=a+bi$.
+\begin{align*}
+\left(\sqrt{3+4i}\right)^{2} & =\left(a+bi\right)^{2}\\
+3+4i & =a^{2}-b^{2}+2abi\tag{1}
+\end{align*}
+Comparing real parts of (1),
+\begin{align*}
+a^{2}-b^{2} & =3\tag{2}
+\end{align*}
+Comparing imaginary parts of (1),
+\begin{align*}
+2ab & =4\\
+ab & =2\tag{3}
+\end{align*}
+Solving (2) and (3), we have $a=2$ and $b=1$ or $a=-2$ and $b=-1$.
+
+Thus the square roots of $3+4i$ are $2+i$ and $-2-i$.
+
+\end{example}
+
+\section{Polynomial Equations With Complex Roots}
+
+\centerline{\begin{minipage}{.75\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Let $\text{P}\left(x\right)$ be a polynomial with \textbf{real coefficients
+only}.
+
+\medskip{}
+
+If $z$ is a non-real root of the equation $\text{P}\left(z\right)=0$,
+then $z^{*}$ is also a root.
+\end{tcolorbox}
+
+\end{minipage}}
+
+In other words, complex roots of a polynomial equation with real coefficients
+\textbf{occur in conjugate pairs}.
+
+\begin{example}
+
+Given that $2-i$ is a root of $3z^{3}-13z^{2}+19z-5=0$, find the
+other roots.
+
+\Solution
+
+Since all the coefficients are real, $2+i$ is also a root of the
+polynomial.
+
+Then
+\[
+\left[z-\left(2-i\right)\right]\left[z-\left(2+i\right)\right]=z^{2}-4z+5
+\]
+Let $p$ be a root of the polynomial.
+\begin{align*}
+\left(z^{2}-4z+5\right)\left(z-p\right) & =0\\
+z^{3}-z^{2}p-4z^{2}+4zp+5z-5p & =0\\
+z^{3}-\left(p+4\right)z^{2}+\left(4p+5\right)z-5p & =0\\
+3z^{3}-3\left(p+4\right)z^{2}+3\left(4p+5\right)z-15p & =0
+\end{align*}
+Comparing coefficients, we obtain ${\displaystyle p=\frac{1}{3}}$.
+Thus the other roots are ${\displaystyle \frac{1}{3}}$ and $2+i$.
+
+\end{example}
+
+\section{The Complex Plane}
+
+We have seen that a complex number can be written in Cartesian form
+as $z=a+bi$ where $a=\text{Re}\left(z\right)$ and $b=\text{Im\ensuremath{\left(z\right)}}$
+are both real numbers.
+
+Thus there is a one-to-one relationship between any complex number
+$a+bi$ and the point $\left(a,b\right)$ in the cartesian plane.
+
+We can therefore plot any complex number on a plane as a unique ordered
+number pair. We refer to the plane as the complex plane or the \textbf{Argand
+plane}.
+
+\medskip{}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+On the complex plane,
+
+\begin{itemize}
+
+\item  the $x-$axis is called the \textbf{real axis}
+
+\item  the $y-$axis is called the \textbf{imaginary axis}
+
+\item  all real numbers with $b=0$ lie on the real axis.
+
+\item  all purely imaginary numbers with $a=0$ lie on the imaginary
+axis
+
+\item  complex numbers with $a,b\neq0$ lie in one of the four quadrants.
+
+\end{itemize}
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/ArgandDiagram\string".png}
+\par\end{center}
+
+\end{minipage}
+
+We can apply the vector operations of addition, subtraction, and scalar
+multiplication to complex numbers.
+
+\begin{example}
+
+Suppose $z=2+i$ and $w=2+4i$. Find $2z-w$ algebraically and represent it with an Argand diagram.
+
+\Solution
+
+\begin{minipage}[t]{0.4\textwidth}
+
+$
+\begin{aligned}[t]
+2z-w & =2\left(2+i\right)-\left(2+4i\right)\\
+ & =4+2i-2+4i\\
+ & =2-2i
+\end{aligned}
+$
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\includegraphics[width=3.5cm,valign=t]{\string"lib/Graphics/ArgandDiagram2\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\end{example}
+
+\section{Modulus and Argument }
+
+Since complex numbers can be represented by vectors in the Argand
+plane, we can attribute to them both a \textit{magnitude} and \textit{direction}.
+
+The magnitude of a complex number is called its \textbf{modulus},
+and its direction is called its \textbf{argument}.
+
+\subsection{Modulus }
+
+\centerline{\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The \textbf{modulus} of a complex number $z=a+bi$ is defined as $\left|z\right|=\sqrt{a^{2}+b^{2}}$.
+\end{tcolorbox}
+
+\end{minipage}}
+
+Notes:
+
+\begin{itemize}
+
+\item  $\left|z\right|$ gives the distance of the point $\left(a,b\right)$
+from the origin.
+
+\item  If $b\neq0$, then $\left|z\right|$ does not equal $\sqrt{z^{2}}$,
+e.g. if $z=2+3i$, then $\left|2+3i\right|\neq\sqrt{\left(2+3i\right)^{2}}$.
+
+\end{itemize}
+
+\begin{minipage}[t]{0.55\textwidth}
+
+For example, consider the complex number $z=3+2i$.
+
+\medskip{}
+
+The distance from $O$ to $P$ is the modulus, $\left|z\right|$.
+
+\medskip{}
+
+$\therefore\left|z\right|=\sqrt{3^{2}+2^{2}}=\sqrt{13}\quad\triangleleft\text{Pythagoras Theorem}$
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\includegraphics[width=3.5cm,valign=t]{\string"lib/Graphics/ArgandDiagramModulus\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\subsection{Argument}
+
+\centerline{\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{minipage}[t]{0.6\textwidth}
+
+Suppose the complex number $z=a+bi$ is represented by the vector
+$\overrightarrow{OP}$.
+
+\medskip{}
+
+The \textbf{argument} of $z$, or simply $\arg z$ is \textbf{the
+angle}, $\theta$, where $-\pi<\theta\leq\pi$, \textbf{from the positive
+real axis to the vector} $\overrightarrow{OP}$.
+
+\medskip{}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\includegraphics[width=4cm,valign=t]{\string"lib/Graphics/ArgandDiagramArguement\string".png}
+\par\end{center}
+\end{minipage}
+\end{tcolorbox}
+
+\end{minipage}}
+
+Notes:
+
+\begin{itemize}
+
+\item  $\arg z$ is measured in radians.
+
+\item  We specify the domain restriction $-\pi<\theta\leq\pi$ to
+avoid confusion the infinitely many possibilities of $\theta$ which
+are $2\pi$ apart. By restricting the domain, we find the \textbf{principal
+argument of $z$}.
+
+\item  $\theta$ is positive when measured anti-clockwise from the
+positive real axis and is negative when measured clockwise from the
+positive real axis.
+
+\item  It is important that you first check the quadrant in which
+$z$ lies before computing the argument.
+
+\end{itemize}
+
+In general, we find the argument of a complex number $z=a+bi$ as
+follows.
+
+\begin{enumerate}
+
+\item  If $z$ lies in the \textbf{first} quadrant, then ${\displaystyle \arg z=\tan^{-1}\left(\frac{b}{a}\right)}$.
+
+\item  If $z$ lies in the \textbf{second} quadrant, then ${\displaystyle \arg z=\pi-\tan^{-1}\left(\frac{b}{a}\right)}$.
+
+\item  If $z$ lies in the \textbf{third} quadrant, then ${\displaystyle \arg z=-\pi+\tan^{-1}\left(\frac{b}{a}\right)}$.
+
+\item  If $z$ lies in the \textbf{fourth} quadrant, then ${\displaystyle \arg z=-\tan^{-1}\left(\frac{b}{a}\right)}$.
+
+\end{enumerate}
+
+If $\theta$ is the basic angle ${\displaystyle \tan^{-1}\left(\frac{b}{a}\right)}$,
+then we can refer to the following diagram to determine our argument.
+\begin{center}
+\includegraphics[width=5.5cm]{\string"lib/Graphics/ArgumentDiagram\string".png}
+\par\end{center}
+
+\subsection{Properties of Modulus and Argument}
+
+\begin{minipage}{.8\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\textbf{Modulus}
+
+\begin{enumerate}
+
+\item  $\left|z_{1}z_{2}\right|=\left|z_{1}\right|\left|z_{2}\right|$
+
+\item  ${\displaystyle \left|\frac{z_{1}}{z_{2}}\right|=\frac{\left|z_{1}\right|}{\left|z_{2}\right|}}$
+provided $z_{2}\neq0$
+
+\item  $\left|z^{n}\right|=\left|z\right|^{n}$ for $n\in\Q$
+
+\item  $\left|z^{*}\right|=\left|z\right|$
+
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\textbf{Argument}
+
+\begin{enumerate}
+
+\item  $\arg\left(z_{1}z_{2}\right)=\arg\left(z_{1}\right)+\arg\left(z_{2}\right)$
+
+\item  ${\displaystyle \arg\left(\frac{z_{1}}{z_{2}}\right)=\arg\left(z_{1}\right)-\arg\left(z_{2}\right)}$
+
+\item  $\arg\left(z^{n}\right)=n\arg\left(z\right)$ for $n\in\Q$
+
+\item  $\arg\left(z^{*}\right)=-\arg\left(z\right)$
+
+\end{enumerate}
+
+\end{minipage}
+
+\medskip{}
+
+\end{tcolorbox}
+
+\end{minipage}
+
+Note: When finding the argument, you may need to add/subtract $2k\pi$, where $k\in\Z$, to find
+the argument within the principal range such that $-\pi<\theta\leq\pi$.
+
+\begin{example}
+
+Find the modulus and argument of each of the following complex numbers:
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\sqrt{3}+i$
+
+\addtocounter{enumi}{1}
+
+\item  $-1+i$
+
+\addtocounter{enumi}{1}
+
+\item  $-3$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $\sqrt{3}-i$
+
+\addtocounter{enumi}{1}
+
+\item  $-1-i$
+
+\addtocounter{enumi}{1}
+
+\item  $-2i$
+
+\addtocounter{enumi}{1}
+
+\end{enumerate}
+
+\end{minipage}
+
+\medskip{}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+
+\begin{minipage}[t]{0.3\textwidth}
+$
+\begin{aligned}[t]
+\left|\sqrt{3}+i\right| & =\sqrt{\left(\sqrt{3}\right)^{2}+1^{2}}\\
+ & =\sqrt{4}\\
+ & =2
+\end{aligned}
+$
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+$
+\begin{aligned}[t]
+\arg\left(\sqrt{3}+i\right) & =\tan^{-1}\left(\frac{1}{\sqrt{3}}\right)\\
+ & =\frac{\pi}{6}
+\end{aligned}
+$
+
+\end{minipage}
+
+\item
+
+\begin{minipage}[t]{0.3\textwidth}
+$
+\begin{aligned}[t]
+\left|\sqrt{3}-i\right| & =\sqrt{\left(\sqrt{3}\right)^{2}+1^{2}}\\
+ & =\sqrt{4}\\
+ & =2
+\end{aligned}
+$
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+$
+\begin{aligned}[t]
+\arg\left(\sqrt{3}-i\right) & =-\tan^{-1}\left(\frac{1}{\sqrt{3}}\right)\\
+ & =-\frac{\pi}{6}
+\end{aligned}
+$
+
+\end{minipage}
+
+\item
+
+\begin{minipage}[t]{0.3\textwidth}
+
+$
+\begin{aligned}[t]
+\left|-1+i\right| & =\sqrt{\left(-1\right)^{2}+1^{2}}\\
+ & =\sqrt{2}
+\end{aligned}
+$
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+$
+\begin{aligned}[t]
+\arg\left(-1+i\right) & =\pi-\tan^{-1}\left(\frac{1}{1}\right)\\
+ & =\pi-\frac{\pi}{4}\\
+ & =\frac{3\pi}{4}
+\end{aligned}
+$
+
+\end{minipage}
+
+\item
+
+\begin{minipage}[t]{0.3\textwidth}
+$
+\begin{aligned}[t]
+\left|-1-i\right| & =\sqrt{\left(-1\right)^{2}+\left(-1\right)^{2}}\\
+ & =\sqrt{2}
+\end{aligned}
+$
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+$
+\begin{aligned}[t]
+\arg\left(-1-i\right) & =-\pi+\tan^{-1}\left(\frac{1}{1}\right)\\
+ & =-\pi+\frac{\pi}{4}\\
+ & =-\frac{3\pi}{4}
+\end{aligned}
+$
+
+\end{minipage}
+
+\item
+
+\begin{minipage}[t]{0.3\textwidth}
+$\left|-3\right|=3$
+
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+$\arg\left(-3\right)=\pi$
+
+\end{minipage}
+
+\item
+
+\begin{minipage}[t]{0.3\textwidth}
+$\left|-2i\right|=2$
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+$\arg\left(-2i\right)=-\frac{\pi}{2}$
+\end{minipage}
+
+\end{enumerate}
+
+\end{example}
+
+\section{Polar Form (Modulus-Argument Form)}
+
+We have seen the \textbf{cartesian form }of a complex number is $z=a+bi$.
+However, we can also use a \textbf{polar form }which is based on the
+modulus and arguement of $z$.
+
+To find the coordinates of a point in the polar coordinate system,
+consider the diagram below.
+\begin{center}
+\includegraphics[width=5cm,valign=t]{\string"lib/Graphics/PolarCoordinate\string".png}
+\par\end{center}
+
+The point $P$ has cartesian coordinates $\left(x,y\right)$. The
+distance from the origin to $P$ is $r$ and the angle between the
+$x-$axis and the line segment is $\theta$. This observation suggests
+a natural correspondence between the coordinate pair $\left(x,y\right)$
+and the cartesian values $r$ and $\theta$.
+
+Using right angle trigonometry,
+
+\begin{minipage}[t]{0.5\textwidth}
+\begin{align*}
+\cos\theta & =\frac{x}{r}\\
+x & =r\cos\theta
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{align*}
+\sin\theta & =\frac{y}{r}\\
+y & =r\sin\theta
+\end{align*}
+
+\end{minipage}
+
+Putting $x=r\cos\theta$ and $y=r\sin\theta$ into $z=x+yi$ gives
+\begin{align*}
+z & =r\cos\theta+ri\sin\theta\\
+ & =r\left(\cos\theta+i\sin\theta\right)
+\end{align*}
+
+This is called the \textbf{polar form} of the complex number. It is
+also sometimes called \textbf{modulus-argument form}.
+
+In summary,
+
+\medskip{}
+
+\centerline{\begin{minipage}{1\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The complex number $z$ can be expressed in polar form as $z=r\left(\cos\theta+i\sin\theta\right)$
+where $r=\left|z\right|$ is the modulus and $\theta=\arg z$, where
+$-\pi<\theta\leq\pi$ is the argument.
+\end{tcolorbox}
+
+\end{minipage}}
+
+\begin{example}
+
+Express each of the following in polar form:
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $-2i$
+
+\addtocounter{enumi}{1}
+
+\item  $\left(-1-i\right)\left(-1+\sqrt{3}i\right)$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $-1+\sqrt{3}i$
+
+\addtocounter{enumi}{1}
+
+\item  ${\displaystyle \frac{-1+\sqrt{3}i}{-1-i}}$
+
+\addtocounter{enumi}{1}
+
+\end{enumerate}
+
+\end{minipage}
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\left|-2i\right|=2$
+
+${\displaystyle \arg z=-\frac{\pi}{2}}$
+
+${\displaystyle \therefore-2i=2\left(\cos\left(-\frac{\pi}{2}\right)+i\sin\left(-\frac{\pi}{2}\right)\right)}$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $\left|-1+\sqrt{3}i\right|=2$
+
+${\displaystyle \arg\left(-1+\sqrt{3}i\right)=\frac{2\pi}{3}}$
+
+${\displaystyle \therefore-1+\sqrt{3}i=2\left(\cos\left(\frac{2\pi}{3}\right)+i\sin\left(\frac{2\pi}{3}\right)\right)}$
+\end{enumerate}
+\end{minipage}
+
+\begin{enumerate}[label=(\alph*),start=3]
+
+\item
+$
+\begin{aligned}[t]
+\left|\left(-1-i\right)\left(-1+\sqrt{3}i\right)\right| & =\left|-1-i\right|\left|-1+\sqrt{3}i\right|\\
+ & =2\sqrt{2}
+\end{aligned}
+$
+
+$
+\begin{aligned}[t]
+\arg\left[\left(-1-i\right)\left(-1+\sqrt{3}i\right)\right] & =\arg\left(-1-i\right)+\arg\left(-1+\sqrt{3}i\right)\\
+ & =-\frac{3\pi}{4}+\frac{2\pi}{3}\\
+ & =-\frac{\pi}{12}
+\end{aligned}
+$
+
+${\displaystyle \therefore\left(-1-i\right)\left(-1+\sqrt{3}i\right)=2\sqrt{2}\left(\cos\left(-\frac{\pi}{12}\right)+i\sin\left(-\frac{\pi}{12}\right)\right)}$
+
+\item
+\begin{align*}
+\left|\frac{-1+\sqrt{3}i}{-1-i}\right| & =\frac{\left|-1+\sqrt{3}i\right|}{\left|-1-i\right|}\\
+ & =\frac{2}{\sqrt{2}}=\sqrt{2}
+\end{align*}
+
+\begin{align*}
+\arg\left(\frac{-1+\sqrt{3}i}{-1-i}\right) & =\arg\left(-1+\sqrt{3}i\right)-\arg\left(-1-i\right)\\
+ & =\frac{2\pi}{3}+\frac{3\pi}{4}\\
+ & =\frac{17\pi}{12}\equiv-\frac{7\pi}{12}\;\text{(Since we want the principle angle)}
+\end{align*}
+
+${\displaystyle \therefore\frac{-1+\sqrt{3}i}{-1-i}=\sqrt{2}\left(\cos\left(-\frac{7\pi}{12}\right)+i\sin\left(-\frac{7\pi}{12}\right)\right)}$
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\section{Exponential Form}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tcolorbox}[skin=enhancedlast, width=\textwidth, interior style={left color=blue!5,right color=blue!35}, colframe=blue!35, arc=3mm, sharp corners=east,halign=right]
+
+\textbf{\large{}Euler's Beautiful Equation}{\large\par}
+
+\end{tcolorbox}
+
+\medskip{}
+
+One of the most remarkable results in mathematics is known as \textbf{Euler's
+beautiful equation}
+\[
+e^{i\pi}=-1
+\]
+named after Leonhard Euler (1707-1783).
+
+\medskip{}
+
+It is beautiful because it links together three great constants in
+mathematics: Euler's constant $e$, the imaginary number $i$, and
+the ratio of a circle's circumference to its diameter $\pi$.
+\end{tcolorbox}
+Euler's beautiful equation is a special case of a more general result
+that Euler proved:
+
+\[
+e^{i\theta}=\cos\theta+i\sin\theta
+\]
+
+\textbf{Proof}:
+
+\begin{align*}
+e^{x} & =1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+\frac{x^{4}}{4!}+\ldots\\
+e^{i\theta} & =1+\left(i\theta\right)+\frac{\left(i\theta\right)^{2}}{2!}+\frac{\left(i\theta\right)^{3}}{3!}+\frac{\left(i\theta\right)^{4}}{4!}+\ldots\\
+ & =\left(1-\frac{\theta^{2}}{2!}+\frac{\theta^{4}}{4!}-\ldots\right)+i\left(\theta-\frac{\theta^{3}}{3!}+\ldots\right)\\
+ & =\cos\theta+i\sin\theta
+\end{align*}
+
+This identity allows us to write any complex number $z=r\left(\cos\theta+i\sin\theta\right)$
+in the form $z=re^{i\theta}$.
+
+For example, consider $z=1+i$.
+
+$\left|z\right|=\sqrt{2}$ and ${\displaystyle \theta=\frac{\pi}{4}}$
+
+${\displaystyle \therefore1+i=\sqrt{2}\left(\cos\theta+i\sin\theta\right)=\sqrt{2}e^{i\frac{\pi}{4}}}$
+\begin{center}
+\begin{tabular}[t]{>{\raggedright}p{0.8cm}>{\raggedright}p{3cm}>{\raggedright}p{6cm}}
+So, & $\sqrt{2}\left(\cos\theta+i\sin\theta\right)$ & is the \textbf{polar form} of $i+i$,\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\begin{center}
+\begin{tabular}[t]{>{\raggedright}p{0.8cm}>{\raggedright}p{3cm}>{\raggedright}p{6cm}}
+and & $\sqrt{2}e^{i\frac{\pi}{4}}$ & is the \textbf{exponential form} of $i+i$.\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\subsection{Conversion of One Form to Another}
+
+\begin{enumerate}
+
+\item  To convert from \textbf{polar form} to \textbf{exponential
+form} and vice versa, just use Euler's formula:
+
+$e^{i\theta}=\cos\theta+i\sin\theta$.
+
+\item  To convert from \textbf{cartesian form }to \textbf{polar form}:
+
+\begin{itemize}
+
+\item  Find modulus of $z$ by using $\left|z\right|=\sqrt{a^{2}+b^{2}}$.
+
+\item  Find $\arg z$, where $-\pi<\arg z\leq\pi$.
+
+\item  Then $z=r\left(\cos\theta+i\sin\theta\right)$, where $r=\left|z\right|$ and $\theta=\arg z$.
+
+\end{itemize}
+
+\item  To convert from \textbf{polar form} to \textbf{cartesian form}:
+$
+\begin{aligned}[t]
+z & =r\left(\cos\theta+i\sin\theta\right)\\
+z & =r\cos\theta+ir\sin\theta\\
+z & =a+bi,\:\text{where }a=r\cos\theta\text{ and }b=r\sin\theta
+\end{aligned}
+$
+
+\end{enumerate}
+
+\begin{example}
+
+Express the following in exponential form:
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  ${\displaystyle \frac{\sqrt{3}+i}{2}}$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  $\cos\theta-i\sin\theta$
+
+\end{enumerate}
+
+\end{minipage}
+
+\medskip{}
+
+\Solution
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+$
+\begin{aligned}[t]
+\left|\frac{\sqrt{3}+i}{2}\right| & =\frac{1}{2}\sqrt{\left(\sqrt{3}\right)^{2}+1^{2}}\\
+ & =1
+\end{aligned}
+$
+
+$
+\begin{aligned}[t]
+\arg\left(\frac{\sqrt{3}+i}{2}\right)=\frac{\pi}{6}
+\end{aligned}
+$
+
+$
+\begin{aligned}[t]
+\therefore\frac{\sqrt{3}+i}{2}=e^{i\frac{\pi}{6}}
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item
+$
+\begin{aligned}[t]
+\cos\theta-i\sin\theta & =\cos\left(-\theta\right)+i\sin\left(-\theta\right)\\
+ & =e^{-i\theta}
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{minipage}
+
+\end{example}
+
+\begin{example}
+Convert ${\displaystyle 2e^{i\frac{5}{6}\pi}}$ into polar and cartesian
+form.
+
+\medskip{}
+
+\Solution
+
+$r=2$ and ${\displaystyle \theta=\frac{5\pi}{6}}$
+
+Polar form: ${\displaystyle 2\left(\cos\left(\frac{5\pi}{6}\right)+i\sin\left(\frac{5\pi}{6}\right)\right)}$
+
+\medskip{}
+
+Cartesian form:
+$
+\begin{aligned}[t]
+ & 2\left(-\frac{\sqrt{3}}{2}+i\frac{1}{2}\right)\\
+= & -\sqrt{3}+i
+\end{aligned}
+$
+
+\end{example}
+
+\newpage
+
+
+\subsection{Multiplication and Division in Exponential Form}
+
+We will see that exponential form is extremely powerful for dealing
+with multiplication and division of complex numbers.
+
+\begin{example}
+
+Evaluate the following complex numbers by first converting into exponential
+form.
+
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\left(1-i\sqrt{3}\right)^{3}\left(-1+i\right)^{2}$
+
+\end{enumerate}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{enumerate}[label=(\alph*),start=2]
+
+\item  ${\displaystyle \frac{\left(1-i\sqrt{3}\right)^{6}}{\left(-1+i\right)^{3}}}$
+
+\end{enumerate}
+
+\end{minipage}
+
+Use your GC to verify your answer.
+
+\Solution
+
+Let $z=1-i\sqrt{3}$ and $w=-1+i$.
+
+\begin{tabular}{>{\raggedright}p{3cm}>{\raggedright}p{3cm}}
+$\left|z\right|=2$ & ${\displaystyle \arg z=-\frac{\pi}{3}}$\tabularnewline
+\end{tabular}
+
+\begin{tabular}{>{\raggedright}p{3cm}>{\raggedright}p{3cm}}
+$\left|w\right|=\sqrt{2}$ & ${\displaystyle \arg w=\frac{3\pi}{4}}$\tabularnewline
+\end{tabular}
+
+In exponential form,
+\[
+z=2e^{-i\frac{\pi}{3}}\quad\text{ and \,}\quad w=\sqrt{2}e^{\frac{3\pi}{4}}
+\]
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+$
+\!
+\begin{aligned}[t]
+\left(1-i\sqrt{3}\right)^{3}\left(-1+i\right)^{2} & =\left(2e^{-i\frac{\pi}{3}}\right)^{3}\left(\sqrt{2}e^{i\frac{3\pi}{4}}\right)^{2}\\
+ & =\left(8e^{-i\pi}\right)\left(2e^{i\frac{3\pi}{2}}\right)\\
+ & =16e^{i\left(\frac{3\pi}{2}-\pi\right)}\\
+ & =16e^{i\frac{\pi}{2}}\\
+ & =16\left(\cos\left(\frac{\pi}{2}\right)+i\sin\left(\frac{\pi}{2}\right)\right)\\
+ & =16\left(0+i\right)\\
+ & =16i
+\end{aligned}
+$
+
+\item
+$
+\!
+\begin{aligned}[t]
+{\displaystyle \frac{\left(1-i\sqrt{3}\right)^{6}}{\left(-1+i\right)^{3}}} & =\frac{\left(2e^{-i\frac{\pi}{3}}\right)^{6}}{\left(\sqrt{2}e^{i\frac{3\pi}{4}}\right)^{3}}\\
+ & =\frac{64e^{-2i\pi}}{2\sqrt{2}e^{i\frac{9\pi}{4}}}\\
+ & =16\sqrt{2}e^{-2i\pi}e^{-i\frac{9\pi}{4}}\\
+ & =16\sqrt{2}e^{-i\left(2\pi+\frac{9\pi}{4}\right)}\\
+ & =16\sqrt{2}e^{-i\frac{17\pi}{4}}\\
+ & \equiv16\sqrt{2}e^{-i\frac{\pi}{4}}\quad\triangleright\left(-\pi<\theta\leq\pi\right)\\
+ & =16\sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right)+i\sin\left(-\frac{\pi}{4}\right)\right)\\
+ & =16\sqrt{2}\left(\frac{1}{\sqrt{2}}-i\frac{1}{\sqrt{2}}\right)\\
+ & =16\left(1-i\right)
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\subsection{Half Argument Approach}
+
+\begin{example}
+The complex number $w$ is given by ${\displaystyle w=\frac{e^{i\theta}}{1-e^{i\theta}}}$,
+where $0<\theta<2\pi$. Find, in terms of $\theta$, the real and
+imaginary parts of $w$.
+
+
+\Solution
+\begin{align*}
+w & =\frac{e^{i\theta}}{1-e^{i\theta}}\\
+ & =\frac{e^{i\theta}}{e^{i\frac{\theta}{2}}\left(e^{-i\frac{\theta}{2}}-e^{i\frac{\theta}{2}}\right)}\\
+ & =\frac{e^{i\frac{\theta}{2}}}{e^{-i\frac{\theta}{2}}-e^{i\frac{\theta}{2}}}\\
+ & =\frac{\cos\left(\frac{\theta}{2}\right)+i\sin\left(\frac{\theta}{2}\right)}{\left[\cos\left(-\frac{\theta}{2}\right)+i\sin\left(-\frac{\theta}{2}\right)\right]-\left[\cos\left(\frac{\theta}{2}\right)+i\sin\left(\frac{\theta}{2}\right)\right]}\\
+ & =\frac{\cos\left(\frac{\theta}{2}\right)+i\sin\left(\frac{\theta}{2}\right)}{-2i\sin\left(\frac{\theta}{2}\right)}\\
+ & =\frac{i\cos\left(\frac{\theta}{2}\right)+i^{2}\sin\left(\frac{\theta}{2}\right)}{-2i^{2}\sin\left(\frac{\theta}{2}\right)}\\
+ & =\frac{-\sin\left(\frac{\theta}{2}\right)}{2\sin\left(\frac{\theta}{2}\right)}+i\frac{\cos\left(\frac{\theta}{2}\right)}{2\sin\left(\frac{\theta}{2}\right)}\\
+ & =-\frac{1}{2}+i\frac{1}{2}\cot\left(\frac{\theta}{2}\right)
+\end{align*}
+Thus, ${\displaystyle \text{Re}\left(w\right)=-\frac{1}{2}}$ and
+${\displaystyle \text{Im}\left(w\right)=\frac{1}{2}\cot\left(\frac{\theta}{2}\right)}$.
+\end{example}
+
+
+
+
+\newpage
+
+\section[De Moivre's Theorem (Not in Syllabus)]{De Moivre's Theorem}
+
+Named after Abraham de Moivre (1667-1754), De Moivre's Theorem states
+that:
+
+\medskip{}
+
+\centerline{\begin{minipage}{.72\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+If $z=r\left(\cos\theta+i\sin\theta\right)$, then $z^{n}=r^{n}\left(\cos n\theta+i\sin n\theta\right)$
+for all $n\in\Q$.
+\end{tcolorbox}
+
+\end{minipage}}
+
+\textbf{Proof}:
+
+If $z=r\left(\cos\theta+i\sin\theta\right)$, then
+\begin{align*}
+z & =re^{i\theta}\\
+z^{n} & =\left(re^{i\theta}\right)^{n}\\
+ & =r^{n}e^{i\left(n\theta\right)}\\
+ & =r^{n}\left(\cos n\theta+i\sin n\theta\right)
+\end{align*}
+This theorem is useful in helping us easily \textbf{calculate the
+powers of complex numbers} as well as \textbf{find the $\textbf{n}\text{th}$
+roots of a complex number}.
+
+\begin{example}
+
+Use De Moivre's Theorem to find the exact value of
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\left(1+i\right)^{15}$
+
+\item  $\left(1-i\sqrt{3}\right)^{11}$
+
+\end{enumerate}
+
+Use your GC to verify your answer.
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $\left|\left(1+i\right)^{15}\right|=\left|\left(1+i\right)\right|^{15}=\left(\sqrt{2}\right)^{15}$
+
+${\displaystyle \arg\left(1+i\right)^{15}=15\arg\left(1+i\right)=\frac{15\pi}{4}\equiv-\frac{\pi}{4}}$
+
+(The argument is usually expressed in the principal range, i.e. $-\pi<\theta\leq\pi$)
+\begin{align*}
+\left(1+i\right)^{15} & =\left(\sqrt{2}\right)^{15}\left(\cos\left(-\frac{\pi}{4}\right)+i\sin\left(-\frac{\pi}{4}\right)\right)\\
+ & =\left(\sqrt{2}\right)^{15}\left(\frac{1}{\sqrt{2}}+i\left(-\frac{1}{\sqrt{2}}\right)\right)\\
+ & =\left(\sqrt{2}\right)^{14}-i\left(\sqrt{2}\right)^{14}\\
+ & =128\left(1-i\right)
+\end{align*}
+
+\item  $\left|\left(1-i\sqrt{3}\right)^{11}\right|=\left|\left(1-i\sqrt{3}\right)\right|^{11}=2^{11}$
+
+${\displaystyle \arg\left(1-i\sqrt{3}\right)^{11}=11\arg\left(1-i\sqrt{3}\right)=-\frac{11\pi}{3}\equiv\frac{\pi}{3}}$
+\begin{align*}
+\left(1-i\sqrt{3}\right)^{11} & =2^{11}\left(\cos\left(\frac{\pi}{3}\right)+i\sin\left(\frac{\pi}{3}\right)\right)\\
+ & =2^{11}\left(\frac{1}{2}+i\frac{\sqrt{3}}{2}\right)\\
+ & =2^{10}+2^{10}i\sqrt{3}\\
+ & =1024\left(1+i\sqrt{3}\right)
+\end{align*}
+
+\end{enumerate}
+
+\end{example}
+
+\begin{example}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Write $z=1+i$ in polar form and hence write $z^{n}$ in polar
+form.
+
+\item Find all the values of $n$ for which
+
+\begin{enumerate}[label=(\roman*)]
+
+\item  $z^{n}$ is real
+
+\item  $z^{n}$ is purely imaginary
+
+\end{enumerate}
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item $\left|z\right|=\left|1+i\right|=\sqrt{2}$
+
+${\displaystyle \arg z=\arg\left(1+i\right)=\tan^{-1}\left(\frac{1}{1}\right)=\frac{\pi}{4}}$
+
+${\displaystyle \therefore z=\sqrt{2}\left(\cos\left(\frac{\pi}{4}\right)+i\sin\left(\frac{\pi}{4}\right)\right)}$
+
+${\displaystyle \left|z^{n}\right|=\left|z\right|^{n}=\left(\sqrt{2}\right)^{n}=2^{\frac{n}{2}}}$
+
+${\displaystyle \arg\left(z^{n}\right)=n\arg z=\frac{n\pi}{4}}$
+
+$\therefore{\displaystyle z^{n}=2^{\frac{n}{2}}\left(\cos\left(\frac{n\pi}{4}\right)+i\sin\left(\frac{n\pi}{4}\right)\right)}$
+
+\item
+
+\begin{enumerate}[label=(\roman*)]
+
+\item  $z^{n}$ is real when ${\displaystyle \sin\left(\frac{n\pi}{4}\right)=0}$.
+\begin{align*}
+\frac{n\pi}{4} & =k\pi,\:\text{where }k\in\Z\\
+n & =4k
+\end{align*}
+Thus, $z^{n}$ is real when $n=4k$ where $k\in\R$.
+
+\item  $z^{n}$ is purely imaginary when ${\displaystyle \cos\left(\frac{n\pi}{4}\right)=0}$.
+\begin{align*}
+\frac{n\pi}{4} & =\frac{\pi}{2}+k\pi,\:\text{where }k\in\Z\\
+n & =2+4k
+\end{align*}
+Thus, $z^{n}$ is purely imaginary when $n=2+4k$ where $k\in\R$.
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{example}
+
+
+\newpage
+
+\section[Roots of Complex Numbers (Not in Syllabus)]{Roots of Complex Numbers}
+
+With De Moivre's Theorem to help us we can now find the roots of complex
+numbers.
+
+Consider an equation of the form $z^{n}=c$, where $n$ is a positive
+integer and $c$ is a complex number. How many roots will we obtain
+for the following cases? (Recall the Fundamental Theorem of Algebra
+and look at the highest degree of $z$ in the equation).
+
+\begin{align*}
+z^{2} & =c\quad\text{No. of roots }=2\\
+z^{3} & =c\quad\text{No. of roots }=3\\
+z^{4} & =c\quad\text{No. of roots }=4
+\end{align*}
+
+\medskip{}
+
+\centerline{\begin{minipage}{.88\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The solutions to $z^{n}=c$ are known as the \textbf{$n\text{th}$
+roots of the complex number $c$}.
+\end{tcolorbox}
+
+\end{minipage}}
+
+\begin{example}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Find the fourth roots of $-4$ in the form $a+bi$.
+
+\item  Hence write $z^{4}+4$ as a product of real quadratic factors.
+
+\end{enumerate}
+
+\medskip{}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  $z^{4}=-4$
+
+$\left|z^{4}\right|=4$ and $\arg\left(z^{4}\right)=\pi$
+
+\begin{align*}
+z^{4} & =4e^{i\pi}\\
+ & =4e^{i\left(\pi+2k\pi\right)},\:\text{where }k\in\Z\\
+\left(z^{4}\right)^{\frac{1}{4}} & =4^{\frac{1}{4}}e^{\frac{1}{4}i\left(\pi+2k\pi\right)}\\
+z & =\sqrt{2}e^{\frac{1}{4}i\left(\pi+2k\pi\right)}
+\end{align*}
+
+Let $k=0,1,2,3$
+
+\begin{align*}
+z & =\sqrt{2}e^{\frac{1}{4}i\left(\pi\right)},\sqrt{2}e^{\frac{1}{4}i\left(3\pi\right)},\sqrt{2}e^{\frac{1}{4}i\left(5\pi\right)},\sqrt{2}e^{\frac{1}{4}i\left(7\pi\right)}\\
+ & =\sqrt{2}e^{\frac{\pi}{4}i},\sqrt{2}e^{\frac{3\pi}{4}i},\sqrt{2}e^{\frac{5\pi}{4}i},\sqrt{2}e^{\frac{7\pi}{4}i}\\
+ & =\sqrt{2}\left(\cos\frac{\pi}{4}+i\sin\frac{\pi}{4}\right),\sqrt{2}\left(\cos\frac{3\pi}{4}+i\sin\frac{3\pi}{4}\right),\sqrt{2}\left(\cos\frac{5\pi}{4}+i\sin\frac{5\pi}{4}\right),\sqrt{2}\left(\cos\frac{7\pi}{4}+i\sin\frac{7\pi}{4}\right)\\
+ & =\sqrt{2}\left(\frac{1}{\sqrt{2}}+i\frac{1}{\sqrt{2}}\right),\sqrt{2}\left(-\frac{1}{\sqrt{2}}+i\frac{1}{\sqrt{2}}\right),\sqrt{2}\left(-\frac{1}{\sqrt{2}}-i\frac{1}{\sqrt{2}}\right),\sqrt{2}\left(\frac{1}{\sqrt{2}}-i\frac{1}{\sqrt{2}}\right)\\
+ & =1+i,-1+i,-1-i,1-i
+\end{align*}
+
+
+\item
+$
+\begin{aligned}[t]
+z^{4}+4 & =\left[\left(z-\left(1+i\right)\right)\left(z-\left(1-i\right)\right)\right]\left[\left(z-\left(-1+i\right)\right)\left(z-\left(-1-i\right)\right)\right]\\
+ & =\left[z^{2}-z\left(1-i\right)-z\left(1+i\right)+\left(1-i^{2}\right)\right]\left[z^{2}-z\left(-1-i\right)-z\left(-1+i\right)+\left(1-i^{2}\right)\right]\\
+ & =\left[z^{2}-2z+2\right]\left[z^{2}+2z+2\right]
+\end{aligned}
+$
+
+\end{enumerate}
+\end{example}
+% End document
+\end{document}

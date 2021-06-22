@@ -1,0 +1,6144 @@
+\documentclass[11pt,a4paper]{book}
+
+\usepackage{lib/Textbook}
+\exhyphenpenalty=10000\hyphenpenalty=10000
+%\sloppy
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{nccmath}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{tasks}
+\usetikzlibrary{shapes,arrows,decorations.pathreplacing,calc,
+positioning,intersections,shadows}
+\usepackage[export]{adjustbox}
+\usepackage{chngcntr}
+\usepackage{array}
+\usepackage{picture}
+\tikzstyle{Box} = [rectangle, minimum height=1cm, draw=black]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{label = Step \arabic*:}
+
+\let\csc\relax
+\DeclareMathOperator{\csc}{cosec}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\C}{\mathbb{C}}
+
+\usepackage{ulem}
+\usepackage{graphicx}
+
+\usepackage[english]{babel}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mathtools,amsfonts,amssymb,amsthm}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+
+\usepackage{fourier}
+
+\usepackage{comment}
+
+
+\let\cleardoublepage=\clearpage
+
+
+% Start document
+\begin{document}
+
+\tableofcontents
+
+\chapter{Limits}
+\section{Limits}
+
+It is difficult to understand calculus without a firm grasp on the
+meaning of a limit. A derivative, the fundamental concept of differential
+calculus, is a limit. An integral, the fundamental concept of integral
+calculus, is a limit.
+
+The following definition of a limit is informal, but adequate for
+our purposes.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+We say ${\displaystyle \lim_{x\rightarrow a}f\left(x\right)=L}$ if
+we can make $f\left(x\right)$ as close to $L$ as we want by taking
+$x$ sufficiently close to $a$ (on either side of $a$) without letting
+$x=a$.
+\end{tcolorbox}
+
+Notice that the limit is defined for $x$ close to but not equal to
+$a$. This means that whether the function $f$ is defined or not
+at $x=a$ is not important to the definition of the limit of $f$
+as $x$ approaches $a$. What \textit{is} important is the behaviour
+of the function as $x$ gets very close to $a$.
+
+For example, suppose we wish to find the limit of ${\displaystyle f\left(x\right)=\frac{5x+x^{2}}{x}}$
+as $x\rightarrow0$.
+
+It is tempting for us to substitute $x=0$ into $f\left(x\right)$.
+However, in doing this, not only do we get the meaningless value $\frac{0}{0}$, but we also ignore the basic limit definition.
+
+\begin{minipage}{.5\textwidth}
+
+\begin{align*}
+{\displaystyle \text{Instead, observe that if }} & f\left(x\right)=\frac{5x+x^{2}}{x}=\frac{x\left(5+x\right)}{x}\\
+\text{then } & f\left(x\right)=\begin{cases}
+5+x & x\neq0\\
+\text{undefined} & x=0
+\end{cases}
+\end{align*}
+
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{center}
+\includegraphics[width=5.5cm,valign=t]{\string"lib/Graphics/LimitsIntro\string".png}
+\par\end{center}
+
+\end{minipage}
+
+The graph of $y=f\left(x\right)$ is therefore a straight line $y=x+5$
+with a ``hole'' at $\left(0,5\right)$. The ``hole'' is a \textbf{point
+of discontinuity} of the function.
+However, even though this point is missing, the limit of $f\left(x\right)$
+as $x$ approaches $0$ does exist. In particular, as $x\to0$ from
+either direction, $f\left(x\right)\rightarrow5$.
+
+We write ${\displaystyle \lim_{x\to0}\frac{5x+x^{2}}{x}=5}$ which
+reads: ``the limit as $x$ approaches 0, of  ${\displaystyle \frac{5x+x^{2}}{x}}$, is 5''.
+
+Below, we have some properties of limits.
+
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+
+Assuming ${\displaystyle \lim_{x\rightarrow a}f\left(x\right)}$ and
+${\displaystyle \lim_{x\rightarrow a}g\left(x\right)}$ both exist
+and $c$ is any real number, then
+
+\begin{tasks}[style=itemize,label-width=3.5ex](2)
+
+\task  $\mathop{\lim}\limits _{x\to a}\left[{cf\left(x\right)}\right]=c\mathop{\lim}\limits _{x\to a}f\left(x\right)$
+
+\task  $\mathop{\lim}\limits _{x\to a}\left[{f\left(x\right)\pm g\left(x\right)}\right]=\mathop{\lim}\limits _{x\to a}f\left(x\right)\pm\mathop{\lim}\limits _{x\to a}g\left(x\right)$
+
+\task  $\mathop{\lim}\limits _{x\to a}\left[{f\left(x\right)g\left(x\right)}\right]=\mathop{\lim}\limits _{x\to a}f\left(x\right)\times\mathop{\lim}\limits _{x\to a}g\left(x\right)$
+
+\task ${\displaystyle \mathop{\lim}\limits _{x\to a}\left[{\frac{{f\left(x\right)}}{{g\left(x\right)}}}\right]=\frac{{\mathop{\lim}\limits _{x\to a}f\left(x\right)}}{{\mathop{\lim}\limits _{x\to a}g\left(x\right)}}{\rm {,}}\,\,\,\,\,{\rm {provided}}\,\mathop{\lim}\limits _{x\to a}g\left(x\right)\ne0}$
+
+\task  $\mathop{\lim}\limits _{x\to a}c=c,\,\,\,\,c{\mbox{ is any real number}}$
+
+\task  $\mathop{\lim}\limits _{x\to a}x=a$
+
+\end{tasks}
+
+\end{tcolorbox}
+
+
+\begin{example}
+
+Evaluate:
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex] (3)
+
+\task  $\mathop{\lim}\limits _{x\to2}x^{2}$
+
+\task  ${\displaystyle \mathop{\lim}\limits _{x\to0}\frac{x^{2}+3x}{x}}$
+
+\task  ${\displaystyle \mathop{\lim}\limits _{x\to3}\frac{x^{2}-9}{x-3}}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex] (3)
+
+\task
+$
+\begin{aligned}[t]
+\mathop{\lim}\limits _{x\to2}x^{2} & =\left(2\right)^{2}\\
+ & =4
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \mathop{\lim}\limits _{x\to0}\frac{x^{2}+3x}{x}} & =\lim_{x\to0}\left(x+3\right)\\
+ & =3
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \mathop{\lim}\limits _{x\to3}\frac{x^{2}-9}{x-3}} & =\mathop{\lim}\limits _{x\to3}\frac{\left(x+3\right)\left(x-3\right)}{x-3}\\
+ & =\mathop{\lim}\limits _{x\to3}x+3\\
+ & =6
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+
+\section{Existence of Limits}
+
+A one-sided limit is the value the function approaches as the $x-$values approach the limit from one side only.
+
+Right Hand Limit:
+\[
+{\displaystyle \lim_{x\rightarrow a^{+}}f\left(x\right)={\displaystyle L}}
+\]
+
+Left Hand Limit:
+\[
+{\displaystyle \lim_{x\rightarrow a^{-}}f\left(x\right)={\displaystyle L}}
+\]
+
+\centerline{\begin{minipage}{.85\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The limit ${\displaystyle \lim_{x\rightarrow a}f\left(x\right)}$
+exists and is equal to the finite value $L$ if ${\displaystyle \lim_{x\rightarrow a^{+}}f\left(x\right)={\displaystyle \lim_{x\rightarrow a^{-}}f\left(x\right)=L}}$.
+\end{tcolorbox}
+
+\end{minipage}}
+
+In words, the limit exists if and only if both the right hand and left hand limit exist and are equal.
+
+\begin{itemize}
+
+\item \begin{minipage}[t]{.5\textwidth}
+
+Consider $f\left(x\right)=\begin{cases}
+4, & x<1\\
+2, & x\geq1
+\end{cases}$
+
+\bigskip
+
+Observe that there is a ``jump'' at $x=1$.
+
+\bigskip
+
+${\displaystyle \lim_{x\rightarrow1^{-}}f\left(x\right)={\displaystyle 4}}$
+and ${\displaystyle \lim_{x\rightarrow1^{+}}f\left(x\right)={\displaystyle 2}}$
+
+\bigskip
+
+Since the left and right hand limits are not equal,
+
+\bigskip
+
+${\displaystyle \therefore\lim_{x\rightarrow1}f\left(x\right)}$
+\textbf{does not exist}.
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/LimitsJump\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\item \begin{minipage}[t]{.5\textwidth}
+
+Consider ${\displaystyle f\left(x\right)=\frac{1}{x^{2}}}$
+
+\bigskip
+
+Observe that there is a ``break'' at $x=0$.
+
+\bigskip
+
+As $x\rightarrow0$, $f\left(x\right)\to\infty$.
+
+\bigskip
+
+Neither ${\displaystyle \lim_{x\rightarrow0^{-}}f\left(x\right)}$
+nor ${\displaystyle \lim_{x\rightarrow0^{+}}f\left(x\right)}$ exists,
+
+\bigskip
+
+${\displaystyle \therefore\lim_{x\rightarrow0}f\left(x\right)}$
+\textbf{does not exist}.
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/LimitsBreak\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\end{itemize}
+
+\newpage
+
+\section{Limits at Infinity}
+
+We can use the idea of limits to discuss the behaviour of functions
+for extreme values of $x$.
+
+We write $x\to\infty$ to mean ``$x$ tends to positive infinity''
+and $x\to-\infty$ to mean ``$x$ tends to negative infinity''.
+
+\begin{example}
+
+Evaluate:
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex] (3)
+
+\task  ${\displaystyle \mathop{\lim}\limits _{x\to\infty}\frac{2x+3}{x-4}}$
+
+\task  ${\displaystyle \mathop{\lim}\limits _{x\to\infty}\frac{x^{2}-3x+2}{1-x^{2}}}$
+
+\task  ${\displaystyle \mathop{\lim}\limits _{x\to\infty}\frac{x^{2}+x+1}{x-2}}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task
+$
+\begin{aligned}[t]
+\mathop{\lim}\limits _{x\to\infty}\frac{2x+3}{x-4} & ={\displaystyle \mathop{\lim}\limits _{x\to\infty}\frac{2+\frac{3}{x}}{1-\frac{4}{x}}\text{ (dividing each term by \ensuremath{x} since \ensuremath{x\neq0})}}\\
+ & =\frac{2}{1}\\
+ & =2
+\end{aligned}[t]
+$
+
+\task
+$
+\begin{aligned}[t]
+\mathop{\lim}\limits _{x\to\infty}\frac{x^{2}-3x+2}{1-x^{2}} & =\mathop{\lim}\limits _{x\to\infty}\frac{1-\frac{3}{x}+\frac{2}{x^{2}}}{\frac{1}{x^{2}}-1}\text{ (dividing each term by \ensuremath{x^{2}} since \ensuremath{x\neq0})}\\
+ & =\frac{1}{-1}\\
+ & =-1
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\mathop{\lim}\limits _{x\to\infty}\frac{x^{2}+x+1}{x-2}=\mathop{\lim}\limits _{x\to\infty}\frac{1+\frac{1}{x}+\frac{1}{x^{2}}}{\frac{1}{x}-\frac{2}{x^{2}}}\text{ (dividing each term by \ensuremath{x^{2}} since \ensuremath{x\neq0})}
+\end{aligned}
+$
+
+As $x\to\infty$, the numerator $\to\:-1$, but the denominator $\to\:0$.
+
+Hence as $x\to\infty$, ${\displaystyle \frac{x^{2}+x+1}{x-2}\to\infty}$.
+
+${\displaystyle \therefore\mathop{\lim}\limits _{x\to\infty}\frac{x^{2}+x+1}{x-2}}$
+does not exist.
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\section{Continuity}
+
+The existence of $f\left(a\right)$ and ${\displaystyle \lim_{x\to a}f\left(x\right)}$
+are useful for describing the continuity of a curve.
+
+\medskip
+
+\centerline{\begin{minipage}{.8\textwidth}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+A function $f$ is continuous at $x=a$ if $f\left(a\right)$ and
+${\displaystyle \lim_{x\to a}f\left(x\right)}$ exist and are equal.
+\end{tcolorbox}
+
+\end{minipage}}
+
+\begin{minipage}[t]{.5\textwidth}
+
+If $f$ is not continuous at $x=a$, we say that $f$ is discontinuous
+at $x=a$ or has a discontinuity at $x=a$.
+
+If $f$ has a ``hole'' at $x=a$, then ${\displaystyle \lim_{x\to a}f\left(x\right)}$
+exists, but $f\left(a\right)$ does not. The ``hole'' is a \textbf{removable
+discontinuity} which can be removed by defining a new function based
+on $f$ but which takes the value ${\displaystyle \lim_{x\to a}f\left(x\right)}$
+when $x=a$.
+
+\medskip
+
+Discontinuities due to ``jumps'' and ``breaks'' cannot be removed
+by simply redefining the value of the function there. They are called
+\textbf{essential discontinuities}.
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/LimitsContinuity\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{example}
+
+\begin{minipage}[t]{.5\textwidth}
+
+The graph of $y=f\left(x\right)$ is shown alongside.
+
+State the value(s) of $x$ for which $f$
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  has an essential discontinuity,
+
+\task  has a removable discontinuity,
+
+\task  is continuous.
+
+\end{tasks}
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/LimitsContinuityEx1\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  At $x=6$, $f$ is not defined and ${\displaystyle \lim_{x\to6}f\left(x\right)}$
+does not exist.
+
+Thus $f$ has an essential discontinuity at $x=6$.
+
+\task  At $x=5$, $f$ is not defined but ${\displaystyle \lim_{x\to5}f\left(x\right)}$
+does exist.
+
+Thus $f$ has a removable discontinuity at $x=5$.
+
+\task  $f$ is continuous for all $x\in\R$, $x\neq5$ and $x\neq6$.
+
+\end{tasks}
+
+\end{example}
+
+\chapter{Differentiation Techniques}
+\section{Formal Definition of the Derivative}
+
+A derivative describes the instantaneous rate of change of a curve,
+or in other words, the slope of a curve at a point. The formal definition
+of a derivative is as follows
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The derivative of $f(x)$ with respect to $x$ is the function $f'(x)$
+and is defined as,
+
+\[
+f'(x)=\lim_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}
+\]
+
+provided the limit exists.
+\end{tcolorbox}
+
+The meaning of this is can be best understood by observing the following
+diagram.
+
+\begin{minipage}[t]{.5\textwidth}
+
+The chord $AB$ represents the mean rate of change of the function
+in the interval between $x$ and $x+h$. If we want the exact rate
+of change at $A$, we ``move'' the point $B$ to meet $A$. In doing
+so, the distance between the two points, $x$ and $x+h$, becomes
+closer to zero, and the slope of the line between them comes closer
+to resembling a tangent line.
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=7cm,valign=t]{\string"lib/Graphics/DerivativeGraph\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\subsection{Notation}
+
+Given a function $y=f(x)$ all of the following are equivalent and
+represent the derivative of $f(x)$ with respect to $x$.
+
+\[
+f'\left(x\right)=y'=\frac{{\mathrm{d}y}}{{\mathrm{d}x}}=\frac{\mathrm{d}}{{\mathrm{d}x}}\left[f\left(x\right)\right]
+\]
+
+When evaluating derivatives at a point, say $x=a$, we use either
+of the following equivalent notations.
+
+\[
+f'\left(a\right)={\left.{\frac{{\mathrm{d}y}}{{\mathrm{d}x}}}\right|_{x=a}}
+\]
+
+\subsection{Differentiation From First Principles}
+
+When we use the limit definition to find a derivative, we say we are
+\textbf{differentiating from first principles}.
+
+
+\newpage{}
+
+
+\begin{example}
+
+Consider the function $f\left(x\right)=x^{2}$.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  Use the first principles to find $f'\left(x\right)$.
+
+\task  Find $f'\left(-1\right)$ and interpret your answer.
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task
+$
+\begin{aligned}[t]
+f'\left(x\right) & =\lim_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}\\
+ & =\lim_{h\rightarrow0}\frac{\left(x+h\right)^{2}-x^{2}}{h}\\
+ & =\lim_{h\rightarrow0}\frac{x^{2}+2xh+h^{2}-x^{2}}{h}\\
+ & =\lim_{h\rightarrow0}\frac{2xh+h^{2}}{h}\\
+ & =\lim_{h\rightarrow0}2x+h\\
+ & =2x
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+f'\left(-1\right) & =2\left(-1\right)\\
+ & =-2
+\end{aligned}
+$
+
+The tangent to $f\left(x\right)=x^{2}$ at the point where $x=-1$,
+has a gradient of $-2$.
+
+\end{tasks}
+
+\end{example}
+
+\subsection{Basic Rules of Differentiation}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+If $f(x)$ and $g(x)$ are differentiable functions and $c$, $n$
+are any real numbers,
+
+\begin{tasks}[style=itemize,label-width=3.5ex]
+
+\task %
+\begin{tabular}{>{\raggedright}p{7cm}>{\raggedright}p{4cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(k\right)=0}$ & (Constant Rule)\tabularnewline
+\end{tabular}
+
+
+\task %
+\begin{tabular}{>{\raggedright}p{7cm}>{\raggedright}p{4cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(x^{n}\right)=nx^{n-1}}$ & (Power Rule)\tabularnewline
+\end{tabular}
+
+\task %
+\begin{tabular}{>{\raggedright}p{7cm}>{\raggedright}p{4cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[kf(x)\right]=kf'(x)}$ & (Constant Multiple Rule)\tabularnewline
+\end{tabular}
+
+\task %
+\begin{tabular}{>{\raggedright}p{7cm}>{\raggedright}p{5cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[f(x)\pm g(x)\right]=f'(x)\pm g'(x)}$ & (Sum and Difference Rule)\tabularnewline
+\end{tabular}
+
+\task  %
+\begin{tabular}{>{\raggedright}p{7cm}>{\raggedright}p{4cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[f(g(x))\right]=f'\left[g(x)\right]g'(x)}$ & (Chain Rule)\tabularnewline
+\end{tabular}
+
+If $y=f\left(u\right)$ and $u=g\left(x\right)$, then the
+chain rule can be written as
+
+\[
+\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}y}{\mathrm{d}u}\times\frac{\mathrm{d}u}{\mathrm{d}x}
+\]
+
+\task  %
+\begin{tabular}{>{\raggedright}p{7cm}>{\raggedright}p{4cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[f\left(x\right)g\left(x\right)\right]=f\left(x\right)g'\left(x\right)+g\left(x\right)f'\left(x\right)}$ & (Product Rule)\tabularnewline
+\end{tabular}
+
+\task  %
+\begin{tabular}{>{\raggedright}p{7cm}>{\raggedright}p{4cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\frac{f\left(x\right)}{g\left(x\right)}\right]=\frac{g\left(x\right)f'\left(x\right)-f\left(x\right)g'\left(x\right)}{\left[g\left(x\right)\right]^{2}}}$ & (Quotient Rule)\tabularnewline
+\end{tabular}
+
+\end{tasks}
+\end{tcolorbox}
+
+\newpage
+
+
+\begin{example}
+
+Differentiate the following functions with respect to $x$.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
+
+\task ${\displaystyle \sqrt{x}-\frac{1}{2x^{2}}}$
+
+\task $\frac{{\displaystyle 2x^{2}+3x-4}}{{\displaystyle \sqrt{x}}}$
+
+\task $\sqrt{x^{2}-x+3}$
+
+\task $\left(2x-3\right)\sqrt{x-5}$
+
+\task ${\displaystyle \frac{x^{2}+1}{1-x}}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = .5cm]
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sqrt{x}-\frac{1}{2x^{2}}\right)} & =\frac{\mathrm{d}}{\mathrm{d}x}\left(x^{\frac{1}{2}}-\frac{1}{2}x^{-2}\right)\\
+ & =\frac{1}{2}x^{-\frac{1}{2}}-\frac{1}{2}\left(-2\right)x^{-3}\\
+ & =\frac{1}{2\sqrt{x}}+\frac{1}{x^{3}}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{{\displaystyle 2x^{2}+3x-4}}{{\displaystyle \sqrt{x}}}\right)} & =\frac{\mathrm{d}}{\mathrm{d}x}\left(2x^{\frac{3}{2}}+3x^{\frac{1}{2}}-4x^{-\frac{1}{2}}\right)\\
+ & =2\left(\frac{3}{2}\right)x^{\frac{1}{2}}+3\left(\frac{1}{2}\right)x^{-\frac{1}{2}}-4\left(-\frac{1}{2}\right)x^{-\frac{3}{2}}\\
+ & =3\sqrt{x}+\frac{3}{2\sqrt{x}}+\frac{2}{x^{\frac{3}{2}}}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sqrt{x^{2}-x+3}\right)} & =\frac{1}{2}\left(2x-1\right)\left(x^{2}-x+3\right)^{-\frac{1}{2}}\\
+ & =\frac{2x-1}{2\sqrt{x^{2}-x+3}}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}}{\mathrm{d}x}\left[\left(2x-3\right)\sqrt{x-5}\right] & =\left(2x-3\right)\frac{\mathrm{d}}{\mathrm{d}x}\left(\sqrt{x-5}\right)+\sqrt{x-5}\frac{\mathrm{d}}{\mathrm{d}x}\left(2x-3\right)\\
+ & =\left(2x-3\right)\left(\frac{1}{2}\right)\left(x-5\right)^{-\frac{1}{2}}+2\sqrt{x-5}\\
+ & =\frac{2x-3}{2\sqrt{x-5}}+2\sqrt{x-5}\\
+ & =\frac{2x-3+4\left(x-5\right)}{2\sqrt{x-5}}\\
+ & =\frac{6x-23}{2\sqrt{x-5}}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left({\displaystyle \frac{x^{2}+1}{1-x}}\right)} & =\frac{\frac{\mathrm{d}}{\mathrm{d}x}\left(x^{2}+1\right)\left(1-x\right)-\frac{\mathrm{d}}{\mathrm{d}x}\left(1-x\right)\left(x^{2}+1\right)}{\left(1-x\right)^{2}}\\
+ & =\frac{2x\left(1-x\right)+\left(x^{2}+1\right)}{\left(1-x^{2}\right)}\\
+ & =-\frac{x^{2}-2x-1}{\left(x^{2}-1\right)}
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\section{Computing Derivatives}
+
+\subsection{Exponential/Logarithmic Functions}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tabular}{>{\centering}p{4.5cm}>{\centering}p{10cm}}
+General & Function\tabularnewline
+\end{tabular}
+
+\begin{tasks}[style=itemize,label-width=3.5ex](2)
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\mathrm{e}^{x}\right)=\mathrm{e}^{x}}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\mathrm{e}^{f(x)}\right)=f'(x)\mathrm{e}^{f(x)}}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\ln\left(x\right)\right)=\frac{1}{x},\hspace{0.5cm}x>0}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\ln f\left(x\right)\right)=\frac{f'(x)}{f(x)}}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}(}a^{x})=a^{x}\ln(a)$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}(}a^{f(x)})=f'(x)a^{f(x)}\ln(a)$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+Differentiate the following functions with respect to $x$.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
+
+\task $\mathrm{e}^{3x^{2}+x-1}$
+
+\task $2\mathrm{e}^{\sin x}$
+
+\task $x^{2}\mathrm{e}^{x}$
+
+\task ${\displaystyle \frac{1}{2\mathrm{e}^{x}+4}}$
+
+\task $\ln\left(\sin x+x^{2}\right)$
+
+\task $\left(\ln x\right)^{2}$
+
+\task  $\ln\sqrt{x^{2}+1}$
+
+\task  $\log_{5}\left(x^{2}+1\right)$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = .5cm](2)
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left({\displaystyle \mathrm{e}^{3x^{2}+x-1}}\right)} & =\frac{\mathrm{d}}{\mathrm{d}x}\left(3x^{2}+x-1\right)\mathrm{e}^{3x^{2}+x-1}\hspace{0.5cm}\\
+ & =\left(6x+1\right)\mathrm{e}^{3x^{2}+x-1}
+\end{aligned}
+$
+
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left({\displaystyle 2\mathrm{e}^{\sin x}}\right)} & =2\frac{\mathrm{d}}{\mathrm{d}x}\left(\sin x\right)\mathrm{e}^{\sin x}\\
+ & =2{\displaystyle \mathrm{e}^{\sin x}\cos x}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left({\displaystyle x^{2}\mathrm{e}^{x}}\right)} & =x^{2}\frac{\mathrm{d}}{\mathrm{d}x}\left(\mathrm{e}^{x}\right)+\mathrm{e}^{x}\frac{\mathrm{d}}{\mathrm{d}x}x^{2}\\
+ & =x^{2}\mathrm{e}^{x}+2x\, \mathrm{e}^{x}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{1}{2\mathrm{e}^{x}+4}\right)} & =\left(2\mathrm{e}^{x}+4\right)^{-1}\\
+ & =\left(-1\right)\left(2\mathrm{e}^{x}\right)\left(2\mathrm{e}^{x}+4\right)^{-2}\\
+ & =-\frac{2\mathrm{e}^{x}}{\left(2\mathrm{e}^{x}+4\right)^{2}}
+\end{aligned}
+$
+
+
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\ln\left(\sin\thinspace x+x^{2}\right)\right]} & =\frac{\frac{\mathrm{d}}{\mathrm{d}x}\left(\sin\thinspace x+x^{2}\right)}{\sin\thinspace x+x^{2}}\\
+ & =\frac{\cos x+2x}{\sin x+x^{2}}
+\end{aligned}
+$
+
+
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\left(\ln x\right)^{2}\right]} & =2\left(\ln x\right)\frac{\mathrm{d}}{\mathrm{d}x}\left(\ln x\right)\\
+ & =\frac{2\ln x}{x}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}}{\mathrm{d}x}\left(\ln\sqrt{x^{2}+1}\right) & =\frac{\mathrm{d}}{\mathrm{d}x}\left[\frac{1}{2}\ln\left(x^{2}+1\right)\right]\\
+ & =\frac{1}{2}\left(\frac{2x}{x^{2}+1}\right)\\
+ & =\frac{x}{x^{2}+1}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}}{\mathrm{d}x}\left[\log_{5}\left(x^{2}+1\right)\right] & =\frac{\mathrm{d}}{\mathrm{d}x}\left[\frac{\ln\left(x^{2}+1\right)}{\ln5}\right]\\
+ & =\frac{1}{\ln5}\left(\frac{2x}{x^{2}+1}\right)\\
+ & =\frac{2x}{\ln5\left(x^{2}+1\right)}
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\subsection{Trigonometric Functions}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tabular}{>{\centering}p{4.5cm}>{\centering}p{10cm}}
+General & Function\tabularnewline
+\end{tabular}
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-1cm](2)
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sin x\right)=\cos x}$
+
+\task ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\sin f\left(x\right)\right]=f'\left(x\right)\cos\left[f\left(x\right)\right]}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\cos x\right)=-\sin x}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\cos f\left(x\right)\right]=-f'\left(x\right)\sin\left[f\left(x\right)\right]}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\tan x\right)=\sec^{2}x}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\tan f\left(x\right)\right]=f'\left(x\right)\sec^{2}\left[f\left(x\right)\right]}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sec x\right)=\sec x\tan x}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\sec f\left(x\right)\right]=f'\left(x\right)\sec\left[f\left(x\right)\right]}\tan\left[f\left(x\right)\right]$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\csc x\right)=-\csc x\cot x}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\csc f\left(x\right)\right]=-f'\left(x\right)\csc\left[f\left(x\right)\right]}\cot\left[f\left(x\right)\right]$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\cot\thinspace x\right)=-\csc^{2}x}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\cot f\left(x\right)\right]=-f'\left(x\right)\csc^{2}\left[f\left(x\right)\right]}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+
+Differentiate the following functions with respect to $x$.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=2mm](3)
+
+\task $\sin2x$
+
+\task ${\displaystyle \cos^{2}\left(2x+\frac{\pi}{3}\right)}$
+
+\task $\tan^{2}(1-x)$
+
+\task $\csc^{3}\left(\sqrt{x}\right)$
+
+\task $\sec\left(x^{2}+1\right)$
+
+\task $\sqrt{\cot2x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sin2x\right)} & =2\cos2x
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[{\displaystyle \cos^{2}\left(2x+\frac{\pi}{3}\right)}\right]} & =\left(2\right)\left(2\right)\left(-\sin\left(2x+\frac{\pi}{3}\right)\right)\cos\left(2x+\frac{\pi}{3}\right)\\
+ & =-4\sin\left(2x+\frac{\pi}{3}\right)\cos\left(2x+\frac{\pi}{3}\right)
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[{\displaystyle \tan^{2}\left(x-1\right)}\right]} & =2\tan\left(x-1\right)\frac{\mathrm{d}}{\mathrm{d}x}\left[\tan\left(x-1\right)\right]\\
+ & =2\sec^{2}\left(x-1\right)\tan\left(x-1\right)
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\csc^{3}\left(\sqrt{x}\right)\right]} & =3\left(\csc^{2}\left(\sqrt{x}\right)\right)\frac{\mathrm{d}}{\mathrm{d}x}\left[\csc\left(\sqrt{x}\right)\right]\\
+ & =3\left(\csc^{2}\left(\sqrt{x}\right)\right)\left(\frac{1}{2}x^{-\frac{1}{2}}\right)\left[-\csc\left(\sqrt{x}\right)\cot\left(\sqrt{x}\right)\right]\\
+ & =-\frac{3}{2\sqrt{x}}\csc^{3}\left(\sqrt{x}\right)\cot\left(\sqrt{x}\right)
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[{\displaystyle \sec\left(x^{2}+1\right)}\right]} & =2x\sec\left(x^{2}+1\right)\tan\left(x^{2}+1\right)
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}{\displaystyle \left(\sqrt{\cot2x}\right)}} & =\frac{1}{2}\left(2\right)\left(-\csc^{2}2x\right)\left(\cot2x\right)^{-\frac{1}{2}}\\
+ & =-\frac{\csc^{2}2x}{\sqrt{\cot2x}}
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\subsection{Inverse Trig Functions}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+
+\begin{tabular}{>{\centering}p{4.5cm}>{\centering}p{10cm}}
+General & Function\tabularnewline
+\end{tabular}
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-1cm](2)
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\sin^{-1}\left(x\right)\right]=\frac{1}{\sqrt{1-x^{2}}}}$
+
+\task ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\sin^{-1}\left(f(x)\right)\right]=\frac{f'(x)}{\sqrt{1-\left[f(x)\right]^{2}}}}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\cos^{-1}\left(x\right)\right]=-\frac{1}{\sqrt{1-x^{2}}}}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\cos^{-1}\left(f(x)\right)\right]=-\frac{f'(x)}{\sqrt{1-f(x)^{2}}}}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\tan^{-1}\left(x\right)\right]=\frac{1}{x^{2}+1}}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\tan^{-1}\left(f(x)\right)\right]=\frac{f'(x)}{f(x)^{2}+1}}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+Differentiate the following functions with respect to $x$.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=2mm](2)
+
+\task  $\sin^{-1}\left(x^{2}\right)$
+
+\task  $\cos^{-1}\left(2x-1\right)$
+
+\task  $\tan^{-1}\left(\sin x\right)$
+
+\task  $x^{2}\tan^{-1}\left(x\right)$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=1cm](2)
+
+\task
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}}{\mathrm{d}x}{\displaystyle \left[\sin^{-1}\left(x^{2}\right)\right]} & =\frac{2x}{\sqrt{1-\left(x^{2}\right)^{2}}}\\
+ & =\frac{2x}{\sqrt{1-x^{4}}}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}}{\mathrm{d}x}{\displaystyle \left[{\displaystyle \cos^{-1}}\left(2x-1\right)\right]} & =-\frac{2}{\sqrt{1-\left(2x-1\right)^{2}}}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}}{\mathrm{d}x}\left[\tan^{-1}\left(\sin x\right)\right] & =\frac{\cos x}{\sin^{2}x+1}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}}{\mathrm{d}x}{\displaystyle \left[x^{2}\tan^{-1}\left(x\right)\right]} & =x^{2}\frac{\mathrm{d}}{\mathrm{d}x}\left(\tan^{-1}\left(x\right)\right)+\tan^{-1}\left(x\right)\frac{\mathrm{d}}{\mathrm{d}x}\left(x^{2}\right)\\
+ & =\frac{x^{2}}{x^{2}+1}+2x\tan^{-1}(x)
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\section{Differentiation of Implicit Functions}
+
+An \textbf{explicit function} is one which is given in terms of the
+independent variable. These functions are denoted by $y=f(x)$. Take
+for example, $y=x^{2}+2x+5$. $y$ is the dependent variable and is
+given in terms of the independent variable $x$.
+
+\textbf{Implicit functions}, on the other hand, are usually given
+in terms of both dependent and independent variables. For example,
+$xy=x^{2}+2$.
+
+Thus far we have only differentiated functions that were defined explicitly.
+Differentiating implicit functions are not too different, except now,
+we are required to \textbf{apply the chain rule, product rule, and/or
+quotient rule when differentiating our $y$ terms.}
+
+Below is a suggested guide to differentiate an implicit function.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{enumerate}
+\item Differentiate each term on both sides of the equation with respect
+to $x$, using the chain rule to differentiate any function $y$ as
+${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}}$.
+\item Collect the terms with ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}}$ on one side
+of the equation and place all the remaining terms on the other side
+of the equation.
+\item Factor out ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}}$ and express ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}}$
+explicitly in terms of $x$ and $y$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{example}
+
+Differentiate the following implicit equations with respect to $x$.
+For parts (c) and (d), express ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}}$ in
+terms of $x$ only.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task $2x^{2}+y^{3}-4y=4$
+
+
+\task $\sin y=x^{2}+y$
+
+\task $y=x^{x}$
+
+\task $y=\left(\ln x\right)^{\sin2x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=1.5cm](2)
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}{\displaystyle \left(2x^{2}\right)+\frac{\mathrm{d}}{\mathrm{d}x}\left(y^{3}\right)-\frac{\mathrm{d}}{\mathrm{d}x}\left(4y\right)}} & =\frac{\mathrm{d}}{\mathrm{d}x}\left(4\right)\\
+4x+3y^{2}\frac{\mathrm{d}y}{\mathrm{d}x}-4\frac{\mathrm{d}y}{\mathrm{d}x} & =0\\
+\frac{\mathrm{d}y}{\mathrm{d}x}\left(3y^{2}-4\right) & =-4x\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{4x}{4-3y^{2}}
+\end{aligned}
+$
+
+
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}{\displaystyle \left(\sin y\right)}} & =\frac{\mathrm{d}}{\mathrm{d}x}\left(x^{2}\right)+\frac{\mathrm{d}}{\mathrm{d}x}\left(y\right)\\
+\cos y\frac{\mathrm{d}y}{\mathrm{d}x} & =2x+\frac{\mathrm{d}y}{\mathrm{d}x}\\
+\left(\cos y-1\right)\frac{\mathrm{d}y}{\mathrm{d}x} & =2x\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{2x}{\cos y-1}
+\end{aligned}
+$
+
+
+\task
+$
+\begin{aligned}[t]
+y & =x^{x}\\
+\ln\left(y\right) & =\ln\left(x^{x}\right)\\
+\ln\left(y\right) & =x\ln\left(x\right)\\
+\frac{\mathrm{d}}{\mathrm{d}x}\left[\ln\left(y\right)\right] & =\frac{\mathrm{d}}{\mathrm{d}x}\left[x\ln\left(x\right)\right]\\
+\frac{1}{y}\frac{\mathrm{d}y}{\mathrm{d}x} & =x\left(\frac{1}{x}\right)+\ln x\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =y\left(1+\ln x\right)\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =x^{x}\left(1+\ln x\right)
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+y & =\left(\ln x\right)^{\sin2x}\\
+\ln\left(y\right) & =\ln\left(\left(\ln x\right)^{\sin2x}\right)\\
+\ln\left(y\right) & =\sin2x\left(\ln\left(\ln x\right)\right)\\
+\frac{\mathrm{d}}{\mathrm{d}x}\left[\ln\left(y\right)\right] & =\frac{\mathrm{d}}{\mathrm{d}x}\left[\sin2x\left(\ln\left(\ln x\right)\right)\right]\\
+\frac{1}{y}\frac{\mathrm{d}y}{\mathrm{d}x} & =\sin2x\left(\frac{\frac{1}{x}}{\ln x}\right)+\ln\left(\ln x\right)2\cos2x\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =y\left[\frac{\sin2x}{x\ln x}+2\cos\left(2x\right)\ln\left(\ln x\right)\right]\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\left(\ln x\right)^{\sin2x}\left[\frac{\sin2x}{x\ln x}+2\cos\left(2x\right)\ln\left(\ln x\right)\right]
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\section{Differentiation of Parametric Equations}
+
+We have learnt that curves can be represented by a pair of equations:
+
+\begin{align*}
+x & =f(t)\\
+y & =g(t)
+\end{align*}
+
+The variable $t$ is called the parameter and the pair of equations
+are called the parametric equations. We differentiate parametric equations
+as follows.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+From the chain rule we know that
+
+\[
+\frac{\mathrm{d}y}{\mathrm{d}t}=\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)
+\]
+
+By rearrangement we see that
+
+\[
+\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\left({\displaystyle \frac{\mathrm{d}y}{\mathrm{d}t}}\right)}{\left({\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t}}\right)},\text{\ensuremath{\hspace{0.5cm}}where \ensuremath{\frac{\mathrm{d}x}{\mathrm{d}t}\neq0}}
+\]
+\end{tcolorbox}
+
+\begin{example}
+
+For each of the following parametric equations, find ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}}$
+in terms of $t$, where $t$ is a parameter.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  $x=4t^{3}-t^{2}+7t,\hspace{0.2cm}y=t^{4}-6$
+
+\task  $x=(2t+1)^{2},\hspace{0.2cm}y=2t^{3}$
+
+\task  $x=t^{3}-6t,\hspace{0.2cm}y=\sqrt{2-t^{2}}$
+
+\task  $x=2t+\sin2t,\hspace{0.2cm}y=\cos2t$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  ${\displaystyle x=4t^{3}-t^{2}+7t\Rightarrow\frac{\mathrm{d}x}{\mathrm{d}t}=12t^{2}-2t+7}$
+
+${\displaystyle y=t^{4}-6\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}t}=4t^{3}}$
+
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{4t^{3}}{12t^{2}-2t+7}
+\end{aligned}
+$
+
+\task ${\displaystyle x=(2t+1)^{2}\Rightarrow\frac{\mathrm{d}x}{\mathrm{d}t}=4\left(2t+1\right)}$
+
+${\displaystyle y=2t^{3}\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}t}=6t^{2}}$
+
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{6t^{2}}{4\left(2t+1\right)}\\
+ & =\frac{3t^{2}}{2\left(2t+1\right)}
+\end{aligned}
+$
+
+\task ${\displaystyle x=t^{3}-6t\Rightarrow\frac{\mathrm{d}x}{\mathrm{d}t}=3t^{2}-6}$
+
+${\displaystyle y=\sqrt{2-t^{2}}\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}t}=-\frac{t}{\sqrt{2-t^{2}}}}$
+
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}y}{\mathrm{d}x} & =-\frac{t}{\left(3t^{2}-6\right)\sqrt{2-t^{2}}}
+\end{aligned}
+$
+
+\task ${\displaystyle x=2t+\sin2t\Rightarrow\frac{\mathrm{d}x}{\mathrm{d}t}=2+2\cos2t}$
+
+${\displaystyle y=\cos2t\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}t}=}-2\sin2t$
+
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}y}{\mathrm{d}x} & =-\frac{2\sin2t}{2+2\cos2t}\\
+ & =-\frac{\sin2t}{1+\cos2t}\\
+ & =-\frac{2\sin t\cos t}{1+(2\cos^{2}t-1)}\\
+ & =-\tan t
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\section{Higher Order Derivatives}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Given $y=f\left(x\right)$, we have the following:
+
+\begin{tasks}[label=\arabic*.,label-width=3.5ex]
+
+\task  ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=f'\left(x\right)}$ is called
+the \textbf{first derivative} of $y$ with respect to $x$.
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)=\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}=f''\left(x\right)}$
+is called the \textbf{second derivative} of $y$ with respect to $x$.
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}\right)=\frac{\mathrm{d}^{3}y}{\mathrm{d}x^{3}}=f^{(3)}\left(x\right)}$
+is called the \textbf{third derivative} of $y$ with respect to $x$.
+
+\task  ${\displaystyle \frac{\mathrm{d}^{n}y}{\mathrm{d}x^{n}}}=f^{(n)}\left(x\right)$
+is called the \textbf{$\boldsymbol{n}$th derivative }of $y$ with
+respect to $x$.
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+If $y=a\sin x+b\cos x$, where $a$ and $b$ are constants, show that
+${\displaystyle \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+y=0}$.
+
+\Solution
+\begin{align*}
+y & =a\sin x+b\cos x\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =a\cos x-b\sin x\\
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =-a\sin x-b\cos x\\
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =-y\\
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+y & =0
+\end{align*}
+
+
+\end{example}
+
+
+\begin{example}
+
+If $y=2\text{e}^{\sin x}$, prove that ${\displaystyle \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}=\frac{\mathrm{d}y}{\mathrm{d}x}\left(\cos x-\tan x\right)}$.
+
+\Solution
+\begin{align*}
+y & =2\text{e}^{\sin x}\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\left(2\text{e}^{\sin x}\right)\left(\cos x\right)\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =y\cos x\\
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =\frac{\mathrm{d}y}{\mathrm{d}x}\cos x-y\sin x\\
+ & =\frac{\mathrm{d}y}{\mathrm{d}x}\cos x-\left(\frac{1}{\cos x}\cdot\frac{\mathrm{d}y}{\mathrm{d}x}\right)\sin x\\
+ & =\frac{\mathrm{d}y}{\mathrm{d}x}\left(\cos x-\tan x\right)
+\end{align*}
+
+\end{example}
+
+\chapter{Applications of Differentiation}
+\section{Gradient, Tangent \& Normal}
+
+\begin{minipage}[t]{0.5\textwidth}
+
+We begin this chapter by understanding how we can find the equations
+of tangent and normal lines, which are two objects that will be very
+important to us as we continue our study of the various applications
+of differentiation.
+
+\begin{itemize}
+
+\item A \textbf{tangent} to a curve is a line that touches the curve
+at one point and has the same gradient as the curve at that point.
+
+\item A \textbf{normal} to a curve is a line perpendicular to the
+tangent of the curve.
+
+\end{itemize}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\includegraphics[width=7cm,valign=t]{\string"lib/Graphics/TangentNormal\string".png}
+\par\end{center}
+
+\end{minipage}
+
+We can use the following equation to find the equation of the tangent
+line.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The equation of the tangent to the curve at $P\left(x_{0},y_{0}\right)$
+is given by
+\[
+y-y_{0}=f'\left(x_{0}\right)\left(x-x_{0}\right)
+\]
+
+or we can use,
+\[
+y=f'\left(x_{0}\right)x+C
+\]
+and solve for $C$.
+\end{tcolorbox}
+
+If the gradient of the tangent at $P$ is $f'\left(x_{0}\right)$,
+then the gradient of the normal at $P$ is ${\displaystyle -\frac{1}{f'\left(x_{0}\right)}}$,
+where $f'\left(x_{0}\right)\neq0$. Thus we have the following.
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The equation of the normal to the curve at $P\left(x_{0},y_{0}\right)$
+is given by
+\[
+y-y_{0}=-\frac{1}{f'\left(x_{0}\right)}\left(x-x_{0}\right)
+\]
+
+or we can use,
+
+\[
+y=-\frac{1}{f'\left(x_{0}\right)}x+C
+\]
+and solve for $C$.
+\end{tcolorbox}
+
+\newpage{}
+
+\begin{example}
+
+The equation of a curve is given by $y=3x^{2}+2x-8$. Find the equation of the tangent and normal at the point $x=2$.
+
+\Solution
+
+\begin{align*}
+y & =3x^{2}+2x-8\tag{1}\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =6x+2
+\end{align*}
+
+
+When $x=2$,
+
+\begin{align*}
+\frac{\mathrm{d}y}{\mathrm{d}x} & =6\left(2\right)+2\\
+ & =14
+\end{align*}
+
+Putting $x=2$ into $(1)$ gives us
+\begin{align*}
+y & =3\left(2\right)^{2}+2\left(2\right)-8\\
+ & =8
+\end{align*}
+
+The equation of the tangent at $\left(2,8\right)$ is
+\begin{align*}
+y-8 & =\left(14\right)\left(x-2\right)\\
+y & =14x-20
+\end{align*}
+
+The equation of the normal at $\left(2,8\right)$ is
+\begin{align*}
+y-8 & =-\frac{1}{14}\left(x-2\right)\\
+y & =-\frac{1}{14}x+\frac{57}{7}
+\end{align*}
+
+\end{example}
+
+\section{Gradient, Tangent \& Normal of Implicit Functions}
+
+In the previous chapter we have already learnt how to find the derivative of an implicit function. Thus this section will be fairly straightforward. After differentiating both sides implicitly, we find the tangent and normal equations in the same way as we would for a explicit equation.
+
+\newpage
+
+\begin{example}
+
+The equation of a circle is given by $\left(x-2\right)^{2}+\left(y+2\right)^{2}=16$
+\begin{enumerate}[label=(\alph*)]
+\item Show that the gradient at the point $\left(x,y\right)$ on the curve may be expressed in the form ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=-\frac{x-2}{y+2}}$
+\item Find the equations of the tangents to the curve that are parallel to the
+\begin{enumerate}[label=(\roman*)]
+\item $x-$axis
+\item $y-$axis.
+\end{enumerate}
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item \begin{align*}
+\left(x-2\right)^{2}+\left(y+2\right)^{2} & =16 \tag{1}\\
+ \frac{\mathrm{d}}{\mathrm{d}x}\left(x-2\right)^{2}+\frac{\mathrm{d}}{\mathrm{d}x}\left(y+2\right)^{2} & =\frac{\mathrm{d}}{\mathrm{d}x}(16) \\
+ 2\left(x-2\right)+2\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)\left(y+2\right) & =0 \\
+  \frac{\mathrm{d}y}{\mathrm{d}x} & =-\frac{x-2}{y+2}
+\end{align*}
+
+\item
+\begin{enumerate}[label=(\roman*)]
+\item When the tangent is parallel to the line $x-$axis, i.e. ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=0}$ \begin{align*} 0 & =-\frac{x-2}{y+2}\\ x & =2 \end{align*} Putting $x=2$ into $\left(1\right)$,  \begin{align*} \left(0\right)^{2}+\left(y+2\right)^{2} & =16\\ y+2 & =\pm4\\ y & =-2\pm4 \end{align*} Thus the equation of the tangent lines parallel to the $x-$axis are $y=2$ and $y=-6$.
+\item When the tangent is parallel to the $y-$axis, ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}}$ is undefined. Thus, the denominator of our derivative is equal to $0$. \begin{align*} y+2 & =0\\ y & =-2 \end{align*} Putting $y=-2$ into $\left(1\right)$, \begin{align*} \left(x-2\right)^{2}+\left(0\right)^{2} & =16\\ x-2 & =\pm4\\ x & =2\pm4 \end{align*} Thus the equation of the tangent lines parallel to the $y-$axis are $x=6$ and $x=-2$.
+\end{enumerate}
+\end{enumerate}
+
+\end{example}
+
+\newpage{}
+
+\section{Gradient, Tangent \& Normal of Parametric Equations}
+
+In the previous chapter we learnt how to find the gradient of parametric
+equations by using the chain rule. We also know that we can find the
+$x$ and $y$ values at a particular value of $t$ simply by substituting
+it into the parametric equations. Thus at this point, finding the
+tangent and normal of parametric equations will be fairly simple for
+us.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+We can find the equation of the tangent with these four simple steps.
+\begin{enumerate}
+\item Differentiate both parametric equations with respect to $t$ and use
+the chain rule to obtain the gradient function ($\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}y}{\mathrm{d}t}/\frac{\mathrm{d}x}{\mathrm{d}t}$).
+\item Substitute the given parameter $t=t_{0}$ into $\frac{\mathrm{d}y}{\mathrm{d}x}$ to
+obtain the gradient $m=\left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|_{t=t_{0}}$.
+\item Substitute the given parameter $t=t_{0}$ into the parametric equations
+to find the coordinates $\left(x_{0},y_{0}\right)$.
+\item Use the gradient $m$, and the coordinates $\left(x_{0},y_{0}\right)$,
+to form the equation of the tangent.
+\end{enumerate}
+If we wish to find the equation of the normal as well, we follow these
+two additional steps.
+\begin{enumerate}
+\item Find the gradient of the normal $n=-\frac{1}{\left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|_{t=t_{0}}}$.
+\item Use the gradient $n$ and the coordinates $\left(x_{0},y_{0}\right)$,
+to form the equation of the tangent.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{example}
+
+Find the equations of the tangents and normals to the curve $y=t^{3}+1$,
+$x=t^{2}$ at the points where the curve intersects the line $x=4$.
+
+\Solution
+
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{align*}
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{\frac{\mathrm{d}y}{\mathrm{d}t}}{\frac{\mathrm{d}x}{\mathrm{d}t}}\\
+ & =\frac{3t^{2}}{2t}\\
+ & =\frac{3}{2}t
+\end{align*}
+
+Finding the value(s) of $t$ when $x=4$,
+\begin{align*}
+4 & =t^{2}\\
+t & =\pm2
+\end{align*}
+
+When $t=2$, $y=9$, ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=3}$
+
+When $t=-2$, $y=-7$, ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=-3}$
+
+\end{minipage}
+\vline\hfill
+\begin{minipage}[t]{0.5\textwidth}
+
+The equation of the tangent at $\left(4,9\right)$ is
+\begin{align*}
+y-9 & =3\left(x-4\right)\\
+y & =3x-3
+\end{align*}
+
+The equation of the normal at $\left(4,9\right)$ is
+\begin{align*}
+y-9 & =-\frac{1}{3}\left(x-4\right)\\
+y & =-\frac{1}{3}x+\frac{31}{3}
+\end{align*}
+
+The equation of the tangent at $\left(4,-7\right)$ is
+\begin{align*}
+y+7 & =-3\left(x-4\right)\\
+y & =-3x+5
+\end{align*}
+
+The equation of the normal at $\left(4,-7\right)$ is
+\begin{align*}
+y+7 & =\frac{1}{3}\left(x-4\right)\\
+y & =\frac{1}{3}x-\frac{25}{3}
+\end{align*}
+
+\end{minipage}
+
+\end{example}
+
+
+\section{Graphical Interpretation of Functions}
+
+\subsection{Increasing and Decreasing Functions}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The function $f$ is said to be increasing on the interval $\left[a,b\right]$
+if for every $x_{1}$ and $x_{2}$ on the interval,
+\[
+x_{2}>x_{1}\Rightarrow f\left(x_{2}\right)\geq f\left(x_{1}\right)
+\]
+
+The function $f$ is said to be decreasing on the interval $\left[a,b\right]$
+if for every $x_{1}$ and $x_{2}$ on the interval,
+\[
+x_{2}>x_{1}\Rightarrow f\left(x_{2}\right)\leq f\left(x_{1}\right)
+\]
+\end{tcolorbox}
+
+\begin{center}
+\includegraphics[width=6.5cm]{\string"lib/Graphics/IncreasingGraph\string".png}\hspace{1cm}\includegraphics[width=6.5cm]{\string"lib/Graphics/DecreasingGraph\string".png}
+\par\end{center}
+
+Notice that in the two graphs show above, there is a portion of the
+function on the interval $\left[a,b\right]$ where the gradient is
+zero. This is in line with the definition of an increasing/decreasing
+function. However, these functions cannot be said to be strictly increasing/decreasing.
+For strictly increasing/decreasing functions, there can be no ``flatness''
+allowed.
+
+\subsection{Strictly Increasing and Decreasing Functions}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The function $f$ is said to be \textbf{strictly increasing} on the
+interval $\left[a,b\right]$ if for every $x_{1}$ and $x_{2}$ on
+the interval,
+\[
+x_{2}>x_{1}\Rightarrow f\left(x_{2}\right)>f\left(x_{1}\right)
+\]
+
+The function $f$ is said to be \textbf{strictly decreasing} on the
+interval $\left[a,b\right]$ if for every $x_{1}$ and $x_{2}$ on
+the interval,
+\[
+x_{2}>x_{1}\Rightarrow f\left(x_{2}\right)<f\left(x_{1}\right)
+\]
+\end{tcolorbox}
+
+\begin{center}
+\includegraphics[width=6.5cm]{\string"lib/Graphics/StrictlyIncreasing\string".png}\hspace{1cm}\includegraphics[width=6.5cm]{\string"lib/Graphics/StrictlyDecreasing\string".png}
+\par\end{center}
+
+\newpage{}
+
+We can also use the first derivative to determine whether a function
+is increasing or decreasing.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Given $f(x)$ is a continuous function on an interval $\left[a,b\right]$.
+The function $f$ is said to be increasing on the interval if for
+every $x$ on the interval,
+\[
+f'(x)\geq0
+\]
+
+And is said to be \textbf{strictly increasing} on the interval if
+for every $x$ on the interval,
+\[
+f'(x)>0
+\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Given $f(x)$ is a continuous function on an interval $\left[a,b\right]$.
+The function $f$ is said to be decreasing on the interval if for
+every $x$ on the interval,
+\[
+f'(x)\leq0
+\]
+
+And is said to be \textbf{strictly decreasing} on the interval if
+for every $x$ on the interval,
+\[
+f'(x)<0
+\]
+\end{tcolorbox}
+
+\begin{example}
+
+Find the set of values of $x$ such that the function ${\displaystyle f\left(x\right)=x^{3}-\frac{3}{2}x^{2}}$
+is increasing.
+
+\Solution
+
+\begin{align*}
+f\left(x\right) & ={\displaystyle x^{3}-\frac{3}{2}x^{2}}\\
+f'\left(x\right) & ={\displaystyle 3x^{2}-3x}
+\end{align*}
+
+The function is increasing for $f'\left(x\right)\geq0$,
+\begin{align*}
+{\displaystyle 3x^{2}-3x} & \geq0\\
+3x\left(x-1\right) & \geq0
+\end{align*}
+
+Thus, the set of values of $x$ such that the function ${\displaystyle f\left(x\right)=x^{3}-\frac{3}{2}x^{2}}$
+is increasing is $x\geq1$ or $x\leq0$.
+
+\end{example}
+
+\begin{example}
+
+
+Prove that the function $f$ defined by $f\left(x\right)=x^{3}-6x^{2}+18x+5,\,x\in\R$
+is strictly increasing.
+
+\Solution
+
+\begin{align*}
+f'\left(x\right) & =3x^{2}-12x+18\\
+ & =3\left(x^{2}-4x+6\right)\\
+ & =3\left[\left(x-2\right)^{2}-4+6\right]\\
+ & =3\left(x-2\right)^{2}+6
+\end{align*}
+
+Since $f'\left(x\right)>0$ for all real values of $x$, $\therefore$
+the function $f$ is strictly increasing.
+
+\end{example}
+
+
+\begin{example}
+
+The function $f$ is defined by ${\displaystyle f\left(x\right)=2\left(x-\frac{1}{2}\right)-\ln x}$,
+where $x\in\R$, $x>0$. Find $f'\left(x\right)$ and show that the
+function is strictly increasing for ${\displaystyle x>\frac{1}{2}}$.
+Hence show that for ${\displaystyle x>\frac{1}{2}}$, ${\displaystyle 2\left(x-\frac{1}{2}\right)-\ln x>\ln2}$.
+
+\Solution
+
+\[
+f'\left(x\right)=2-\frac{1}{x}
+\]
+
+When ${\displaystyle x>\frac{1}{2}}$, ${\displaystyle 0<\frac{1}{x}<2}$
+and hence ${\displaystyle 2-\frac{1}{x}>0\Rightarrow f'\left(x\right)>0}$.
+
+Thus the curve is strictly increasing for ${\displaystyle x>\frac{1}{2}}$.
+
+When ${\displaystyle x=\frac{1}{2}}$,
+\begin{align*}
+f\left(\frac{1}{2}\right) & =2\left(\frac{1}{2}-\frac{1}{2}\right)-\ln\frac{1}{2}\\
+ & =\ln2
+\end{align*}
+
+Since the function is strictly increasing for ${\displaystyle x>\frac{1}{2}}$,
+\begin{align*}
+ & f\left(x\right)>f\left(\frac{1}{2}\right)\\
+\therefore\quad & 2\left(x-\frac{1}{2}\right)-\ln x>\ln2
+\end{align*}
+
+\end{example}
+
+
+\newpage{}
+
+\subsection{Concavity of a Curve}
+
+Concavity relates to the rate of change of a functions derivative.
+A function $f$ is concave upwards where the derivative of $f'(x)$
+is increasing, or in other words, where $f''(x)$ is positive. Similarly,
+$f$ is concave downwards where the derivative of $f'(x)$ is decreasing,
+or in other words, where $f''(x)$ is negative.
+
+\subsubsection{Upward Concavity}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+The diagram shows the graph of a function increasing on the interval
+$\left[a,b\right]$. Since the tangents are becoming \textbf{more
+positive}, i.e. $f''(x)$ is positive, we say that on the interval
+$\left[a,b\right]$, this function is concave upwards.
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/ConcaveUp1\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+The diagram shows the graph of a function decreasing on the interval
+$\left[a,b\right]$. Since the tangents are becoming \textbf{less
+negative}, i.e. $f''(x)$ is positive, we say that on the interval
+$\left[a,b\right]$, this function is concave upwards.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/ConcaveUp2\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\subsubsection{Downward Concavity}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+The diagram shows the graph of a function decreasing on the interval
+$\left[a,b\right]$. Since the tangents are becoming \textbf{more
+negative}, i.e. $f''(x)$ is negative, we say that on the interval
+$\left[a,b\right]$, this function is concave downwards.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/ConcaveDown1\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+The diagram shows the graph of a function increasing on the interval
+$\left[a,b\right]$. Since the tangents are becoming \textbf{less
+positive}, i.e. $f''(x)$ is negative, we say that on the interval
+$\left[a,b\right]$, this function is concave downwards.
+
+\end{minipage}
+\begin{minipage}[t]{0.1\textwidth}
+
+\hspace{2cm}\includegraphics[width=5.5cm]{\string"lib/Graphics/ConcaveDown2\string".png}
+
+\end{minipage}
+
+An easy way to determine the concavity of a graph is to look at where
+the curve lies in relation to the tangent lines. If the \textit{curve
+lies above all of its tangent lines} on the interval, then it is \textbf{concave
+upward}. On the other hand, If the \textit{curve lies below all of
+its tangent lines} on the interval, then it is \textbf{concave downward}.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Given $f(x)$ is a continuous function on an interval $\left[a,b\right]$.
+The function $f$ is said to be \textbf{concave upward} on the interval
+if for every $x$ on the interval,
+\[
+f''(x)>0
+\]
+
+Given $f(x)$ is a continuous function on an interval $\left[a,b\right]$.
+The function $f$ is said to be \textbf{concave downward} on the interval
+if for every $x$ on the interval,
+\[
+f''(x)<0
+\]
+\end{tcolorbox}
+
+\setlength{\extrarowheight}{2pt}
+\begin{center}
+\begin{tabular}[t]{|c|c|c|}
+\cline{2-3} \cline{3-3}
+\multicolumn{1}{c|}{} & $f'(x)<0$ & $f'(x)>0$\tabularnewline
+\hline
+\multicolumn{1}{|>{\raggedleft}b{1.6cm}|}{$f''(x)>0$
+
+\,
+
+\,
+
+\,
+
+\,} & \includegraphics[width=5.5cm]{\string"lib/Graphics/ConcaveUp2\string".png} & \includegraphics[width=5.5cm]{\string"lib/Graphics/ConcaveUp1\string".png}\tabularnewline
+\hline
+\multicolumn{1}{|>{\raggedleft}b{1.6cm}|}{$f''(x)<0$
+
+\,
+
+\,
+
+\,
+
+\,} & \includegraphics[width=5.5cm]{\string"lib/Graphics/ConcaveDown1\string".png} & \includegraphics[width=5.5cm]{\string"lib/Graphics/ConcaveDown2\string".png}\tabularnewline
+\hline
+\end{tabular}
+\par\end{center}
+
+\newpage{}
+
+\begin{example}
+
+Determine the concavity of $f\left(x\right)=x^{3}-3x^{2}+1$ for
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  $x>1$
+
+\task  $x<1$
+
+\end{tasks}
+
+\Solution
+
+\begin{align*}
+f\left(x\right) & =x^{3}-3x^{2}+1\\
+f'\left(x\right) & =3x^{2}-6x\\
+f''\left(x\right) & =6x-6
+\end{align*}
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  When $x<1$, \textbf{$f''\left(x\right)=6x-6>0$},\textbf{
+$\therefore$ }the curve is concave upwards on $\left(1,\infty\right)$.
+
+\task  When $x>1$, \textbf{$f''\left(x\right)=6x-6<0$},\textbf{
+$\therefore$ }the curve is concave downwards on $\left(-\infty,1\right)$.
+
+\end{tasks}
+
+\end{example}
+
+
+\begin{example}
+
+Determine the largest set of values of $x$ for which the graph given
+below is:
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  strictly increasing,
+
+\task  strictly decreasing,
+
+\task  concave upwards,
+
+\task  concave downwards.
+
+\end{tasks}
+\begin{center}
+\includegraphics[width=7cm]{\string"lib/Graphics/DifferentiationAppConcave\string".png}
+\par\end{center}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  $\left(0,1\right)\cup\left(1,\infty\right)$
+
+\task  $\left(-\infty,-1\right)\cup\left(1,\infty\right)$
+
+\task  $\left(-1,1\right)$
+
+\task  $\left(-\infty,1\right)\cup\left(1,\infty\right)$
+
+\end{tasks}
+
+\end{example}
+
+
+\newpage{}
+
+\section{Stationary Points}
+
+The stationary point of a differentiable function $f(x)$ is a point
+on the graph of the function where the \textbf{gradient is zero}.
+Informally, it is a point where the function ``stops'' increasing
+or decreasing. Stationary points are easy to spot on a graph: they
+correspond to the points on the graph where the tangent is horizontal
+(i.e. parallel to the $x$-axis).
+\begin{center}
+\includegraphics[width=7cm]{\string"lib/Graphics/StationaryPoints\string".png}
+\par\end{center}
+
+The diagram shows a curve $y=f(x)$. The points $P$, $Q$, and $R$
+are three different types of stationary points. $P$ is a \textit{minimum
+point}, Q is an \textit{inflection point} and R is a \textit{maximum
+point}.
+
+Given a differentiable function $f\left(x\right)$, we can determine
+the nature of a stationary point by using either the \textbf{First
+Derivative Test} or the\textbf{ Second Derivative Test}.
+
+\subsubsection{First Derivative Test}
+
+The first derivative test is a method of analyzing functions using
+their first derivatives in order to find their stationary points.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The procedure of the\textbf{ first derivative test} is as follows.
+\begin{enumerate}
+\item Find $f'\left(x\right)$.
+\item Find all the values of $x$ for which $f'\left(x\right)=0$.
+\item Find the slope of the points to the left and right of the stationary
+points and analyze what these slopes tell us. Suppose we have a stationary
+point $x=x_{0}$.
+\begin{enumerate}
+\item If $f'\left(x\right)$ is positive to the left of $x=x_{0}$ and negative
+to the right of $x=x_{0}$, then we have a maximum point.
+\item If $f'\left(x\right)$ is negative to the left of $x=x_{0}$ and positive
+to the right of $x=x_{0}$, then we have a minimum point.
+\item If $f'\left(x\right)$ is positive on both sides of $x=x_{0}$ or
+negative on both sides of $x=x_{0}$, then we have a point of inflection.
+\end{enumerate}
+\end{enumerate}
+\end{tcolorbox}
+
+
+The diagrams below show a graph with a stationary point at $x=x_{0}$.
+By finding $f'\left(x\right)$ and substituting in points to the left
+and to the right of $x=x_{0}$, we are able to construct the following
+tables.
+
+\begin{minipage}[t]{0.6\textwidth}
+
+\textbf{\uline{Maximum Point}}
+
+\medskip
+
+Here we see the slope of the graph change\\
+from being positive to negative.
+
+\setlength{\extrarowheight}{2pt}%
+\begin{tabular}[t]{|>{\centering}m{1.8cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|}
+\hline
+$x$ & $x_{0}^{-}$ & $x_{0}$ & $x_{0}^{+}$\tabularnewline
+\hline
+Sign of $f'(x)$ & $+$ & $0$ & $-$\tabularnewline
+\hline
+Slope & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope2\string".png} & \includegraphics[width=1.35cm]{\string"lib/Graphics/Slope1\string".png} & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope3\string".png}\tabularnewline
+\hline
+\end{tabular}
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/FirstDerivativeTest1\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+\textbf{\uline{Minimum Point}}
+
+\medskip
+
+Here we see the slope of the graph change\\
+from being negative to positive.
+
+\setlength{\extrarowheight}{2pt}%
+\begin{tabular}[t]{|>{\centering}m{1.8cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|}
+\hline
+$x$ & $x_{0}^{-}$ & $x_{0}$ & $x_{0}^{+}$\tabularnewline
+\hline
+Sign of $f'(x)$ & $-$ & $0$ & $+$\tabularnewline
+\hline
+Slope & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope3\string".png} & \includegraphics[width=1.35cm]{\string"lib/Graphics/Slope1\string".png} & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope2\string".png}\tabularnewline
+\hline
+\end{tabular}
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/FirstDerivativeTest2\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+\textbf{\uline{Stationary Point of Inflection}}
+
+\medskip
+
+Here we see the curvature of the graph change\\
+from concave downward to concave upward.
+
+\setlength{\extrarowheight}{2pt}%
+\begin{tabular}[t]{|>{\centering}m{1.8cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|}
+\hline
+$x$ & $x_{0}^{-}$ & $x_{0}$ & $x_{0}^{+}$\tabularnewline
+\hline
+Sign of $f'(x)$ & $+$ & $0$ & $+$\tabularnewline
+\hline
+Slope & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope2\string".png} & \includegraphics[width=1.35cm]{\string"lib/Graphics/Slope1\string".png} & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope2\string".png}\tabularnewline
+\hline
+\end{tabular}
+
+\vspace{2cm}
+
+And here we see the case where the curvature \\
+goes from being concave downward to concave \\
+upward.
+
+\setlength{\extrarowheight}{2pt}%
+\begin{tabular}[t]{|>{\centering}m{1.8cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|}
+\hline
+$x$ & $x_{0}^{-}$ & $x_{0}$ & $x_{0}^{+}$\tabularnewline
+\hline
+Sign of $f'(x)$ & $-$ & $0$ & $-$\tabularnewline
+\hline
+Slope & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope3\string".png} & \includegraphics[width=1.35cm]{\string"lib/Graphics/Slope1\string".png} & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope3\string".png}\tabularnewline
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+Note:
+\begin{itemize}
+\item $x_{0}^{-}$ means a value slightly less than $x_{0}$ and
+\item $x_{0}^{+}$ means a value slightly higher than $x_{0}$.
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/FirstDerivativeTest3\string".png}
+\par\end{center}
+
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/FirstDerivativeTest4\string".png}
+\par\end{center}
+
+\end{minipage}
+
+It is important to understand that an inflection point refers to a
+point where the curvature changes from concave upward to concave downward
+(or vice versa). It does not have to be a stationary point.
+\begin{itemize}
+\item Can you think of some cases where a graph would have an inflection
+point that is not a stationary point?
+\item What is the second derivative of a function at an inflection point?
+Why?
+\end{itemize}
+
+\begin{example}
+
+The equation of a curve is given by $f\left(x\right)=\left(x^{2}-1\right)^{3}+1$.
+Find the stationary points and their nature of this curve using the
+first derivative test.
+
+\Solution
+
+\begin{align*}
+f\left(x\right) & =\left(x^{2}-1\right)^{3}+1\cdots\cdots(1)\\
+f'\left(x\right) & =3\left(2x\right)\left(x^{2}-1\right)^{2}\\
+ & =6x\left(x^{2}-1\right)^{2}
+\end{align*}
+At the stationary points, $f'\left(x\right)=0$,
+\begin{align*}
+6x\left(x^{2}-1\right)^{2} & =0\\
+x\left(x^{2}-1\right)^{2} & =0\\
+x & =0,\text{ or }x=\pm1
+\end{align*}
+
+Putting $x=-1$, $0$ and $x=1$ into $\left(1\right)$, we get $f\left(-1\right)=1$,
+$f\left(0\right)=0$ and $f\left(1\right)=1$ respectively.
+
+$\therefore$ the stationary points are $\left(-1,1\right)$, $\left(0,0\right)$,
+$\left(1,1\right)$.
+
+Using the first derivative test to determine the nature of the stationary
+points we have,
+\begin{center}
+\begin{tabular}[t]{|>{\centering}m{1.8cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|}
+\hline
+$x$ & $-1^{-}$ & $-1$ & $-1^{+}$\tabularnewline
+\hline
+Sign of $f'(x)$ & $-$ & $0$ & $-$\tabularnewline
+\hline
+Slope & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope3\string".png} & \includegraphics[width=1.35cm]{\string"lib/Graphics/Slope1\string".png} & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope3\string".png}\tabularnewline
+\hline
+\end{tabular}
+\par\end{center}
+
+\begin{center}
+\begin{tabular}[t]{|>{\centering}m{1.8cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|}
+\hline
+$x$ & $0^{-}$ & $0$ & $0^{+}$\tabularnewline
+\hline
+Sign of $f'(x)$ & $-$ & $0$ & $+$\tabularnewline
+\hline
+Slope & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope3\string".png} & \includegraphics[width=1.35cm]{\string"lib/Graphics/Slope1\string".png} & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope2\string".png}\tabularnewline
+\hline
+\end{tabular}
+\par\end{center}
+
+\begin{center}
+\begin{tabular}[t]{|>{\centering}m{1.8cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|>{\centering}m{1.3cm}|}
+\hline
+$x$ & $1^{-}$ & $1$ & $1^{+}$\tabularnewline
+\hline
+Sign of $f'(x)$ & $+$ & $0$ & $+$\tabularnewline
+\hline
+Slope & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope2\string".png} & \includegraphics[width=1.35cm]{\string"lib/Graphics/Slope1\string".png} & \includegraphics[width=1.15cm]{\string"lib/Graphics/Slope2\string".png}\tabularnewline
+\hline
+\end{tabular}
+\par\end{center}
+
+From the tables above we can observe that
+\begin{itemize}
+\item $\left(-1,1\right)$ is a point of inflection,
+\item $\left(0,0\right)$ is a minimum point,
+\item $\left(1,1\right)$ is a point of inflection.
+\end{itemize}
+
+\end{example}
+
+
+\subsubsection{Second Derivative Test}
+
+When it works, the second derivative test is often the easiest way
+to identify local maximum and minimum points. Sometimes the test fails, and sometimes the second derivative is quite difficult to evaluate;
+in such cases we must fall back on the previous test. But in the interest
+of time, it is always best to try the second derivative test first.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The procedure of the \textbf{second derivative test} is as follows.
+\begin{enumerate}
+\item Find $f'\left(x\right)$.
+\item Find all the values of $x$ for which $f'\left(x\right)=0$.
+\item Find $f''\left(x\right)$.
+\item Suppose we have a stationary point $x=x_{0}$.
+\begin{enumerate}
+\item If $f''\left(x\right)<0$ at $x=x_{0}$, then we have a maximum point
+\item If $f''\left(x\right)>0$ at $x=x_{0}$, then we have a minimum point
+\item If $f''\left(x\right)=0$ at $x=x_{0}$, then the test is inconclusive.
+(Use the first derivative test)
+\end{enumerate}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{example}
+
+Consider the graph of $y=x^{3}-2x^{2}+x+2$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Without the use of a graphic calculator, find the coordinates
+of the stationary points on the curve.
+
+\item  Use the second derivative test to determine their nature.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+\begin{minipage}[t]{0.4\textwidth}
+$
+\begin{aligned}[t]
+y & =x^{3}-2x^{2}+x+2\cdots\cdots(1)\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =3x^{2}-4x+1
+\end{aligned}
+$
+
+At the stationary points, ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=0}$.
+
+$
+\begin{aligned}[t]
+3x^{2}-4x+1 & =0\\
+\left(3x-1\right)\left(x-1\right) & =0\\
+x & =\frac{1}{3}\text{ or }x=1
+\end{aligned}
+$
+
+\end{minipage}
+\vline\hfill
+\begin{minipage}[t]{0.5\textwidth}
+
+Putting ${\displaystyle x=\frac{1}{3}}$ into $\left(1\right)$ gives
+${\displaystyle y=\frac{58}{27}}$.
+
+\bigskip
+
+Putting ${\displaystyle x=1}$ into $\left(1\right)$ gives $y=2$.
+
+\bigskip
+
+$\therefore$ the stationary points are ${\displaystyle \left(\frac{1}{3},\frac{58}{27}\right)}$ and $\left(1,2\right)$.
+
+\end{minipage}
+\item
+
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}y}{\mathrm{d}x} & =3x^{2}-4x+1\\
+\frac{{\mathrm{d}}^{2}y}{{\mathrm{d}}x^{2}} & =6x-4\cdots\cdots(2)
+\end{aligned}
+$
+
+Putting ${\displaystyle x=\frac{1}{3}}$ into $\left(2\right)$ gives
+\[
+\frac{\mathrm{d}y}{\mathrm{d}x}=-2<0
+\]
+Putting $x=1$ into $\left(2\right)$ gives
+\[
+\frac{\mathrm{d}y}{\mathrm{d}x}=2>0
+\]
+$\therefore$ ${\displaystyle \left(\frac{1}{3},\frac{58}{27}\right)}$
+is a maximum point and $\left(1,2\right)$ is a minimum point.
+
+\end{enumerate}
+
+\end{example}
+
+\newpage{}
+
+\section{Optimization}
+
+Many situations require that some quantity (e.g. cost, fuel consumption, time) be minimized i.e. made as small as possible. Other situations require that some quantity (e.g. profit, sales) be maximized, i.e. made as large as possible.
+
+Optimization is the process of finding the maximum or minimum value
+of a function. The solution is often referred to as the optimal solution.
+
+\begin{example}
+
+\begin{minipage}[t]{0.5\textwidth}
+
+A rectangular cake dish is made by cutting out squares from the corners
+of a $25\,\text{cm}$ by $40\,\text{cm}$ rectangle of tin-plate,
+and then folding the metal to form the container.
+
+What size squares must be cut out to produce the cake dish of maximum volume?
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\includegraphics[width=7cm,valign=t]{\string"lib/Graphics/ApplicationsOptimisation1\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\bigskip
+
+\Solution
+
+\begin{minipage}[t]{0.6\textwidth}
+
+Let $x$ be the side lengths of the squares that are cut out.
+
+\begin{align*}
+\text{Volume} & =\text{Length}\times\text{Width}\times\text{Height}\\
+ & =\left(40-2x\right)\left(25-2x\right)x\\
+ & =1000x-130x^{2}+4x^{3}
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=5.5cm,valign=t]{\string"lib/Graphics/ApplicationsOptimisation2\string".png}
+\par\end{center}
+
+\end{minipage}
+
+Since the side lengths must be positive, $x>0$ and $25-2x>0$. $\therefore0<x<12.5$
+
+\begin{align*}
+\frac{{\mathrm{d}}V}{{\mathrm{d}}x} & =12x^{2}-260x+1000\\
+ & =4\left(3x^{2}-65x+250\right)\\
+ & =4\left(3x-50\right)\left(x-5\right)
+\end{align*}
+
+At stationary point, ${\displaystyle \frac{\mathrm{d}V}{\mathrm{d}x}=0}$,
+\begin{align*}
+4\left(3x-50\right)\left(x-5\right) & =0\\
+x=5 & \text{ or }x=\frac{50}{3}\text{(rej. since \ensuremath{0<x<12.5})}
+\end{align*}
+
+\begin{align*}
+\frac{{\mathrm{d}}^{2}V}{{\mathrm{d}}x^{2}} & =24x-260\\
+\left.\frac{{\mathrm{d}}^{2}V}{{\mathrm{d}}x^{2}}\right|_{x=5} & =24\left(5\right)-260\\
+ & =-140<0
+\end{align*}
+
+Thus $x=5$ is a maximum point.
+
+The maximum volume is obtained when $5\,\text{cm}$ squares are cut
+out from the corners.
+
+\end{example}
+
+\begin{example}
+A $4\,\text{litre}$ container must have a square base, vertical sides,
+and an open top. Find the most economical shape which minimises the
+surface area material needed.
+
+\Solution
+
+\begin{minipage}[t]{0.7\textwidth}
+
+Let the base lengths be $x\,\text{cm}$ and the height be $y\,\text{cm}$
+.
+
+The volume
+$
+\begin{aligned}[t]
+V & =\text{Length}\times\text{Width}\times\text{Height}\\
+ & =x^{2}y\\
+4000 & =x^{2}y\\
+y & =\frac{4000}{x^{2}}
+\end{aligned}
+$
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\begin{center}
+\includegraphics[width=3cm,valign=t]{\string"lib/Graphics/ApplicationsOptimisation3\string".png}
+\par\end{center}
+
+\end{minipage}
+
+The total surface area
+$
+\begin{aligned}[t]
+A & =\text{Area of Base}+\text{Area of 4 Sides}\\
+ & =x^{2}+4xy\\
+ & =x^{2}+4x\left(\frac{4000}{x^{2}}\right)\\
+ & =x^{2}+\frac{16\,000}{x}
+\end{aligned}
+$
+
+\[
+\frac{\mathrm{d}A}{\mathrm{d}x}=2x-\frac{16\,000}{x^{2}}
+\]
+
+At stationary point, ${\displaystyle \frac{\mathrm{d}A}{\mathrm{d}x}}=0$.
+
+\begin{align*}
+2x-\frac{16\,000}{x^{2}} & =0\\
+2x^{3} & =16\,000\\
+x & =20
+\end{align*}
+
+\begin{align*}
+\frac{\mathrm{d}^{2}A}{\mathrm{d}x^{2}} & =2+\frac{32\,000}{x^{3}}\\
+\left.\frac{\mathrm{d}^{2}A}{\mathrm{d}x^{2}}\right|_{x=20} & =2+\frac{32\,000}{20^{3}}\\
+ & =6>0
+\end{align*}
+
+Thus $x=20$ is a minimum point.
+
+When $x=20$, ${\displaystyle y=\frac{4000}{20^{2}}=10}$.
+
+Thus the most economical shape has a square base of $20\times20\,\text{cm}$
+and a height of $10\,\text{cm}$.
+\end{example}
+
+\newpage{}
+
+\section{Connected Rate of Change}
+
+\begin{example}
+
+A spherical balloon is being inflated, and at the instant when its
+radius is $10\,\text{cm}$, its surface area is increasing at a rate
+of $6.4\,\text{cm}^{2}\text{s}^{-1}$. Find the rate of increase, at the same instant, of
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  the radius
+
+\task  the volume
+
+\end{tasks}
+
+Hint: The volume and the surface area of a sphere with radius $r$
+are ${\displaystyle V=\frac{4}{3}\pi r^{3}}$ and $A=4\pi r^{2}$
+respectively.
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  We are given that when $r=10$, ${\displaystyle \frac{{\rm d}A}{{\rm d}t}=6.4\,\text{cm}^{2}\text{s}^{-1}}$.
+
+We want to find ${\displaystyle \frac{{\rm d}r}{{\rm d}t}}$.
+
+We can relate $A$ and $r$ using the formula for the surface area
+of a sphere.
+\begin{align*}
+A & =4\pi r^{2}\\
+\frac{{\rm d}A}{{\rm d}r} & =8\pi r
+\end{align*}
+
+Using the chain rule,
+\begin{align*}
+\frac{{\rm d}A}{{\rm d}t} & =\frac{{\rm d}A}{{\rm d}r}\times\frac{{\rm d}r}{{\rm d}t}
+\end{align*}
+
+When $r=10$,
+\begin{align*}
+6.4 & =8\pi\left(10\right)\times\frac{{\rm d}r}{{\rm d}t}\\
+\frac{{\rm d}r}{{\rm d}t} & =\frac{6.4}{80\pi} =\frac{2}{25\pi}\,\text{cm}\,\text{s}^{-1}
+\end{align*}
+
+\task  We want to find ${\displaystyle \frac{{\rm d}V}{{\rm d}t}}$.
+
+We can relate $V$ and $r$ using the formula for the volume of a
+sphere.
+\begin{align*}
+V & =\frac{4}{3}\pi r^{3}\\
+\frac{{\rm d}V}{{\rm d}r} & =4\pi r^{2}
+\end{align*}
+
+Using the chain rule,
+\begin{align*}
+\frac{{\rm d}V}{{\rm d}t} & =\frac{{\rm d}V}{{\rm d}r}\times\frac{{\rm d}r}{{\rm d}t}
+\end{align*}
+
+When $r=10$,
+\begin{align*}
+\frac{{\rm d}V}{{\rm d}t} & =4\pi\left(10\right)^{2}\times\frac{2}{25\pi}=32\,\text{cm}^{3}\text{s}^{-1}
+\end{align*}
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+A $5\,\text{m}$ long ladder rests against a vertical wall with its
+feet on horizontal ground. The bottom of the ladder is slipping at
+a rate of $10\,\text{m\,s}^{-1}$ away from the wall. At what speed
+is the top of the ladder moving when the bottom is $3\,\text{m}$
+away from the wall?
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=3.5cm,valign=t]{\string"lib/Graphics/FallingLadder\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\Solution
+
+We are given that ${\displaystyle \frac{{\rm d}x}{{\rm d}t}=10\,\text{m\,s}^{-1}}$.
+
+We want to find ${\displaystyle \frac{{\rm d}y}{{\rm d}t}}$.
+
+We can relate $y$ and $x$ using the Pythagorean theorem.
+
+\begin{align*}
+x^{2}+y^{2} & =5^{2}\\
+y^{2} & =25-x^{2}\\
+y & =\sqrt{25-x^{2}}\text{ (Since \ensuremath{y\geq0})}\tag{1}
+\end{align*}
+
+Differentiating $\left(1\right)$ with respect to $x$,
+
+\begin{align*}
+\frac{{\rm d}y}{{\rm d}x} & =\frac{1}{2}\left(-2x\right)\left(25-x^{2}\right)^{-\frac{1}{2}}\\
+ & =-\frac{x}{\sqrt{25-x^{2}}}
+\end{align*}
+
+Using the chain rule,
+
+\begin{align*}
+\frac{{\rm d}y}{{\rm d}t} & =\frac{{\rm d}y}{{\rm d}x}\times\frac{{\rm d}x}{{\rm d}t}\\
+ & =-\frac{x}{\sqrt{25-x^{2}}}\times10\\
+ & =-\frac{10x}{\sqrt{25-x^{2}}}
+\end{align*}
+
+When $x=3$,
+
+\begin{align*}
+\frac{{\rm d}y}{{\rm d}t} & =-\frac{10\left(3\right)}{\sqrt{25-3^{2}}}\\
+ & =-\frac{30}{4}\\
+ & =-7.5\,\text{m\,s}^{-1}
+\end{align*}
+
+The other end of the ladder is moving down the wall at a rate of $7.5\,\text{m\,s}^{-1}$.
+
+\end{example}
+
+\newpage{}
+
+
+\section{Relating the Graph of $\boldsymbol{f'\left(x\right)}$ to the Graph of $\boldsymbol{f\left(x\right)}$}
+
+In this chapter we will learn how to draw the derivative of the function
+by analysing its graph.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\setlength{\extrarowheight}{2pt}
+\begin{center}
+\begin{tabular}{>{\centering}m{0.5cm}|>{\centering}m{4.5cm}|>{\centering}m{8.5cm}}
+ & \textbf{Graph of }$\boldsymbol{f\left(x\right)}$ & \textbf{Graph of }$\boldsymbol{f'\left(x\right)}$\tabularnewline
+\hline
+1. & The point $\left(x,y\right)$ is a turning point & $f'\left(x\right)=0$ $\Rightarrow$ The corresponding point lies
+on the $x-$axis of the graph $f'\left(x\right)$.\tabularnewline
+\hline
+2. & The point $\left(x,y\right)$ is a point of inflection & $f''\left(x\right)=0$ $\Rightarrow$ The corresponding point is a
+turning point on the graph $f'\left(x\right)$.\tabularnewline
+\hline
+3. & The point $\left(x,y\right)$ is a stationary point of inflection & $f'\left(x\right)=0$ and $f''\left(x\right)=0$ $\Rightarrow$ The
+corresponding point is a turning point on the $x-$axis of the the
+graph $f'\left(x\right)$.\tabularnewline
+\hline
+4. & $f\left(x\right)$ is increasing over an interval & $f'\left(x\right)>0$ $\Rightarrow$ The graph of $f'\left(x\right)$
+lies above the $x-$axis in this interval.\tabularnewline
+\hline
+5. & $f\left(x\right)$ is decreasing over an interval & $f'\left(x\right)<0$ $\Rightarrow$ The graph of $f'\left(x\right)$
+lies below the $x-$axis in this interval.\tabularnewline
+\hline
+6. & $f\left(x\right)$ is concave upward over an interval & $f''\left(x\right)>0$ $\Rightarrow$ The graph of $f'\left(x\right)$
+increases in this interval.\tabularnewline
+\hline
+7. & $f\left(x\right)$ is concave downward over an interval & $f''\left(x\right)<0$ $\Rightarrow$ The graph of $f'\left(x\right)$
+decreases in this interval.\tabularnewline
+\hline
+8. & $x=a$ is a vertical asymptote on the graph $f\left(x\right)$ & The graph of $f'\left(x\right)$ has a vertical asymptote at $x=a$.\tabularnewline
+\hline
+9. & $y=b$ is a horizontal asymptote on the graph $f\left(x\right)$ & The graph of $f'\left(x\right)$ has a horizontal asymptote at the
+$x-$axis.\tabularnewline
+\hline
+10. & $y=bx+c$ is an oblique asymptote on the graph $f\left(x\right)$ & The graph of $f'\left(x\right)$ has a horizontal asymptote at $y=b$.\tabularnewline
+\end{tabular}
+\par\end{center}
+\end{tcolorbox}
+
+
+\begin{GC}{Plotting $f'\left(x\right)$ from $f\left(x\right)$}
+
+\begin{steps}
+\item Press \tcbox[box align=base,nobeforeafter,colback=white, colframe=black,size=small]{\textbf{\textcolor{black}{Y=}}} and enter $Y_{1}=f\left(x\right)$.
+\item Press \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{math}}} and down arrow to "nDeriv(".
+\item To call up function $Y_{1}$, press \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{vars}}} and right arrow to  "Y-VARS", press \tcbox[box align=base,nobeforeafter,colback=white, colframe=black,size=small]{\textbf{\textcolor{black}{$1$}}} to select "Functions", and press \tcbox[box align=base,nobeforeafter,colback=white, colframe=black,size=small]{\textbf{\textcolor{black}{$1$}}} to select $Y_{1}$. You should end up with $Y_{2}=\left.\frac{\mathrm{d}}{\mathrm{d}x}\left(Y1\right)\right|_{x=x}$.
+\item Press \tcbox[box align=base,nobeforeafter,colback=white, colframe=black,size=small]{\textbf{\textcolor{black}{graph}}}
+\end{steps}
+
+\end{GC}
+
+\newpage{}
+
+\begin{example}
+
+
+The diagram shows a sketch of the graph of $y=f\left(x\right)$. Sketch
+the graph of $y=f'\left(x\right)$ on a separate diagram.
+\begin{center}
+\includegraphics[width=7cm]{\string"lib/Graphics/DifferentiationAppEx10\string".png}
+\par\end{center}
+
+\Solution
+
+\begin{center}
+\includegraphics[width=7cm]{\string"lib/Graphics/DifferentiationAppEx10Ans\string".png}
+\par\end{center}
+
+\end{example}
+
+\chapter{Integration Techniques (Indefinite Integrals)}
+
+\section{Concept of Indefinite Integral}
+
+\subsection{Antidifferentiation}
+
+We have seen that differentiating a function with respect to its variable
+gives us its derivative. This raises the question: it is
+possible to recover the original function, given its derivative?  The answer is yes! \\ The process of finding a function $f\left(x\right)$ from its derivative $f'\left(x\right)$ is the reverse process of differentiation. We call it \textbf{antidifferentiation}.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+A function $F$ is called an antiderivative of a given function $f$
+if
+
+\[
+\frac{\mathrm{d}}{\mathrm{d}x}F\left(x\right)=f\left(x\right)
+\]
+\end{tcolorbox}
+
+For example, since ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}x^{2}=2x}$,
+we can say that $x^{2}$ is an antiderivative of $2x$.
+
+Notice that $2x$ has many antiderivatives, since $x^{2}+4$, $x^{2}-1$,
+$x^{2}+\sqrt{2}$ all have the same derivative $2x$.
+
+To include all these antiderivatives of $f(x)$ when we integrate,
+we use the constant of integration $C$.
+
+\subsection{Definition of an Indefinite Integral}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+If $F(x)$ is an antiderivative of $f(x)$, then the indefinite integral
+of $f(x)$, denoted by ${\displaystyle \int f(x)\, \mathrm{d}x}$ is given by
+
+\[
+\int f(x)\, \mathrm{d}x=F(x)+C,\text{ where \ensuremath{C} is an arbitrary constant}
+\]
+\end{tcolorbox}
+
+In the above notation, we call
+
+\begin{tabular}{ll}
+${\displaystyle \int}$ \hspace{0.5cm}the integral sign, & \hspace{1cm}$f(x)$ \hspace{0.5cm}the integrand,\tabularnewline
+ & \tabularnewline
+$C$ \hspace{0.5cm}the constant of integration, & \hspace{1cm}${\displaystyle \int f(x)\, \mathrm{d}x}$\hspace{0.5cm}
+the indefinite integral of $f(x)$.\tabularnewline
+\end{tabular}
+
+\subsection{Basic Rules of Integration}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-1cm](2)
+
+\task  ${\displaystyle \int kf(x)\, \mathrm{d}x=k\int f(x)\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int f(x)\pm g(x)\, \mathrm{d}x=\int f(x)\, \mathrm{d}x\pm\int g(x)\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{\mathrm{d}}{\mathrm{d}x}\left[f\left(x\right)\right]=f\left(x\right)+c}$
+
+\task  ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\int f\left(x\right)\,\mathrm{d}x\right]=f\left(x\right)}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\newpage{}
+
+\section{Computing Indefinite Integrals}
+
+\subsection{Algebraic Functions}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tabular}{>{\centering}p{4.5cm}>{\centering}p{10cm}}
+General & Function\tabularnewline
+\end{tabular}
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-3cm](2)
+
+\task ${\displaystyle \int x^{n}\, \mathrm{d}x=\frac{x^{n+1}}{n+1}+C,\quad n\ne-1}$
+
+\task ${\displaystyle \int(ax+b)^{n}\, \mathrm{d}x=\frac{1}{a}\frac{(ax+b)^{n+1}}{n+1}+C,\quad n\ne-1}$
+
+\task ${\displaystyle \int\frac{1}{x}\, \mathrm{d}x=\ln\left|x\right|+C,\quad x\ne0}$
+
+\task ${\displaystyle \int\frac{1}{ax+b}\, \mathrm{d}x=\frac{1}{a}\ln\left|ax+b\right|+C},\quad a\ne0,\enskip ax+b\ne0$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task ${\displaystyle \int(2x^{2}+x)^{2}\:\mathrm{d}x}$
+
+\task ${\displaystyle \int\sqrt{x}(1+x^{2})\:\mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{1}{(x-2)^{2}}\:\mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{\sqrt{x-4}+1}{\sqrt{x-4}}\:\mathrm{d}x}$
+
+\task ${\displaystyle \int\frac{5}{x}\,\mathrm{d}x}$
+
+\task ${\displaystyle \int\frac{1}{1-5x}\,\mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = 1cm](2)
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int(2x^{2}+x)^{2}\, \mathrm{d}x} & =\int4x^{4}+4x^{3}+x^{2}\, \mathrm{d}x\\
+ & =\frac{4}{5}x^{5}+x^{4}+\frac{1}{3}x^{3}+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\sqrt{x}(1+x^{2})\, \mathrm{d}x} & =\int x^{\frac{1}{2}}+x^{\frac{5}{2}}\, \mathrm{d}x\\
+ & =\frac{2}{3}x^{\frac{3}{2}}+\frac{2}{7}x^{\frac{7}{2}}+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{1}{(x-2)^{2}}\, \mathrm{d}x} & ={\displaystyle \int(x-2)^{-2}\, \mathrm{d}x}\\
+ & =-(x-2)^{-1}+C\\
+ & =-\frac{1}{x-2}+C
+\end{aligned}
+$
+
+
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{\sqrt{x-4}+1}{\sqrt{x-4}}\, \mathrm{d}x} & ={\displaystyle \int1+\frac{1}{\sqrt{x-4}}\, \mathrm{d}x}\\
+ & =x+2\sqrt{x-4}+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int\frac{5}{x}\,\mathrm{d}x=5\ln\left|x\right|+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int\frac{1}{1-5x}\,\mathrm{d}x & =-\frac{1}{5}\int\frac{-5}{1-5x}\,\mathrm{d}x\\
+ & =-\frac{1}{5}\ln\left|1-5x\right|+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\subsection{Exponential Functions}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tabular}{>{\centering}p{4.5cm}>{\centering}p{10cm}}
+General & Function\tabularnewline
+\end{tabular}
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-1cm](2)
+
+\task ${\displaystyle \int{\rm e}^{x}\, \mathrm{d}x=\mathrm{e}^{x}+C}$
+
+\task ${\displaystyle \int{\rm e}^{(ax+b)}\, \mathrm{d}x=\frac{1}{a}{\rm e}^{ax+b}+C,\quad a\ne0}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
+
+\task ${\displaystyle \int{\rm e}^{5x+2}+\frac{1}{2\mathrm{e}^{x}}\, \mathrm{d}x}$
+
+\task ${\displaystyle \int{\rm e}^{3x}\left(\frac{1}{2{\rm e}^{2x}}+{\rm e}^{x}\right)\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\left({\rm e}^{x}+{\rm e}^{-x}\right)^{2}\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = 1cm](2)
+
+\task
+$
+\begin{aligned}[t]
+\int{\rm e}^{5x+2}+\frac{1}{2\mathrm{e}^{x}}\, \mathrm{d}x & =\int{\rm e}^{5x+2}+\frac{1}{2}{\rm e}^{-x}\, \mathrm{d}x\\
+ & =\frac{1}{5}{\rm e}^{5x+2}-\frac{1}{2}{\rm e}^{-x}+C\\
+ & =\frac{1}{5}{\rm e}^{5x+2}-\frac{1}{2{\rm e}^{x}}+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int{\rm e}^{3x}\left(\frac{1}{2{\rm e}^{2x}}+{\rm e}^{x}\right)\, \mathrm{d}x & =\int\frac{1}{2}{\rm e}^{x}+{\rm e}^{4x}\, \mathrm{d}x\\
+ & =\frac{1}{2}{\rm e}^{x}+\frac{1}{4}{\rm e}^{4x}+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int\left({\rm e}^{x}+{\rm e}^{-x}\right)^{2}\, \mathrm{d}x & ={\displaystyle \int{\rm e}^{2x}+2+{\rm e}^{-2x}\, \mathrm{d}x}\\
+ & =\frac{1}{2}{\rm e}^{2x}-\frac{1}{2}{\rm e}^{-2x}+2x+C
+\end{aligned}
+$
+
+\end{tasks}
+
+
+\end{example}
+
+
+\subsection{Trigonometric Functions }
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tabular}{>{\centering}p{4.5cm}>{\centering}p{10cm}}
+General & Function\tabularnewline
+\end{tabular}
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-1.5cm](2)
+
+\task  ${\displaystyle \int\cos x\, \mathrm{d}x=\sin x+C}$
+
+\task ${\displaystyle \int f'(x)\cos f(x)\, \mathrm{d}x=\sin f(x)+C}$
+
+\task  ${\displaystyle \int\sin x\, \mathrm{d}x=-\cos x+C}$
+
+\task  ${\displaystyle \int f'(x)\sin f(x)\, \mathrm{d}x=-\cos f(x)+C}$
+
+\task  ${\displaystyle \int\sec^{2}x\, \mathrm{d}x=\tan x+C}$
+
+\task  ${\displaystyle \int f'(x)\sec^{2}f(x)\, \mathrm{d}x=\tan f(x)+C}$
+
+\task  ${\displaystyle \int\csc^{2}x\, \mathrm{d}x=-\cot x+C}$
+
+\task  ${\displaystyle \int f'(x)\csc^{2}f(x)\, \mathrm{d}x=-\cot f(x)+C}$
+
+\task  ${\displaystyle \int\sec x\tan x\, \mathrm{d}x=\sec x+C}$
+
+\task  ${\displaystyle \int f'(x)\sec f(x)\tan f(x)\, \mathrm{d}x=\sec f(x)+C}$
+
+\task  ${\displaystyle \int\csc x\cot x\, \mathrm{d}x=-\csc x+C}$
+
+\task  ${\displaystyle \int f'(x)\csc f(x)\cot f(x)\, \mathrm{d}x=-\csc f(x)+C}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\newpage
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task ${\displaystyle \int\sin\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\cos\left(\frac{\pi}{3}-3x\right)\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\csc3x\cot3x\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\csc^{2}(2x+1)\, \mathrm{d}x}$
+
+\task ${\displaystyle \int4\sec^{2}\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\sin x\cos x\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = 2cm](2)
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\sin\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x} & =\frac{1}{2}\int2\sin\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x\\
+ & =\frac{1}{2}\left(-\cos\left(2x+\frac{\pi}{4}\right)\right)+C\\
+ & =-\frac{1}{2}\cos\left(2x+\frac{\pi}{4}\right)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int\cos\left(\frac{\pi}{3}-3x\right)\, \mathrm{d}x & =-\frac{1}{3}\int-3\cos\left(\frac{\pi}{3}-3x\right)\, \mathrm{d}x\\
+ & =-\frac{1}{3}\left(\sin\left(\frac{\pi}{3}-3x\right)\right)+C\\
+ & =-\frac{1}{3}\sin\left(\frac{\pi}{3}-3x\right)+C\\
+ & =\frac{1}{3}\sin\left(3x-\frac{\pi}{3}\right)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\csc3x\cot3x\, \mathrm{d}x} & =\frac{1}{3}{\displaystyle \int3\csc3x\cot3x\, \mathrm{d}x}\\
+ & =\frac{1}{3}\left(-\csc3x\right)+C\\
+ & =-\frac{1}{3}\csc3x+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\csc^{2}(2x+1)\, \mathrm{d}x} & {\displaystyle =\frac{1}{2}\int2\csc^{2}(2x+1)\, \mathrm{d}x}\\
+ & =\frac{1}{2}\left(-\cot(2x+1)\right)+C\\
+ & =-\frac{1}{2}\cot(2x+1)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int4\sec^{2}\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x} & {\displaystyle ={\displaystyle 2\int2\sec^{2}\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x}}\\
+ & =2\left(\tan\left(2x+\frac{\pi}{4}\right)\right)+C\\
+ & =2\tan\left(2x+\frac{\pi}{4}\right)
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\sin x\cos x\, \mathrm{d}x} & {\displaystyle =\frac{1}{2}\int\sin2x\, \mathrm{d}x}\\
+ & =\frac{1}{2}\left(-\frac{1}{2}\cos2x\right)+C\\
+ & =-\frac{1}{4}\cos2x+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage{}
+
+\subsection{Functions of the form ${\displaystyle \boldsymbol{\frac{1}{a^{2}+x^{2}}}}$
+, ${\displaystyle \boldsymbol{\frac{1}{\sqrt{a^{2}-x^{2}}}}}$ , ${\displaystyle \boldsymbol{\frac{1}{a^{2}-x^{2}}}}$
+and ${\displaystyle \boldsymbol{\frac{1}{x^{2}-a^{2}}}}$}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tabular}{>{\centering}p{4.5cm}>{\centering}p{10cm}}
+General ($a=1$) & For any $a$ , $a\neq0$\tabularnewline
+\end{tabular}
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-.3cm](2)
+
+\task ${\displaystyle \int\frac{1}{\sqrt{1-x^{2}}}\, \mathrm{d}x=\sin^{-1}x}+C$
+
+\task ${\displaystyle \int\frac{1}{\sqrt{a^{2}-x^{2}}}\, \mathrm{d}x=\sin^{-1}\left(\frac{x}{a}\right)}+C$
+
+\task ${\displaystyle \int\frac{1}{x^{2}+1}\, \mathrm{d}x=\tan^{-1}x}+C$
+
+\task ${\displaystyle \int\frac{1}{a^{2}+x^{2}}\, \mathrm{d}x=\frac{1}{a}\tan^{-1}\left(\frac{x}{a}\right)}+C$
+
+\task ${\displaystyle \int\frac{1}{x^{2}-1}\, \mathrm{d}x=\frac{1}{2}\ln\left(\frac{x-1}{x+1}\right)}+C\text{,\,\ensuremath{x>1}}$
+
+\task ${\displaystyle \int\frac{1}{x^{2}-a^{2}}\, \mathrm{d}x=\frac{1}{2a}\ln\left(\frac{x-a}{x+a}\right)}+C\text{,\,\ensuremath{x>a}}$
+
+\task ${\displaystyle \int\frac{1}{1-x^{2}}\, \mathrm{d}x=\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right)}+C\text{, \ensuremath{\left|x\right|<1}}$
+
+\task ${\displaystyle \int\frac{1}{a^{2}-x^{2}}\, \mathrm{d}x=\frac{1}{2a}\ln\left(\frac{a+x}{a-x}\right)}+C\text{, \,\ensuremath{\left|x\right|<a}}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task ${\displaystyle \int\frac{2}{\sqrt{1-x^{2}}}\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\frac{5}{1+4x^{2}}\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int-\frac{1}{\sqrt{9-16x^{2}}}\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{x}{4+(x^{2}+1)^{2}}\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\frac{2}{4-x^{2}}\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\frac{2}{4x^{2}-1}\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = .3cm](2)
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{2}{\sqrt{1-x^{2}}}\, \mathrm{d}x} & =2\int\frac{1}{\sqrt{1-x^{2}}}\, \mathrm{d}x\\
+ & =2\sin^{-1}x+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{5}{1+4x^{2}}\, \mathrm{d}x} & =5\left(\frac{1}{4}\right)\int\frac{1}{\left(\frac{1}{2}\right)^{2}+x^{2}}\, \mathrm{d}x\\
+ & =\left(\frac{5}{4}\right)\left(2\right)\tan^{-1}\left(\frac{x}{\left(\frac{1}{2}\right)}\right)+C\\
+ & =\frac{5}{2}\tan^{-1}(2x)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int-\frac{1}{\sqrt{9-16x^{2}}}\, \mathrm{d}x} & ={\displaystyle -\frac{1}{4}\int\frac{1}{\sqrt{\left(\frac{3}{4}\right)^{2}-x^{2}}}\, \mathrm{d}x}\\
+ & =-\frac{1}{4}\sin^{-1}\left(\frac{x}{\left(\frac{3}{4}\right)}\right)+C\\
+ & =-\frac{1}{4}\sin^{-1}\left(\frac{4x}{3}\right)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{x}{4+(x^{2}+1)^{2}}\, \mathrm{d}x} & ={\displaystyle \frac{1}{2}\int\frac{2x}{2^{2}+(x^{2}+1)^{2}}\, \mathrm{d}x}\\
+ & =\frac{1}{2}\left(\frac{1}{2}\right)\tan^{-1}\left(\frac{x^{2}+1}{2}\right)+C\\
+ & =\frac{1}{4}\tan^{-1}\left(\frac{x^{2}+1}{2}\right)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{2}{4-x^{2}}\, \mathrm{d}x} & ={\displaystyle {\displaystyle 2\int\frac{1}{2^{2}-x^{2}}\, \mathrm{d}x}}\\
+ & =2\left(\frac{1}{2(2)}\right)\ln\left|\frac{2+x}{2-x}\right|+C\\
+ & =\frac{1}{2}\ln\left|\frac{2+x}{2-x}\right|+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{2}{4x^{2}-1}\, \mathrm{d}x} & ={\displaystyle {\displaystyle {\displaystyle 2\left(\frac{1}{4}\right)\int\frac{1}{x^{2}-\left(\frac{1}{2}\right)^{2}}\, \mathrm{d}x}}}\\
+ & =\frac{1}{2}\left(\frac{1}{2(\frac{1}{2})}\right)\ln\left|\frac{x-\frac{1}{2}}{x+\frac{1}{2}}\right|+C\\
+ & =\frac{1}{2}\ln\left|\frac{2x-1}{2x+1}\right|+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+
+\newpage{}
+
+\section{Integration Techniques}
+
+\subsection{Integrals of the form ${\displaystyle \boldsymbol{\frac{f'\left(x\right)}{f\left(x\right)}}}$,
+$\boldsymbol{f'\left(x\right)\left[f\left(x\right)\right]^{n}}$ and
+$\boldsymbol{f'\left(x\right){\rm e}^{f\left(x\right)}}$}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{tasks}[style=itemize,label-width=3.5ex,column-sep=-1cm]
+
+\task ${\displaystyle \int\frac{f'(x)}{f(x)}\, \mathrm{d}x=\ln\left|f(x)\right|+C}$
+
+\task ${\displaystyle \int f'(x)[f(x)]^{n}\, \mathrm{d}x=\frac{[f(x)]^{n+1}}{n+1}+C,\quad n\neq-1}$
+
+\task ${\displaystyle \int f'(x){\rm e}^{f(x)}\, \mathrm{d}x={\rm e}^{f(x)}+C}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task ${\displaystyle \int\frac{x}{2x^{2}+4}\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\sin x\cos^{2}x\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{4x-2}{x^{2}-x+5}\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{1}{x\ln x}\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\frac{2x^{2}}{\sqrt{1+x^{3}}}\, \mathrm{d}x}$
+
+\task ${\displaystyle \int(x-1)\mathrm{e}^{x^{2}-2x+2}\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = 1cm](2)
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{x}{2x^{2}+4}\, \mathrm{d}x} & =\frac{1}{4}{\displaystyle \int\frac{4x}{2x^{2}+4}\, \mathrm{d}x}\\
+ & =\frac{1}{4}\ln\left(2x^{2}+4\right)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\sin x\cos^{2}x\, \mathrm{d}x} & ={\displaystyle -\int\left(-\sin x\right)\cos^{2}x\, \mathrm{d}x}\\
+ & =-\frac{1}{3}\cos^{3}x+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle {\displaystyle \int\frac{4x-2}{x^{2}-x+5}\, \mathrm{d}x}} & =2{\displaystyle \int\frac{2x-1}{x^{2}-x+5}\, \mathrm{d}x}\\
+ & =2\ln\left(x^{2}-x+5\right)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{1}{x\ln x}\, \mathrm{d}x} & =\int\frac{\left(\frac{1}{x}\right)}{\ln x}\, \mathrm{d}x\\
+ & =\ln\left|\ln x\right|+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{2x^{2}}{\sqrt{1+x^{3}}}\, \mathrm{d}x} & ={\displaystyle \frac{2}{3}\int3x^{2}(1+x^{3})^{-\frac{1}{2}}\, \mathrm{d}x}\\
+ & =\frac{2}{3}\frac{\left(1+x^{3}\right)^{\frac{1}{2}}}{\left(\frac{1}{2}\right)}+C\\
+ & =\frac{4}{3}\sqrt{1+x^{3}}+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int(x-1)\mathrm{e}^{x^{2}-2x+2}\, \mathrm{d}x} & =\frac{1}{2}\int(2x-2)\mathrm{e}^{x^{2}-2x+2}\, \mathrm{d}x\\
+ & =\frac{1}{2}\mathrm{e}^{x^{2}-2x+2}+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+
+\newpage
+
+\subsection{Techniques of Integration Involving Trigonometric Functions}
+
+\subsubsection{Integrands of the form $\boldsymbol{\sin^{2}x}$ , $\boldsymbol{\cos^{2}x}$}
+
+When given a sine or cosine function of the second degree, we need
+to employ the \textbf{double angle formula }to transform these integrands
+into simpler forms. Lets look at some examples
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task ${\displaystyle \int\sin^{2}x\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\cos^{2}2x\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task
+$
+\begin{aligned}[t]
+\int\sin^{2}x\, \mathrm{d}x & =\int\frac{1-\cos2x}{2}\, \mathrm{d}x\\
+ & =\frac{1}{2}\int1-\cos\thinspace2x\, \mathrm{d}x\\
+ & =\frac{1}{2}\left(x-\frac{1}{2}\sin\thinspace2x\right)+C\\
+ & =\frac{1}{2}x-\frac{1}{4}\sin\thinspace2x+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int\cos^{2}2x\, \mathrm{d}x & =\int\frac{1+\cos4x}{2}\, \mathrm{d}x\\
+ & =\frac{1}{2}\int1+\cos4x\, \mathrm{d}x\\
+ & =\frac{1}{2}\left(x+\frac{1}{4}\sin4x\right)+C\\
+ & =\frac{1}{2}x+\frac{1}{8}\sin4x+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+
+\subsubsection{Integrands of the form $\boldsymbol{\tan^{2}x}$, $\boldsymbol{\cot^{2}x}$}
+
+When given a tangent or cotangent function of the second degree, we
+need to employ \textbf{trigonometric identities to express these integrands in terms of }$\boldsymbol{\sec^{2}x}$\textbf{ and }$\boldsymbol{\csc^{2}x}$  respectively.
+
+\begin{example}
+
+Find the following indefinite integrals
+
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+
+\task ${\displaystyle \int\tan^{2}x+1\, \mathrm{d}x}$
+
+\task ${\displaystyle \int\cot^{2}\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\tan^{2}x+1\, \mathrm{d}x} & =\int\sec^{2}x\, \mathrm{d}x\\
+ & =\tan x+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int\cot^{2}\left(2x+\frac{\pi}{4}\right)\, \mathrm{d}x & =\int\csc^{2}\left(2x+\frac{\pi}{4}\right)-1\, \mathrm{d}x\\
+ & =-\frac{1}{2}\cot\left(2x+\frac{\pi}{4}\right)-x+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+
+\newpage{}
+
+\subsubsection{Integrands of the form $\boldsymbol{\sin\left(mx\right)\cos\left(nx\right)}$,
+$\boldsymbol{\cos\left(mx\right)\cos\left(nx\right)}$, $\boldsymbol{\sin\left(mx\right)\sin\left(mx\right)}$}
+
+When given a integrand in the form of the product of sine and cosine
+functions, we need to employ the \textbf{product-to-sum formula} to
+transform the integrand into the sum of the sine and cosine functions.
+
+\begin{example}
+
+Find the following indefinite integrals
+
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
+
+\task  ${\displaystyle \int\sin2x\cos x\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\cos3x\cos2x\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\sin x\sin3x\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = 1cm](1)
+
+\task
+$
+\begin{aligned}[t]
+\int\sin2x\cos x\, \mathrm{d}x & =\frac{1}{2}\int\left(\sin3x+\sin2x\right)\, \mathrm{d}x\\
+ & =\frac{1}{2}\left[-\frac{1}{3}\cos3x-\frac{1}{2}\cos2x\right]+C\\
+ & =-\frac{1}{6}\cos3x-\frac{1}{4}\cos2x+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\cos3x\cos2x\, \mathrm{d}x} & =\frac{1}{2}\int\left(\cos5x+\cos x\right)\, \mathrm{d}x\\
+ & =\frac{1}{2}\left[\frac{1}{5}\sin5x+\sin x\right]+C\\
+ & =\frac{1}{10}\sin5x+\frac{1}{2}\sin x+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\sin x\sin3x\, \mathrm{d}x} & =\frac{1}{2}\int\left(\cos(-2x)-\cos4x\right)\, \mathrm{d}x\\
+ & =\frac{1}{2}\int\left(\cos2x-\cos4x\right)\, \mathrm{d}x\\
+ & =\frac{1}{2}\left[\frac{1}{2}\sin2x-\frac{1}{4}\sin4x\right]+C\\
+ & =\frac{1}{4}\sin2x-\frac{1}{8}\sin4x+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+
+\subsection{Techniques of Integration Involving Rational Algebraic Functions}
+
+Rational algebraic functions refer to functions of the form ${\displaystyle \frac{f(x)}{g(x)}}$,
+where $f(x)$ and $g(x)$ are polynomials and $g(x)\neq0$. When attempting
+to integrate such functions, \textbf{we must observe the expressions
+in the denominator and in the numerator} to decide the appropriate
+integration techniques.
+
+\subsubsection{Integrals Where The Quadratic Function in The Denominator \uline{Can}
+be Factorised}
+
+When a fractional integrand contains a quadratic expression in the
+denominator which can be factorised, we can solve the integral by
+expressing the integrand in \textbf{partial fractions}.
+
+\newpage
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  ${\displaystyle \int\frac{1}{x^{2}-5x+6}\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{2}{(1-x)(1+x^{2})}\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  By factorising the denominator we get $x^{2}-5x+6=(x-3)(x-2)$.
+
+Let ${\displaystyle \frac{1}{(x-3)(x-2)}=\frac{A}{(x-3)}+\frac{B}{(x-2)}}$
+
+Multiply by $(x-3)(x-2)$ on both sides to get $1=A(x-2)+B(x-3)$.\\
+Comparing coefficients we get\\
+\begin{align*}
+A+B & =0\tag{1}\\
+-2A-3B & =1\tag{2}
+\end{align*}
+Solving (1) and (2) we get $A=1,B=-1$.
+
+Thus,
+\begin{align*}
+{\displaystyle \int\frac{1}{x^{2}-5x+6}\, \mathrm{d}x} & =\int\frac{1}{x-3}-\frac{1}{x-2}\, \mathrm{d}x\\
+ & =\ln\left|x-3\right|-\ln\left|x-2\right|+C\\
+ & =\ln\left|\frac{x-3}{x-2}\right|+C
+\end{align*}
+
+\task  Let ${\displaystyle \frac{2}{(1-x)(1+x^{2})}=\frac{A}{(1-x)}+\frac{Bx+C}{(1+x^{2})}}$
+
+Multiply by $(1-x)(1+x^{2})$ on both sides to get $2=A(1+x^{2})+(Bx+C)(1-x)$.
+
+Comparing coefficients we get
+
+\begin{align*}
+B-C & =0\tag{1}\\
+A+C & =2\tag{2}\\
+A-B & =0\tag{3}
+\end{align*}
+
+Solving (1), (2) and (3) we get $A=1,B=1,C=1$.
+
+Thus,
+\begin{align*}
+{\displaystyle \int\frac{2}{(1-x)(1+x^{2})}\, \mathrm{d}x} & =\int\frac{1}{(1-x)}+\frac{x+1}{(1+x^{2})}\, \mathrm{d}x\\
+ & =\int\frac{1}{(1-x)}\, \mathrm{d}x+\int\frac{x}{(1+x^{2})}\, \mathrm{d}x+\int\frac{1}{(1+x^{2})}\, \mathrm{d}x\\
+ & =-\ln\left|x-1\right|+\frac{1}{2}\ln(x^{2}+1)+\tan^{-1}x+C
+\end{align*}
+
+\end{tasks}
+
+\end{example}
+
+\subsubsection{Integrals of The Form $\boldsymbol{\frac{d}{ax^{2}+bx+c}}$ Where
+The Denominator \uline{Cannot} be Factorised, $\ensuremath{\mathbf{a\protect\neq0}}$}
+
+Say we have a fractional integrand containing a quadratic expression
+in the denominator which cannot be factorised, with a constant value
+in the numerator. We can solve this integral by \textbf{completing
+the square}, transforming the integrand into any of the following
+forms:
+
+\[
+\frac{1}{a^{2}+x^{2}},\frac{1}{a^{2}-x^{2}}\text{ or }\frac{1}{x^{2}-a^{2}}
+\]
+
+\begin{example}
+
+Find the following indefinite integrals
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  ${\displaystyle \int\frac{1}{x^{2}+6x+25}\, \mathrm{d}x}$
+
+\task  ${\displaystyle \int\frac{3}{4+4x-2x^{2}}\, \mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = 1cm]
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int\frac{1}{x^{2}+6x+25}\, \mathrm{d}x} & ={\displaystyle \int\frac{1}{(x+3)^{2}+4^{2}}\, \mathrm{d}x}\\
+ & =\frac{1}{4}\tan^{-1}\left(\frac{x+3}{4}\right)+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\int\frac{3}{4+4x-2x^{2}}\, \mathrm{d}x & =-\frac{3}{2}\int\frac{1}{x^{2}-2x-2}\, \mathrm{d}x\\
+ & =-\frac{3}{2}\int\frac{1}{(x-1)^{2}-\left(\sqrt{3}\right)^{2}}\, \mathrm{d}x\\
+ & =-\frac{3}{2}\left(\frac{1}{2\sqrt{3}}\ln\left|\frac{x-1-\sqrt{3}}{x-1+\sqrt{3}}\right|\right)+C\\
+ & =-\frac{\sqrt{3}}{4}\ln\left|\frac{x-1-\sqrt{3}}{x-1+\sqrt{3}}\right|+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\subsubsection{Integrals of The Form $\boldsymbol{\frac{d}{\sqrt{ax^{2}+bx+c}}}$
+Where $\boldsymbol{ax^{2}+bx+c}$ \uline{Cannot} be Factorised}
+
+Say we have a fractional integrand containing a quadratic expression
+that cannot be factorised under the square root sign in its denominator,
+with a constant value in its numerator. We can solve this integral
+by \textbf{completing the square}, transforming the integrand into
+the form:
+
+\[
+\frac{1}{\sqrt{a^{2}-x^{2}}}
+\]
+
+\begin{example}
+
+Find ${\displaystyle \int\frac{1}{\sqrt{3+4x-4x^{2}}}\, \mathrm{d}x}$.
+
+\medskip
+
+\Solution
+
+\begin{align*}
+{\displaystyle \int\frac{1}{\sqrt{3+4x-4x^{2}}}\, \mathrm{d}x} & =\frac{1}{2}\int\frac{1}{\sqrt{-(x^{2}-x-\frac{3}{4})}}\, \mathrm{d}x\\
+ & =\frac{1}{2}\int\frac{1}{\sqrt{-((x-\frac{1}{2})^{2}-1)}}\, \mathrm{d}x\\
+ & =\frac{1}{2}\int\frac{1}{\sqrt{1^{2}-(x-\frac{1}{2})^{2}}}\, \mathrm{d}x\\
+ & =\frac{1}{2}\sin^{-1}\left(\frac{x-\frac{1}{2}}{1}\right)+C\\
+ & =\frac{1}{2}\sin^{-1}\left(x-\frac{1}{2}\right)+C
+\end{align*}
+
+\end{example}
+
+\newpage{}
+
+\subsubsection{Integrals of The Form $\boldsymbol{\frac{px+q}{ax^{2}+bx+c}}$Where
+The Denominator \uline{Cannot} be Factorised and $\boldsymbol{px+q}$
+is a Linear Function}
+
+Say we have a fractional integrand containing a quadratic expression
+in its denominator that cannot be factorised with a linear expression
+in the numerator. By means of\textbf{ scalar multiplication}, we can
+transform the integrand into the form:
+
+\[
+k_{1}\int\frac{f'(x)}{f(x)}\, \mathrm{d}x+k_{2}\int\frac{m}{f(x)}\, \mathrm{d}x\text{, \quad\ where \ensuremath{f(x)=ax^{2}+bx+c} \quad and \ensuremath{k_{1}}, \ensuremath{k_{2}}, \ensuremath{m} are constants }
+\]
+
+
+\begin{example}
+
+Find ${\displaystyle \int\frac{x+1}{x^{2}+4x+6}\, \mathrm{d}x}$.
+
+\medskip
+
+\Solution
+
+\begin{align*}
+{\displaystyle \int\frac{x+1}{x^{2}+4x+6}\, \mathrm{d}x} & =\frac{1}{2}\int\frac{2x+4}{x^{2}+4x+6}\, \mathrm{d}x-\int\frac{1}{x^{2}+4x+6}\, \mathrm{d}x\\
+ & =\frac{1}{2}\int\frac{2x+4}{x^{2}+4x+6}\, \mathrm{d}x-\int\frac{1}{(x+2)^{2}+\left(\sqrt{2}\right)^{2}}\, \mathrm{d}x\\
+ & =\frac{1}{2}\ln\left(x^{2}+4x+6\right)-\frac{1}{\sqrt{2}}\tan^{-1}\left(\frac{x+2}{\sqrt{2}}\right)+C
+\end{align*}
+
+\end{example}
+
+\subsubsection{Integrals of the form $\boldsymbol{\frac{px+q}{\sqrt{ax^{2}+bx+c}}}$
+where $\boldsymbol{ax^{2}+bx+c}$ \uline{cannot} be Factorised
+and $\boldsymbol{px+q}$ is a linear function}
+
+Say we have a fractional integrand containing the square root of a
+quadratic expression that cannot be factorised in its denominator,
+with a linear expression in the numerator. By means of\textbf{ scalar
+multiplication}, we can transform the integrand into the form:
+
+\[
+k_{1}\int\frac{f'(x)}{\sqrt{f(x)}}\, \mathrm{d}x+k_{2}\int\frac{m}{\sqrt{f(x)}}\, \mathrm{d}x\text{, \quad\ where \ensuremath{f(x)=ax^{2}+bx+c} \quad\ and \ensuremath{k_{1}}, \ensuremath{k_{2}}, \ensuremath{m} are constants }
+\]
+
+\begin{example}
+
+Find ${\displaystyle \int\frac{x+3}{\sqrt{2-2x-x^{2}}}\, \mathrm{d}x}$.
+
+\medskip
+
+\Solution
+
+\begin{align*}
+{\displaystyle \int\frac{x+3}{\sqrt{2-2x-x^{2}}}\, \mathrm{d}x} & ={\displaystyle -\frac{1}{2}\int\frac{-2x-2}{\sqrt{-x^{2}-2x+2}}\, \mathrm{d}x}+\int\frac{2}{\sqrt{-x^{2}-2x+2}}\, \mathrm{d}x\\
+ & ={\displaystyle -\frac{1}{2}\int\frac{-2x-2}{\sqrt{-x^{2}-2x+2}}\, \mathrm{d}x}+\int\frac{2}{\sqrt{\left(\sqrt{3}\right)^{2}-(x+1)^{2}}}\, \mathrm{d}x\\
+ & =-\frac{1}{2}\frac{\left(-x^{2}-2x+2\right)}{\frac{1}{2}}^{\frac{1}{2}}+2\sin^{-1}\left(\frac{x+1}{\sqrt{3}}\right)+C\\
+ & =-\sqrt{-x^{2}-2x+2}+2\sin^{-1}\left(\frac{x+1}{\sqrt{3}}\right)+C
+\end{align*}
+
+\end{example}
+
+\newpage{}
+
+\section{Integration by Substitution}
+
+Integration by substitution (also known as ``$u-$substitution'')
+is a method to find the integral, but only if we can get it in the
+form
+
+\[
+\int f\left[g\left(x\right)\right]\thinspace g'\left(x\right)\,\mathrm{d}x
+\]
+
+When our integral is set up like this we can do the following substitution
+
+\[
+\int f\left[g\left(x\right)\right]\thinspace g'\left(x\right)\,\mathrm{d}x\longrightarrow\int f(u)\, \mathrm{d}u
+\]
+
+Then we can integrate $f(u)$ and finish by substitution back $u=g(x)$.
+
+Take for example the integral
+
+\[
+\int\sin\left(x^{2}\right)\,2x\, \mathrm{d}x
+\]
+
+If we let $u=x^{2}$, we see that
+
+\[
+\frac{\mathrm{d}u}{\mathrm{d}x}=2x
+\]
+
+Thus, substituting $u$ into the integral we get
+
+\[
+\int\sin(u)\, \mathrm{d}u
+\]
+
+Integrating this we get
+
+\[
+-\cos(u)+C
+\]
+
+Finally putting $u=x^{2}$ back,
+
+\[
+-\cos(x^{2})+C
+\]
+
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Most $u-$substitution questions can be broken down into four simple
+steps:
+
+\begin{tasks}[label=(\arabic*),label-width=3.5ex]
+
+\task Differentiate the substitution provided.
+
+\task Replace terms in the original integrand with the new variable
+\[
+\int f\left[g\left(x\right)\right]\thinspace g'\left(x\right)\,\mathrm{d}x\longrightarrow\int f(u)\, \mathrm{d}u
+\]
+
+\task Integrate our new function
+\[
+\int f\left(u\right)\, \mathrm{d}u=F\left(u\right)+C
+\]
+
+\task Substitute ``$x$'' back to get out final answer
+\[
+F\left[g\left(x\right)\right]+C
+\]
+
+\end{tasks}
+\end{tcolorbox}
+
+For definite integrals,
+\[
+\int_{x_{1}}^{x_{2}}f\left[g\left(x\right)\right]\thinspace g'\left(x\right)\,\mathrm{d}x=\int_{u_{1}}^{u_{2}}f\left(u\right)\,\mathrm{d}u
+\]
+
+where the limits $u_{1}$ corresponds to $x_{1}$ and $u_{2}$ corresponds
+to $x_{2}$.
+
+\newpage{}
+
+\begin{example}
+
+By using the substitution $u=x^{2}+1$, find ${\displaystyle \int2x\left(x^{2}+1\right)^{9}\,\mathrm{d}x}$.
+
+\Solution
+
+Differentiating $u$ with respect to $x$, ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}=2x}$.
+
+\begin{align*}
+\int2x\left(x^{2}+1\right)^{9}\,\mathrm{d}x & =\int u^{9}\mathrm{d}u\\
+ & =\frac{u^{10}}{10}+C\\
+ & =\frac{\left(x^{2}+1\right)^{10}}{10}+C
+\end{align*}
+
+\end{example}
+
+
+\begin{example}
+
+By using the substitution $u=1-x^{4}$, find ${\displaystyle \int\frac{x^{3}}{\sqrt{1-x^{4}}}\,\mathrm{d}x}$.
+
+\Solution
+
+Differentiating $u$ with respect to $x$, ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}=-4x^{3}}$.
+
+\begin{align*}
+\int\frac{x^{3}}{\sqrt{1-x^{4}}}\,\mathrm{d}x & =-\frac{1}{4}\int\frac{1}{\sqrt{u}}\,\mathrm{d}u\\
+ & =-\frac{1}{4}\int u^{-\frac{1}{2}}\,\mathrm{d}u\\
+ & =-\frac{1}{4}\left(\frac{u^{\frac{1}{2}}}{\frac{1}{2}}\right)+C\\
+ & =-\frac{1}{2}\sqrt{u}+C\\
+ & =-\frac{1}{2}\sqrt{1-x^{4}}+C
+\end{align*}
+
+\end{example}
+
+\begin{example}
+
+By using the substitution $u=x+2$, find ${\displaystyle \int x\sqrt{x+2}\,\mathrm{d}x}$.
+
+\Solution
+
+Differentiating $u$ with respect to $x$, ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}=1}$.
+
+\begin{align*}
+\int x\sqrt{x+2}\,\mathrm{d}x & =\int\left(u-2\right)\sqrt{u}\,\mathrm{d}u\\
+ & =\int u^{\frac{3}{2}}-2u^{\frac{1}{2}}\,\mathrm{d}u\\
+ & =\frac{2}{5}u^{\frac{5}{2}}-\frac{4}{3}u^{\frac{3}{2}}+C\\
+ & =\frac{2}{5}\left(x+2\right)^{\frac{5}{2}}-\frac{4}{3}\left(x+2\right)^{\frac{3}{2}}+C
+\end{align*}
+
+\end{example}
+\newpage
+
+\begin{example}
+
+By using the substitution $x=2\sin\theta$, where ${\displaystyle -\frac{\pi}{2}<\theta<\frac{\pi}{2}}$,
+find ${\displaystyle \int\sqrt{4-x^{2}}\, \mathrm{d}x}$.
+
+\Solution
+
+Differentiating $x$ we get, ${\displaystyle \frac{ \mathrm{d}x}{ \mathrm{d}\theta}=2\sin\theta}$.
+
+\begin{align*}
+{\displaystyle \int\sqrt{4-x^{2}}\, \mathrm{d}x} & ={\displaystyle \int\sqrt{4-\left(2\sin\theta\right)^{2}}\left(2\cos\theta\right)\, \mathrm{d}\theta}\\
+ & =\int2\sqrt{1-\sin^{2}\theta}\left(2\cos\theta\right)\, \mathrm{d}\theta\\
+ & =\int2\left(\cos\theta\right)\left(2\cos\theta\right)\, \mathrm{d}\theta\\
+ & =2\int2\cos^{2}\theta\, \mathrm{d}\theta\\
+ & =2\int\left(\cos2\theta+1\right)\, \mathrm{d}\theta\\
+ & =2\left(\frac{1}{2}\sin2\theta+\theta\right)+C\\
+ & =\sin2\theta+2\theta+C\\
+ & =2\sin\theta\cos\theta+2\theta+C
+\end{align*}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+Since ${\displaystyle \sin\theta=\frac{x}{2}}$, by the Pythagorean
+theorem, ${\displaystyle \cos\theta=\frac{\sqrt{4-x^{2}}}{2}}$.
+
+Putting $\theta$ in terms of $x$, ${\displaystyle \theta=\sin^{-1}\left(\frac{x}{2}\right)}$.
+
+Thus we have,
+
+\begin{align*}
+{\displaystyle \int\sqrt{4-x^{2}}\, \mathrm{d}x} & ={\displaystyle 2\left(\frac{x}{2}\right)\left(\frac{\sqrt{4-x^{2}}}{2}\right)+2\sin^{-1}\left(\frac{x}{2}\right)+C}\\
+ & =\frac{1}{2}x\sqrt{4-x^{2}}+2\sin^{-1}\left(\frac{x}{2}\right)+C
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\includegraphics[width=4cm,valign=t]{\string"lib/Graphics/IntTechExample13\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\end{example}
+
+\newpage{}
+
+\section{Integration by Parts}
+
+We use integration by parts when our integrand consists of two functions
+that are multiplied together, that cannot be solved by any of the
+other ways we have discussed.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+The formula for integration by parts is as follows
+
+\[
+\int u\frac{\mathrm{d}v}{\mathrm{d}x}\, \mathrm{d}x=uv-\int v\frac{\mathrm{d}u}{\mathrm{d}x}\, \mathrm{d}x
+\]
+
+Or simply,
+
+\[
+\int u \,  \mathrm{d}v=uv-\int v\, \mathrm{d}u
+\]
+\end{tcolorbox}
+
+The first step is to find the appropriate function given to set as
+our $u$ to differentiate and ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}}$ to
+integrate. The function $u$ is chosen so that ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}}$
+is simpler than $u$.
+
+We can follow this general guideline to decide which function to set
+as our $u$:
+\begin{description}
+\item [{\hspace{1cm}L}] - Logarithmic function
+\item [{\hspace{1cm}I}] - Inverse trig function
+\item [{\hspace{1cm}A}] - Algebraic function
+\item [{\hspace{1cm}T}] - Trigonometric function
+\item [{\hspace{1cm}E}] - Exponential function
+\end{description}
+We create the word ``\textbf{LIATE}'' to help us memorize the order
+of the function $u$ to differentiate. Choose $u$ to be the function
+that comes first in this list. Once we have chosen our $u$, the other
+function by default is our ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}}$.
+
+
+
+\begin{example}
+
+Find ${\displaystyle \int x\mathrm{e}^{x}\,\mathrm{d}x}$.
+
+\medskip
+
+\Solution
+
+Let $u=x$ and ${\displaystyle \frac{\mathrm{dv}}{\mathrm{d}x}=\mathrm{e}^{x}}$.
+
+\begin{minipage}[t]{0.6\textwidth}
+
+
+Using the integration by parts formula,
+
+\begin{align*}
+\int x\mathrm{e}^{x}\,\mathrm{d}x & =x\mathrm{e}^{x}-\int\mathrm{e}^{x}\mathrm{d}x\\
+ & =x\mathrm{e}^{x}-\mathrm{e}^{x}+C
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+
+$
+\begin{aligned}[t]
+u & =x\\
+\frac{\mathrm{d}u}{\mathrm{d}x} & =1
+\end{aligned}
+$
+\hspace{1cm}
+$
+\begin{aligned}[t]
+\frac{\mathrm{d}v}{\mathrm{d}x} & =\mathrm{e}^{x}\\
+v & =\mathrm{e}^{x}
+\end{aligned}
+$
+
+\end{minipage}
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Find ${\displaystyle \int\ln(x+1)\, \mathrm{d}x}$.
+
+\medskip
+
+\Solution
+Let $u=\ln(x+1)$ and ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}=1}$
+
+\hspace{0.26cm} ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}=\frac{1}{x+1}}$, \hspace{1.25cm}
+${\displaystyle v=x}$
+
+\medskip
+
+Using the integration by parts formula,
+
+\medskip
+
+\begin{align*}
+{\displaystyle \int\ln(x+1)\, \mathrm{d}x} & =x\ln(x+1)-\int x\left(\frac{1}{x+1}\right)\, \mathrm{d}x\\
+ & =x\ln(x+1)-\int1-\frac{1}{x+1}\, \mathrm{d}x\\
+ & =x\ln(x+1)-\left[x-\ln\left(x+1\right)\right]+C\\
+ & =x\ln(x+1)-x+\ln\left(x+1\right)+C\\
+ & =(x+1)\ln\left(x+1\right)-x+C
+\end{align*}
+\end{example}
+
+\begin{example}
+
+Find ${\displaystyle \int x^{2}\mathrm{e}^{3x}\, \mathrm{d}x}$.
+
+\medskip
+
+\Solution
+
+Let $u=x^{2}$ and ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}=\mathrm{e}^{3x}}$
+
+\hspace{0.26cm} ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}=2x}$, \hspace{0.73cm}
+${\displaystyle v=\frac{1}{3}\mathrm{e}^{3x}}$
+
+\medskip
+
+Using the integration by parts formula,
+
+\medskip
+
+\begin{align*}
+\int x^{2}\mathrm{e}^{3x}\, \mathrm{d}x & =x^{2}\left(\frac{1}{3}\mathrm{e}^{3x}\right)-\int\frac{1}{3}\mathrm{e}^{3x}(2x)\, \mathrm{d}x\\
+ & =\frac{1}{3}x^{2}\mathrm{e}^{3x}-\frac{2}{3}\int x\mathrm{e}^{3x}\, \mathrm{d}x
+\end{align*}
+
+Let $w=x$ and ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}=\mathrm{e}^{3x}}$
+
+\hspace{0.26cm} ${\displaystyle \frac{\mathrm{d}w}{\mathrm{d}x}=1}$, \hspace{0.75cm}
+${\displaystyle v=\frac{1}{3}\mathrm{e}^{3x}}$
+
+\medskip
+
+Using the integration by parts formula again,
+
+\medskip
+
+\begin{align*}
+\int x\mathrm{e}^{3x}\, \mathrm{d}x & =x\left(\frac{1}{3}\mathrm{e}^{3x}\right)-\int\frac{1}{3}\mathrm{e}^{3x}\, \mathrm{d}x\\
+ & =\frac{1}{3}x\mathrm{e}^{3x}-\frac{1}{9}\mathrm{e}^{3x}+C_{1}
+\end{align*}
+Thus,
+\begin{align*}
+\int x^{2}\mathrm{e}^{3x}\, \mathrm{d}x & =\frac{1}{3}x^{2}\mathrm{e}^{3x}-\frac{2}{3}\left[=\frac{1}{3}x\mathrm{e}^{3x}-\frac{1}{9}\mathrm{e}^{3x}+C_{1}\right]\\
+ & =\frac{1}{3}\left[x^{2}\mathrm{e}^{3x}-\frac{2}{3}x\mathrm{e}^{3x}+\frac{2}{9}\mathrm{e}^{3x}\right]+C
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Find  ${\displaystyle \int \mathrm{e}^{x}\cos x\, \mathrm{d}x}$.
+
+\medskip
+
+\Solution
+
+Let $u=\cos x$ and ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}=\mathrm{e}^{x}}$\\
+\hphantom{}\hspace{0.26cm} ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}=-\sin x}$,
+\hspace{0.44cm} ${\displaystyle v=\mathrm{e}^{x}}$\\
+
+Using the integration by parts formula,
+
+\medskip
+
+\begin{align*}
+{\displaystyle \int \mathrm{e}^{x}\cos x\, \mathrm{d}x} & =\left(\cos x\right)\left(\mathrm{e}^{x}\right)-\int \mathrm{e}^{x}\left(-\sin x\right)\, \mathrm{d}x\\
+ & =\mathrm{e}^{x}\cos x+\int \mathrm{e}^{x}\sin x\, \mathrm{d}x
+\end{align*}
+Let $w=\sin\thinspace x$ and ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}=\mathrm{e}^{x}}$
+
+\hspace{0.26cm} ${\displaystyle \frac{\mathrm{d}u}{\mathrm{d}x}=\cos\thinspace x}$,
+\hspace{0.71cm} ${\displaystyle v=\mathrm{e}^{x}}$
+
+\medskip
+
+Using the integration by parts formula again,
+
+\medskip
+
+\begin{align*}
+\int \mathrm{e}^{x}\sin x\, \mathrm{d}x & =\left(\sin x\right)\left(\mathrm{e}^{x}\right)-\int \mathrm{e}^{x}\left(\cos x\right)\, \mathrm{d}x\\
+ & =\mathrm{e}^{x}\sin x-\int \mathrm{e}^{x}\cos x\, \mathrm{d}x
+\end{align*}
+Thus,
+\begin{align*}
+{\displaystyle \int \mathrm{e}^{x}\cos x\, \mathrm{d}x} & =\mathrm{e}^{x}\cos x+\mathrm{e}^{x}\sin x-\int \mathrm{e}^{x}\cos x\, \mathrm{d}x
+\end{align*}
+Adding ${\displaystyle \int \mathrm{e}^{x}\cos x\, \mathrm{d}x}$ on each side
+gives
+\begin{align*}
+{\displaystyle 2\int \mathrm{e}^{x}\cos x\, \mathrm{d}x} & =\mathrm{e}^{x}\cos x+\mathrm{e}^{x}\sin x\\
+\int \mathrm{e}^{x}\cos x\, \mathrm{d}x & =\frac{1}{2}\mathrm{e}^{x}\left(\cos x+\sin x\right)+C
+\end{align*}
+
+\end{example}
+
+
+\chapter{Definite Integrals}
+
+\section{Riemann Sums}
+
+Suppose we want to find the area under this curve:
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/IntegralShaded\string".png}
+\par\end{center}
+
+We may struggle to find the exact area, but we can approximate it
+using rectangles of equal width:
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/Integral1\string".png}
+\par\end{center}
+
+And our approximation gets better if we use more rectangles with a
+smaller width:
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/Integral2\string".png}\hspace{1cm}\includegraphics[width=5cm]{\string"lib/Graphics/Integral3\string".png}
+\par\end{center}
+
+This method for approximating the total area underneath a curve with
+rectangles of uniform width is called the \textbf{Riemann sum}.
+
+\newpage{}
+
+\subsection{Left and Right Riemann Sums}
+
+To make a Riemann sum, we must choose how we're going to make our
+rectangles. One possible choice is to make our rectangles touch the
+curve with their top left corners. This is called a\textbf{ left Riemann
+sum}. In this case, the height of each rectangle is equal to the value
+of the function at the left endpoint of its base.
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/LeftReimann\string".png}
+\par\end{center}
+
+Another choice is to make our rectangles touch the curve with their
+top-right corners. This is a \textbf{right Riemann sum}. The height
+of each rectangle is equal to the value of the function at the right
+endpoint of its base. Neither choice is strictly better than the other,
+the accuracy of the approximation depends on what kind of curve we
+have.
+\begin{center}
+\includegraphics[width=5cm]{\string"lib/Graphics/RightReimann\string".png}
+\par\end{center}
+
+Clearly for increasing functions such as $f\left(x\right)$, the left
+Riemann sum gives an understimation of the actual area under the curve,
+$A$, while the right Riemann sum gives an overestimation. However,
+as the subinterval width is reduced further and further, both sums
+will converge to $A$.
+
+\newpage{}
+
+\section{Definite Integral as the Limit of a Riemann Sum}
+
+Suppose we want to find the area $A$ of the region enclosed by the
+curve $y=f(x)$, the $x$-axis, within the interval $[a,b]$. We can
+divide the interval $[a,b]$ into $n$ equal subintervals by the points
+$x_{1},x_{2},...,x_{i},...x_{n}$,
+
+\begin{minipage}[t]{.5\textwidth}
+
+\medskip
+\begin{itemize}
+\item where $x_{i}$ is the \uline{\mbox{$x$}-value of the right edge
+of the \mbox{$i^{th}$} rectangle}, i.e. $x_{i}=a+\Delta x\cdot i$
+\item Then $f(x_{i})$ will give us the \uline{height of each rectangle}.
+\item And the \uline{width of each subinterval} is $\Delta x={\displaystyle \frac{b-a}{n}}$
+.
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/IntegralRiemann\string".png}
+\par\end{center}
+
+\end{minipage}
+
+\begin{align*}
+\text{Area of \ensuremath{i}th rectangle} & =\text{Height of \ensuremath{i}th rectangle }\times\text{ Base of rectangle}\\
+ & =f\left(x_{i}\right)\times\Delta x
+\end{align*}
+
+\begin{align*}
+\text{Area under the curve} & \approx f\left(x_{1}\right)\times\Delta x+f\left(x_{2}\right)\times\Delta x+\ldots+f\left(x_{n}\right)\times\Delta x\\
+ & =\sum_{i=1}^{n}f\left(x_{i}\right)\times\Delta x
+\end{align*}
+
+We can see how the approximation gets closer to the actual area as
+$n$ increases. Of course, even with more rectangles, an approximation
+is always just an approximation. Right?
+
+What if we could take a Riemann sum with infinite subdivisions. Well,
+we can't substitute $n=\infty$ because infinity is not a number.
+However, we can take the limit of the Riemann sum as $n\rightarrow\infty$.
+
+\[
+A=\lim_{n\rightarrow\infty}\sum_{i=1}^{n}f(x_{i})\times\Delta x
+\]
+
+This limit gives us the exact value of the enclosed region and thus
+is equal the to definite integral over $\left[a,b\right]$. In fact,
+this is the definition of an indefinite integral!
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+The definite integral of a continuous function $f$ over the interval $[a,b]$ denoted by ${\displaystyle \int_{a}^{b}f(x)\mathrm{d}x}$, is the limit of a Riemann sum as the number of subdivisions approaches infinity.
+
+i.e. \begin{align*} \int_{a}^{b}f(x)\,\mathrm{d}x & =\lim_{n\rightarrow\infty}\sum_{i=1}^{n}f(x_{i})\times\Delta x \end{align*}
+where $\Delta x={\displaystyle \frac{b-a}{n}}$ and $x_{i}=a+\Delta x\cdot i$%
+\end{tcolorbox}
+
+In the above notation, we call
+
+\begin{tabular}{ll}
+${\displaystyle \int}$ \hspace{0.5cm}the integral sign, & \hspace{1cm}$f(x)$ \hspace{0.5cm}the integrand,\tabularnewline
+ & \tabularnewline
+$b$ \hspace{0.5cm}the upper limit, & \hspace{1cm}$a$\hspace{0.5cm} the lower limit.\tabularnewline
+\end{tabular}
+
+\vspace{1cm}
+
+It doesn't matter whether we take the limit of a right Riemann sum,
+a left Riemann sum, or any other common approximation. At infinity,
+we will always get the exact value of the definite integral.
+
+\newpage{}
+
+\begin{example}[Archimedes' Problem]
+
+\begin{minipage}[t]{.5\textwidth}
+
+Let us examine a problem faced by Archimedes over 2000 years ago -
+finding the exact area bounded by the graph $y=x^{2}$, the $x-$axis
+and the lines $x=0$ and $x=1$. Archimedes anticipated techniques
+from integral calculus that would not have been fully developed for
+another 1800 years.
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/Example1\string".png}
+\par\end{center}
+
+\end{minipage}
+
+The diagram shows part of the curve $y=x^{2}$ with rectangles approximating the area under the curve on the interval $[0,1]$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  Prove that the area of the three rectangles may be expressed
+as ${\displaystyle \frac{1}{64}\sum_{r=1}^{3}r^{2}}$.
+
+\item  Given that ${\displaystyle \sum_{r=1}^{n}r^{2}=\frac{n}{6}(n+1)(2n+1)}$.
+Show that the area under the curve on the interval $[0,1]$ may be
+approximated as ${\displaystyle \frac{(n-1)(2n-1)}{6n^{2}}}$ for
+$n$ rectangles of equal length.
+
+\item  Hence, find the exact area as under the graph on the interval
+$[0,1]$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+$
+\begin{aligned}[t]
+\text{Area of 3 rectangles} & =\text{Area of 1st rectangle + Area of 2nd rectangle + Area of 3rd rectangle}\\
+ & ={\displaystyle \left(\frac{1}{4}\right)\left(\frac{1}{4}\right)^{2}+\left(\frac{1}{4}\right)\left(\frac{2}{4}\right)^{2}+\left(\frac{1}{4}\right)\left(\frac{3}{4}\right)^{2}}\\
+ & ={\displaystyle \left(\frac{1}{4}\right)^{3}\left[1^{2}+2^{2}+3^{2}\right]}\\
+ & =\frac{1}{64}\sum_{r=1}^{3}r^{2}
+\end{aligned}
+$
+
+\item
+$
+\begin{aligned}[t]
+\text{Area of \ensuremath{n} rectangles} & =\text{Area of 1st rectangle + Area of 2nd rectangle +...+ Area of last rectangle }\\
+ & =\left(\frac{1}{n}\right)\left(\frac{1}{n}\right)^{2}+\left(\frac{1}{n}\right)\left(\frac{2}{n}\right)^{2}+\left(\frac{1}{n}\right)\left(\frac{3}{n}\right)^{2}+...+\left(\frac{1}{n}\right)\left(\frac{n-1}{n}\right)^{2}\\
+ & =\left(\frac{1}{n}\right)^{3}\left[1^{2}+2^{2}+3^{2}+...+(n-1)^{2}\right]\\
+ & =\left(\frac{1}{n}\right)^{3}\sum_{r=1}^{n-1}r^{2}\\
+ & =\left(\frac{1}{n}\right)^{3}\left(\frac{(n-1)(n-1+1)(2(n-1)+1}{6}\right)\\
+ & =\left(\frac{1}{n}\right)^{3}\left(\frac{(n-1)(n)(2n-1)}{6}\right)\\
+ & =\frac{(n-1)(2n-1)}{6n^{2}}
+\end{aligned}
+$
+
+\item
+$
+\begin{aligned}[t]
+\text{Area under the curve} & =\lim_{n\rightarrow\infty}\frac{(n-1)(2n-1)}{6n^{2}}\\
+ & =\lim_{n\rightarrow\infty}\frac{2n^{2}-3n+1}{6n^{2}}\\
+ & =\lim_{n\rightarrow\infty}\left(\frac{2}{6}-\frac{3}{n}+\frac{1}{n^{2}}\right)\\
+ & =\frac{2}{6}=\frac{1}{3}
+\end{aligned}
+$
+
+\end{enumerate}
+
+\end{example}
+
+\section{Properties of Definite Integrals}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+If $f\left(x\right)$ and $g\left(x\right)$ are continuous functions
+on the interval $\left[a,b\right]$ and $k$ is a constant, then
+
+\begin{tasks}[style=itemize,label-width=3.5ex](2)
+
+\task  ${\displaystyle \int_{a}^{b}kf(x)\mathrm{d}x=k\int_{a}^{b}f(x)\mathrm{d}x}$
+
+\task  ${\displaystyle \int_{a}^{b}f(x)\pm g(x)\mathrm{d}x=\int_{a}^{b}f(x)\mathrm{d}x\pm\int_{a}^{b}g(x)\mathrm{d}x}$
+
+\task  ${\displaystyle \int_{a}^{b}kf(x)\mathrm{d}x=-\int_{b}^{a}kf(x)\mathrm{d}x}$
+
+\task  ${\displaystyle \int_{a}^{b}kf(x)\mathrm{d}x=\int_{c}^{b}kf(x)\mathrm{d}x+\int_{a}^{c}kf(x)\mathrm{d}x}$
+
+\task  ${\displaystyle \int_{a}^{a}kf(x)\mathrm{d}x=0}$
+
+\end{tasks}
+\end{tcolorbox}
+
+\begin{example}
+
+Given that ${\displaystyle \int_{2}^{6}f(x)\mathrm{d}x=5}$, find
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task ${\displaystyle \int_{2}^{6}5-4f(x)\mathrm{d}x}$
+
+\task ${\displaystyle \int_{6}^{2}f(x)\mathrm{d}x-\int_{2}^{6}f(x)\mathrm{d}x}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int_{2}^{6}5-4f(x)\mathrm{d}x} & =\int_{2}^{6}5\mathrm{d}x-4\int_{2}^{6}f(x)\mathrm{d}x\\
+ & =\left[5x\right]_{2}^{6}-4\left[5\right]\\
+ & =[30-10]-20\\
+ & =0
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int_{6}^{2}f(x)\mathrm{d}x-\int_{2}^{6}f(x)\mathrm{d}x} & =-\int_{2}^{6}f(x)\mathrm{d}x-\int_{2}^{6}f(x)\mathrm{d}x\\
+ & =-5-5\\
+ & =-10
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\section{Fundamental Theorem of Calculus}
+
+The Fundamental Theorem of Calculus states that
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+If $F\left(x\right)$ is an anti-derivative of $f\left(x\right)$
+on the interval $\left[a,b\right]$, where $f\left(x\right)$ is a
+continuous function, i.e. ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}[F(x)]=f(x)}$.
+
+Then, ${\displaystyle \int_{a}^{b}f(x)\mathrm{d}x=F(b)-F(a)}$, where $F\left(b\right)-F\left(a\right)$
+can also be expressed as ${\displaystyle \left[F(x)\right]_{a}^{b}}$
+or ${\displaystyle \left[\int_{a}^{b}f(x)\,\mathrm{d}x\right]_{a}^{b}}$.
+
+\end{tcolorbox}
+
+\begin{example}
+
+Evaluate the following definite integrals, giving your answer in exact
+form.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task ${\displaystyle \int_{1}^{2}\frac{2x^{5}-x+3}{x^{2}}\,\mathrm{d}x}$
+
+\task ${\displaystyle \int_{0}^{1}\frac{\mathrm{e}^{x}-4\mathrm{e}^{3x}}{5\mathrm{e}^{2x}}\,\mathrm{d}x}$
+
+\task ${\displaystyle \int_{0}^{2}\frac{\mathrm{d}x}{\sqrt{8x+9}}}$
+
+\task ${\displaystyle \int_{0}^{\frac{\pi}{4}}\sin^{2}(x)\cos^{2}(x)}\,\mathrm{d}x$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int_{1}^{2}\frac{2x^{5}-x+3}{x^{2}}\,\mathrm{d}x} & =\int_{1}^{2}2x^{3}-\frac{1}{x}+\frac{3}{x^{2}}\,\mathrm{d}x\\
+ & =\left[\frac{1}{2}x^{4}-\ln\left|x\right|+\left(-\frac{3}{x}\right)\right]_{1}^{2}\\
+ & =\left[\frac{1}{2}(2)^{4}-\ln\left|2\right|-\left(\frac{3}{2}\right)\right]-\left[\frac{1}{2}(1)^{4}-\ln\left|1\right|-\left(\frac{3}{1}\right)\right]\\
+ & =9-\ln2
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+{\displaystyle \int_{0}^{1}\frac{\mathrm{e}^{x}-4\mathrm{e}^{3x}}{5\mathrm{e}^{2x}}\,\mathrm{d}x} & =\int_{0}^{1}\frac{1}{5}\mathrm{e}^{-x}-\frac{4}{5}\mathrm{e}^{x}\,\mathrm{d}x\\
+ & =\left[-\frac{1}{5}\mathrm{e}^{-x}-\frac{4}{5}\mathrm{e}^{x}\right]_{0}^{1}\\
+ & =\left[-\frac{1}{5}\mathrm{e}^{-1}-\frac{4}{5}\mathrm{e}^{1}\right]-\left[-\frac{1}{5}\mathrm{e}^{0}-\frac{4}{5}\mathrm{e}^{0}\right]\\
+ & =-\frac{1}{5}\mathrm{e}^{-1}-\frac{4}{5}\mathrm{e}+1
+\end{aligned}
+$
+
+\task$
+\begin{aligned}[t]
+\int_{0}^{2}\frac{\mathrm{d}x}{\sqrt{8x+9}} & =\int_{0}^{2}(8x+9)^{-\frac{1}{2}}\,\mathrm{d}x\\
+ & =\frac{1}{8}\frac{1}{\left(\frac{1}{2}\right)}\left[\left(8x+9\right)^{\frac{1}{2}}\right]_{0}^{2}\\
+ & =\frac{1}{4}\left[\left(8(2)+9\right)^{\frac{1}{2}}-\left(8(0)+9\right)^{\frac{1}{2}}\right]\\
+ & =\frac{1}{4}[5-3]\\
+ & =\frac{2}{4}=\frac{1}{2}
+\end{aligned}
+$
+
+\task$
+\begin{aligned}[t]
+{\displaystyle \int_{0}^{\frac{\pi}{4}}\sin^{2}(x)\cos^{2}(x)\,\mathrm{d}x} & ={\displaystyle \int_{0}^{\frac{\pi}{4}}}\left(\sin(x)\cos(x)\right)^{2}\,\mathrm{d}x\\
+ & ={\displaystyle \int_{0}^{\frac{\pi}{4}}}\left(\frac{1}{2}\sin(2x)\right)^{2}\,\mathrm{d}x\\
+ & =\frac{1}{4}{\displaystyle \int_{0}^{\frac{\pi}{4}}}\sin^{2}(2x)\,\mathrm{d}x\\
+ & =\frac{1}{4}{\displaystyle \int_{0}^{\frac{\pi}{4}}\frac{1}{2}\left(1-\cos(4x)\right)}\,\mathrm{d}x\\
+ & =\frac{1}{8}\left[x-\frac{1}{4}\sin(4x)\right]_{0}^{\frac{\pi}{4}}\\
+ & =\frac{1}{8}\left[\frac{\pi}{4}-\frac{1}{4}\sin(\pi)-0+0\right]\\
+ & =\frac{1}{8}\left[\frac{\pi}{4}-\frac{1}{4}\right]\\
+ & =\frac{1}{32}(\pi-1)
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\newpage{}
+
+\section{Area Between a Curve and the $\boldsymbol{x-}$axis/$\boldsymbol{y-}$axis}
+
+We can use the integral to find the area of a region bounded by a
+curve $y=f(x)$, the $x$-axis and the lines $x=a$ and $x=b$.
+
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/AreaUnder\string".png}
+\par\end{center}
+
+\begin{center}
+${\displaystyle A=\int_{a}^{b}f(x)\,\mathrm{d}x}$
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm,valign=t]{\string"lib/Graphics/AreaAbove\string".png}
+\par\end{center}
+
+\begin{center}
+${\displaystyle A=\left|\int_{a}^{b}f(x)\,\mathrm{d}x\right|}$
+\par\end{center}
+
+\end{minipage}
+
+Similarly, we can find the area bounded by $x=g(y)$, the $y$-axis
+and the lines $y=c$ and $y=d$.
+
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/HorizontalArea1\string".png}
+\par\end{center}
+
+\begin{center}
+${\displaystyle A=\int_{c}^{d}g(y)\,\mathrm{d}y}$
+\par\end{center}
+
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/HorizontalArea2\string".png}
+\par\end{center}
+
+\begin{center}
+${\displaystyle A=\left|\int_{c}^{d}g(y)\,\mathrm{d}y\right|}$
+\par\end{center}
+
+\end{minipage}
+
+Find the area bounded by the graph of $y=x^{3}$
+
+\begin{GC}{Finding Definite Integral Using Integration Function}
+\begin{steps}[leftmargin=1.5cm]
+
+\item  Press \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{math}}}
+
+\item  Select ``9: fnInt''.
+
+\item  Key in the function to be integrated and the upper and lower
+bounds.
+
+\end{steps}
+\end{GC}
+
+\newpage
+
+\section{Area Enclosed by Two Curves}
+
+\subsection{Areas of Regions Bounded by $\boldsymbol{y=f\left(x\right)}$ and
+$\boldsymbol{y=g\left(x\right)}$}
+
+The diagrams below show the graphs of two continuous functions $y=f(x)$
+and $y=g(x)$ such that $f(x)\geq g(x)$ on the interval $[a,b]$.
+The area $A$ in each diagram is bounded by: the two graphs, and the
+lines $x=a$ and $x=b$.
+
+\includegraphics[width=5cm]{\string"lib/Graphics/AreaBetweenGraphs\string".png}\hspace{1cm}\includegraphics[width=5cm]{\string"lib/Graphics/AreaBetweenGraphs2\string".png}\hspace{1cm}\includegraphics[width=5cm]{\string"lib/Graphics/AreaBetweenGraphs3\string".png}
+
+\medskip
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+If the region $R$ is bounded by the curves $y=f(x)$ and $y=g(x)$, where $f(x)\geq g(x)$ for all $x$ on the interval $[a,b]$ and the lines $x=a$ and $x=b$, where $a<x<b$. Then the area of $R$ is given by \begin{align*}{A={\displaystyle \int_{a}^{b}[f(x)-g(x)]\,\mathrm{d}x}}
+\end{align*}
+\end{tcolorbox}
+
+\subsection{Areas of Regions Bounded by $\boldsymbol{x=f\left(y\right)}$ and
+$\boldsymbol{x=g\left(y\right)}$}
+
+\includegraphics[width=5cm]{\string"lib/Graphics/AreaBetweenGraphsHorizontal1\string".png}\hspace{1cm}\includegraphics[width=5cm]{\string"lib/Graphics/AreaBetweenGraphsHorizontal2\string".png}\hspace{1cm}\includegraphics[width=5cm]{\string"lib/Graphics/AreaBetweenGraphsHorizontal3\string".png}
+
+\medskip
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+If the region $R$ is bounded by the curves $x=f(y)$ and $x=g(y)$, where $f(y)\geq g(y)$ for all $y$ on the interval $[c,d]$ and the lines $y=c$ and $y=d$, where $c<y<d$. Then the area of $R$ is given by \begin{align*}{A={\displaystyle \int_{c}^{d}\left[f(y)-g(y)\right]\,\mathrm{d}y}}\end{align*}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+Vertical Area Between Curves
+\begin{equation*}A = \int_{{\,a}}^{{\,b}}{{\left( \begin{array}{c}{\mbox{upper}}\\ {\mbox{function}}\end{array} \right) - \left( \begin{array}{c}{\mbox{lower}}\\ {\mbox{function}}\end{array} \right)\,\mathrm{d}x}} \end{equation*}
+
+Horizontal Area Between Curves
+\begin{equation*}A = \int_{{\,c}}^{{\,d}}{{\left( \begin{array}{c}{\mbox{right}}\\ {\mbox{function}}\end{array} \right) - \left( \begin{array}{c}{\mbox{left}}\\  {\mbox{function}}\end{array} \right)\,\mathrm{d}y}} \end{equation*}
+\end{tcolorbox}
+
+\newpage
+
+\begin{example}
+
+Determine the area of the region bounded by
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=2mm]
+
+\task $y=x\sqrt{x^{2}+1}$, $y=\mathrm{e}^{-\frac{1}{2}x}$, $x=-3$ and the
+$y$-axis.
+
+\task $y=x^{2}-2x+2$ and $y=-x^{2}+6$
+
+\task $x=y^{2}-y-6$ and $x=2y+4$
+
+\task $x=\mathrm{e}^{1+2y}$, $x=\mathrm{e}^{1-y}$, $y=-2$ and $y=1$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task
+$
+\begin{aligned}[t]
+A & =\int_{-3}^{0}\mathrm{e}^{-\frac{1}{2}x}-x\sqrt{x^{2}+1}\,\mathrm{d}x\\
+ & =\left[-2\mathrm{e}^{-\frac{1}{2}x}-\frac{1}{3}(x^{2}+1)^{\frac{3}{2}}\right]_{-3}^{0}\\
+ & =\left[-2\mathrm{e}^{0}-\frac{1}{3}(0+1)^{\frac{3}{2}}\right]-\left[-2\mathrm{e}^{\frac{3}{2}}-\frac{1}{3}(10)^{\frac{3}{2}}\right]\\
+ & =\left[-2-\frac{1}{3}\right]+\left[2\mathrm{e}^{\frac{3}{2}}+\frac{1}{3}(10)^{\frac{3}{2}}\right]\\
+ & =-\frac{7}{3}+2\mathrm{e}^{\frac{3}{2}}+\frac{1}{3}(10)^{\frac{3}{2}}\\
+ & =17.2
+\end{aligned}
+$
+
+\task  Finding the interval of integration,
+\begin{align*}
+y & =x^{2}-2x+2\tag{1}\\
+y & =-x^{2}+6\tag{2}
+\end{align*}
+Putting $(1)$ into $(2)$,
+\begin{align*}
+x^{2}-2x+2 & =-x^{2}+6\\
+2x^{2}-2x-4 & =0\\
+(x+1)(x-2) & =0
+\end{align*}
+We get $x=-1$ or $x=2$. Thus, our interval of integration is $[-1,2]$.
+\begin{align*}
+A & =\int_{-1}^{2}(-x^{2}+6)-(x^{2}-2x+2)\,\mathrm{d}x\\
+ & =\int_{-1}^{2}(-2x^{2}+2x+4)\,\mathrm{d}x\\
+ & =\left[-\frac{2}{3}x^{3}+x^{2}+4x\right]_{-1}^{2}\\
+ & =\left[-\frac{2}{3}(2)^{3}+(2)^{2}+4(2)\right]-\left[-\frac{2}{3}(-1)^{3}+(-1)^{2}+4(-1)\right]\\
+ & =\left[\frac{20}{3}\right]-\left[-\frac{7}{3}\right]\\
+ & =9
+\end{align*}
+
+\task Finding the interval of integration, $x=y^{2}-y-6$ and $x=2y+4$
+\begin{align*}
+x & =y^{2}-y-6\tag{1}\\
+x & =2y+4\tag{2}
+\end{align*}
+Putting $(1)$ into $(2)$,
+\begin{align*}
+y^{2}-y-6 & =2y+4\\
+y^{2}-3y-10 & =0\\
+(y-5)(y+2) & =0
+\end{align*}
+We get $y=5$ or $y=-2$. Thus, our interval of integration is $[-2,5]$.
+\begin{align*}
+A & =\int_{-2}^{5}(2y+4)-(y^{2}-y-6)\,\mathrm{d}y\\
+ & =\int_{-2}^{5}-y^{2}+3y+10\,\mathrm{d}y\\
+ & =\left[-\frac{1}{3}y^{3}+\frac{3}{2}y^{2}+10y\right]_{-2}^{5}\\
+ & =\left[-\frac{1}{3}(5)^{3}+\frac{3}{2}(5)^{2}+10(5)\right]-\left[-\frac{1}{3}(-2)^{3}+\frac{3}{2}(-2)^{2}+10(-2)\right]\\
+ & =\left[\frac{275}{6}\right]-\left[-\frac{34}{3}\right]\\
+ & =\frac{353}{6}\\
+ & =57.2
+\end{align*}
+
+\task \includegraphics[width=5.2cm,valign=t]{\string"lib/Graphics/Example4d\string".png}
+
+As shown in the diagram above, the left/right functions differ based
+on the interval of $y$ we are looking at. Thus, we will need to take
+the sum of two integrals.
+\begin{align*}
+A & =\int_{0}^{1}\left(\mathrm{e}^{1+2y}\right)-\left(\mathrm{e}^{1-y}\right)\mathrm{d}y+\int_{-2}^{0}\left(\mathrm{e}^{1-y}\right)-\left(\mathrm{e}^{1+2y}\right)\,\mathrm{d}y\\
+ & =\left[\frac{1}{2}\mathrm{e}^{1+2y}+\mathrm{e}^{1-y}\right]_{0}^{1}+\left[-\mathrm{e}^{1-y}-\frac{1}{2}\mathrm{e}^{1+2y}\right]_{-2}^{0}\\
+ & =\left[\frac{1}{2}\mathrm{e}^{3}+\mathrm{e}^{0}\right]-\left[\frac{1}{2}\mathrm{e}^{1}+\mathrm{e}^{1}\right]+\left[-\mathrm{e}^{1}-\frac{1}{2}\mathrm{e}^{1}\right]-\left[-\mathrm{e}^{3}-\frac{1}{2}\mathrm{e}^{-3}\right]\\
+ & =\frac{3}{2}\mathrm{e}^{3}-3e+\frac{1}{2}\mathrm{e}^{-3}+1\\
+ & =23.0
+\end{align*}
+
+\end{tasks}
+
+\end{example}
+
+\newpage{}
+
+\section{Area Under a Curve Defined Parametrically}
+
+Until now, we have learnt to find the area of the region under the
+curve of the form $y=f(x)$ or $x=g(y)$. We shall look at how we
+can find the area of the region under a curve when its equation is
+expressed in parametrical form.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+The area between the curve $y=f(x)$ and the lines $x=a$ and $x=b$, and the $x$-axis, is given by ${\displaystyle \int_{a}^{b}y\,\mathrm{d}x}$.
+
+If the equation of the curve is in parametric from $x=F(t)$ and $y=G(t)$, where $t$ is a parameter, and if $t=\alpha$ when $x=a$ and $t=\beta$ when $x=b$.
+
+The area of the region bounded by the parametric equations, $x=a$ and $x=b$, and the $x$-axis is given by ${\displaystyle \int_{a}^{b}y\,\mathrm{d}x=\int_{\alpha}^{\beta}G(t)F'(t)\,dt}$
+
+The area between the curve $x=g(y)$ and the lines $y=c$ and $y=d$, and the $y$-axis, is given by ${\displaystyle \int_{c}^{d}x\,\mathrm{d}y}$.
+
+If the equation of the curve is in parametric from $x=F(t)$ and $y=G(t)$, where $t$ is a parameter, and if $t=\alpha_{1}$ when $y=c$ and $t=\beta_{1}$ when $y=d$.
+
+The area of the region bounded by the parametric equations, $y=c$ and $y=d$, and the $y$-axis is given by ${\displaystyle \int_{c}^{d}x\,\mathrm{d}y=\int_{\alpha_{1}}^{\beta_{1}}F(t)G'(t)\,dt}$%
+\end{tcolorbox}
+
+\begin{example}
+
+A curve has the parametric equations ${\displaystyle x=\frac{1}{t^{2}}}$,
+$y=2t$, where $-1.5\leq t\leq1.5$ and $t\neq0$.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task Sketch the curve, labelling clearly the intercepts if any.
+
+\task Find the area bounded by the $x$-axis, the curve and the vertical
+lines through the points on the curve where $t=1$ and $t=1.5$. Give
+your answer in 2 decimal places.
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task \includegraphics[width=5cm,valign=t]{\string"lib/Graphics/Example5a\string".png}
+
+\task ${\displaystyle x=\frac{1}{t^{2}}\Rightarrow\frac{\mathrm{d}x}{\mathrm{d}t}=-2t^{-3}}$
+\begin{align*}
+A & =2\int_{\alpha}^{\beta}y\frac{\mathrm{d}x}{\mathrm{d}t}\,dt\\
+ & =2\int_{1.5}^{1}2t\left(-2t^{-3}\right)\,dt\\
+ & =-8\int_{1.5}^{1}t^{-2}\,dt\\
+ & =-8\left[-t^{-1}\right]_{1.5}^{1}\\
+ & =-8\left[-1^{-1}+1.5^{-1}\right]\\
+ & =-8\left[-\frac{1}{3}\right]\\
+ & =\frac{8}{3}\\
+ & =2.67
+\end{align*}
+
+\end{tasks}
+
+\end{example}
+
+\begin{example}
+
+A curve $C$ is defined by the parametric equations $x=t+\ln t$,
+$y=t-\ln t$, where $t>0$. The region $R$ is bounded by the curve
+$C$, the lines $x=1$, and $x=2+\ln(2)$ and the $x$-axis. Without
+the use of a calculator find the area of $R$ in exact form.
+
+\Solution
+
+When $x=1$, $t=1$.
+
+When $x=2+\ln(2)$, $t=2$.
+
+${\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t}=1+\frac{1}{t}}$
+
+\begin{align*}
+A & =\int_{\alpha}^{\beta}y\frac{\mathrm{d}x}{\mathrm{d}t}\,dt\\
+ & =\int_{1}^{2}(t-\ln t)\left(1+\frac{1}{t}\right)\,dt\\
+ & =\int_{1}^{2}(t+1)-\left(\ln t+\frac{\ln t}{t}\right)\,dt\\
+ & =\left[\frac{1}{2}t^{2}+t-\left(t\ln t-t+\frac{\left(\ln t\right)^{2}}{2}\right)\right]_{1}^{2}\\
+ & =\left[\frac{1}{2}t^{2}+2t-t\ln t-\frac{\left(\ln t\right)^{2}}{2}\right]_{1}^{2}\\
+ & =\left[\frac{1}{2}(2)^{2}+2(2)-2\ln2-\frac{\left(\ln2\right)^{2}}{2}\right]-\left[\frac{1}{2}(1)^{2}+2(1)-\ln1-\frac{\left(\ln1\right)^{2}}{2}\right]\\
+ & =\frac{7}{2}-2\ln2-\frac{\left(\ln2\right)^{2}}{2}
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\section{Volumes of Revolution}
+
+\subsection{Volumes of Revolution about the $\boldsymbol{x-}$axis}
+
+When a region in a plane is revolved completely about a line along
+the plane, the resulting solid is called the \textbf{solid of revolution}
+and the line is known as an \textbf{axis of revolution}. Below we
+see some examples of when a function $y=f(x)$, on an interval $[a,b]$,
+is rotated completely about the $x$-axis, generating some familiar
+shapes, namely cylinders, spheres and cones.
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeCylinder1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/Arrowlesshigh\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeCylinder2\string".png}
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeSphere1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/ArrowMidHigh\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeSphere2\string".png}
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeCone1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/ArrowMidHigh\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeCone2\string".png}
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeofRevolutionX1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/ArrowMidHigh\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeofRevolutionX2\string".png}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+When the region under the curve of $y=f(x)$ between $x=a$ and $x=b$ is rotated about the $x$-axis, the volume of the solid of revolution is given by
+\begin{align*} V & =\lim_{x\rightarrow\infty}\pi\sum_{i=1}^{n}[f(x_{i})]^{2}\times\Delta x\\  & =\pi\int_{a}^{b}[f(x)]^{2}\,\mathrm{d}x \end{align*}
+\end{tcolorbox}
+
+\newpage{}
+
+\subsection{Volumes of Revolution about the $\boldsymbol{y-}$axis}
+
+Below we see some examples of when a function $x=g(y)$ , on an interval
+$[c,d]$, is rotated completely about the $y$-axis.
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeCylinderY1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/ArrowHigher1\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeCylinderY2\string".png}
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeSphereY1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/ArrowHigher1\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeSphereY2\string".png}
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeConeY1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/ArrowHigher1\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeConeY2\string".png}
+
+\includegraphics[width=6cm]{\string"lib/Graphics/VolumeofRevolutionY1\string".png}\hspace{1cm}\includegraphics[width=2cm]{\string"lib/Graphics/ArrowHigher1\string".png}\hspace{1cm}\includegraphics[width=6cm]{\string"lib/Graphics/VolumeofRevolutionY2\string".png}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+When the region under the curve of $x=g(y)$ between $y=c$ and $y=d$ is rotated about the $y$-axis, the volume of the solid of revolution is given by
+\begin{align*} V & =\pi\int_{c}^{d}[g(y)]^{2}\,\mathrm{d}y \end{align*}
+\end{tcolorbox}
+
+\newpage{}
+
+\begin{example}
+
+Find the volume generated when the region under the graph of $y=1+x^{2}$
+between $x=-2$ and $x=1$ is rotated through $2\pi$ about the $x$-axis.
+
+\Solution
+
+\begin{align*}
+V & =\pi\int_{-2}^{1}\left[1+x^{2}\right]^{2}\,\mathrm{d}x\\
+ & =\pi\int_{-2}^{1}x^{4}+2x^{2}+1\,\mathrm{d}x\\
+ & =\pi\left[\frac{x^{5}}{5}+\frac{2x^{3}}{3}+x\right]_{-2}^{1}\\
+ & =\pi\left[\frac{28}{15}-\left(-\frac{206}{15}\right)\right]\\
+ & =\frac{78}{5}\pi
+\end{align*}
+
+\end{example}
+
+\begin{example}
+
+A curve has the equation $y=9-x^{2}$, where $x\geq0$. Find
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task the exact value of the volume generated by rotating the area
+bounded by the curve and the coordinate axes through an angle of $2\pi$
+about the $x$-axis,
+
+\task the volume generated by rotating the same area around the $y$-axis
+completely.
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task
+\begin{align*}
+V & =\pi\int_{0}^{3}\left[f(x)\right]^{2}\,\mathrm{d}x\\
+ & =\pi\int_{0}^{3}(9-x^{2})^{2}\,\mathrm{d}x\\
+ & =\pi\int_{0}^{3}x^{4}-18x^{2}+81\,\mathrm{d}x\\
+ & =\pi\left[\frac{1}{5}x^{5}-6x^{3}+81x\right]_{0}^{3}\\
+ & =\pi\left[\frac{1}{5}(3)^{5}-6(3)^{3}+81(3)\right]\\
+ & =\frac{648}{5}\pi
+\end{align*}
+
+\task
+\begin{align*}
+V & =\pi\int_{0}^{9}\left[g(y)\right]^{2}\,\mathrm{d}y\\
+ & =\pi\int_{0}^{9}(9-y)\,\mathrm{d}y\\
+ & =127.2
+\end{align*}
+
+\end{tasks}
+
+\end{example}
+
+\newpage{}
+
+\section{Volume Enclosed by Two Curves}
+
+Suppose we want to find the volume of the region between two curves
+when it is rotating about the $x$ or $y$-axis.
+
+The diagrams below show a region enclosed by two continuous curves
+$y=f(x)$ and $y=g(x)$, for all values of $x$ on the interval $[a,b]$
+and the lines $x=a$ and $x=b$.
+
+When this region revolves about the $x$-axis, a hollow solid is formed.
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/RotatingBetweenRegionX1\string".png}\hspace{2cm}\includegraphics[width=6cm]{\string"lib/Graphics/RotatingBetweenRegionX2\string".png}
+\par\end{center}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+When a region is formed between $y=f(x)$ and $y=g(x)$, and if $f(x)\geq g(x)$ for all $x\epsilon[a,b]$, then the volume of the solid of revolution formed by rotating the region about the $x$-axis is given by
+\[ V=\int_{a}^{b}\pi[f(x)]^{2}\mathrm{d}x-\int_{a}^{b}\pi[g(x)]^{2}\,\mathrm{d}x \]
+\end{tcolorbox}
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/RotatingBetweenRegionY1\string".png}\hspace{2cm}\includegraphics[width=6cm]{\string"lib/Graphics/RotatingBetweenRegionY2\string".png}
+\par\end{center}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+When a region is formed between $x=f(y)$ and $x=g(y)$, and if $f(y)\geq g(y)$, for all $y\epsilon[c,d]$, then the volume of the solid of revolution formed by rotating the region about the $y$-axis is given by
+\[ V=\int_{c}^{d}\pi[f(y)]^{2}\mathrm{d}y-\int_{c}^{d}\pi[g(y)]^{2}\,\mathrm{d}y \]
+\end{tcolorbox}
+
+\newpage{}
+
+\begin{example}
+
+The diagram shows the shaded region $R$ bounded by the lines $y=2x$,
+${\displaystyle y=\frac{3}{2}}$, the $x$-axis and the curve ${\displaystyle y=\sqrt{\frac{3x^{2}-1}{x^{2}}}}$.
+Find the exact volume of the solid generated when $R$ is rotated
+completely about the $x$-axis.
+\begin{center}
+\includegraphics[width=6cm]{\string"lib/Graphics/Example9\string".png}
+\par\end{center}
+
+\Solution
+
+The line ${\displaystyle y=\frac{3}{2}}$ intersects $y=2x$ when
+${\displaystyle x=\frac{3}{4}}$.
+
+${\displaystyle y=\sqrt{\frac{3x^{2}-1}{x^{2}}}}$ intersects the
+$x$-axis when ${\displaystyle x=\frac{1}{\sqrt{3}}}$.
+
+The line ${\displaystyle y=\frac{3}{2}}$ intersects ${\displaystyle y=\sqrt{\frac{3x^{2}-1}{x^{2}}}}$
+when ${\displaystyle x=\frac{2}{\sqrt{3}}}$.
+
+\begin{align*}
+V & =\text{Vol of cone + Vol of cylinder - Vol of solid generated by \ensuremath{{\displaystyle y=\sqrt{\frac{3x^{2}-1}{x^{2}}}}} }\\
+ & =\frac{1}{3}\pi\left(\frac{3}{2}\right)^{2}\left(\frac{3}{4}\right)+\pi\left(\frac{3}{2}\right)^{2}\left(\frac{2}{\sqrt{3}}-\frac{3}{4}\right)-\pi\int_{\frac{1}{\sqrt{3}}}^{\frac{2}{\sqrt{3}}}\left(\frac{3x^{2}-1}{x^{2}}\right)\,\mathrm{d}x\\
+ & =\pi\left(\frac{9}{16}+\frac{3\sqrt{3}}{2}-\frac{27}{16}\right)-\pi\left[3x+\frac{1}{x}\right]_{\frac{1}{\sqrt{3}}}^{\frac{2}{\sqrt{3}}}\\
+ & =\pi\left(-\frac{9}{8}+\frac{3\sqrt{3}}{2}\right)-\pi\left(2\sqrt{3}+\frac{\sqrt{3}}{2}-\sqrt{3}-\sqrt{3}\right)\\
+ & =\pi\left(\frac{2\sqrt{3}}{2}-\frac{9}{8}\right)
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Find the volume of the solid formed when the region $R$, bounded
+by the lines ${\displaystyle y=-\frac{3}{2}x+2}$, $y=1$ and the
+curve $y=\cos x$, is rotated $2\pi$ radians about the $y$-axis,
+giving your answer correct to 3 decimal places.
+
+\Solution
+
+Using GC, the point of intersection is $(0.94031,0.58954)$
+
+Putting the equations in terms of $x$,
+
+${\displaystyle x=\frac{2}{3}\left(2-y\right)}$
+
+$x=\cos^{-1}y$
+
+\begin{align*}
+V & =\pi\int_{0.58954}^{1}\left[\frac{2}{3}(2-y)\right]^{2}-(\cos^{-1}y)^{2}\,\mathrm{d}y\\
+ & =0.285
+\end{align*}
+
+\end{example}
+
+\chapter{Maclaurin Series}
+
+\section{Introduction to The Maclaurin Series}
+
+\subsection{Introduction}
+
+A Maclaurin series is a \textit{power series} that allows one to calculate
+an approximation of a function $f\left(x\right)$, given that we are
+able to compute the successive derivatives of the function and its
+derivatives are defined when $x=0$. Partial sums of a Maclaurin series
+provide polynomial approximations for the function about zero, which
+become generally better when $n$ increases.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+Below we have the Maclaurin's series expansion of $f\left(x\right)$.
+
+\[
+f\left(x\right)=\sum\limits _{n=0}^{\infty}f^{\left(n\right)}\left(0\right)\frac{x^{n}}{n!}=f\left(0\right)+f\text{\textquoteright}\left(0\right)x+\frac{f^{\prime\prime}\left(0\right)}{2!}x^{2}+\ldots+\frac{f^{\left(n\right)}\left(0\right)}{n!}x^{n}+\ldots
+\]
+
+Where $f^{\left(n\right)}\left(0\right)$ is the $n$th derivative
+of $f\left(x\right)$ at $x=0$.
+\end{tcolorbox}
+
+
+\subsection{Finding a Maclaurin Series by Repeated Differentiation}
+
+\begin{example}
+
+Find the first three non-zero terms in the Maclaurin expansion for
+$\cos4x$.
+
+\Solution
+
+\begin{minipage}{0.4\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(x\right) & =\cos4x\\
+f'\left(x\right) & =-4\sin4x\\
+f''\left(x\right) & =-16\cos4x\\
+f^{\left(3\right)}\left(x\right) & =64\sin4x\\
+f^{\left(4\right)}\left(x\right) & =256\cos4x
+\end{aligned}
+$
+
+\end{minipage}
+\vline\hfill
+\begin{minipage}{0.5\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(0\right) & =\cos\left(0\right)=1\\
+f'\left(0\right) & =-4\sin\left(0\right)=0\\
+f''\left(0\right) & =-16\cos\left(0\right)=-16\\
+f^{\left(3\right)}\left(0\right) & =64\sin\left(0\right)=0\\
+f^{\left(4\right)}\left(0\right) & =256\cos\left(0\right)=256
+\end{aligned}
+$
+
+\end{minipage}
+
+\medskip
+
+By Maclaurin's expansion,
+\begin{align*}
+f\left(x\right) & =1+\left(0\right)x+\frac{\left(-16\right)}{2!}x^{2}+\frac{\left(0\right)}{3!}x^{3}+\frac{256}{4!}x^{4}+\ldots\\
+ & =1-8x^{2}+\frac{32}{3}x^{4}\ldots
+\end{align*}
+
+
+\end{example}
+
+\newpage
+
+
+\begin{example}
+
+Use Maclaurin's expansion to find the first three non-zero
+terms in the expansion of $\ln\left(1+x\right)$ and hence write down
+the expansion of $\ln\left(1-x\right)$ and $\ln\left(1+x^{2}\right)$.
+
+\Solution
+
+\begin{minipage}[t]{0.4\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(x\right) & =\ln\left(1+x\right)\\
+f'\left(x\right) & =\frac{1}{1+x}\\
+f''\left(x\right) & =-\frac{1}{\left(1+x\right)^{2}}\\
+f^{\left(3\right)}\left(x\right) & =\frac{2}{\left(1+x\right)^{3}}
+\end{aligned}
+$
+
+\end{minipage}
+\vline\hfill
+\begin{minipage}[t]{0.5\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(0\right) & =0\\
+f'\left(0\right) & =1\\
+f''\left(0\right) & =-1\\
+f^{\left(3\right)}\left(0\right) & =2
+\end{aligned}
+$
+
+\end{minipage}
+
+\medskip
+
+By Maclaurin's expansion,
+
+\begin{align*}
+\ln\left(1+x\right) & =0+\left(1\right)x+\frac{\left(-1\right)}{2!}x^{2}+\frac{2}{3!}x^{3}+\ldots\\
+ & =x-\frac{1}{2}x^{2}+\frac{1}{3}x^{3}+\ldots\tag{1}
+\end{align*}
+
+Repalce $x$ with $-x$ in (1), we have
+\[
+\ln\left(1-x\right)=-x-\frac{1}{2}x^{2}-\frac{1}{3}x^{3}+\ldots
+\]
+
+Repalce $x$ with $x^{2}$ in (1), we have
+\[
+\ln\left(1+x^{2}\right)=x^{2}-\frac{1}{2}x^{4}+\frac{1}{3}x^{6}+\ldots
+\]
+
+\end{example}
+
+
+\begin{example}
+
+Find the first four terms in the Maclaurin expansion for $\ln\left(3+4x\right)$.
+
+\Solution
+
+\begin{minipage}[t]{0.4\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(x\right) & =\ln\left(3+4x\right)\\
+f'\left(x\right) & =4\left(3+4x\right)^{-1}\\
+f''\left(x\right) & =-16\left(3+4x\right)^{-2}\\
+f^{\left(3\right)}\left(x\right) & =128\left(3+4x\right)^{-3}
+\end{aligned}
+$
+
+\end{minipage}
+\vline\hfill
+\begin{minipage}[t]{0.5\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(0\right) & =\ln\left(3\right)\\
+f'\left(0\right) & =\frac{4}{3}\\
+f''\left(0\right) & =-\frac{16}{9}\\
+f^{\left(3\right)}\left(0\right) & =\frac{128}{27}
+\end{aligned}
+$
+
+\end{minipage}
+
+By Maclaurin's expansion,
+\begin{align*}
+f\left(x\right) & =\ln\left(3\right)+\frac{4}{3}x+\left(-\frac{16}{9}\right)\frac{1}{2!}x^{2}+\left(\frac{128}{27}\right)\frac{1}{3!}x^{3}+\ldots\\
+ & =\ln\left(3\right)+\frac{4}{3}x-\frac{8}{9}x^{2}+\frac{64}{81}x^{3}+\ldots
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Find the first four terms in the Maclaurin expansion for $\left(1+x\right)^{n}$.
+
+\Solution
+
+\begin{minipage}[t]{0.4\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(x\right) & =\left(1+x\right)^{n}\\
+f'\left(x\right) & =n\left(1+x\right)^{n-1}\\
+f''\left(x\right) & =n\left(n-1\right)\left(1+x\right)^{n-2}\\
+f^{\left(3\right)}\left(x\right) & =n\left(n-1\right)\left(n-2\right)\left(1+x\right)^{n-3}
+\end{aligned}
+$
+
+\end{minipage}
+\vline\hfill
+\begin{minipage}[t]{0.5\textwidth}
+
+$
+\begin{aligned}[t]
+f\left(0\right) & =\left(1\right)^{n}=1\\
+f'\left(0\right) & =n\left(1\right)^{n-1}\\
+ & =n\\
+f''\left(0\right) & =n\left(n-1\right)\left(1\right)^{n-2}\\
+ & =n\left(n-1\right)\\
+f^{\left(3\right)}\left(0\right) & =n\left(n-1\right)\left(n-2\right)\left(1\right)^{n-3}\\
+ & =n\left(n-1\right)\left(n-2\right)
+\end{aligned}
+$
+
+\end{minipage}
+
+By Maclaurin's expansion,
+\begin{align*}
+f\left(x\right) & =1+nx+\frac{n\left(n-1\right)}{2!}x^{2}+\frac{n\left(n-1\right)\left(n-2\right)}{3!}x^{3}+...
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\subsection{Finding a Maclaurin Series by Repeated Implicit Differentiation}
+
+\begin{example}
+
+Given that $y=1+\mathrm{e}^{\tan^{-1}x}$, show that
+
+\begin{enumerate}[label=(\alph*)]
+\item ${\displaystyle \left(1+x^{2}\right)\frac{\mathrm{d}y}{\mathrm{d}x}=y-1}$
+\item ${\displaystyle \left(1+x^{2}\right)\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+2\left(x-1\right)\frac{\mathrm{d}y}{\mathrm{d}x}=0}$
+\end{enumerate}
+
+Find the Maclaurin series for $y$, up to and including the term in
+$x^{2}$.
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+
+\begin{equation}
+y=1+\mathrm{e}^{\tan^{-1}x}\tag{{1}}
+\end{equation}
+Differentiate $\left(1\right)$ with respect to $x$,
+\begin{align}
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\left(\frac{1}{1+x^{2}}\right)\mathrm{e}^{\tan^{-1}x}\nonumber \\
+\left(1+x^{2}\right)\frac{\mathrm{d}y}{\mathrm{d}x} & =y-1\tag{{2}}
+\end{align}
+
+\item Differentiate $\left(2\right)$ with respect to $x$,
+\begin{align}
+\left(1+x^{2}\right)\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+2x\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{\mathrm{d}y}{\mathrm{d}x}\nonumber \\
+\left(1+x^{2}\right)\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+\left(2x-1\right)\frac{\mathrm{d}y}{\mathrm{d}x} & =0\tag{{3}}
+\end{align}
+Substituting $x=0$ into $\left(1\right)$, $\left(2\right)$ and
+$\left(3\right)$ gives
+\begin{align*}
+y & =2\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =1\\
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =1
+\end{align*}
+By Maclaurin's expansion
+\begin{align*}
+y & =2+\left(1\right)x+\left(1\right)\frac{x^{2}}{2!}\\
+ & =2+x+\frac{x^{2}}{2}+\ldots
+\end{align*}
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Given that $y=\sqrt{1+\ln\left(1+x\right)}$, show that ${\displaystyle 2y\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{1}{1+x}}$.
+By further differentiation of this result, or otherwise, show that
+the Maclaurin's series for $y$ in ascending powers of $x$ is ${\displaystyle y=1+\frac{1}{2}x-\frac{3}{8}x^{2}+\frac{17}{48}x^{3}+\ldots}$
+and hence find an approximation to the value of $y$ at $x=0.01$.
+
+
+\Solution
+
+\begin{align*}
+y & =\sqrt{1+\ln\left(1+x\right)}\\
+y^{2} & =1+\ln\left(1+x\right)\tag{{1}}
+\end{align*}
+Differentiate $\left(1\right)$ with respect to $x$,
+\begin{align*}
+2y\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{1}{1+x}\tag{{2}}
+\end{align*}
+Differentiate $\left(2\right)$ with respect to $x$,
+\begin{align*}
+2y\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{1}{1+x}\\
+2y\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)\left(2\frac{\mathrm{d}y}{\mathrm{d}x}\right) & =\\
+2y\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+2\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)^{2} & =-\left(1+x\right)^{-2}\tag{{3}}
+\end{align*}
+Differentiate $\left(3\right)$ with respect to $x$,
+\begin{align*}
+2y\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+2\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)^{2} & =-\left(1+x\right)^{-2}\\
+2y\frac{\mathrm{d}^{3}y}{\mathrm{d}x^{3}}+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}\left(2\frac{\mathrm{d}y}{\mathrm{d}x}\right)+4\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =2\left(1+x\right)^{-3}\\
+2y\frac{\mathrm{d}^{3}y}{\mathrm{d}x^{3}}+6\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right) & =2\left(1+x\right)^{-3}\tag{{4}}
+\end{align*}
+Substituting $x=0$ into $\left(1\right)$, $\left(2\right)$, $\left(3\right)$
+and $\left(4\right)$ gives
+\begin{align*}
+y & =1\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{1}{2}\\
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =-\frac{3}{4}\\
+\frac{\mathrm{d}^{3}y}{\mathrm{d}x^{3}} & =\frac{17}{8}
+\end{align*}
+By Maclaurin's expansion,
+\begin{align*}
+y & =1+\left(\frac{1}{2}\right)x+\left(-\frac{3}{4}\right)\frac{x^{2}}{2!}+\left(\frac{17}{8}\right)\frac{x^{3}}{3!}+\ldots\\
+ & =1+\frac{1}{2}x-\frac{3}{8}x^{2}+\frac{17}{48}x^{3}+\ldots\tag{{5}}
+\end{align*}
+Substituting $y=0.01$ into $\left(5\right)$ gives
+\begin{align*}
+y & \approx1+\frac{1}{2}\left(0.01\right)-\frac{3}{8}\left(0.01\right)^{2}+\frac{17}{48}\left(0.01\right)^{3}\\
+ & \approx1.005
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item The equation of a curve is given by $y=\mathrm{e}^{\frac{1}{x+1}}$.
+By differentiation, find the Maclaurin's expansion for $y$, up to
+and including the term in $x^{2}$.
+
+\item Using our expansion, find the equation of the tangent to the
+curve $y=\mathrm{e}^{\frac{1}{x+1}}$ at the point $\left(0,e\right)$.
+
+\item Deduce the Maclaurin's expansion for $y=\mathrm{e}^{-\frac{x}{x+1}}$
+up to and including the term in $x^{2}$. Find an approximation for
+${\displaystyle \int_{0}^{1}\mathrm{e}^{-\frac{x}{x+1}}dx}$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+\begin{align*}
+y & =\mathrm{e}^{\frac{1}{x+1}}\\
+\ln y & =\frac{1}{x+1}\tag{{1}}
+\end{align*}
+Differentiate $\left(1\right)$ with respect to $x$,
+\begin{align*}
+\frac{1}{y}\frac{\mathrm{d}y}{\mathrm{d}x} & =-\left(x+1\right)^{-2}\tag{{2}}
+\end{align*}
+Differentiate $\left(2\right)$ with respect to $x$,
+\begin{align*}
+\frac{1}{y}\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}-\frac{1}{y^{2}}\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)^{2} & =2\left(x+1\right)^{-3}\\
+y\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}-\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)^{2} & =\frac{2y^{2}}{\left(x+1\right)^{3}}\tag{{3}}
+\end{align*}
+Substituting $x=0$ into $\left(1\right)$, $\left(2\right)$ and
+$\left(3\right)$ gives
+\begin{align*}
+y & =\mathrm{e}\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =-\mathrm{e}\\
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =3\mathrm{e}
+\end{align*}
+By Maclaurin's expansion,
+\begin{align*}
+y & =\mathrm{e}+\left(-\mathrm{e}\right)x+\left(3\mathrm{e}\right)\frac{x^{2}}{2!}+\ldots\\
+ & =\mathrm{e}-\mathrm{e}x+\frac{3\mathrm{e}}{2}x^{2}+\ldots\tag{{4}}
+\end{align*}
+
+\item From $\left(4\right)$,
+\begin{align*}
+y & =\mathrm{e}-\mathrm{e}x+\frac{3e}{2}x^{2}+\ldots\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =-\mathrm{e}+3\mathrm{e}x+\ldots\\
+\left.\frac{\mathrm{d}y}{\mathrm{d}x}\right|_{x=0} & =-\mathrm{e}
+\end{align*}
+$\therefore$ the equation of the tangent at the point $\left(0,\mathrm{e}\right)$
+is
+\begin{align*}
+y-\mathrm{e} & =-\mathrm{e}\left(x-0\right)\\
+y & =-\mathrm{e}x+\mathrm{e}
+\end{align*}
+
+\item
+\begin{align*}
+y & =\mathrm{e}^{-\frac{x}{x+1}}\\
+ & =\mathrm{e}^{-1+\frac{1}{x+1}}\\
+ & =\mathrm{e}^{-1}\mathrm{e}^{\frac{1}{x+1}}
+\end{align*}
+Substituting in our expansion for $\mathrm{e}^{\frac{1}{x+1}}$,
+\begin{align*}
+y & =\mathrm{e}^{-1}\left(\mathrm{e}-\mathrm{e}x+\frac{3\mathrm{e}}{2}x^{2}+\ldots\right)\\
+ & =1-x+\frac{3}{2}x^{2}+\ldots
+\end{align*}
+Finding the integral,
+\begin{align*}
+\int_{0}^{1}\mathrm{e}^{-\frac{x}{x+1}}\thinspace dx & \approx\int_{0}^{1}1-x+\frac{3}{2}x^{2}\thinspace dx\\
+ & \approx\left[x-\frac{x^{2}}{2}+\frac{x^{3}}{2}\right]_{0}^{1}\\
+ & \approx1
+\end{align*}
+
+\end{enumerate}
+
+\end{example}
+
+\newpage
+
+\section{Maclaurin Expansions for Standard Functions}
+
+The following table is a list of some Maclaurin expansions for the
+standard functions with their interval of validity/interval of convergence
+stated. The interval of validity is the biggest interval where a power
+series converges. We use the ratio test ${\displaystyle \lim_{n\rightarrow\infty}\left|\frac{a_{n+1}}{a}\right|<1}$
+to determine this interval.
+\begin{center}
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\setlength{\extrarowheight}{0.4cm}
+
+\begin{tabular}[b]{>{\raggedright}m{11cm}>{\raggedright}m{4cm}}
+\textbf{Standard Series} & \textbf{Interval of Validity}\tabularnewline
+${\displaystyle \left(1+x\right)^{n}=1+nx+\frac{n\left(n-1\right)}{2!}x^{2}+\ldots+\frac{n\left(n-1\right)\ldots\left(n-r+1\right)}{{r!}}}x^{r}+\ldots$ & for $-1<x<1$\tabularnewline
+${\displaystyle \mathrm{e}^{x}=1+x+\frac{{x^{2}}}{{2!}}+\frac{{x^{3}}}{{3!}}+\ldots+\frac{{x^{r}}}{{r!}}+\ldots}$ & for all $x$\tabularnewline
+${\displaystyle \sin x=x-\frac{x^{3}}{3!}+\frac{x^{5}}{5!}-\frac{x^{7}}{7!}+\ldots\frac{\left(\text{\textendash}1\right)^{r}x^{2r+1}}{\left(2r+1\right)!}+\ldots}$ & for all $x$\tabularnewline
+${\displaystyle \cos x=1-\frac{x^{2}}{2!}+\frac{x^{4}}{4!}-\frac{x^{6}}{6!}+\ldots\frac{\left(\text{\textendash}1\right)^{r}x^{2r}}{\left(2r\right)!}+\ldots}$ & for all $x$\tabularnewline
+${\displaystyle \ln\left(1+x\right)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+\ldots\frac{\left(\text{\textendash}1\right)^{r+1}x^{r}}{r}+\ldots}$ & for $-1<x\leq1$\tabularnewline
+${\displaystyle \ln\left(1-x\right)=-x-\frac{x^{2}}{2}-\frac{x^{3}}{3}-\frac{x^{4}}{4}-\ldots-\frac{x^{r}}{r}}-\ldots$ & for $-1\leq x<1$\tabularnewline
+\end{tabular}
+\end{tcolorbox}
+\par\end{center}
+
+\begin{example}
+
+Using the standard series, find up to the term in $x^{3}$, the series
+expansion of $\mathrm{e}^{2x}$.
+
+\Solution
+
+Using the standard series for $\mathrm{e}^{x}$,
+\begin{align*}
+\mathrm{e}^{x}=1+x+\frac{{x^{2}}}{{2!}}+\frac{{x^{3}}}{{3!}}+\ldots\tag{1}
+\end{align*}
+
+
+Replace $2x$ for $x$ in $\left(1\right)$ to give
+\[
+\mathrm{e}^{2x}=1+2x+\frac{{\left(2x\right)^{2}}}{{2!}}+\frac{{\left(2x\right)^{3}}}{{3!}}+\ldots
+\]
+
+$\therefore$ the series expansion of $\mathrm{e}^{2x}$ is ${\displaystyle \mathrm{e}^{2x}=1+2x+2x^{2}+\frac{4}{3}x^{3}+\ldots}$.
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Expand $\sqrt{1-4x}$ up to the term in $x^{3}$ and state the interval
+of validity. Hence find an approximation for $\sqrt{0.96}$ correct
+to five decimal places.
+
+\Solution
+
+\begin{align*}
+\left(1-4x\right)^{\frac{1}{2}} & =1+\frac{1}{2}\left(-4x\right)+\frac{\left(\frac{1}{2}\right)\left(-\frac{1}{2}\right)}{2!}\left(-4x\right)^{2}+\frac{\left(\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{3}{2}\right)}{3!}\left(-4x\right)^{3}+\ldots\\
+ & =1-2x-2x^{2}-4x^{3}+\ldots
+\end{align*}
+
+The expansion of $\sqrt{1-4x}$ is valid for ${\displaystyle \left|4x\right|<1\Rightarrow\left|x\right|<\frac{1}{4}}$.
+
+Let $x=0.01$, we get
+\begin{align*}
+\sqrt{1-4\left(0.01\right)} & =1-2\left(0.01\right)-2\left(0.01\right)^{2}-4\left(0.01\right)^{3}\\
+\sqrt{0.96} & =0.97980\text{\text{ (5 d.p)}}
+\end{align*}
+
+\end{example}
+
+\begin{example}
+
+Using the standard series, find up to the term in $x^{3}$, the series
+expansion of $\sin\left[\ln\left(1+x\right)\right]$ and state the
+interval of validity.
+
+\Solution
+
+Using the standard series for $\sin x$ and $\ln\left(1+x\right)$,
+\[
+\sin x=x-\frac{x^{3}}{3!}+\ldots
+\]
+\[
+\ln\left(1+x\right)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}+\ldots
+\]
+
+Let $f\left(x\right)=\sin\left[\ln\left(1+x\right)\right]$,
+\begin{align*}
+f\left(x\right) & =\sin\left[x-\frac{x^{2}}{2}+\frac{x^{3}}{3}+\ldots\right]\\
+ & =\left(x-\frac{x^{2}}{2}+\frac{x^{3}}{3}+\ldots\right)-\frac{1}{3!}\left(x^{3}+\ldots\right)\\
+ & =x-\frac{x^{2}}{2}+\frac{x^{3}}{6}+\ldots
+\end{align*}
+
+The expansion of $\sin x$ is valid for $x\in\R$
+
+The expansion of $\ln\left(1+x\right)$ is valid for $-1<x\leq1$.
+
+$\therefore$ the range of values of $x$ for $\sin\left[\ln\left(1+x\right)\right]$ to be valid is $-1<x\leq1$.
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Using the standard series, find the first three non-zero terms in
+the series expansion of ${\displaystyle \frac{\ln\left(1-2x\right)}{1+x^{2}}}$
+and state the interval of validity.
+
+\Solution
+
+Using the standard series for $\left(1+x\right)^{n}$ and $\ln\left(1-x\right)$,
+\[
+\left(1+x\right)^{n}=1+nx+\frac{n\left(n-1\right)}{2!}x^{2}+\frac{n\left(n-1\right)\left(n-2\right)}{3!}x^{3}+\ldots
+\]
+\[
+\ln\left(1-x\right)=-x-\frac{x^{2}}{2}-\frac{x^{3}}{3}+\ldots
+\]
+
+Let $f\left(x\right)={\displaystyle {\displaystyle \frac{\ln\left(1-2x\right)}{1+x^{2}}}}$,
+\begin{align*}
+f\left(x\right) & ={\displaystyle \left(1+x^{2}\right)^{-1}}\ln\left(1-2x\right)\\
+ & =\left(1+\left(-1\right)x^{2}+\left(-1\right)\frac{\left(-1\right)\left(-2\right)}{2!}x^{4}+\ldots\right)\left(-2x-\frac{\left(2x\right)^{2}}{2}-\frac{\left(2x\right)^{3}}{3}+\ldots\right)\\
+ & =\left(1-x^{2}-x^{4}+\ldots\right)\left(-2x-2x^{2}-\frac{8}{3}x^{3}+\ldots\right)\\
+ & =-2x-2x^{2}-\frac{8}{3}x^{3}-2x^{3}+\ldots\\
+ & =-\left(2x+2x^{2}+\frac{14}{3}x^{3}+\ldots\right)
+\end{align*}
+
+The expansion of $\ln\left(1-2x\right)$ is valid for ${\displaystyle -1\leq2x<1\Rightarrow-\frac{1}{2}\leq x<\frac{1}{2}}$
+
+The expansion of $\left(1+x^{2}\right)^{-1}$ is valid for $x^{2}<1\Rightarrow-1<x<1$.
+
+$\therefore$ the range of values of $x$ for ${\displaystyle {\displaystyle \frac{\ln\left(1-2x\right)}{1+x^{2}}}}$
+to be valid is ${\displaystyle -\frac{1}{2}\leq x<\frac{1}{2}}$.
+
+\end{example}
+
+\newpage
+
+\section{Differentiation and Integration }
+
+One advantage of polynomial representations for functions is that
+they can be differentiated and integrated term by term.
+
+\begin{example}
+
+Using the standard series expansion for $\ln\left(1+x\right)$ to
+find the Maclurin Series for ${\displaystyle \frac{1}{1+x}}$.
+
+Hence find the Maclurin Series for ${\displaystyle \frac{1}{1+x^{2}}}$.
+
+Hence show that the Maclaurin series for ${\displaystyle \tan^{-1}x=x-\frac{x^{3}}{3}+\frac{x^{5}}{5}-\frac{x^{7}}{7}+\ldots}$.
+
+\Solution
+
+\end{example}
+
+\newpage
+
+\section{Small Angle Approximation}
+
+The small-angle approximation is the term used for the approximations
+of the basic trigonometric functions. These approximations are only
+valid when $\theta$ is \textit{very small} and is \textit{measured
+in radians}.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
+
+\begin{align*}
+\sin\theta & \approx\theta\\
+\cos\theta & \approx1-\frac{\theta^{2}}{2}\\
+\tan\theta & \approx\theta
+\end{align*}
+
+Where $\theta$ is small and in radians.
+\end{tcolorbox}
+
+
+\begin{example}
+
+Given that $\theta$ is sufficiently small for $\theta^{3}$ and higher
+powers of to be neglected, express ${\displaystyle \frac{2-\tan\theta}{4+2\sin\theta}}$
+as a quadratic expression in $\theta$.
+
+\Solution
+
+\begin{align*}
+\frac{2-\tan\theta}{4+2\sin\theta} & \approx\frac{2-\theta}{4+2\theta}\\
+ & =\left(2-\theta\right)\left(4+2\theta\right)^{-1}\\
+ & =4^{-1}\left(2-\theta\right)\left(1+\frac{1}{2}\theta\right)^{-1}\qquad\triangleleft\text{Use binomial expansion}\\
+ & =\frac{1}{4}\left(2-\theta\right)\left(1-\frac{1}{2}\theta+\left(\frac{1}{2}\theta\right)^{2}+\ldots\right)\\
+ & \approx\frac{1}{2}-\frac{1}{2}\theta+\frac{1}{4}\theta^{2}
+\end{align*}
+
+\end{example}
+
+
+
+\begin{example}
+
+Given that $x$ is sufficiently small for $x^{3}$ and higher powers
+of $x$ to be neglected, show that ${\displaystyle \frac{\cos3x}{1-\sin x}\approx1+x-\frac{7}{2}x^{2}}$.
+
+\medskip
+
+\Solution
+
+\begin{align*}
+\frac{\cos3x}{1-\sin x} & \approx\frac{1-\frac{\left(3x\right)^{2}}{2}}{1-x}\\
+ & =\left(1-\frac{9x^{2}}{2}\right)\left(1-x\right)^{-1}\qquad\triangleleft\text{Use binomial expansion}\\
+ & =\left(1-\frac{9x^{2}}{2}\right)\left(1+x+x^{2}+\ldots\right)\\
+ & \approx1+x-\frac{7}{2}x^{2}
+\end{align*}
+
+\end{example}
+
+\begin{example}
+
+Given that $\theta$ is sufficiently small for powers of $\theta^{4}$
+and higher to be neglected, show that ${\displaystyle \frac{2\sin\theta}{\sqrt{2-\cos\theta}}\approx2\theta-\frac{5}{6}\theta^{3}}$.
+
+\medskip
+
+\Solution
+
+\begin{align*}
+{\displaystyle \frac{2\sin\theta}{\sqrt{2-\cos\theta}}} & =2\sin\theta\left(2-\cos\theta\right)^{-\frac{1}{2}}\\
+ & =2\left(\theta-\frac{\theta^{3}}{3!}+\ldots\right)\left(2-\left(1-\frac{\theta^{2}}{2!}+\ldots\right)\right)^{-\frac{1}{2}}\\
+ & =2\left(\theta-\frac{\theta^{3}}{3!}+\ldots\right)\left(1+\frac{\theta^{2}}{2!}+\ldots\right)^{-\frac{1}{2}}\\
+ & =2\left(\theta-\frac{\theta^{3}}{3!}+\ldots\right)\left(1+\left(-\frac{1}{2}\right)\frac{\theta^{2}}{2!}+...\right)\\
+ & =2\left(\theta-\frac{\theta^{3}}{3!}+\ldots\right)\left(1-\frac{1}{4}\theta^{2}+...\right)\\
+ & =2\left(\theta-\frac{1}{4}\theta^{3}-\frac{\theta^{3}}{3!}+\ldots\right)\\
+ & =2\left(\theta-\frac{5}{12}\theta^{3}+\ldots\right)\\
+ & \approx2\theta-\frac{5}{6}\theta^{3}
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+In the triangle $ABC$, $\angle BAC=\theta\text{ radians}$, ${\displaystyle \angle ABC=\frac{3\pi}{4}\text{ radians}}$,
+and $AB=1$. \begin{enumerate}[label=(\roman*)]
+\item Show that ${\displaystyle AC=\frac{1}{\cos\theta-\sin\theta}}$
+\item Given that $\theta$ is a small angle, use the result in (a) to show that $AC\approx1+p\theta+q\theta^{2}$, where $p$ and $q$ are constants to be determined.
+\end{enumerate}
+
+\Solution
+
+
+\begin{enumerate}[label=(\alph*)]
+\item Using the sine rule,
+\begin{align*}
+\frac{AC}{\sin\frac{3\pi}{4}} & =\frac{AB}{\sin\left(\frac{\pi}{4}-\theta\right)}\\
+AC & =\frac{\left(\sin\frac{3\pi}{4}\right)\left(1\right)}{\sin\left(\frac{\pi}{4}-\theta\right)}\\
+ & =\frac{1}{\sqrt{2}\sin\left(\frac{\pi}{4}-\theta\right)}\\
+ & =\frac{1}{\sqrt{2}\left(\sin\frac{\pi}{4}\cos\theta-\cos\frac{\pi}{4}\sin\theta\right)}\\
+ & =\frac{1}{\cos\theta-\sin\theta}
+\end{align*}
+
+\item
+\begin{align*}
+AC & =\frac{1}{\cos\theta-\sin\theta}\\
+ & \approx\frac{1}{1-\frac{1}{2}\theta^{2}-\theta}\\
+ & =\left[1-\left(\theta+\frac{1}{2}\theta^{2}\right)\right]^{-1}\\
+ & =1+\left(-1\right)\left(-\theta-\frac{1}{2}\theta^{2}\right)+\frac{\left(-1\right)\left(-2\right)}{2!}\left(-\theta-\ldots\right)^{2}\\
+ & =1+\left(\theta+\frac{1}{2}\theta^{2}\right)+\theta^{2}\\
+ & =1+\theta+\frac{3}{2}\theta^{2}
+\end{align*}
+\end{enumerate}
+
+\end{example}
+
+
+\chapter{Differential Equations}
+
+\section{Introduction to Differential Equations}
+
+\subsection{Definition of a Differential Equation}
+
+A differential equation is \textbf{any equation which contains an
+unknown function and its derivatives}. The unknown function in our
+differential equation is the solution we are looking for when we solve
+a differential equation. This solution is usually an infinite family
+of equations(\textit{general solution}). If we are given an initial
+condition however, we can restrict the family to one, \textit{particular
+solution. }In general, solving a differential equation is more complicated
+than simple integration. Even so, the basic principle is always integration,
+as we need to go from derivative to function. The difficult part is
+determining how to manipulate our equation to make it easier to integrate.
+Examples of differential equations include
+
+\begin{tasks}[style=itemize,label-width=3.5ex](3)
+
+\task ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=\sec^{2}x}$
+
+\task ${\displaystyle \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}=x^{2}-1}$
+
+\task ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=xy^{2}}$
+
+\end{tasks}
+
+\subsection{Order of a Differential Equation}
+
+The order of a differential equation is the order of the highest derivative
+(also known as the differential coefficient) present in the equation.
+
+When a differential equation contains the first differential coefficient
+${\displaystyle \left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)}$ as its highest order
+derivative, it is known as a \textit{first order} differential equation.
+
+When a differential equation contains the second differential coefficient
+${\displaystyle \left(\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}\right)}$ as its highest
+order derivative, it is known as a \textit{second order} differential
+equation, so on and so forth.
+
+\subsection{General and Particular Solution}
+
+The solution to the differential equation ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=2x}$
+is $y=x^{2}+C$.
+
+The equation $y=x^{2}+C$ is known as the \textbf{general solution}
+of the differential equation ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=2x}$.
+
+If we are given an initial condition, say $y=1$ when $x=0$, then
+$C=1$ and we have $y=x^{2}+1$ which is known as the \textbf{particular
+solution} of the differential equation ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=2x}$.
+
+\newpage
+
+\section{Solving Differential Equations}
+
+\subsection{Differential Equations of the form $\boldsymbol{\frac{\textbf{d}y}{\textbf{d}x}=f\left(x\right)}$}
+
+Differential equations of the form ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=f\left(x\right)}$
+can be solved by using direct integration.
+
+\begin{example}
+
+Find the general solutions of the differential equations
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=\frac{1}{x^{2}}}$
+
+\task  ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=\frac{1}{x+1}}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task
+$
+\begin{aligned}[t]
+\frac{{\rm d}y}{{\rm d}x} & =\frac{1}{x^{2}}\\
+y & =\int x^{-2}\, \mathrm{d}x+C\\
+ & =\frac{x^{-1}}{-1}+C\\
+ & =-\frac{1}{x}+C
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{{\rm d}y}{{\rm d}x} & =\frac{1}{x+1}\\
+y & =\int\frac{1}{x+1}\, \mathrm{d}x\\
+ & =\ln\left|x+1\right|+C
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+
+\begin{example}
+
+Find the general solution of the differential equation ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=\frac{5x^{3}}{x^{2}+1}}$.
+Hence, find the particular solution for which $y=3$ when $x=0$.
+
+\Solution
+
+\begin{align*}
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{5x^{3}}{x^{2}+1}\\
+y & =\int\frac{5x^{3}}{x^{2}+1}\, \mathrm{d}x\\
+ & =5\int\frac{x^{3}+x-x}{x^{2}+1}\, \mathrm{d}x\\
+ & =5\int x-\frac{x}{x^{2}+1}\, \mathrm{d}x\\
+ & =5\left[\frac{1}{2}x^{2}-\frac{1}{2}\ln\left(x^{2}+1\right)\right]+C\\
+ & =\frac{5}{2}\left[x^{2}-\ln\left(x^{2}+1\right)\right]+C
+\end{align*}
+$\therefore$ the general solution is ${\displaystyle y=\frac{5}{2}\left[x^{2}-\ln\left(x^{2}+1\right)\right]+C}$.
+
+When $x=0$, $y=3$ .
+\begin{align*}
+3 & =\frac{5}{2}\left[0^{2}-\ln1\right]+C\\
+C & =3
+\end{align*}
+$\therefore$ the particular solution is ${\displaystyle y=\frac{5}{2}\left[x^{2}-\ln\left(x^{2}+1\right)\right]+3}$.
+
+\end{example}
+
+
+\subsection{Differential Equations of the form $\boldsymbol{\frac{\textbf{d}^{2}y}{\textbf{d}x^{2}}=f\left(x\right)}$}
+Differential equations of the form ${\displaystyle \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}=f\left(x\right)}$
+can be solved by integrating the equation twice. If we want to find
+the particular solution for such an equation, we would need two initial
+conditions (since we will have two arbitrary constants we need to
+find).
+
+\begin{example}
+
+Find the general solution of the differential equation ${\displaystyle \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}=\frac{1}{\cos^{2}x}}$.
+Given that $y=2$ and ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=1}$ when $x=0$,
+express $y$ in terms of $x$.
+
+\Solution
+
+\begin{align*}
+\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} & =\sec^{2}x\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\int\sec^{2}x\, \mathrm{d}x\\
+ & =\tan x+C
+\end{align*}
+When $x=0$, ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=1}$.
+\begin{align*}
+1 & =\tan0+C\\
+C & =1
+\end{align*}
+$\therefore$ ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=\tan x+1}$. Integrating
+again,we have
+\begin{align*}
+y & =\int\tan x+1\, \mathrm{d}x\\
+ & =-\ln\left(\cos x\right)+x+D
+\end{align*}
+When $x=0$, $y=2$.
+\begin{align*}
+2 & =-\ln\left(\cos0\right)+0+D\\
+D & =2
+\end{align*}
+$\therefore$ $y=-\ln\left(\cos x\right)+x+2$
+
+\end{example}
+
+\newpage
+
+\subsection{Differential Equations of the form $\boldsymbol{\frac{\textbf{d}y}{\textbf{d}x}=g\left(y\right)f\left(x\right)}$ (Seperation of Variables)}
+
+Seperation of variables is a method for solving equations of the form
+${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=g\left(y\right)f\left(x\right)}$ where
+we rewrite an equation so that each of two variables occurs on a different
+side of the equation, followed by integrating both sides with respect
+to $x$. The steps for seperating variables is as follows.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
+
+\begin{enumerate}
+\item Rearrange the differential equation ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=g\left(y\right)f\left(x\right)}$
+into the form ${\displaystyle \frac{1}{g\left(y\right)}\frac{\mathrm{d}y}{\mathrm{d}x}=f\left(x\right)}$.
+\item Integrate both sides with respect to $x$, i.e. ${\displaystyle \int}{\displaystyle \frac{1}{g\left(y\right)}\,\mathrm{d}y=\int f\left(x\right)\,\mathrm{d}x}$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{example}
+
+Find the general solution of the following differential equations:
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task  ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=\frac{1}{y^{2}}}$
+
+\task  ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=y}$
+
+\task  ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=1+y^{2}}$
+
+\task  ${\displaystyle \frac{{\rm d}y}{{\rm d}x}=2{\rm e}^{y}}$
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+
+\task
+$
+\begin{aligned}[t]
+\frac{{\rm d}y}{{\rm d}x} & =\frac{1}{y^{2}}\\
+y^{2}\frac{{\rm d}y}{{\rm d}x} & =1\\
+\int y^{2}\frac{{\rm d}y}{{\rm d}x}\,{\rm d}x & =\int1\,{\rm d}x\\
+\int y^{2}\,{\rm d}y & =\int1\,{\rm d}x\\
+\frac{y^{3}}{3} & =x+C\\
+y^{3} & =3x+C_{1},\text{ where \ensuremath{C_{1}=3C}}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{{\rm d}y}{{\rm d}x} & =y\\
+\frac{1}{y}\frac{{\rm d}y}{{\rm d}x} & =1\\
+\int\frac{1}{y}\frac{{\rm d}y}{{\rm d}x}\,{\rm d}x & =\int1\,{\rm d}x\\
+\int\frac{1}{y}\,{\rm d}y & =\int1\,{\rm d}x\\
+\ln\left|y\right| & =x+C\\
+\left|y\right| & ={\rm e}^{x+C}\\
+y & =\pm{\rm e}^{x}{\rm e}^{C}\\
+ & =A{\rm e}^{x},\text{ where \ensuremath{A=\pm{\rm e}^{C}} is an arbitrary constant}
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{{\rm d}y}{{\rm d}x} & =1+y^{2}\\
+\frac{1}{1+y^{2}}\frac{{\rm d}y}{{\rm d}x} & =1\\
+\int\frac{1}{1+y^{2}}\,{\rm d}y & =\int1\,{\rm d}x\\
+\tan^{-1}y & =x+C\\
+y & =\tan\left(x+C\right)
+\end{aligned}
+$
+
+\task
+$
+\begin{aligned}[t]
+\frac{{\rm d}y}{{\rm d}x} & =2{\rm e}^{y}\\
+\frac{1}{{\rm e}^{y}}\frac{{\rm d}y}{{\rm d}x} & =2\\
+\int{\rm e}^{-y}\,{\rm d}y & =\int2\,{\rm d}x\\
+-{\rm e}^{-y} & =2x+C\\
+{\rm e}^{-y} & =-2x-C\\
+y & =-\ln\left|-2x-C\right|
+\end{aligned}
+$
+
+\end{tasks}
+
+\end{example}
+
+\begin{example}
+
+Find the general solution of the differential equation ${\displaystyle y\frac{\mathrm{d}y}{\mathrm{d}x}-x=xy^{2}}$.
+Express $y^{2}$ in terms of $x$.
+
+\Solution
+
+\begin{align*}
+{\displaystyle y\frac{\mathrm{d}y}{\mathrm{d}x}-x} & =xy^{2}\\
+y\frac{\mathrm{d}y}{\mathrm{d}x} & =x\left(1+y^{2}\right)\\
+\left(\frac{y}{1+y^{2}}\right)\frac{\mathrm{d}y}{\mathrm{d}x} & =x\\
+\int\frac{y}{1+y^{2}}\,\mathrm{d}y & =\int x\, \mathrm{d}x\\
+\frac{1}{2}\ln\left(y^{2}+1\right) & =\frac{1}{2}x^{2}+C\\
+\ln\left(y^{2}+1\right) & =x^{2}+C_{1}\\
+y^{2}+1 & =\mathrm{e}^{x^{2}+C_{1}}\\
+y^{2} & =\mathrm{e}^{x^{2}}\mathrm{e}^{C_{1}}-1\\
+ & =A\mathrm{e}^{x^{2}}-1
+\end{align*}
+
+\end{example}
+
+\subsection{Solving a Differential Equation By Substitution}
+
+If we have a differential equation which cannot be solved by direct
+integration and is not separable, by applying a suitable substitution,
+it can become a equation which can be solved by either of those two
+methods. The substitution will always be given in the question. The
+steps for the method of substitution are as follows.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
+
+\begin{enumerate}
+\item Differentiate the given substitution with respect to $x$.
+\item Substitute both the given substitution and its derivative into our
+differential equation.
+\item Solve using direct integration/separable variables.
+\item Replace the new variable with our original variables $x$ and $y$.
+\end{enumerate}
+\end{tcolorbox}
+
+\newpage{}
+
+\begin{example}
+
+Use the substitution $v=y\mathrm{e}^{2x}$ to solve the differential
+equation ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}+2y=x\mathrm{e}^{-2x}}$.
+Hence find the particular solution of the differential equation in
+$y$ and $x$ for which $y=1$ when $x=0$ .
+
+\Solution
+
+\[
+v=y\mathrm{e}^{2x}\tag{1}
+\]
+
+Differentiate (1) with respect to $x$,
+\begin{align*}
+\frac{\mathrm{d}v}{\mathrm{d}x} & =2y\mathrm{e}^{2x}+\frac{\mathrm{d}y}{\mathrm{d}x}\mathrm{e}^{2x}\\
+\frac{\mathrm{d}y}{\mathrm{d}x} & =\frac{\mathrm{d}v}{\mathrm{d}x}\mathrm{e}^{-2x}-2y\tag{2}
+\end{align*}
+
+From the differential equation,
+\[
+\frac{\mathrm{d}y}{\mathrm{d}x}+2y=x\mathrm{e}^{-2x}\tag{3}
+\]
+
+Putting (2) into (3) gives
+
+\begin{align*}
+\frac{\mathrm{d}v}{\mathrm{d}x}\mathrm{e}^{-2x}-2y+2y & =x\mathrm{e}^{-2x}\\
+\frac{\mathrm{d}v}{\mathrm{d}x}\mathrm{e}^{-2x} & =x\mathrm{e}^{-2x}\\
+\frac{\mathrm{d}v}{\mathrm{d}x} & =x\\
+v & =\frac{x^{2}}{2}+C\\
+y\mathrm{e}^{2x} & =\frac{x^{2}}{2}+C
+\end{align*}
+
+When $x=0$, $y=1$, $1=0+C\Rightarrow C=1$
+
+Hence,
+\[
+y\mathrm{e}^{2x}=\frac{x^{2}}{2}+1
+\]
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Show that the differential equation ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=\frac{1-x+y}{1+x-y}}$
+may be reduced by the substitution $y=v+x$, where $y>x$ to ${\displaystyle \frac{\mathrm{d}v}{\mathrm{d}x}=\frac{2v}{1-v}}$.
+Hence show that the general solution for $y$ in terms of $x$ is
+
+$\ln\left(y-x\right)=x+y+C$, where $C$ is a constant,
+
+\Solution
+
+\[
+y=v+x\tag{1}
+\]
+
+Differentiate (1) with respect to $x$,
+\[
+\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}v}{\mathrm{d}x}+1\tag{2}
+\]
+
+From the differential equation,
+\[
+\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{1-x+y}{1+x-y}\tag{3}
+\]
+
+Putting (1) and (2) into (3) gives
+\begin{align*}
+\frac{\mathrm{d}v}{\mathrm{d}x}+1 & =\frac{1-x+\left(v+x\right)}{1+x-\left(v+x\right)}\\
+ & =\frac{1+v}{1-v}-1\\
+ & =\frac{1+v-\left(1-v\right)}{1-v}\\
+ & =\frac{2v}{1-v}
+\end{align*}
+
+Separating the variables,
+\begin{align*}
+\frac{1-v}{v}\frac{\mathrm{d}v}{\mathrm{d}x} & =2\\
+\int\frac{1-v}{v}\mathrm{d}v & =\int2\mathrm{d}x\\
+\int\frac{1}{v}-1\mathrm{d}v & =\int2\mathrm{d}x\\
+\ln\left|v\right|-v & =2x+C\\
+\ln v & =2x+v+C\quad\triangleleft v>0\\
+\ln\left(y-x\right) & =2x+\left(y-x\right)+C\\
+\ln\left(y-x\right) & =x+y+C
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\section{Applications of Differential Equations}
+
+\subsection{Formulating Differential Equations From Word Problems}
+
+\begin{example}
+
+For each of the following situations, construct a differential equation.
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task  The rate of increase of the population of a certain bacteria,
+$P$, is proportional to the amount of bacteria present at time $t$.
+
+\task  The volume of water, $V$, leaking out of a tank is at a rate
+proportional to the volume of water remaining.
+
+\task  The rate of increase of thickness of ice on a pond is inversely
+proportional to the thickness of ice, $y$, already present at time
+$t$.
+
+\task  Water evaporates from a lake at a rate proportional to the
+volume of water remaining. Suppose $V$ is the total amount of water
+evaporated after $t$ days, and $V_{0}$ is the initial volume of
+water in the lake.
+
+\end{tasks}
+
+\Solution
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
+
+\task
+\[
+\frac{{\rm d}P}{{\rm d}t}\propto P\Rightarrow\frac{{\rm d}P}{{\rm d}t}=kP,\text{ where }k>0
+\]
+
+\task
+\[
+-\frac{{\rm d}V}{{\rm d}t}\propto V\Rightarrow\frac{{\rm d}V}{{\rm d}t}=-kV,\text{ where }k>0
+\]
+
+\task
+\[
+\frac{{\rm d}y}{{\rm d}t}\propto\frac{1}{y}\Rightarrow\frac{{\rm d}y}{{\rm d}t}=\frac{k}{y},\text{ where }k>0
+\]
+
+\task  $\text{Amount of water remaining}=V_{0}-V$
+
+\[
+\frac{{\rm d}V}{{\rm d}t}\propto\left(V_{0}-V\right)\Rightarrow\frac{{\rm d}V}{{\rm d}t}=k\left(V_{0}-V\right),\text{ where }k>0
+\]
+
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+
+\begin{example}[Exponential Population Growth]
+
+The population in a town is increasing anually at a rate which is
+proportional to the population at that instant. Given that the population
+at the beginning of $1950$ was $20\,000$ and in the beginning of
+$1980$ was $24\,000$, calculate the expected population at the beginning
+of the year $2005$.
+
+\Solution
+
+Let $P$ be the population of the town at the time $t$ years after
+$1950$. The population in the town is increasing annually at a rate
+which is proportional to the population at that instant. Mathematically,
+\begin{align*}
+\frac{\mathrm{d}P}{\mathrm{d}t} & \propto P\\
+\frac{\mathrm{d}P}{\mathrm{d}t} & =kP
+\end{align*}
+Solving our equation by seperating the variables,
+\begin{align*}
+\frac{1}{P}\frac{\mathrm{d}P}{\mathrm{d}t} & =k\\
+\int\frac{1}{P}\,dP & =\int k\,dt\\
+\ln P & =kt+C\tag{1}
+\end{align*}
+Putting $t=0$ and $P=20\,000$ into $\left(1\right)$ to find $C$,
+\[
+C=\ln20\,000
+\]
+Putting $C=\ln20\,000$ into $\left(1\right)$,
+\[
+\ln P=kt+\ln20\,000\tag{2}
+\]
+Putting $t=30$ and $P=24\,000$ into $\left(2\right)$ to find $k$,
+\begin{align*}
+\ln24\,000 & =30k+\ln20\,000\\
+30k & =\ln\frac{24\,000}{20\,000}\\
+k & =\frac{1}{30}\ln\frac{6}{5}
+\end{align*}
+Putting ${\displaystyle k=\frac{1}{30}\ln\frac{6}{5}}$ into $\left(2\right)$
+gives
+\[
+\ln P=\left(\frac{1}{30}\ln\frac{6}{5}\right)t+\ln20\,000
+\]
+In the year $2005$, $t=55$,
+\begin{align*}
+\ln P & =\left(\frac{1}{30}\ln\frac{6}{5}\right)55+\ln20\,000\\
+P & \approx27\,938
+\end{align*}
+$\therefore$the expected population at the beginning of the year
+$2005$ is approximately $27\,938$.
+
+\end{example}
+
+\newpage
+
+
+
+\begin{example}[Exponential Decay]
+
+Radioactivity is a property characteristic of substances whose atoms
+undergo spontaneous decomposition. Such substances usually decay at some constant rate, releasing "bursts"
+that can be detected by a geiger counter. As the atoms decay, the
+rate of change of the mass of the radioactive isotope in
+the sample is proportional to the mass present.
+
+\medskip
+
+Express exponential decay in the form of a differential equation.
+Solve the differential equation to give the general solution, using
+$x$ as the amount of substance and $x_{0}$ as the initial amount
+of substance at time $t$.
+
+\Solution
+
+Let $x$ represent the amount of radioactive material present at time
+$t$, and $x_{0}$ be the initial amount present. The subtance is
+decaying at a rate proportional to the amount of material present.
+Mathematically,
+\begin{align*}
+-\frac{\mathrm{d}x}{\mathrm{d}t} & \propto x\\
+\frac{\mathrm{d}x}{\mathrm{d}t} & =-Ax\text{, where \ensuremath{A} is a positive constant}
+\end{align*}
+Solving our equation by separating the variables,
+\begin{align*}
+\frac{1}{x}\frac{\mathrm{d}x}{\mathrm{d}t} & =-A\\
+\int\frac{1}{x}\, \mathrm{d}x & =\int-A\,dt\\
+\ln x & =-At+C\tag{ 1 }
+\end{align*}
+Putting $x=x_{0}$ and $t=0$ into $\left(1\right)$ gives
+\begin{align*}
+\ln x_{0} & =0+C\\
+C & =\ln x_{0}
+\end{align*}
+$\therefore$ we have the equation
+\begin{align*}
+\ln x & =-At+\ln x_{0}\\
+x & =\mathrm{e}^{-At+\ln x_{0}}\\
+ & =\mathrm{e}^{-At}\mathrm{e}^{\ln x_{0}}\\
+ & =x_{0}\mathrm{e}^{-At}
+\end{align*}
+Thus we have derived the equation that allows us to predict the amount
+of substance present at time $t$.
+
+\end{example}
+
+\newpage
+
+
+
+\begin{example}[Newton's Law of Cooling]
+
+Newton's Law of Cooling states that the rate of loss of
+temperature of a cooling body is proportional to the difference between its own temperature and the ambient temperature (i.e. the temperature of its surroundings).
+
+\medskip
+
+Express Newton's Law of Cooling in the form of a differential equation.
+Solve the differential equation to give the general solution, using
+$T$ as the temperature of the body, $T_{0}$ as the initial temperature
+of the body, and $T_{s}$ as the surrouding temperature at time $t$.
+
+\Solution
+
+Let $T$ be the cooling body temperature, $T_{0}$ be the initial
+temperature, and $T_{s}$ be the surrounding temperature. The rate
+of loss of temperature of the cooling body is proportional to the
+difference in temperatures between the body and its surroundings.
+Mathematically,
+\begin{align*}
+-\frac{\mathrm{d}T}{\mathrm{d}t} & \propto\left(T-T_{s}\right)\\
+\frac{\mathrm{d}T}{\mathrm{d}t} & =-k\left(T-T_{s}\right)
+\end{align*}
+Solving our equation by seperating the variables,
+\begin{align*}
+\left(\frac{1}{\left(T-T_{s}\right)}\right)\frac{\mathrm{d}T}{\mathrm{d}t} & =-k\\
+\int\frac{1}{\left(T-T_{s}\right)}\,dT & =\int-k\,dt\\
+\ln\left(T-T_{s}\right) & =-kt+A\tag{1}
+\end{align*}
+Putting $t=0$ and $T=T_{0}$ into $\left(1\right)$ gives
+\begin{align*}
+\ln\left(T_{0}-T_{s}\right) & =0+A\\
+A & =\ln\left(T_{0}-T_{s}\right)
+\end{align*}
+$\therefore$ we have the equation
+\begin{align*}
+\ln\left(T-T_{s}\right) & =-kt+\ln\left(\theta_{0}-\theta_{s}\right)\\
+T-T_{s} & ={\rm e}^{-kt+\ln\left(T_{0}-T_{s}\right)}\\
+T-T_{s} & =\left(T_{0}-T_{s}\right){\rm e}^{-kt}\\
+T & =T_{s}+\left(T_{0}-T_{s}\right){\rm e}^{-kt}
+\end{align*}
+Thus we have derived an equation that allows us to predict the temperature of a cooling body at time $t$.
+
+\end{example}
+
+\newpage
+
+
+\begin{example}[Water Leakage]
+
+Water is flowing into a rectangular tank at a constant rate and flows
+out at a rate which is proportional to the depth of water in the tank.
+At time $t$ seconds, the depth of the liquid in the tank is $x$
+meters. When the depth of water is $0.5\,\text{m}$ , there is no
+change in the depth.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Show that ${\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t}=-k\left(2x-1\right)}$,
+where $k$ is the rate at which water flows into the tank.
+
+\item When $t=0$, the depth of the water in the tank is $0.75\,\text{m}$
+and is decreasing at a rate of $0.01\,\text{ms}^{-1}$. Find the time
+at which the depth of the water is $0.55\,\text{m}$.
+
+\end{enumerate}
+
+\Solution
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+
+Let $x$ be the depth of water in the tank at time $t$ and let $k$
+represent the rate at which water flows into the tank. Water is flowing
+out at a constant rate, and flowing in at a rate proportional to the
+depth of water. Mathematically,
+
+\[
+\frac{\mathrm{d}x}{\mathrm{d}t}=k-hx\tag{1}
+\]
+Putting $x=0.5$ and ${\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t}=0}$ into $\left(1\right)$
+gives
+\begin{align*}
+0 & =k-0.5h\\
+h & =2k
+\end{align*}
+Putting $h=2k$ into $\left(1\right)$ gives
+\begin{align*}
+\frac{\mathrm{d}x}{\mathrm{d}t} & =k-2kx\\
+\frac{\mathrm{d}x}{\mathrm{d}t} & =-k\left(2x-1\right)\tag{2}
+\end{align*}
+
+\item
+
+Putting $t=0$, $x=0.75$, ${\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t}=-0.01}$
+into $\left(2\right)$ to find $k$,
+\begin{align*}
+-0.01 & =-k\left(1.5-1\right)\\
+k & =\frac{1}{50}
+\end{align*}
+Substitute ${\displaystyle k=\frac{1}{50}}$ into $\left(2\right)$,
+\[
+\frac{\mathrm{d}x}{\mathrm{d}t}=-\frac{1}{50}\left(2x-1\right)
+\]
+Solving our equation by separating the variables,
+\begin{align*}
+\left(\frac{1}{2x-1}\right)\frac{\mathrm{d}x}{\mathrm{d}t} & =-\frac{1}{50}\\
+\int\frac{1}{2x-1}\, \mathrm{d}x & =\int-\frac{1}{50}\,dt\\
+\frac{1}{2}\ln\left|2x-1\right| & =-\frac{1}{50}t+C\\
+\ln\left|2x-1\right| & =-\frac{1}{25}t+C_{1}\tag{3}
+\end{align*}
+Putting $t=0$, $x=0.75$ into $\left(3\right)$ to find $C_{1}$,
+\begin{align*}
+\ln\left|1.5-1\right| & =C_{1}\\
+C_{1} & =\ln0.5
+\end{align*}
+Substitute $C_{1}=\ln0.5$ into $\left(3\right)$,
+\[
+\ln\left|2x-1\right|=-\frac{1}{25}t+\ln0.5
+\]
+When the depth of water is $0.55\,\text{m}$,
+\begin{align*}
+\ln\left|1.1-1\right| & =-\frac{1}{25}t+\ln0.5\\
+\frac{1}{25}t & =\ln0.5-\ln0.1\\
+t & =25\ln5\\
+t & \approx40.2\,\text{s}
+\end{align*}
+
+\end{enumerate}
+
+\end{example}
+
+% End document
+\end{document}
