@@ -686,9 +686,7 @@ OR not all the 3 girls are together,
 
 \begin{example}[Sitting Around a Round Table With Restrictions]
 
-4 boys and 3 girls are to be seated at a round table. Andrew, Jane
-and Bob are 3 particular people among the 7. How many arrangements
-are there if
+A group of 7 people are to be seated at a round table. Andrew, Jane and Bob are 3 particular people in the group. How many arrangements are there if
 
 \begin{enumerate}[label=(\alph*)]
 
@@ -2042,7 +2040,7 @@ with your original choice. Therefore, \textbf{you should switch}.
 
 \newpage
 
-\section*{Probability Summary}
+\section{Probability Summary}
 \begin{tikzpicture}[every text node part/.style={align=center}]
 \node (Probability)[Box]{Probability \\
 ${\displaystyle \text{P($A$)}=\frac{n\left(A\right)}{n\left(S\right)}}$
@@ -2761,7 +2759,7 @@ to pay even $\$20$ to enter such a game.
 
 \newpage
 
-\section*{Discrete Random Variables Summary}
+\section{Discrete Random Variables Summary}
 
 \bigskip
 
@@ -2994,6 +2992,8 @@ where
 \end{itemize}
 \end{tcolorbox}
 
+\begin{GC}{Finding Binomial Probabilities}
+
 If $X\sim\text{B}\left(n,p\right)$, using the graphic calculator
 to find:
 
@@ -3024,6 +3024,8 @@ $r$.
 \end{steps}
 
 \end{itemize}
+
+\end{GC}
 
 \newpage
 
@@ -3421,7 +3423,7 @@ $
 
 \newpage
 
-\section*{Binomial Distribution Summary}
+\section{Binomial Distribution Summary}
 The characteristics of a binomial experiment are as follows:
 
 \begin{enumerate}[leftmargin=2cm]
@@ -3597,8 +3599,7 @@ the curve is zero. Hence for a normal random variable, we have
 \text{P}\left(X\geq a\right) & =\text{P}\left(X>a\right)+\text{P}\left(X=a\right)=\text{P}\left(X\geq a\right)
 \end{align*}
 
-
-\subsection{Finding Probabilities Using Graphic Calculator}
+\begin{GC}{Finding Probabilities in a Normal Distribution}
 
 For $X\sim\text{N}\left(\mu,\sigma^{2}\right)$, using the graphic
 calculator: Press \tcbox[box align=base,nobeforeafter,colback=blue!40, colframe=blue!40,size=small]{\textbf{\textcolor{white}{2ND}}}\tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{VARS}}}
@@ -3620,8 +3621,11 @@ tail.
 
 \end{itemize}
 
-Note: Remember to enter $\sigma$ (standard deviation) and not $\sigma^{2}$
-(variance) when using the GC.
+Note: Remember to enter $\sigma$ (standard deviation) and not $\sigma^{2}$ (variance) when using the GC.
+
+\end{GC}
+
+\newpage
 
 \begin{example}[Finding Probabilities of Normal Distributions (Area Under The Curve)]
 
@@ -3668,6 +3672,8 @@ $
 \end{enumerate}
 
 \end{example}
+
+\newpage
 
 \begin{example}[Inverse Normal Values]
 
@@ -3744,6 +3750,8 @@ From GC, $c=13.3\text{ (3 s.f.)}$
 \end{enumerate}
 
 \end{example}
+
+\newpage
 
 \section{The Standard Normal Distribution (Z-Distribution)}
 
@@ -4303,7 +4311,7 @@ Given $\text{P}\left(\overline{X}>72\right)\leq0.85$,
 \begin{align*}
 \text{P}\left(Z>\frac{72-74}{\sqrt{\frac{36}{n}}}\right) & \leq0.85\\
 \text{P}\left(Z>-\frac{\sqrt{n}}{3}\right) & \leq0.85\\
--\frac{\sqrt{n}}{3} & \leq-1.0364(\text{5 s.f.})\\
+-\frac{\sqrt{n}}{3} & \geq-1.0364(\text{5 s.f.})\\
 n & \leq9.67(\text{3 s.f.})
 \end{align*}
 Thus the largest possible value of $n$ is $9$.
@@ -4395,7 +4403,7 @@ by the Central Limit Theorem,
 \end{example}
 
 
-\section*{Central Limit Theorem Summary}
+\section{Central Limit Theorem Summary}
 
 
 \begin{tikzpicture}[every text node part/.style={align=center}]
@@ -4813,8 +4821,10 @@ significance.
 \item We will not reject $H_{0}$ if the $p-$value is greater than the
 level of significance.
 \end{itemize}
+
 We can find the $p-$value by using our GC.
 
+\begin{GC}{Finding $p-$value}
 \begin{steps}[leftmargin=1.5cm]
 
 \item  Press \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{stat}}}
@@ -4830,6 +4840,8 @@ raw data)
 to obtain the $p-$value.
 
 \end{steps}
+
+\end{GC}
 
 Lets try to find the $p-$value for the light bulb manufacturer's
 test statistic (i.e. what is the probability we observe $\overline{x}=580$
@@ -5297,6 +5309,7 @@ If we are given the individual data points instead of the total sum,
 we can use our GC to find our unbiased estimates $\overline{x}$ and
 $s^{2}$.
 
+\begin{GC}{Unbiased Estimates For Individual Data}
 \begin{steps}[leftmargin=1.5cm]
 
 \item  Press \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{stat}}}
@@ -5314,6 +5327,8 @@ right arrow to ``$1-$Var Stats'' and press \tcbox[box align=base,nobeforeafter,c
 on ``Calculate'' press \tcbox[box align=base,nobeforeafter,colback=white, colframe=black,size=small]{\textbf{\textcolor{black}{enter}}}.
 
 \end{steps}
+
+\end{GC}
 
 \begin{example}[Unbiased Estimates For Individual Data Using GC]
 
@@ -5346,6 +5361,8 @@ $s^{2}=\left(12.102\right)^{2}=146\text{ (3 s.f.)}$
 If we are given the data in a frequency table, we can also use our
 GC to find our unbiased estimates $\overline{x}$ and $s^{2}$.
 
+\begin{GC}{Unbiased Estimates For Grouped Data}
+
 \begin{steps}[leftmargin=1.5cm]
 
 \item  Press \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{stat}}}
@@ -5361,6 +5378,8 @@ right arrow to ``$1-$Var Stats'' and press \tcbox[box align=base,nobeforeafter,c
 under ``FreqList''. With the cursor on ``Calculate'' press \tcbox[box align=base,nobeforeafter,colback=white, colframe=black,size=small]{\textbf{\textcolor{black}{enter}}}.
 
 \end{steps}
+
+\end{GC}
 
 \begin{example}[Unbiased Estimates For Grouped Data Using GC]
 
@@ -5614,7 +5633,7 @@ of a university graduate differs from $\$2700$.
 
 \newpage
 
-\section*{Hypothesis Testing Summary}
+\section{Hypothesis Testing Summary}
 
 \begin{center}
 \begin{tabular}{|>{\raggedright}m{5.6cm}|>{\centering}m{5cm}|>{\centering}m{5cm}|}
@@ -5793,7 +5812,7 @@ From the general shape formed from the dots, we can see that as the
 
 \newpage
 
-To plot a scatter diagram using our GC,
+\begin{GC}{Plotting a Scatter Diagram}
 
 \begin{steps}[leftmargin=1.5cm]
 
@@ -5814,6 +5833,9 @@ and $\text{L}_{2}$.
 to view the scatter diagram.
 
 \end{steps}
+
+\end{GC}
+
 \begin{center}
 \includegraphics[width=4cm]{\string"lib/GC Screenshots/CnR1\string".png}\hspace{1cm}\includegraphics[width=4cm]{\string"lib/GC Screenshots/Cnr2\string".png}\hspace{1cm}\includegraphics[width=4cm]{\string"lib/GC Screenshots/CnR3\string".png}
 \par\end{center}
@@ -6015,8 +6037,8 @@ r=\frac{\sum\left(x-\overline{x}\right)\left(y-\overline{y}\right)}{\sqrt{\sum\l
 You are not required to use this formula, but you should be able to
 calculate $r$ using your GC.
 
-To find Pearson's Product-Moment Correlation Coefficient, $r$ with
-your GC,
+
+\begin{GC}{Finding Pearson's Product-Moment Correlation Coefficient, $r$}
 
 \begin{steps}[leftmargin=1.5cm]
 
@@ -6038,6 +6060,10 @@ are set to the correct lists $\text{L}_{1}$ and $\text{L}_{2}$.
 
 If you didn't get $r$, press \tcbox[box align=base,nobeforeafter,colback=black, colframe=black,size=small]{\textbf{\textcolor{white}{mode}}}
 and turn on ``STAT DIAGNOSTICS\textquotedblright .
+
+\end{GC}
+
+\medskip
 
 Lets find the value of $r$ for our \textbf{Opening Problem}.
 \begin{center}
@@ -6658,7 +6684,7 @@ of $x$ and $y$ given the other.
 
 From GC, the equation of the regression line of $y$ on $x$ is
 \[
-y=6.8693-0.0074589x\text{ (3 s.f.)}
+y=6.8693-0.0074589x\text{ (5 s.f.)}
 \]
 
 \begin{enumerate}[label=(\alph*)]
