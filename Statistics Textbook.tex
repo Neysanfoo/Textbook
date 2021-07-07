@@ -135,24 +135,16 @@ Similarly, for
 There would be $4\times2\times3=24$ different pathways from $A$
 to $D$, passing through $B$ and $C$.
 
-\subsubsection{Lisa's Birthday Party}
+\subsubsection{Double Counting}
 
-Lisa invites six guests to her birthday party: Raj, Alice, Jerry,
-Michelle, Ryan and Heather. When they arrive, they shake hands with
-each other. Jerry asks: "How many handshakes happened in total?'"
+Lisa invites six guests to her birthday party, when they arrive they all shake hands with everybody else at the party. How many handshakes occurred in total?
 
-"I shook 6 hands altogether" says
-Ryan, "and I guess, so did everybody else.''
+One guest claims that because there are 7 people at the party and they shook 6 hands each, there should be $7\cdot6=42$ handshakes in total.
 
-"Since there are seven of us, this should mean $7\cdot6=42$ handshakes in total!'' ventures Michelle.
+This guest is in fact wrong. The same logic would give 2 handshakes if two people meet, which is clearly wrong. That is because it takes 2 people to make 1 handshake, and so every handshake was counted twice.
 
-"This seems too many" says Heather.
-"The same logic gives 2 handshakes if two persons meet, which is
-clearly wrong."
+In actuality, only $42\div 2=21$ handshakes occurred.
 
-"That is because every handshake was counted twice.
-We have to divide $42$ by $2$, to get the right number: $21$."
-settles Lisa the issue.
 
 \section{Permutations }
 
@@ -323,20 +315,21 @@ built.
 
 \medskip{}
 
-\centerline{\begin{minipage}{.82\textwidth}
+
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
 The number of permutations of $n$ different objects taken $r$ at
 a time \textbf{with repetition }is $n^{r}$.
 \end{tcolorbox}
 
-\end{minipage}}
 
 \begin{example}[Computer Password]
 
 A certain computer access password consists of 3 through 5 lowercase
-letters chosen from the 26 letters in the Roman alphabet, with repetitions
-allowed. How many different passwords are possible?
+letters chosen from the 26 letters in the Roman alphabet, with repetitions allowed. How many different passwords are possible?
+
+
+\Solution
 
 The set of all passwords can be split into three subsets consisting
 of passwords with lengths 3, 4, and 5.
@@ -358,6 +351,8 @@ Hence the total number of passwords is
 
 (Approximately 12 million)
 
+\end{example}
+
 How many different passwords are possible if the password contains
 both uppercase and lowercase letters?
 
@@ -376,7 +371,7 @@ Hence the total number of passwords is
 
 (Approximately 388 million)
 
-\end{example}
+\newpage
 
 \subsection{Permutations in a Circle }
 
@@ -1027,32 +1022,32 @@ not occur.
 \begin{flushright}
 
 \tcbox[box align=base,nobeforeafter,colback=white, colframe=black, sharp corners]{
-\begin{minipage}[t]{.53\textwidth}
-\begin{tabular}{>{\centering}p{2cm}|>{\raggedright}p{5.5cm}}
+\begin{minipage}[t]{.6\textwidth}
+\begin{tabular}{>{\centering}p{2cm}|>{\raggedright}p{7.5cm}}
 \textbf{Notations} & \textbf{What it means}\tabularnewline
-\hline
-$A\cup B$ & Union of $A$ and $B$\tabularnewline
-\hline
-$A\cap B$ & Intersection of $A$ and $B$\tabularnewline
-\hline
+\hline 
+$A\cup B$ & Union of $A$ and $B$, $\left\{ x\mid x\in A\text{ \textbf{or} }x\in B\right\} $\tabularnewline
+\hline 
+$A\cap B$ & Intersection of $A$ and $B$, $\left\{ x\mid x\in A\text{ \textbf{and} }x\in B\right\} $\tabularnewline
+\hline 
 $\in$ & ``... is an element of ...''\tabularnewline
-\hline
+\hline 
 $\not\in$ & ``... is not an element of ...''\tabularnewline
-\hline
+\hline 
 $n\left(A\right)$ & Number of elements in set $A$\tabularnewline
-\hline
-$A'$ & Complement of set $A$\tabularnewline
-\hline
-$\text{Ø}$ & Empty set or null set\tabularnewline
-\hline
+\hline 
 $\xi$ & Universal set\tabularnewline
-\hline
+\hline 
+$\text{Ø}$ & Empty set or null set \tabularnewline
+\hline 
+$A'$ & Complement of set $A$, $\left\{ x\in\xi\mid x\not\in A\right\} $\tabularnewline
+\hline 
 $A\subseteq B$ & $A$ is a subset of $B$\tabularnewline
-\hline
+\hline 
 $A\subset B$ & $A$ is a proper subset of $B$\tabularnewline
-\hline
+\hline 
 $A\not\subseteq B$ & $A$ is not a subset of $B$\tabularnewline
-\hline
+\hline 
 $A\not\subset B$ & $A$ is not a proper subset of $B$\tabularnewline
 \end{tabular}
 
@@ -1129,10 +1124,10 @@ are independent events.
 
 \medskip
 
-\centerline{\begin{minipage}{.69\textwidth}
+\centerline{\begin{minipage}{.65\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
-If $A$ and $B$ are \textbf{independent events} then $\text{P}\left(A\textbf{ and }B\right)=\text{P}\left(A\right)\times\text{P}\left(B\right)$.
+If $A$ and $B$ are \textbf{independent events} then $\text{P}\left(A\cap B\right)=\text{P}\left(A\right)\times\text{P}\left(B\right)$.
 \end{tcolorbox}
 \end{minipage}}
 
@@ -1176,10 +1171,9 @@ therefore $A$ and $B$ are independent.
 
 \section{Dependent Events}
 
-Suppose a hat contains $4$ red and $2$ blue tickets. One ticket
-is randomly chosen, its colour is noted and it is thrown in a bin.
-A second ticket is randomly selected. What is the chance that it is
-red?
+Dependent events are non-independent events. If $A$ and $B$ are dependent events, $\text{P}\left(A\cap B\right)\neq\text{P}\left(A\right)\times\text{P}\left(B\right)$.
+
+Suppose a hat contains $4$ red and $2$ blue tickets. One ticket is randomly chosen, its colour is noted and it is thrown in a bin. A second ticket is randomly selected. What is the chance that it is red?
 
 If the first ticket was red, ${\displaystyle \text{P(second is red)}=\frac{3}{5}}$
 
@@ -1191,13 +1185,6 @@ events}.
 
 \medskip
 
-\centerline{\begin{minipage}{.62\textwidth}
-\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
-
-\textbf{Dependent events} are events where the occurrence of one of
-the events\textbf{ does} affect the occurrence of the other event.
-\end{tcolorbox}
-\end{minipage}}
 
 \newpage
 
@@ -1707,24 +1694,12 @@ It follows that
 \text{P}\left(A\cap B\right)=\text{P}\left(B\right)\times\text{P}\left(A\mid B\right)=\text{P}\left(A\right)\times\text{P}\left(B\mid A\right)
 \]
 
-$A$ and $B$ are \textbf{independent events} if the occurrence (or non-occurrence)
-of one event does not affect the occurrence of the other,
+$A$ and $B$ are \textbf{independent events} if the occurrence (or non-occurrence) of one event does not affect the occurrence of the other,
 
 \[
 \text{i.e.}\quad\text{P}\left(A\mid B\right)=\text{P\ensuremath{\left(A\right)}}\quad\text{and}\quad\text{P}\left(B\mid A\right)=\text{P\ensuremath{\left(B\right)}}
 \]
 
-So,
-
-\medskip
-
-\centerline{\begin{minipage}{.6\textwidth}
-\begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
-
-$A$ and $B$ are \textbf{independent events} \textbf{$\Leftrightarrow$}
-$\text{P}\left(A\cap B\right)=\text{P}\left(A\right)\times\text{P}\left(B\right)$
-\end{tcolorbox}
-\end{minipage}}
 
 \newpage
 
@@ -1902,16 +1877,13 @@ Hence,
 
 \section{De Meres Problem}
 
-Gamblers in 1654 France used to bet on the event of getting at least
-one six in four rolls of a dice. As a more trying variation, two die
-were rolled 24 times with a bet on having at least one double six.
-De Méré's problem is as follows:
+Chevalier de Méré was a French writer with a fondness for gambling. One of de Méré's favorite bets was that at least one six would appear during a total of four rolls of a die. From past experience, he knew that this gamble paid off more often than not. Then, for a change, he started betting that he would get a double-six on 24 rolls of two dice. However, he soon realized that his old approach to the game was more profitable. De Méré posed the following question to his friend Blaise Pascal.
 
 \begin{example}[De Meres Problem]
 
-Is it more likely to get at least one double six in 24 rolls
-of a pair of dice or to get at least one six in four rolls
-of a single die?
+Is it more likely to get at least one six in four rolls
+of a single die or to get at least one double six in 24 rolls
+of a pair of dice?
 
 \Solution
 
@@ -2038,6 +2010,14 @@ with your original choice. Therefore, \textbf{you should switch}.
 \end{example}
 
 
+Still not convinced? Imagine instead that there are $1000$ doors,
+behind which one has a car. After the player picks a door, the host
+opens the $998$ doors that the car is not behind. At this point,
+the player knows that the door he chose either contains a prize (with
+a probability of $0.1\%$), or more likely, nothing ($99.9\%$). Given
+the opportunity, the player should definitely switch.
+
+
 \newpage
 
 \section{Probability Summary}
@@ -2115,11 +2095,10 @@ A random variable can be \textbf{discrete} or \textbf{continuous}.
 \centerline{\begin{minipage}{.88\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
-A random variable $X$ is called \textbf{discrete} if it has a \textbf{countable}
-number of possible values.
+A random variable $X$ is called \textbf{discrete} if it has a \textbf{countable}\footnotemark number of possible values.
 \end{tcolorbox}
 \end{minipage}}
-
+\footnotetext{One-to-one correspondence with the natural numbers}
 \medskip
 
 For example, $X$ could be:
@@ -2400,7 +2379,7 @@ $\text{E}\left(X\right)$ is also denoted by the symbol $\mu$.
 
 \begin{example}[Finding Expected Value Using a Probability Distribution]
 
-Find $\text{E}\left(X\right)$ for the probability distribution in \textsf{Example 2.2}.
+Find $\text{E}\left(X\right)$ for the probability distribution in \textsf{Example 3.2}.
 
 \Solution
 
@@ -2753,9 +2732,13 @@ Considering nothing but the expected value of the net change in one's
 monetary wealth, one should therefore play the game at any price if
 offered the opportunity. In a strict logical sense, the St. Petersburg
 paradox is not a paradox because no formal contradiction is derived.
-However, to claim that a rational agent should pay millions, or even
-billions, for playing this game seems absurd. Few of us would be willing
-to pay even $\$20$ to enter such a game.
+
+However, what seems paradoxical here is that if you were to pay $\$32$ to enter the game, the chance of just making your money back would be: 
+$
+\begin{aligned}[t]
+\text{P}\left(HHHHT\right) & =\left(\frac{1}{2}\right)^{5}=\frac{1}{32} \approx3\%
+\end{aligned}
+$
 
 \newpage
 
