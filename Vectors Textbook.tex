@@ -68,6 +68,9 @@
 \begin{document}
 
 \tableofcontents
+
+\setcounter{chapter}{12}
+
 \chapter{Vectors in 2 and 3 Dimensions}
 
 
@@ -4425,7 +4428,7 @@ us to consider such square roots.
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
 The\textbf{ imaginary number} is defined as $i=\sqrt{-1}$
-with the propertry that $i\times i=\sqrt{-1}\times\sqrt{-1}=-1$.
+with the property that $i\times i=\sqrt{-1}\times\sqrt{-1}=-1$.
 \end{tcolorbox}
 
 It is called ``imaginary'' because we cannot place it on the real
@@ -4878,51 +4881,25 @@ z_{1}z_{2} & =\left(a_{1}+b_{1}i\right)\left(a_{2}+b_{2}i\right)\\
 
 If $z=2-3i$ and $w=4+i$, find in simplest form:
 
-\begin{minipage}[t]{0.33\textwidth}
+\begin{tasks}(3)
 
-\begin{enumerate}[label=(\alph*)]
+\task  $2z$
 
-\item  $2z$
+\task  $iw$
 
-\addtocounter{enumi}{2}
+\task  $2z-3w$
 
-\item  $zw$
+\task  $zw$
 
-\end{enumerate}
+\task  $w^{2}$
 
-\end{minipage}
-\begin{minipage}[t]{0.33\textwidth}
+\task  $zz^{*}$
 
-\begin{enumerate}[label=(\alph*),start=2]
-
-\item  $iw$
-
-\addtocounter{enumi}{2}
-
-\item  $w^{2}$
-
-\end{enumerate}
-
-\end{minipage}
-\begin{minipage}[t]{0.33\textwidth}
-
-\begin{enumerate}[label=(\alph*),start=3]
-
-\item  $2z-3w$
-
-\addtocounter{enumi}{2}
-
-\item  $zz^{*}$
-
-\end{enumerate}
-
-\end{minipage}
-
-\medskip{}
+\end{tasks}
 
 \Solution
 
-\begin{tasks}[label=(\alph*), column-sep={1cm}](3)
+\begin{tasks}(3)
 
 \task
 $
@@ -4936,19 +4913,29 @@ $
 \task
 $
 \begin{aligned}[t]
-zw & =\left(2-3i\right)\left(4+i\right)\\
- & =8+2i-12i-3i^{2}\\
- & =11-10i
+iw & =i\left(4+i\right)\\
+ & =-1+4i
 \end{aligned}
 $
 
 \task
 $
 \begin{aligned}[t]
-iw & =i\left(4+i\right)\\
- & =-1+4i
+2z-3w & =2\left(2-3i\right)-3\left(4+i\right)\\
+ & =-8-9i
 \end{aligned}
 $
+
+
+\task
+$
+\begin{aligned}[t]
+zw & =\left(2-3i\right)\left(4+i\right)\\
+ & =8+2i-12i-3i^{2}\\
+ & =11-10i
+\end{aligned}
+$
+
 
 
 \task
@@ -4962,13 +4949,6 @@ $
 
 
 
-\task
-$
-\begin{aligned}[t]
-2z-3w & =2\left(2-3i\right)-3\left(4+i\right)\\
- & =-8-9i
-\end{aligned}
-$
 
 
 \task
@@ -4987,7 +4967,7 @@ $
 \subsection{Division}
 
 When we perform division with complex numbers, we use the complex
-conjugate of the denominator to obtain a rational denominatior.
+conjugate of the denominator to obtain a rational denominator.
 
 \medskip{}
 
@@ -5274,7 +5254,7 @@ as $z=a+bi$ where $a=\text{Re}\left(z\right)$ and $b=\text{Im\ensuremath{\left(z
 are both real numbers.
 
 Thus there is a one-to-one relationship between any complex number
-$a+bi$ and the point $\left(a,b\right)$ in the cartesian plane.
+$a+bi$ and the point $\left(a,b\right)$ in the Cartesian plane.
 
 We can therefore plot any complex number on a plane as a unique ordered
 number pair. We refer to the plane as the complex plane or the \textbf{Argand
@@ -5677,9 +5657,9 @@ $\arg\left(-2i\right)=-\frac{\pi}{2}$
 
 \section{Polar Form (Modulus-Argument Form)}
 
-We have seen the \textbf{cartesian form }of a complex number is $z=a+bi$.
+We have seen the \textbf{Cartesian form }of a complex number is $z=a+bi$.
 However, we can also use a \textbf{polar form }which is based on the
-modulus and arguement of $z$.
+modulus and argument of $z$.
 
 To find the coordinates of a point in the polar coordinate system,
 consider the diagram below.
@@ -5687,11 +5667,11 @@ consider the diagram below.
 \includegraphics[width=5cm,valign=t]{\string"lib/Graphics/PolarCoordinate\string".png}
 \par\end{center}
 
-The point $P$ has cartesian coordinates $\left(x,y\right)$. The
+The point $P$ has Cartesian coordinates $\left(x,y\right)$. The
 distance from the origin to $P$ is $r$ and the angle between the
 $x-$axis and the line segment is $\theta$. This observation suggests
 a natural correspondence between the coordinate pair $\left(x,y\right)$
-and the cartesian values $r$ and $\theta$.
+and the Cartesian values $r$ and $\theta$.
 
 Using right angle trigonometry,
 
@@ -5735,6 +5715,8 @@ $-\pi<\theta\leq\pi$ is the argument.
 
 \end{minipage}}
 
+\newpage
+
 \begin{example}
 
 Express each of the following in polar form:
@@ -5770,31 +5752,24 @@ Express each of the following in polar form:
 
 \Solution
 
-\begin{minipage}[t]{0.5\textwidth}
 
-\begin{enumerate}[label=(\alph*)]
+\begin{tasks}[label=(\alph*),after-item-skip=.8cm]
 
-\item  $\left|-2i\right|=2$
+\task  $\left|-2i\right|=2$
 
 ${\displaystyle \arg z=-\frac{\pi}{2}}$
 
 ${\displaystyle \therefore-2i=2\left(\cos\left(-\frac{\pi}{2}\right)+i\sin\left(-\frac{\pi}{2}\right)\right)}$
-\end{enumerate}
-\end{minipage}
-\begin{minipage}[t]{0.5\textwidth}
-\begin{enumerate}[label=(\alph*),start=2]
 
-\item  $\left|-1+\sqrt{3}i\right|=2$
+
+\task  $\left|-1+\sqrt{3}i\right|=2$
 
 ${\displaystyle \arg\left(-1+\sqrt{3}i\right)=\frac{2\pi}{3}}$
 
 ${\displaystyle \therefore-1+\sqrt{3}i=2\left(\cos\left(\frac{2\pi}{3}\right)+i\sin\left(\frac{2\pi}{3}\right)\right)}$
-\end{enumerate}
-\end{minipage}
 
-\begin{enumerate}[label=(\alph*),start=3]
 
-\item
+\task
 $
 \begin{aligned}[t]
 \left|\left(-1-i\right)\left(-1+\sqrt{3}i\right)\right| & =\left|-1-i\right|\left|-1+\sqrt{3}i\right|\\
@@ -5812,11 +5787,13 @@ $
 
 ${\displaystyle \therefore\left(-1-i\right)\left(-1+\sqrt{3}i\right)=2\sqrt{2}\left(\cos\left(-\frac{\pi}{12}\right)+i\sin\left(-\frac{\pi}{12}\right)\right)}$
 
-\item
-\begin{align*}
+\task
+$
+\begin{aligned}[t]
 \left|\frac{-1+\sqrt{3}i}{-1-i}\right| & =\frac{\left|-1+\sqrt{3}i\right|}{\left|-1-i\right|}\\
  & =\frac{2}{\sqrt{2}}=\sqrt{2}
-\end{align*}
+\end{aligned}
+$
 
 \begin{align*}
 \arg\left(\frac{-1+\sqrt{3}i}{-1-i}\right) & =\arg\left(-1+\sqrt{3}i\right)-\arg\left(-1-i\right)\\
@@ -5826,8 +5803,7 @@ ${\displaystyle \therefore\left(-1-i\right)\left(-1+\sqrt{3}i\right)=2\sqrt{2}\l
 
 ${\displaystyle \therefore\frac{-1+\sqrt{3}i}{-1-i}=\sqrt{2}\left(\cos\left(-\frac{7\pi}{12}\right)+i\sin\left(-\frac{7\pi}{12}\right)\right)}$
 
-\end{enumerate}
-
+\end{tasks}
 \end{example}
 
 \newpage
@@ -5846,7 +5822,7 @@ ${\displaystyle \therefore\frac{-1+\sqrt{3}i}{-1-i}=\sqrt{2}\left(\cos\left(-\fr
 
 One of the most remarkable results in mathematics is known as \textbf{Euler's identity}
 \[
-e^{i\pi}=-1
+\mathrm{e}^{i\pi}=-1
 \]
 named after Leonhard Euler (1707-1783).
 
@@ -5860,26 +5836,26 @@ Euler's beautiful equation is a special case of a more general result
 that Euler proved:
 
 \[
-e^{i\theta}=\cos\theta+i\sin\theta
+\mathrm{e}^{i\theta}=\cos\theta+i\sin\theta
 \]
 
 \textbf{Proof}:
 
 \begin{align*}
-e^{x} & =1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+\frac{x^{4}}{4!}+\ldots\\
-e^{i\theta} & =1+\left(i\theta\right)+\frac{\left(i\theta\right)^{2}}{2!}+\frac{\left(i\theta\right)^{3}}{3!}+\frac{\left(i\theta\right)^{4}}{4!}+\ldots\\
+\mathrm{e}^{x} & =1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+\frac{x^{4}}{4!}+\ldots\\
+\mathrm{e}^{i\theta} & =1+\left(i\theta\right)+\frac{\left(i\theta\right)^{2}}{2!}+\frac{\left(i\theta\right)^{3}}{3!}+\frac{\left(i\theta\right)^{4}}{4!}+\ldots\\
  & =\left(1-\frac{\theta^{2}}{2!}+\frac{\theta^{4}}{4!}-\ldots\right)+i\left(\theta-\frac{\theta^{3}}{3!}+\ldots\right)\\
  & =\cos\theta+i\sin\theta
 \end{align*}
 
 This identity allows us to write any complex number $z=r\left(\cos\theta+i\sin\theta\right)$
-in the form $z=re^{i\theta}$.
+in the form $z=r\mathrm{e}^{i\theta}$.
 
 For example, consider $z=1+i$.
 
 $\left|z\right|=\sqrt{2}$ and ${\displaystyle \theta=\frac{\pi}{4}}$
 
-${\displaystyle \therefore1+i=\sqrt{2}\left(\cos\theta+i\sin\theta\right)=\sqrt{2}e^{i\frac{\pi}{4}}}$
+${\displaystyle \therefore1+i=\sqrt{2}\left(\cos\theta+i\sin\theta\right)=\sqrt{2}\mathrm{e}^{i\frac{\pi}{4}}}$
 \begin{center}
 \begin{tabular}[t]{>{\raggedright}p{0.8cm}>{\raggedright}p{3cm}>{\raggedright}p{6cm}}
 So, & $\sqrt{2}\left(\cos\theta+i\sin\theta\right)$ & is the \textbf{polar form} of $i+i$,\tabularnewline
@@ -5888,7 +5864,7 @@ So, & $\sqrt{2}\left(\cos\theta+i\sin\theta\right)$ & is the \textbf{polar form}
 
 \begin{center}
 \begin{tabular}[t]{>{\raggedright}p{0.8cm}>{\raggedright}p{3cm}>{\raggedright}p{6cm}}
-and & $\sqrt{2}e^{i\frac{\pi}{4}}$ & is the \textbf{exponential form} of $i+i$.\tabularnewline
+and & $\sqrt{2}\mathrm{e}^{i\frac{\pi}{4}}$ & is the \textbf{exponential form} of $i+i$.\tabularnewline
 \end{tabular}
 \par\end{center}
 
@@ -5899,9 +5875,9 @@ and & $\sqrt{2}e^{i\frac{\pi}{4}}$ & is the \textbf{exponential form} of $i+i$.\
 \item  To convert from \textbf{polar form} to \textbf{exponential
 form} and vice versa, just use Euler's formula:
 
-$e^{i\theta}=\cos\theta+i\sin\theta$.
+$\mathrm{e}^{i\theta}=\cos\theta+i\sin\theta$.
 
-\item  To convert from \textbf{cartesian form }to \textbf{polar form}:
+\item  To convert from \textbf{Cartesian form }to \textbf{polar form}:
 
 \begin{itemize}
 
@@ -5913,7 +5889,7 @@ $e^{i\theta}=\cos\theta+i\sin\theta$.
 
 \end{itemize}
 
-\item  To convert from \textbf{polar form} to \textbf{cartesian form}:
+\item  To convert from \textbf{polar form} to \textbf{Cartesian form}:
 $
 \begin{aligned}[t]
 z & =r\left(\cos\theta+i\sin\theta\right)\\
@@ -5971,7 +5947,7 @@ $
 
 $
 \begin{aligned}[t]
-\therefore\frac{\sqrt{3}+i}{2}=e^{i\frac{\pi}{6}}
+\therefore\frac{\sqrt{3}+i}{2}=\mathrm{e}^{i\frac{\pi}{6}}
 \end{aligned}
 $
 
@@ -5986,7 +5962,7 @@ $
 $
 \begin{aligned}[t]
 \cos\theta-i\sin\theta & =\cos\left(-\theta\right)+i\sin\left(-\theta\right)\\
- & =e^{-i\theta}
+ & =\mathrm{e}^{-i\theta}
 \end{aligned}
 $
 
@@ -5997,7 +5973,7 @@ $
 \end{example}
 
 \begin{example}
-Convert ${\displaystyle 2e^{i\frac{5}{6}\pi}}$ into polar and cartesian
+Convert ${\displaystyle 2\mathrm{e}^{i\frac{5}{6}\pi}}$ into polar and Cartesian
 form.
 
 \medskip{}
@@ -6068,7 +6044,7 @@ $\left|w\right|=\sqrt{2}$ & ${\displaystyle \arg w=\frac{3\pi}{4}}$\tabularnewli
 
 In exponential form,
 \[
-z=2e^{-i\frac{\pi}{3}}\quad\text{ and \,}\quad w=\sqrt{2}e^{\frac{3\pi}{4}}
+z=2\mathrm{e}^{-i\frac{\pi}{3}}\quad\text{ and \,}\quad w=\sqrt{2}\mathrm{e}^{\frac{3\pi}{4}}
 \]
 
 \begin{enumerate}[label=(\alph*)]
@@ -6077,10 +6053,10 @@ z=2e^{-i\frac{\pi}{3}}\quad\text{ and \,}\quad w=\sqrt{2}e^{\frac{3\pi}{4}}
 $
 \!
 \begin{aligned}[t]
-\left(1-i\sqrt{3}\right)^{3}\left(-1+i\right)^{2} & =\left(2e^{-i\frac{\pi}{3}}\right)^{3}\left(\sqrt{2}e^{i\frac{3\pi}{4}}\right)^{2}\\
- & =\left(8e^{-i\pi}\right)\left(2e^{i\frac{3\pi}{2}}\right)\\
- & =16e^{i\left(\frac{3\pi}{2}-\pi\right)}\\
- & =16e^{i\frac{\pi}{2}}\\
+\left(1-i\sqrt{3}\right)^{3}\left(-1+i\right)^{2} & =\left(2\mathrm{e}^{-i\frac{\pi}{3}}\right)^{3}\left(\sqrt{2}\mathrm{e}^{i\frac{3\pi}{4}}\right)^{2}\\
+ & =\left(8\mathrm{e}^{-i\pi}\right)\left(2\mathrm{e}^{i\frac{3\pi}{2}}\right)\\
+ & =16\mathrm{e}^{i\left(\frac{3\pi}{2}-\pi\right)}\\
+ & =16\mathrm{e}^{i\frac{\pi}{2}}\\
  & =16\left(\cos\left(\frac{\pi}{2}\right)+i\sin\left(\frac{\pi}{2}\right)\right)\\
  & =16\left(0+i\right)\\
  & =16i
@@ -6091,12 +6067,12 @@ $
 $
 \!
 \begin{aligned}[t]
-{\displaystyle \frac{\left(1-i\sqrt{3}\right)^{6}}{\left(-1+i\right)^{3}}} & =\frac{\left(2e^{-i\frac{\pi}{3}}\right)^{6}}{\left(\sqrt{2}e^{i\frac{3\pi}{4}}\right)^{3}}\\
- & =\frac{64e^{-2i\pi}}{2\sqrt{2}e^{i\frac{9\pi}{4}}}\\
- & =16\sqrt{2}e^{-2i\pi}e^{-i\frac{9\pi}{4}}\\
- & =16\sqrt{2}e^{-i\left(2\pi+\frac{9\pi}{4}\right)}\\
- & =16\sqrt{2}e^{-i\frac{17\pi}{4}}\\
- & \equiv16\sqrt{2}e^{-i\frac{\pi}{4}}\quad\triangleright\left(-\pi<\theta\leq\pi\right)\\
+{\displaystyle \frac{\left(1-i\sqrt{3}\right)^{6}}{\left(-1+i\right)^{3}}} & =\frac{\left(2\mathrm{e}^{-i\frac{\pi}{3}}\right)^{6}}{\left(\sqrt{2}\mathrm{e}^{i\frac{3\pi}{4}}\right)^{3}}\\
+ & =\frac{64\mathrm{e}^{-2i\pi}}{2\sqrt{2}\mathrm{e}^{i\frac{9\pi}{4}}}\\
+ & =16\sqrt{2}\mathrm{e}^{-2i\pi}\mathrm{e}^{-i\frac{9\pi}{4}}\\
+ & =16\sqrt{2}\mathrm{e}^{-i\left(2\pi+\frac{9\pi}{4}\right)}\\
+ & =16\sqrt{2}\mathrm{e}^{-i\frac{17\pi}{4}}\\
+ & \equiv16\sqrt{2}\mathrm{e}^{-i\frac{\pi}{4}}\quad\triangleright\left(-\pi<\theta\leq\pi\right)\\
  & =16\sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right)+i\sin\left(-\frac{\pi}{4}\right)\right)\\
  & =16\sqrt{2}\left(\frac{1}{\sqrt{2}}-i\frac{1}{\sqrt{2}}\right)\\
  & =16\left(1-i\right)
@@ -6112,16 +6088,16 @@ $
 \subsection{Half Argument Approach}
 
 \begin{example}
-The complex number $w$ is given by ${\displaystyle w=\frac{e^{i\theta}}{1-e^{i\theta}}}$,
+The complex number $w$ is given by ${\displaystyle w=\frac{\mathrm{e}^{i\theta}}{1-\mathrm{e}^{i\theta}}}$,
 where $0<\theta<2\pi$. Find, in terms of $\theta$, the real and
 imaginary parts of $w$.
 
 
 \Solution
 \begin{align*}
-w & =\frac{e^{i\theta}}{1-e^{i\theta}}\\
- & =\frac{e^{i\theta}}{e^{i\frac{\theta}{2}}\left(e^{-i\frac{\theta}{2}}-e^{i\frac{\theta}{2}}\right)}\\
- & =\frac{e^{i\frac{\theta}{2}}}{e^{-i\frac{\theta}{2}}-e^{i\frac{\theta}{2}}}\\
+w & =\frac{\mathrm{e}^{i\theta}}{1-\mathrm{e}^{i\theta}}\\
+ & =\frac{\mathrm{e}^{i\theta}}{\mathrm{e}^{i\frac{\theta}{2}}\left(\mathrm{e}^{-i\frac{\theta}{2}}-\mathrm{e}^{i\frac{\theta}{2}}\right)}\\
+ & =\frac{\mathrm{e}^{i\frac{\theta}{2}}}{\mathrm{e}^{-i\frac{\theta}{2}}-\mathrm{e}^{i\frac{\theta}{2}}}\\
  & =\frac{\cos\left(\frac{\theta}{2}\right)+i\sin\left(\frac{\theta}{2}\right)}{\left[\cos\left(-\frac{\theta}{2}\right)+i\sin\left(-\frac{\theta}{2}\right)\right]-\left[\cos\left(\frac{\theta}{2}\right)+i\sin\left(\frac{\theta}{2}\right)\right]}\\
  & =\frac{\cos\left(\frac{\theta}{2}\right)+i\sin\left(\frac{\theta}{2}\right)}{-2i\sin\left(\frac{\theta}{2}\right)}\\
  & =\frac{i\cos\left(\frac{\theta}{2}\right)+i^{2}\sin\left(\frac{\theta}{2}\right)}{-2i^{2}\sin\left(\frac{\theta}{2}\right)}\\
@@ -6158,9 +6134,9 @@ for all $n\in\Q$.
 
 If $z=r\left(\cos\theta+i\sin\theta\right)$, then
 \begin{align*}
-z & =re^{i\theta}\\
-z^{n} & =\left(re^{i\theta}\right)^{n}\\
- & =r^{n}e^{i\left(n\theta\right)}\\
+z & =r\mathrm{e}^{i\theta}\\
+z^{n} & =\left(r\mathrm{e}^{i\theta}\right)^{n}\\
+ & =r^{n}\mathrm{e}^{i\left(n\theta\right)}\\
  & =r^{n}\left(\cos n\theta+i\sin n\theta\right)
 \end{align*}
 This theorem is useful in helping us easily \textbf{calculate the
@@ -6322,17 +6298,17 @@ roots of the complex number $c$}.
 $\left|z^{4}\right|=4$ and $\arg\left(z^{4}\right)=\pi$
 
 \begin{align*}
-z^{4} & =4e^{i\pi}\\
- & =4e^{i\left(\pi+2k\pi\right)},\:\text{where }k\in\Z\\
-\left(z^{4}\right)^{\frac{1}{4}} & =4^{\frac{1}{4}}e^{\frac{1}{4}i\left(\pi+2k\pi\right)}\\
-z & =\sqrt{2}e^{\frac{1}{4}i\left(\pi+2k\pi\right)}
+z^{4} & =4\mathrm{e}^{i\pi}\\
+ & =4\mathrm{e}^{i\left(\pi+2k\pi\right)},\:\text{where }k\in\Z\\
+\left(z^{4}\right)^{\frac{1}{4}} & =4^{\frac{1}{4}}\mathrm{e}^{\frac{1}{4}i\left(\pi+2k\pi\right)}\\
+z & =\sqrt{2}\mathrm{e}^{\frac{1}{4}i\left(\pi+2k\pi\right)}
 \end{align*}
 
 Let $k=0,1,2,3$
 
 \begin{align*}
-z & =\sqrt{2}e^{\frac{1}{4}i\left(\pi\right)},\sqrt{2}e^{\frac{1}{4}i\left(3\pi\right)},\sqrt{2}e^{\frac{1}{4}i\left(5\pi\right)},\sqrt{2}e^{\frac{1}{4}i\left(7\pi\right)}\\
- & =\sqrt{2}e^{\frac{\pi}{4}i},\sqrt{2}e^{\frac{3\pi}{4}i},\sqrt{2}e^{\frac{5\pi}{4}i},\sqrt{2}e^{\frac{7\pi}{4}i}\\
+z & =\sqrt{2}\mathrm{e}^{\frac{1}{4}i\left(\pi\right)},\sqrt{2}\mathrm{e}^{\frac{1}{4}i\left(3\pi\right)},\sqrt{2}\mathrm{e}^{\frac{1}{4}i\left(5\pi\right)},\sqrt{2}\mathrm{e}^{\frac{1}{4}i\left(7\pi\right)}\\
+ & =\sqrt{2}\mathrm{e}^{\frac{\pi}{4}i},\sqrt{2}\mathrm{e}^{\frac{3\pi}{4}i},\sqrt{2}\mathrm{e}^{\frac{5\pi}{4}i},\sqrt{2}\mathrm{e}^{\frac{7\pi}{4}i}\\
  & =\sqrt{2}\left(\cos\frac{\pi}{4}+i\sin\frac{\pi}{4}\right),\sqrt{2}\left(\cos\frac{3\pi}{4}+i\sin\frac{3\pi}{4}\right),\sqrt{2}\left(\cos\frac{5\pi}{4}+i\sin\frac{5\pi}{4}\right),\sqrt{2}\left(\cos\frac{7\pi}{4}+i\sin\frac{7\pi}{4}\right)\\
  & =\sqrt{2}\left(\frac{1}{\sqrt{2}}+i\frac{1}{\sqrt{2}}\right),\sqrt{2}\left(-\frac{1}{\sqrt{2}}+i\frac{1}{\sqrt{2}}\right),\sqrt{2}\left(-\frac{1}{\sqrt{2}}-i\frac{1}{\sqrt{2}}\right),\sqrt{2}\left(\frac{1}{\sqrt{2}}-i\frac{1}{\sqrt{2}}\right)\\
  & =1+i,-1+i,-1-i,1-i

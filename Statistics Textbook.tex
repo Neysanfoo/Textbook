@@ -995,7 +995,7 @@ If $S$ is a finite sample space in which all outcomes are equally
 likely and $E$ is an event in $S$, then the probability of $E$,
 denoted $\text{P}\left(E\right)$, is
 \[
-\text{P}\left(E\right)=\frac{\text{the number of outcomes in }E}{\text{the total number of ountcomes in }S}
+\text{P}\left(E\right)=\frac{\text{the number of outcomes in }E}{\text{the total number of outcomes in }S}
 \]
 \end{tcolorbox}
 
@@ -1226,11 +1226,11 @@ will make it easier for us to find the probability of certain events.
 
 \begin{example}[Possibility Diagram for Dice]
 
-Find the probability of rolling:
+Two ordinary fair dice are thrown, find the probability of rolling:
 
 \begin{enumerate}[label=(\alph*)]
 
-\item  the same number on both die
+\item  the same number on both dice
 
 \item  a total of 6
 
@@ -3512,11 +3512,14 @@ examples are:
 
 \end{itemize}
 
-\centerline{\begin{minipage}{.8\textwidth}
-
 While a discrete random variable is defined by its probability distribution,
 a continuous random variable is defined by its \textbf{probability
 density function}.
+
+\medskip
+
+\centerline{\begin{minipage}{.8\textwidth}
+
 
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
@@ -3579,7 +3582,7 @@ Note: $\text{P}\left(X=a\right)=0$ since the corresponding area under
 the curve is zero. Hence for a normal random variable, we have
 \begin{align*}
 \text{P}\left(X\leq a\right) & =\text{P}\left(X<a\right)+\text{P}\left(X=a\right)=\text{P}\left(X<a\right)\text{ and similarly,}\\
-\text{P}\left(X\geq a\right) & =\text{P}\left(X>a\right)+\text{P}\left(X=a\right)=\text{P}\left(X\geq a\right)
+\text{P}\left(X\geq a\right) & =\text{P}\left(X>a\right)+\text{P}\left(X=a\right)=\text{P}\left(X> a\right)
 \end{align*}
 
 \begin{GC}{Finding Probabilities in a Normal Distribution}
@@ -4458,8 +4461,6 @@ Statisticians have devised a procedure to determine whether a statistical hypoth
 \end{minipage}
 \end{investigation}
 
-\medskip
-
 \centerline{\begin{minipage}{.94\textwidth}
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
@@ -4488,10 +4489,9 @@ H_{0}:\mu=\mu_{0}
 This statement is assumed to be true unless we have enough evidence
 to reject it.
 
-The alternative hypothesis, denoted by $H_{1}$, is used to contradict
-the null hypothesis.
+The alternative hypothesis, denoted by $H_{1}$, is used to contradict the null hypothesis.
 
-\medskip
+\smallskip
 
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
@@ -5536,7 +5536,7 @@ $H_{0}:\mu=80$, $H_{1}:\mu<80$
 Since $n=250$ is large, by the Central Limit Theorem,
 
 \[
-\overline{X}\sim\text{N}\left(78.732,\frac{97.454}{250}\right)\text{ approximately}
+\overline{X}\sim\text{N}\left(80,\frac{97.454}{250}\right)\text{ approximately}
 \]
 
 Level of significance: $5\%$
@@ -5602,7 +5602,7 @@ Critical region: $z<-1.96$ or $z>1.96$
 
 ${\displaystyle z=\frac{2640-2700}{\sqrt{\frac{21454}{50}}}}=-2.90<-1.96$
 
-Using GC, $p-\text{value}=0.00337\text{ (3 s.f.)}<0.05$
+Using GC, $p-\text{value}=0.00377\text{ (3 s.f.)}<0.05$
 
 \begin{tcolorbox}[colback=white, colframe=black,boxrule=.4pt, sharpish corners]
 

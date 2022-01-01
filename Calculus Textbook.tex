@@ -47,16 +47,173 @@ positioning,intersections,shadows}
 \usepackage{fourier}
 
 \usepackage{comment}
-
+\usepackage[clockwise, figuresright]{rotating}
 
 \let\cleardoublepage=\clearpage
-
 
 % Start document
 \begin{document}
 
 \tableofcontents
 
+
+\newpage
+
+\thispagestyle{plain}
+
+\begin{sidewaysfigure}
+
+\begin{minipage}[t]{0.3\textwidth}
+\begin{center}
+\textbf{\Large{}Derivatives}{\Large\par}
+\par\end{center}
+\textbf{\large{}\uline{Exponential/Logarithmic Functions}}{\large\par}
+\setlength{\extrarowheight}{0.35cm}
+\begin{tabular}{>{\raggedright}p{3.5cm}>{\raggedright}p{6cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\mathrm{e}^{x}\right)=\mathrm{e}^{x}}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\ln x\right)=\frac{1}{x},x>0}$
+\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}(}a^{x})=a^{x}\ln a$ & \tabularnewline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{\large{}\uline{Trigonometric Functions}}{\large\par}
+\begin{tabular}{>{\raggedright}p{6cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sin x\right)=\cos x}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\cos x\right)=-\sin x}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\tan\thinspace x\right)=\sec^{2}x}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sec x\right)=\sec x\tan x}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\csc x\right)=-\csc x\cot x}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\cot\thinspace x\right)=-\csc^{2}x}$\tabularnewline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{\large{}\uline{Inverse Trig Functions}}{\large\par}
+
+\begin{tabular}{>{\raggedright}p{6cm}}
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sin^{-1}x\right)=\frac{1}{\sqrt{1-x^{2}}}}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\cos^{-1}x\right)=-\frac{1}{\sqrt{1-x^{2}}}}$\tabularnewline
+${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\tan^{-1}x\right)=\frac{1}{x^{2}+1}}$\tabularnewline
+\end{tabular}
+
+\vspace{.5cm}
+
+\textbf{\large{}\uline{Parametric Equations}}{\large\par}
+
+\vspace{.5cm}
+
+\hspace{.5cm}${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}t}=\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)}$
+
+
+\end{minipage}
+\begin{minipage}[t]{0.23\textwidth}
+\begin{center}
+\textbf{\Large{}Integrals}{\Large\par}
+\par\end{center}
+
+\textbf{\large{}\uline{Powers of }}\textbf{\textit{\large{}\uline{x}}}{\large\par}
+\setlength{\extrarowheight}{0.35cm}
+\begin{tabular}{>{\raggedright}p{6cm}}
+${\displaystyle \int x^{n}\thinspace dx=\frac{x^{n+1}}{n+1}+C,\, n\ne-1}$\tabularnewline
+${\displaystyle \int\frac{1}{x}\thinspace dx=\ln\left|x\right|+C,\, x\ne0}$\tabularnewline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{\large{}\uline{Exponential Functions}}{\large\par}
+
+\begin{tabular}{>{\raggedright}p{6cm}}
+${\displaystyle \int \mathrm{e}^{x}\thinspace dx=\mathrm{e}^{x}+C}$\tabularnewline
+${\displaystyle \int \mathrm{e}^{(ax+b)}\thinspace dx=\frac{1}{a}\mathrm{e}^{ax+b}+C,\, a\ne0}$\tabularnewline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{\large{}\uline{Trigonometric Functions}}{\large\par}
+
+\begin{tabular}{>{\raggedright}p{6cm}}
+${\displaystyle \int\cos x\thinspace dx=\sin x+C}$\tabularnewline
+${\displaystyle \int\sin x\thinspace dx=-\cos x+C}$\tabularnewline
+${\displaystyle \int\sec^{2}x\thinspace dx=\tan x+C}$\tabularnewline
+${\displaystyle \int\csc^{2}x\thinspace dx=-\cot x+C}$\tabularnewline
+${\displaystyle \int\sec x\tan x\thinspace dx=\sec x+C}$\tabularnewline
+${\displaystyle \int\csc x\cot x\thinspace dx=-\csc x+C}$\tabularnewline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{\large{}\uline{Inverse Trig Functions}}{\large\par}
+
+\begin{tabular}{>{\raggedright}p{6cm}}
+${\displaystyle \int\frac{1}{\sqrt{1-x^{2}}}dx=\sin^{-1}x}+C$\tabularnewline
+${\displaystyle \int\frac{1}{\sqrt{a^{2}-x^{2}}}dx=\sin^{-1}\left(\frac{x}{a}\right)}+C$\tabularnewline
+${\displaystyle \int\frac{1}{x^{2}+1}dx=\tan^{-1}x}+C$\tabularnewline
+${\displaystyle \int\frac{1}{a^{2}+x^{2}}dx=\frac{1}{a}\tan^{-1}\left(\frac{x}{a}\right)}+C$\tabularnewline
+\end{tabular}
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+
+\begin{center}
+\textbf{\Large{}Maclaurin Series}{\Large\par}
+\par\end{center}
+\textbf{\large{}\uline{Maclaurin's Series Expansion of $f\left(x\right)$
+}}{\large\par}
+${\displaystyle f\left(x\right)=\sum\limits _{n=0}^{\infty}f^{\left(n\right)}\left(0\right)\frac{x^{n}}{n!}=f\left(0\right)+f\text{\textquoteright}\left(0\right)x+\frac{f^{\prime\prime}\left(0\right)}{2!}x^{2}+\ldots+\frac{f^{\left(n\right)}\left(0\right)}{n!}x^{n}+\ldots}$
+
+Where $f^{\left(n\right)}\left(0\right)$ is the $n$th derivative
+of $f\left(x\right)$ at $x=0$.
+
+\vspace{0.5cm}
+
+
+\textbf{\large{}\uline{Standard Maclaurin Expansions
+}}{\large\par}
+
+\setlength{\extrarowheight}{0.33cm}
+\begin{tabular}[b]{>{\raggedright}m{12cm}}
+${\displaystyle \left(1+x\right)^{n}=1+nx+\frac{n\left(n-1\right)}{2!}x^{2}+\ldots+\frac{n\left(n-1\right)\ldots\left(n-r+1\right)}{{r!}}}x^{r}+\ldots$
+\tabularnewline
+${\displaystyle \mathrm{e}^{x}=1+x+\frac{{x^{2}}}{{2!}}+\frac{{x^{3}}}{{3!}}+\ldots+\frac{{x^{r}}}{{r!}}+\ldots}$\tabularnewline
+${\displaystyle \sin x=x-\frac{x^{3}}{3!}+\frac{x^{5}}{5!}-\frac{x^{7}}{7!}+\ldots\frac{\left(\text{\textendash}1\right)^{r}x^{2r+1}}{\left(2r+1\right)!}+\ldots}$\tabularnewline
+${\displaystyle \cos x=1-\frac{x^{2}}{2!}+\frac{x^{4}}{4!}-\frac{x^{6}}{6!}+\ldots\frac{\left(\text{\textendash}1\right)^{r}x^{2r}}{\left(2r\right)!}+\ldots}$\tabularnewline
+${\displaystyle \ln\left(1+x\right)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+\ldots\frac{\left(\text{\textendash}1\right)^{r+1}x^{r}}{r}+\ldots}$\tabularnewline
+${\displaystyle \ln\left(1-x\right)=-x-\frac{x^{2}}{2}-\frac{x^{3}}{3}-\frac{x^{4}}{4}-\ldots-\frac{x^{r}}{r}}-\ldots$\tabularnewline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{\large{}\uline{Small Angle Approximation
+}}{\large\par}
+\begin{tabular}[b]{>{\raggedright}m{4cm}}
+$\sin\theta\approx\theta$
+\tabularnewline
+${\displaystyle \cos\theta\approx1-\frac{\theta^{2}}{2}}$
+\tabularnewline
+$\tan\theta\approx\theta$
+\tabularnewline
+\end{tabular}Where $\theta$ is small and in radians.
+
+\begin{center}
+\textbf{\Large{}Differential Equations}{\Large\par}
+\par\end{center}
+\textbf{\large{}\uline{Separation of Variables
+}}{\large\par}
+\begin{enumerate}
+\item Rearrange the differential equation ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=g\left(y\right)f\left(x\right)}$
+into the form ${\displaystyle \frac{1}{g\left(y\right)}\frac{\mathrm{d}y}{\mathrm{d}x}=f\left(x\right)}$.
+\item Integrate both sides with respect to $x$, i.e. ${\displaystyle \int}{\displaystyle \frac{1}{g\left(y\right)}\mathrm{d}y=\int f\left(x\right)\mathrm{d}x}$.
+\end{enumerate}
+\end{minipage}
+
+
+\end{sidewaysfigure}
+
+\newpage
+
+\setcounter{chapter}{5}
 \chapter{Limits}
 \section{Limits}
 
@@ -320,7 +477,7 @@ $
 \mathop{\lim}\limits _{x\to\infty}\frac{2x+3}{x-4} & ={\displaystyle \mathop{\lim}\limits _{x\to\infty}\frac{2+\frac{3}{x}}{1-\frac{4}{x}}\text{ (dividing each term by \ensuremath{x} since \ensuremath{x\neq0})}}\\
  & =\frac{2}{1}\\
  & =2
-\end{aligned}[t]
+\end{aligned}
 $
 
 \task
@@ -609,9 +766,7 @@ ${\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left[\frac{f\left(x\right)}{g\lef
 
 Differentiate the following functions with respect to $x$.
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
-
-\task ${\displaystyle \sqrt{x}-\frac{1}{2x^{2}}}$
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
 
 \task $\frac{{\displaystyle 2x^{2}+3x-4}}{{\displaystyle \sqrt{x}}}$
 
@@ -625,16 +780,8 @@ Differentiate the following functions with respect to $x$.
 
 \Solution
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = .5cm]
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip = 1cm]
 
-\task
-$
-\begin{aligned}[t]
-{\displaystyle \frac{\mathrm{d}}{\mathrm{d}x}\left(\sqrt{x}-\frac{1}{2x^{2}}\right)} & =\frac{\mathrm{d}}{\mathrm{d}x}\left(x^{\frac{1}{2}}-\frac{1}{2}x^{-2}\right)\\
- & =\frac{1}{2}x^{-\frac{1}{2}}-\frac{1}{2}\left(-2\right)x^{-3}\\
- & =\frac{1}{2\sqrt{x}}+\frac{1}{x^{3}}
-\end{aligned}
-$
 
 \task
 $
@@ -3273,9 +3420,9 @@ Find the following indefinite integrals
 \task
 $
 \begin{aligned}[t]
-\int\sin2x\cos x\, \mathrm{d}x & =\frac{1}{2}\int\left(\sin3x+\sin2x\right)\, \mathrm{d}x\\
- & =\frac{1}{2}\left[-\frac{1}{3}\cos3x-\frac{1}{2}\cos2x\right]+C\\
- & =-\frac{1}{6}\cos3x-\frac{1}{4}\cos2x+C
+\int\sin2x\cos x\, \mathrm{d}x & =\frac{1}{2}\int\left(\sin3x+\sin x\right)\, \mathrm{d}x\\
+ & =\frac{1}{2}\left[-\frac{1}{3}\cos3x-\cos x\right]+C\\
+ & =-\frac{1}{6}\cos3x-\frac{1}{2}\cos x+C
 \end{aligned}
 $
 
@@ -3970,7 +4117,7 @@ have.
 \par\end{center}
 
 Clearly for increasing functions such as $f\left(x\right)$, the left
-Riemann sum gives an understimation of the actual area under the curve,
+Riemann sum gives an underestimation of the actual area under the curve,
 $A$, while the right Riemann sum gives an overestimation. However,
 as the subinterval width is reduced further and further, both sums
 will converge to $A$.
@@ -4212,7 +4359,7 @@ or ${\displaystyle \left[\int_{a}^{b}f(x)\,\mathrm{d}x\right]_{a}^{b}}$.
 Evaluate the following definite integrals, giving your answer in exact
 form.
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
 
 \task ${\displaystyle \int_{1}^{2}\frac{2x^{5}-x+3}{x^{2}}\,\mathrm{d}x}$
 
@@ -4220,13 +4367,12 @@ form.
 
 \task ${\displaystyle \int_{0}^{2}\frac{\mathrm{d}x}{\sqrt{8x+9}}}$
 
-\task ${\displaystyle \int_{0}^{\frac{\pi}{4}}\sin^{2}(x)\cos^{2}(x)}\,\mathrm{d}x$
 
 \end{tasks}
 
 \Solution
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex]
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=1cm]
 
 \task
 $
@@ -4258,18 +4404,6 @@ $
 \end{aligned}
 $
 
-\task$
-\begin{aligned}[t]
-{\displaystyle \int_{0}^{\frac{\pi}{4}}\sin^{2}(x)\cos^{2}(x)\,\mathrm{d}x} & ={\displaystyle \int_{0}^{\frac{\pi}{4}}}\left(\sin(x)\cos(x)\right)^{2}\,\mathrm{d}x\\
- & ={\displaystyle \int_{0}^{\frac{\pi}{4}}}\left(\frac{1}{2}\sin(2x)\right)^{2}\,\mathrm{d}x\\
- & =\frac{1}{4}{\displaystyle \int_{0}^{\frac{\pi}{4}}}\sin^{2}(2x)\,\mathrm{d}x\\
- & =\frac{1}{4}{\displaystyle \int_{0}^{\frac{\pi}{4}}\frac{1}{2}\left(1-\cos(4x)\right)}\,\mathrm{d}x\\
- & =\frac{1}{8}\left[x-\frac{1}{4}\sin(4x)\right]_{0}^{\frac{\pi}{4}}\\
- & =\frac{1}{8}\left[\frac{\pi}{4}-\frac{1}{4}\sin(\pi)-0+0\right]\\
- & =\frac{1}{8}\left[\frac{\pi}{4}-\frac{1}{4}\right]\\
- & =\frac{1}{32}(\pi-1)
-\end{aligned}
-$
 
 \end{tasks}
 
@@ -4342,6 +4476,81 @@ bounds.
 \end{steps}
 \end{GC}
 
+
+
+\newpage
+
+\begin{example}
+
+Find the area of the regions bounded by the curve $y=x\left(x-2\right)\left(x+1\right)$ and the $x-$axis,
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=2mm]
+
+\task  correct to $3$ decimal places,
+
+\task  giving your answer in exact form.
+
+\end{tasks}
+
+\Solution
+
+\begin{center}
+\includegraphics[width=4cm]{\string"lib/GC Screenshots/DefiniteIntegral1\string".png}
+\par\end{center}
+
+\begin{tasks}[label=(\alph*),label-width=3.5ex,after-item-skip=1cm]
+
+\task  Consider the areas above and below the $x-$axis separately.
+
+$
+\begin{aligned}[t]
+\text{Area of Region} & =\int_{-1}^{0}x\left(x-2\right)\left(x+1\right)\,\mathrm{d}x+\left|\int_{0}^{2}x\left(x-2\right)\left(x+1\right)\,\mathrm{d}x\right|\\
+ & =3.083\text{ (3 d.p.)}\qquad\triangleleft\text{ Using GC}
+\end{aligned}
+$
+
+\task 
+$
+\begin{aligned}[t]
+\text{Area of Region} & =\int_{-1}^{0}x\left(x-2\right)\left(x+1\right)\,\mathrm{d}x+\left|\int_{0}^{2}x\left(x-2\right)\left(x+1\right)\,\mathrm{d}x\right|\\
+ & =\int_{-1}^{0}x^{3}-x^{2}-2x\,\mathrm{d}x+\left|\int_{0}^{2}x^{3}-x^{2}-2x\,\mathrm{d}x\right|\\
+ & =\left[\frac{x^{4}}{4}-\frac{x^{3}}{3}-x^{2}\right]_{-1}^{0}+\left|\left[\frac{x^{4}}{4}-\frac{x^{3}}{3}-x^{2}\right]_{0}^{2}\right|\\
+ & =-\left(\frac{1}{4}+\frac{1}{3}-1\right)+\left|4-\frac{8}{3}-4\right|\\
+ & =\frac{5}{12}+\frac{8}{3}=\frac{37}{12}
+\end{aligned}
+$
+\end{tasks}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+Find the area of the region bounded by the curve $y^{2}=a-x$, and
+the $y-$axis in terms of $a$, where $a$ is a positive constant.
+
+\Solution
+
+By letting $a=1$ (or any other positive constant), we can use our
+GC to obtain the shape of the graph.
+\begin{center}
+\includegraphics[width=4cm]{\string"lib/GC Screenshots/DefiniteIntegral2\string".png}
+\par\end{center}
+
+When $x=0$, $y=\pm\sqrt{a}$.
+
+Putting $x$ in terms of $y$, $x=a-y^{2}$.
+
+\begin{align*}
+A & =\int_{-\sqrt{a}}^{\sqrt{a}}a-y^{2}\,\mathrm{d}y\\
+ & =2\int_{0}^{\sqrt{a}}a-y^{2}\,\mathrm{d}y\\
+ & =2\left[ay-\frac{1}{3}y^{3}\right]_{0}^{\sqrt{a}}\\
+ & =2\left[a\sqrt{a}-\frac{1}{3}\left(\sqrt{a}\right)^{3}-0\right]\\
+ & =\frac{4}{3}a^{\frac{3}{2}}
+\end{align*}
+
+\end{example}
 \newpage
 
 \section{Area Enclosed by Two Curves}
@@ -4396,10 +4605,6 @@ $y$-axis.
 
 \task $y=x^{2}-2x+2$ and $y=-x^{2}+6$
 
-\task $x=y^{2}-y-6$ and $x=2y+4$
-
-\task $x=\mathrm{e}^{1+2y}$, $x=\mathrm{e}^{1-y}$, $y=-2$ and $y=1$
-
 \end{tasks}
 
 \Solution
@@ -4407,6 +4612,7 @@ $y$-axis.
 \begin{tasks}[label=(\alph*),label-width=3.5ex]
 
 \task
+\begin{minipage}[t]{0.5\textwidth}
 $
 \begin{aligned}[t]
 A & =\int_{-3}^{0}\mathrm{e}^{-\frac{1}{2}x}-x\sqrt{x^{2}+1}\,\mathrm{d}x\\
@@ -4417,8 +4623,16 @@ A & =\int_{-3}^{0}\mathrm{e}^{-\frac{1}{2}x}-x\sqrt{x^{2}+1}\,\mathrm{d}x\\
  & =17.2
 \end{aligned}
 $
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\includegraphics[width=4cm,valign=t]{\string"lib/GC Screenshots/DefiniteIntegral5\string".png}
+\par\end{center}
+\end{minipage}
 
-\task  Finding the interval of integration,
+\task 
+\begin{minipage}[t]{0.5\textwidth}
+ Finding the interval of integration,
 \begin{align*}
 y & =x^{2}-2x+2\tag{1}\\
 y & =-x^{2}+6\tag{2}
@@ -4429,6 +4643,14 @@ x^{2}-2x+2 & =-x^{2}+6\\
 2x^{2}-2x-4 & =0\\
 (x+1)(x-2) & =0
 \end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{center}
+\includegraphics[width=4cm,valign=t]{\string"lib/GC Screenshots/DefiniteIntegral6\string".png}
+\par\end{center}
+\end{minipage}
+
 We get $x=-1$ or $x=2$. Thus, our interval of integration is $[-1,2]$.
 \begin{align*}
 A & =\int_{-1}^{2}(-x^{2}+6)-(x^{2}-2x+2)\,\mathrm{d}x\\
@@ -4439,29 +4661,20 @@ A & =\int_{-1}^{2}(-x^{2}+6)-(x^{2}-2x+2)\,\mathrm{d}x\\
  & =9
 \end{align*}
 
-\task Finding the interval of integration, $x=y^{2}-y-6$ and $x=2y+4$
-\begin{align*}
-x & =y^{2}-y-6\tag{1}\\
-x & =2y+4\tag{2}
-\end{align*}
-Putting $(1)$ into $(2)$,
-\begin{align*}
-y^{2}-y-6 & =2y+4\\
-y^{2}-3y-10 & =0\\
-(y-5)(y+2) & =0
-\end{align*}
-We get $y=5$ or $y=-2$. Thus, our interval of integration is $[-2,5]$.
-\begin{align*}
-A & =\int_{-2}^{5}(2y+4)-(y^{2}-y-6)\,\mathrm{d}y\\
- & =\int_{-2}^{5}-y^{2}+3y+10\,\mathrm{d}y\\
- & =\left[-\frac{1}{3}y^{3}+\frac{3}{2}y^{2}+10y\right]_{-2}^{5}\\
- & =\left[-\frac{1}{3}(5)^{3}+\frac{3}{2}(5)^{2}+10(5)\right]-\left[-\frac{1}{3}(-2)^{3}+\frac{3}{2}(-2)^{2}+10(-2)\right]\\
- & =\left[\frac{275}{6}\right]-\left[-\frac{34}{3}\right]\\
- & =\frac{353}{6}\\
- & =57.2
-\end{align*}
+\end{tasks}
 
-\task \includegraphics[width=5.2cm,valign=t]{\string"lib/Graphics/Example4d\string".png}
+\end{example}
+
+\begin{example}
+Sketch the following curves on the same diagram: $x=\mathrm{e}^{1+2y}$, $x=\mathrm{e}^{1-y}$, $y=-2$ and $y=1$. 
+
+Determine the area of the bounded region.
+
+\Solution
+
+\begin{center}
+\includegraphics[width=5.2cm,valign=t]{\string"lib/Graphics/Example4d\string".png}
+\par\end{center}
 
 As shown in the diagram above, the left/right functions differ based
 on the interval of $y$ we are looking at. Thus, we will need to take
@@ -4470,15 +4683,14 @@ the sum of two integrals.
 A & =\int_{0}^{1}\left(\mathrm{e}^{1+2y}\right)-\left(\mathrm{e}^{1-y}\right)\mathrm{d}y+\int_{-2}^{0}\left(\mathrm{e}^{1-y}\right)-\left(\mathrm{e}^{1+2y}\right)\,\mathrm{d}y\\
  & =\left[\frac{1}{2}\mathrm{e}^{1+2y}+\mathrm{e}^{1-y}\right]_{0}^{1}+\left[-\mathrm{e}^{1-y}-\frac{1}{2}\mathrm{e}^{1+2y}\right]_{-2}^{0}\\
  & =\left[\frac{1}{2}\mathrm{e}^{3}+\mathrm{e}^{0}\right]-\left[\frac{1}{2}\mathrm{e}^{1}+\mathrm{e}^{1}\right]+\left[-\mathrm{e}^{1}-\frac{1}{2}\mathrm{e}^{1}\right]-\left[-\mathrm{e}^{3}-\frac{1}{2}\mathrm{e}^{-3}\right]\\
- & =\frac{3}{2}\mathrm{e}^{3}-3e+\frac{1}{2}\mathrm{e}^{-3}+1\\
+ & =\frac{3}{2}\mathrm{e}^{3}-3\mathrm{e}+\frac{1}{2}\mathrm{e}^{-3}+1\\
  & =23.0
 \end{align*}
 
-\end{tasks}
 
 \end{example}
 
-\newpage{}
+\newpage
 
 \section{Area Under a Curve Defined Parametrically}
 
@@ -4615,10 +4827,11 @@ When the region under the curve of $x=g(y)$ between $y=c$ and $y=d$ is rotated a
 
 \begin{example}
 
-Find the volume generated when the region under the graph of $y=1+x^{2}$
-between $x=-2$ and $x=1$ is rotated through $2\pi$ about the $x$-axis.
+Find the volume generated when the region under the graph of $y=1+x^{2}$ between $x=-2$ and $x=1$ is rotated through $2\pi$ about the $x$-axis.
 
 \Solution
+
+\begin{minipage}[t]{0.5\textwidth}
 
 \begin{align*}
 V & =\pi\int_{-2}^{1}\left[1+x^{2}\right]^{2}\,\mathrm{d}x\\
@@ -4627,6 +4840,15 @@ V & =\pi\int_{-2}^{1}\left[1+x^{2}\right]^{2}\,\mathrm{d}x\\
  & =\pi\left[\frac{28}{15}-\left(-\frac{206}{15}\right)\right]\\
  & =\frac{78}{5}\pi
 \end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+
+\begin{center}
+\includegraphics[width=4cm,valign=t]{\string"lib/GC Screenshots/DefiniteIntegral3\string".png}
+\par\end{center}
+
+\end{minipage}
 
 \end{example}
 
@@ -4650,27 +4872,41 @@ completely.
 \begin{tasks}[label=(\alph*),label-width=3.5ex]
 
 \task
-\begin{align*}
+\begin{minipage}[t]{0.4\textwidth}
+$
+\begin{aligned}[t]
 V & =\pi\int_{0}^{3}\left[f(x)\right]^{2}\,\mathrm{d}x\\
  & =\pi\int_{0}^{3}(9-x^{2})^{2}\,\mathrm{d}x\\
  & =\pi\int_{0}^{3}x^{4}-18x^{2}+81\,\mathrm{d}x\\
  & =\pi\left[\frac{1}{5}x^{5}-6x^{3}+81x\right]_{0}^{3}\\
  & =\pi\left[\frac{1}{5}(3)^{5}-6(3)^{3}+81(3)\right]\\
  & =\frac{648}{5}\pi
-\end{align*}
+\end{aligned}
+$
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+\begin{center}
+\includegraphics[width=4cm,valign=t]{\string"lib/GC Screenshots/DefiniteIntegral4\string".png}
+\par\end{center}
+
+\end{minipage}
 
 \task
-\begin{align*}
+$
+\begin{aligned}[t]
 V & =\pi\int_{0}^{9}\left[g(y)\right]^{2}\,\mathrm{d}y\\
  & =\pi\int_{0}^{9}(9-y)\,\mathrm{d}y\\
  & =127.2
-\end{align*}
+\end{aligned}
+$
 
 \end{tasks}
 
 \end{example}
 
-\newpage{}
+\newpage
 
 \section{Volume Enclosed by Two Curves}
 
@@ -4732,31 +4968,67 @@ V & =\text{Vol of cone + Vol of cylinder - Vol of solid generated by \ensuremath
 
 \end{example}
 
+
 \newpage
 
 \begin{example}
 
-Find the volume of the solid formed when the region $R$, bounded
-by the lines ${\displaystyle y=-\frac{3}{2}x+2}$, $y=1$ and the
-curve $y=\cos x$, is rotated $2\pi$ radians about the $y$-axis,
-giving your answer correct to 3 decimal places.
+Using the substitution $x=a\sin\theta$, find ${\displaystyle \int_{0}^{a}\sqrt{a^{2}-x^{2}}\,\mathrm{d}x}$
+in terms of $a$. Hence find the area enclosed by the curves $x^{2}+y^{2}=4$
+and $4x^{2}+y^{2}=16$ for which $y\geq0$. If this area is rotated
+through $\pi$ radians about the $y-$axis, find the volume of the
+solid formed in terms of $\pi$.
 
 \Solution
 
-Using GC, the point of intersection is $(0.94031,0.58954)$
+Differentiating $x$ we get, ${\displaystyle \frac{\mathrm{d}x}{\mathrm{d}\theta}=a\cos\theta}$.
 
-Putting the equations in terms of $x$,
+When $x=0$, $\theta=0$.
 
-${\displaystyle x=\frac{2}{3}\left(2-y\right)}$
-
-$x=\cos^{-1}y$
+When $x=a$, ${\displaystyle \theta=\frac{\pi}{2}}$.
 
 \begin{align*}
-V & =\pi\int_{0.58954}^{1}\left[\frac{2}{3}(2-y)\right]^{2}-(\cos^{-1}y)^{2}\,\mathrm{d}y\\
- & =0.285
+\int_{0}^{a}\sqrt{a^{2}-x^{2}}\,\mathrm{d}x & =\int_{0}^{\frac{\pi}{2}}\sqrt{a^{2}-\left(a\sin\theta\right)^{2}}\left(a\cos\theta\right)\,\mathrm{d}\theta\\
+ & =a^{2}\int_{0}^{\frac{\pi}{2}}\sqrt{1-\sin^{2}\theta}\cos\theta\,\mathrm{d}\theta\\
+ & =a^{2}\int_{0}^{\frac{\pi}{2}}\cos^{2}\theta\,\mathrm{d}\theta\\
+ & =a^{2}\int_{0}^{\frac{\pi}{2}}\frac{\cos2\theta+1}{2}\,\mathrm{d}\theta\\
+ & =\frac{a^{2}}{2}\left[\frac{1}{2}\sin2\theta+\theta\right]_{0}^{\frac{\pi}{2}}\\
+ & =\frac{\pi a^{2}}{4}
 \end{align*}
 
+\begin{minipage}[t]{0.7\textwidth}
+
+Finding the interval of integration,
+
+\begin{align*}
+4-x^{2} & =16-4x^{2}\\
+3x^{2} & =12\\
+x^{2} & =4\\
+x & =\pm2
+\end{align*}
+
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+
+\includegraphics[width=4cm,valign=t]{\string"lib/GC Screenshots/DefiniteIntegral7\string".png}
+
+\end{minipage}
+
+\begin{align*}
+\text{Required Area} & =2\int_{0}^{2}\left[\sqrt{16-4x^{2}}-\sqrt{4-x^{2}}\right]\,\mathrm{d}x\\
+ & =2\int_{0}^{2}\left[2\sqrt{4-x^{2}}-\sqrt{4-x^{2}}\right]\,\mathrm{d}x\\
+ & =2\int_{0}^{2}\sqrt{4-x^{2}}\,\mathrm{d}x\\
+ & =2\times\frac{\pi\left(2\right)^{2}}{4}\\
+ & =2\pi
+\end{align*}
+
+\begin{align*}
+\text{Required Volume} & =\pi\int_{0}^{4}\frac{16-y^{2}}{4}\,\mathrm{d}y-\pi\int_{0}^{2}\left(4-y^{2}\right)\,\mathrm{d}y\\
+ & =\frac{\pi}{4}\left[16y-\frac{y^{3}}{3}\right]_{0}^{4}-\pi\left[4y-\frac{y^{3}}{3}\right]_{0}^{2}\\
+ & =\frac{16}{3}\pi
+\end{align*}
 \end{example}
+
 
 \chapter{Maclaurin Series}
 
@@ -4878,12 +5150,12 @@ By Maclaurin's expansion,
  & =x-\frac{1}{2}x^{2}+\frac{1}{3}x^{3}+\ldots\tag{1}
 \end{align*}
 
-Repalce $x$ with $-x$ in (1), we have
+Replace $x$ with $-x$ in (1), we have
 \[
 \ln\left(1-x\right)=-x-\frac{1}{2}x^{2}-\frac{1}{3}x^{3}+\ldots
 \]
 
-Repalce $x$ with $x^{2}$ in (1), we have
+Replace $x$ with $x^{2}$ in (1), we have
 \[
 \ln\left(1+x^{2}\right)=x^{2}-\frac{1}{2}x^{4}+\frac{1}{3}x^{6}+\ldots
 \]
@@ -4985,7 +5257,7 @@ Given that $y=1+\mathrm{e}^{\tan^{-1}x}$, show that
 
 \begin{enumerate}[label=(\alph*)]
 \item ${\displaystyle \left(1+x^{2}\right)\frac{\mathrm{d}y}{\mathrm{d}x}=y-1}$
-\item ${\displaystyle \left(1+x^{2}\right)\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+2\left(x-1\right)\frac{\mathrm{d}y}{\mathrm{d}x}=0}$
+\item ${\displaystyle \left(1+x^{2}\right)\frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}+\left(2x-1\right)\frac{\mathrm{d}y}{\mathrm{d}x}=0}$
 \end{enumerate}
 
 Find the Maclaurin series for $y$, up to and including the term in
@@ -5633,13 +5905,13 @@ $\therefore$ $y=-\ln\left(\cos x\right)+x+2$
 
 \newpage
 
-\subsection{Differential Equations of the form $\boldsymbol{\frac{\textbf{d}y}{\textbf{d}x}=g\left(y\right)f\left(x\right)}$ (Seperation of Variables)}
+\subsection{Differential Equations of the form $\boldsymbol{\frac{\textbf{d}y}{\textbf{d}x}=g\left(y\right)f\left(x\right)}$ (Separation of Variables)}
 
-Seperation of variables is a method for solving equations of the form
+Separation of variables is a method for solving equations of the form
 ${\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}=g\left(y\right)f\left(x\right)}$ where
 we rewrite an equation so that each of two variables occurs on a different
 side of the equation, followed by integrating both sides with respect
-to $x$. The steps for seperating variables is as follows.
+to $x$. The steps for separating variables is as follows.
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
@@ -5918,7 +6190,7 @@ water in the lake.
 
 \begin{example}[Exponential Population Growth]
 
-The population in a town is increasing anually at a rate which is
+The population in a town is increasing annually at a rate which is
 proportional to the population at that instant. Given that the population
 at the beginning of $1950$ was $20\,000$ and in the beginning of
 $1980$ was $24\,000$, calculate the expected population at the beginning
@@ -5933,7 +6205,7 @@ which is proportional to the population at that instant. Mathematically,
 \frac{\mathrm{d}P}{\mathrm{d}t} & \propto P\\
 \frac{\mathrm{d}P}{\mathrm{d}t} & =kP
 \end{align*}
-Solving our equation by seperating the variables,
+Solving our equation by separating the variables,
 \begin{align*}
 \frac{1}{P}\frac{\mathrm{d}P}{\mathrm{d}t} & =k\\
 \int\frac{1}{P}\,dP & =\int k\,dt\\
@@ -5975,33 +6247,37 @@ $2005$ is approximately $27\,938$.
 \begin{example}[Exponential Decay]
 
 Radioactivity is a property characteristic of substances whose atoms
-undergo spontaneous decomposition. Such substances usually decay at some constant rate, releasing "bursts"
-that can be detected by a geiger counter. As the atoms decay, the
-rate of change of the mass of the radioactive isotope in
-the sample is proportional to the mass present.
+undergo spontaneous decomposition. Such substances usually decay at some constant rate, releasing "bursts" that can be detected by a Geiger counter. As the atoms decay, the rate of change of the mass of the radioactive isotope in the sample is proportional to the mass present.
 
 \medskip
 
-Express exponential decay in the form of a differential equation.
-Solve the differential equation to give the general solution, using
-$x$ as the amount of substance and $x_{0}$ as the initial amount
-of substance at time $t$.
+Let $x$ represent the amount of radioactive substance at time $t$
+and $x_{0}$ be the initial amount of the substance.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item  State the differential equation that models this situation.
+Solve the differentiation equation and express $x$ in terms of $t$
+and $x_{0}$.
+
+\item  Given that $10$ percent of the material decays in the first
+hour, determine the amount of material remaining after a day.
+
+\end{enumerate}
 
 \Solution
 
-Let $x$ represent the amount of radioactive material present at time
-$t$, and $x_{0}$ be the initial amount present. The subtance is
-decaying at a rate proportional to the amount of material present.
-Mathematically,
-\begin{align*}
+\begin{enumerate}[label=(\alph*)]
+
+\item \begin{align*}
 -\frac{\mathrm{d}x}{\mathrm{d}t} & \propto x\\
-\frac{\mathrm{d}x}{\mathrm{d}t} & =-Ax\text{, where \ensuremath{A} is a positive constant}
+\frac{\mathrm{d}x}{\mathrm{d}t} & =-kx\text{, where \ensuremath{k} is a positive constant}
 \end{align*}
 Solving our equation by separating the variables,
 \begin{align*}
-\frac{1}{x}\frac{\mathrm{d}x}{\mathrm{d}t} & =-A\\
-\int\frac{1}{x}\, \mathrm{d}x & =\int-A\,dt\\
-\ln x & =-At+C\tag{ 1 }
+\frac{1}{x}\frac{\mathrm{d}x}{\mathrm{d}t} & =-k\\
+\int\frac{1}{x}\, \mathrm{d}x & =\int-k\,dt\\
+\ln x & =-kt+C\tag{1}
 \end{align*}
 Putting $x=x_{0}$ and $t=0$ into $\left(1\right)$ gives
 \begin{align*}
@@ -6010,14 +6286,38 @@ C & =\ln x_{0}
 \end{align*}
 $\therefore$ we have the equation
 \begin{align*}
-\ln x & =-At+\ln x_{0}\\
-x & =\mathrm{e}^{-At+\ln x_{0}}\\
- & =\mathrm{e}^{-At}\mathrm{e}^{\ln x_{0}}\\
- & =x_{0}\mathrm{e}^{-At}
+\ln x & =-kt+\ln x_{0}\\
+x & =\mathrm{e}^{-kt+\ln x_{0}}\\
+ & =\mathrm{e}^{-kt}\mathrm{e}^{\ln x_{0}}\\
+ & =x_{0}\mathrm{e}^{-kt} \tag{2}
 \end{align*}
-Thus we have derived the equation that allows us to predict the amount
-of substance present at time $t$.
+Thus we have derived the equation that allows us to predict the amount of substance present at time $t$.
 
+
+\item 
+\begin{minipage}[t]{.4\textwidth}
+
+When $t=1$, $x=0.9x_{0}$
+
+\begin{align*}
+0.9x_{0} & =x_{0}\mathrm{e}^{-k\left(1\right)}\\
+0.9 & =\mathrm{e}^{-k}\\
+k & =-\ln0.9\\
+\therefore x& =x_{0}\mathrm{e}^{\left(\ln0.9\right)t}
+\end{align*}
+
+
+\end{minipage}
+\begin{minipage}[t]{.4\textwidth}
+
+When $t=24$,
+\begin{align*}
+x & =x_{0}\mathrm{e}^{\left(\ln0.9\right)\left(24\right)}\\
+ & =0.0798\,x_{0}
+\end{align*}
+
+\end{minipage}
+\end{enumerate}
 \end{example}
 
 \newpage
@@ -6031,23 +6331,16 @@ temperature of a cooling body is proportional to the difference between its own 
 
 \medskip
 
-Express Newton's Law of Cooling in the form of a differential equation.
-Solve the differential equation to give the general solution, using
-$T$ as the temperature of the body, $T_{0}$ as the initial temperature
-of the body, and $T_{s}$ as the surrouding temperature at time $t$.
+Express Newton's Law of Cooling in the form of a differential equation and solve the differential equation to give the general solution, using
+$T$ as the temperature of the body at time $t$, $T_{0}$ as the initial temperature of the body, and $T_{s}$ as the surrounding temperature.
 
 \Solution
 
-Let $T$ be the cooling body temperature, $T_{0}$ be the initial
-temperature, and $T_{s}$ be the surrounding temperature. The rate
-of loss of temperature of the cooling body is proportional to the
-difference in temperatures between the body and its surroundings.
-Mathematically,
 \begin{align*}
 -\frac{\mathrm{d}T}{\mathrm{d}t} & \propto\left(T-T_{s}\right)\\
 \frac{\mathrm{d}T}{\mathrm{d}t} & =-k\left(T-T_{s}\right)
 \end{align*}
-Solving our equation by seperating the variables,
+Solving our equation by separating the variables,
 \begin{align*}
 \left(\frac{1}{\left(T-T_{s}\right)}\right)\frac{\mathrm{d}T}{\mathrm{d}t} & =-k\\
 \int\frac{1}{\left(T-T_{s}\right)}\,dT & =\int-k\,dt\\
@@ -6097,10 +6390,6 @@ at which the depth of the water is $0.55\,\text{m}$.
 
 \item
 
-Let $x$ be the depth of water in the tank at time $t$ and let $k$
-represent the rate at which water flows into the tank. Water is flowing
-out at a constant rate, and flowing in at a rate proportional to the
-depth of water. Mathematically,
 
 \[
 \frac{\mathrm{d}x}{\mathrm{d}t}=k-hx\tag{1}
@@ -6156,6 +6445,8 @@ t & \approx40.2\,\text{s}
 \end{enumerate}
 
 \end{example}
+
+
 
 % End document
 \end{document}

@@ -89,36 +89,62 @@
 \tableofcontents
 \chapter{Functions}
 
+\vspace{-.7cm}
+
 \section[Set Notation (O-Level Revision)]{Set Notation}
 
 \subsection{Definition of a Set}
-\begin{center}
-\tcbox[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]{A \textbf{set} is a well-defined collection of numbers or objects.
-}
-\par\end{center}
 
-For example,
+\centerline{\begin{minipage}{.73\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
+
+A \textbf{set} is a well-defined collection of numbers or objects called \textbf{elements}.
+
+\end{tcolorbox}
+\end{minipage}}
+
+\medskip
+
+Sets can be defined in various ways. The simplest is by listing the elements enclosed between curly brackets or “braces” \{ \}. We generally use uppercase letters to denote sets and lowercase letters to denote elements.
+
+The elements contained in a given set need not have anything in common (other than the fact that they all belong to the given set). There is also no restriction on the number of elements allowed in a set; there may be an infinite number, a finite number, or even no elements at all. 
+
+\medskip
+
+\centerline{\begin{minipage}{.66\textwidth}
+\begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
+
+The set $\left\{ \;\right\} $ or $\text{\O}$ is called the \textbf{empty set} and contains no elements.
+
+\end{tcolorbox}
+\end{minipage}}
+
+\medskip
+
+There is, however, one restriction: given a set and an object, we should be able to decide whether or not the object belongs to the set. This is what is meant by a “well-defined” collection. Thus, “the set of all tall people” is \textit{not} a set, whereas “the set of all people taller than $2\,\text{m}$” is a set.
+
 \begin{itemize}
-\item the set of digits we use to write numbers is $\left\{ 0,1,2,3,4,5,6,7,8,9\right\} $,
-\item if $V$ is the set of all vowels, then $V=\left\{ \text{a},\text{e},\text{i},\text{o},\text{u}\right\} $,
-\item if $X$ is the set of all the colours of the rainbow, then $X=\{\text{red, orange, yellow, green, blue, indigo, violet}\}$.
+\setlength\itemsep{0em}
+
+\item  $A=\left\{\ldots,-4,-2,0,2,4,\ldots\right\} $\\
+This is the set of even numbers. We clearly cannot list all the elements.
+Instead we list enough elements to establish a pattern and use ``$\ldots$'' to indicate that the \textit{implied pattern} continues indefinitely. 
+
+\item  $B=\left\{ 1,\left\{ 2,3\right\} \right\} $\\
+Sets can contain other sets. $B$ is a set with two elements: the
+number $1$ and the set $\left\{ 2,3\right\} $.
+
+\item  $C=\left\{ \;\right\} $ \\
+Here we see an empty set.
+
 \end{itemize}
-\begin{center}
-\tcbox[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]{
-These objects are called \textbf{elements} or members of a set.
-}
-\par\end{center}
 
 We use the symbol $\in$ to mean \textit{is an element of }and $\not\in$
 to mean \textit{is not an element of.}
 
-So, for the set $A=\left\{ 1,2,3,4,5\right\} $, we can say $4\in A$
-but $7\not\in A$.
-\begin{center}
-\tcbox[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]{
-The set $\left\{ \;\right\} $ or $\text{\O}$ is called the \textbf{empty set} and contains no elements
-}
-\par\end{center}
+So, for the set $D=\left\{ 1,2,3,4,5\right\} $, we can say $4\in D$
+but $7\not\in D$.
+
 
 \subsection{Common Number Sets}
 
@@ -149,7 +175,7 @@ For example, $\left\{ 2,3,5\right\} \subseteq\left\{ 1,2,3,4,5,6\right\} $
 as every element in the first set is also in the second set.
 \begin{center}
 \tcbox[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]{
-\begin{minipage}[t]{.7\textwidth}
+\begin{minipage}[t]{.76\textwidth}
 $A$ is a \textbf{proper subset} of $B$ if $A$ is a subset of $B$ but is not equal to $B$. We write $A\subset B$.
 \end{minipage}}
 \par\end{center}
@@ -164,7 +190,7 @@ subset of $B$.
 We use $A\not\subset B$ to indicate that $A$ is \textit{not} a proper
 subset of $B$.
 
-\section{Interval Notation}
+\section{Set Builder Notation}
 
 To avoid having to list all members of a set, we often use a general
 description of its members. We often describe a set of all values
@@ -206,6 +232,8 @@ write intervals:
 
 An interval which extends to infinity has no defined endpoint. So,
 for $\left\lbrace x\in\R:x\geq a\right\rbrace $, we write $[a,\infty)$.
+
+This interval notation will be most useful to us in the following sections as we will be considering \textbf{real functions}. That is, we are interested in a function that accepts a real number input from an interval on the real number line to give a real number output. 
 
 \newpage
 
@@ -252,7 +280,7 @@ before.
 \par\end{center}
 
 This diagram however does \textit{not} define a function. There are
-two reasons. One reason is that the element $2$ is mapped to more than one element in $Y$. Another reason is that the element $3$ in $X$ does not correspond to any element in $Y$. Either of these reasons are sufficient by themselves to conclude that this mapping does not define a function.
+two reasons. One reason is that the element $1$ is mapped to more than one element in $Y$. Another reason is that the element $3$ in $X$ does not correspond to any element in $Y$. Either of these reasons are sufficient by themselves to conclude that this mapping does not define a function.
 
 \medskip{}
 
@@ -303,7 +331,7 @@ the graph of $y^{2}+x^{2}=4$ is not a function.
 
 \subsection{Rule, Domain and Range of a Function}
 
-\centerline{\begin{minipage}{.58\textwidth}
+\centerline{\begin{minipage}{.54\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
@@ -345,7 +373,7 @@ will look.
 
 \medskip{}
 
-\centerline{\begin{minipage}{.72\textwidth}
+\centerline{\begin{minipage}{.68\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
@@ -385,7 +413,7 @@ With the help of your GC, sketch the graphs of the following functions and state
 
 \task  $g\left(x\right)=\left|\ln x\right|,\,x\in\R^{+}$
 
-\task  $h\left(x\right)=1+e^{x},x\in\R$
+\task  $h\left(x\right)=1+\mathrm{e}^{x},x\in\R$
 
 \task  $k\left(x\right)=\begin{cases}
 x^{2}, & x\leq0\\
@@ -429,7 +457,7 @@ The \textbf{vertical line test} is a \textbf{graphical method} used to determine
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
-A relation $f$ is a function if and only if every vertical line $x=a$, where $a\in D_{f}$, cuts the graph of $f$ at \textbf{exactly one point}.
+A relation $f$ is a function if and only if every vertical line $x=a$, where $a\in D_{f}$, cuts the graph of $y=f(x)$ at \textbf{exactly one point}.
 
 \end{tcolorbox}
 
@@ -496,7 +524,7 @@ To determine whether a function is one-to-one, we use the \textbf{horizontal lin
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
 A function $f$ is one-to-one, if and only if every horizontal line $y=b$,
-where $b\in R_{f}$, cuts the graph of $f$ at exactly one point.
+where $b\in R_{f}$, cuts the graph of $y=f(x)$ at exactly one point.
 
 \end{tcolorbox}
 
@@ -935,7 +963,13 @@ $
 \end{tasks}
 \end{example}
 
-Note: Given a function $y=f\left(x\right)$, if $f^{-1}$ exists and $f^{-1}f$ exists, then $f^{-1}f\left(x\right)=x$.
+Note: 
+
+Given a function $y=f\left(x\right)$, if $f^{-1}$ exists and $f^{-1}f$
+exists, then $f^{-1}f\left(x\right)=x,\:x\in D_{f}$.
+
+Similarly, if $f^{-1}$ exists and $ff^{-1}\left(x\right)$ exists,
+then $ff^{-1}\left(x\right)=x,\:x\in D_{f^{-1}}$.
 
 \newpage
 
@@ -1142,7 +1176,7 @@ a vertical asymptote, $x=-1$ and a oblique asymptote, ${\displaystyle y=\frac{1}
 \begin{minipage}{0.5\textwidth}
 The curve can approach from any side (such as from above or below
 for a horizontal asymptote), or may actually cross over (possibly
-many times), and even move away and back again.. The graph is only confined to approaching the asymptote when $x$ tends to $\infty$ or $-\infty$.
+many times), and even move away and back again. The graph is only confined to approaching the asymptote when $x$ tends to $\infty$ or $-\infty$.
 \end{minipage}
 
 
@@ -1226,6 +1260,8 @@ Hence, the graph intersects the $y-$axis at $y=-2$.
 
 \end{example}
 
+\newpage
+
 \subsection{Degree of P($x$) $=$ Degree of Q($x$) }
 
 By using long division, the equation of the form ${\displaystyle y=\frac{ax+b}{cx+d}}$
@@ -1293,7 +1329,7 @@ y & =\frac{0+2}{0-1}\\
 
 Thus we have a $y-$intercept at $y=-2$.
 \begin{flushright}
-Alternatively, you could use your GC to find these inctercepts.
+Alternatively, you could use your GC to find these intercepts.
 \par\end{flushright}
 
 \begin{center}
@@ -1352,7 +1388,7 @@ x=0 & \;\text{or}\;x=-3
 \end{aligned}
 $
 
-Hence, the coordinates of axial intercepts are $(0,0$ and $(-3,0$).
+Hence, the coordinates of axial intercepts are $(0,0)$ and $(-3,0$).
 
 \task  By long division,
 \begin{align*}
@@ -2253,7 +2289,7 @@ by a scale factor of $2$.
 
 \subsection{Reflecting Graphs}
 
-\subsubsection{Graph of $\ensuremath{\mathbf{y=\left|f\left(x\right)\right|}}$}
+\subsubsection{Graph of $\boldsymbol{y=\left|f\left(x\right)\right|}$}
 
 From our definition of a modulus function,
 
@@ -2281,7 +2317,7 @@ In words, all the negative $y$ values are reflected over the $x-$axis.
 \end{tabular}
 \par\end{center}
 
-\subsubsection{Graph of $\ensuremath{\mathbf{y=f\left(\left|x\right|\right)}}$}
+\subsubsection{Graph of $\boldsymbol{y=f\left(\left|x\right|\right)}$}
 
 Again, from our definition of a modulus function we see that
 
@@ -2308,7 +2344,7 @@ The graph of $y=f\left(x\right)$ is shown in the diagram.
 
 \begin{minipage}[t]{0.5\textwidth}
 
-On seperate diagrams, sketch the graphs of
+On separate diagrams, sketch the graphs of
 
 \begin{tasks}[label=(\alph*),label-width=3.5ex](2)
 
@@ -2359,7 +2395,7 @@ On seperate diagrams, sketch the graphs of
 
 \subsection{Combining Transformations}
 
-For $Af(Bx+C)+D$ perform the operations in order: $C$, $B$, $A$, $D$. 
+For $Af(Bx+C)+D$ perform the operations in order: $C$, $B$, $A$, $D$.
 
 \begin{example}{}
 
@@ -2392,38 +2428,6 @@ $A$, $B$, $C$, $D$ and the equations of the asymptotes.
 \task \includegraphics[width=7cm,valign=t]{\string"lib/Graphics/TransformationExample4b\string".png}
 \task \includegraphics[width=7cm,valign=t]{\string"lib/Graphics/TransformationExample4c\string".png}
 \task \includegraphics[width=7cm,valign=t]{\string"lib/Graphics/TransformationExample4d\string".png}
-\end{tasks}
-
-\end{example}
-
-
-\begin{example}{}
-
-The graph of $y=f\left(x\right)$ is show in the diagram.
-\begin{center}
-\includegraphics[width=7cm]{\string"lib/Graphics/TransformationExample5\string".png}
-\par\end{center}
-
-The curve passes through the points ${\displaystyle A\left(0,\frac{1}{2}\right)}$
-and $B\left(-1,0\right)$, and has asymptotes $x=1$ and $y=2$. On
-separate diagrams, sketch the graphs of
-
-\begin{tasks}[label=(\alph*),label-width=3.5ex] (3)
-
-\task $y=f\left(\left|x\right|\right)$
-\task $y=f\left(-\left|x\right|\right)+2$
-\task $y=f\left(\left|3x-1\right|\right)$
-
-\end{tasks}
-
-
-\textbf{Solution}
-\begin{tasks}[label=(\alph*),label-width=3.5ex] (2)
-
-\task \includegraphics[width=7cm,valign=t]{\string"lib/Graphics/TransformationExample5a\string".png}
-\task \includegraphics[width=7cm,valign=t]{\string"lib/Graphics/TransformationExample5b\string".png}
-\task \includegraphics[width=7cm,valign=t]{\string"lib/Graphics/TransformationExample5c\string".png}
-
 \end{tasks}
 
 \end{example}
@@ -2462,14 +2466,14 @@ y & =\frac{-5\left(x+2\right)+1}{\left(x+2+1\right)\left(x+2+2\right)}-2\qquad\t
 \end{example}
 
 
-\subsection{Graphs of Reciprocal Functions ${\displaystyle \ensuremath{\mathbf{y=\frac{1}{f\left(x\right)}}}}$}
+\subsection{Graphs of Reciprocal Functions $\boldsymbol{y=\frac{1}{f\left(x\right)}}$}
 \begin{center}
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
 \setlength{\extrarowheight}{5pt}
 \begin{center}
 \begin{tabular}{>{\raggedright}m{0.5cm}|>{\centering}m{6.5cm}|>{\centering}m{6.5cm}}
- & \textbf{Graph of }$\ensuremath{\mathbf{f(x)}}$ & \textbf{Graph of }${\displaystyle \ensuremath{\mathbf{\frac{1}{f\left(x\right)}}}}$\tabularnewline
+ & \textbf{Graph of }$\boldsymbol{f(x)}$ & \textbf{Graph of }${\displaystyle \boldsymbol{\frac{1}{f\left(x\right)}}}$\tabularnewline
 \hline
 1. & The point $\left(x,y\right)$, where $y\neq0$ & becomes the point ${\displaystyle \left(x,\frac{1}{y}\right)}$\tabularnewline
 \hline
@@ -2581,14 +2585,11 @@ example, $2<3$ so ${\displaystyle -\frac{2}{4}<-\frac{3}{4}}$
 
 Note that when we multiply or divide by a negative number, the inequality sign is \textbf{reversed}.
 
-\newpage
+\medskip
 
-\section{Solving Inequalities}
+There are two ways to solve inequalities. They are the \textbf{analytical
+method} and the \textbf{graphical method}.
 
-There are two ways to solve inequalities. They are the analytical
-method and the graphical method.
-
-\begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
 \begin{enumerate}[label=\textbf{(\alph*)}]
 
@@ -2629,13 +2630,14 @@ method.
 \end{enumerate}
 
 \end{enumerate}
-\end{tcolorbox}
 
 \newpage
 
+\section{Solving Inequalities}
+
 \subsection{Polynomial Inequalities}
 
-\begin{example}{}
+\begin{example}
 
 Without using a GC, solve the following inequalities.
 
@@ -2721,7 +2723,7 @@ Without using a GC, solve the following inequalities.
 
 \textbf{Solution}
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\alph*),itemsep=1cm]
 
 \item
 $
@@ -2764,18 +2766,17 @@ Thus, $x$ has no solution.
 
 Without using a GC, solve the following inequalities.
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
 
 \task $x^{3}+4x^{2}>x+4$
 \task $x^{4}-10x^{2}+9\geq0$
-\task $x^{3}-2x^{2}\geq5x-6$
 \task $x^{4}-2x^{3}-3x^{2}\geq0$
 
 \end{tasks}
 
 \textbf{Solution}
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\alph*),itemsep=1cm]
 
 \item
 $
@@ -2814,43 +2815,6 @@ $x\geq3$ .
 
 We can also use interval notation, $(-\infty,-3]\cup\left[-1,1\right]\cup[3,\infty)$.
 
-\item
-$
-\begin{aligned}[t]
-x^{3}-2x^{2} & \geq5x-6\\
-x^{3}-2x^{2}-5x+6 & \geq0
-\end{aligned}
-$
-
-By trial and error, $x=1$ is a solution to $x^{3}-2x^{2}-5x+6=0$.
-
-Thus, we have
-\[
-\left(x-1\right)\left(x^{2}+px-6\right)=x^{3}-2x^{2}-5x+6
-\]
-
-Comparing coefficients of $x$,
-\begin{align*}
--p-6 & =-5\\
-p & =-1
-\end{align*}
-
-\newpage
-
-Thus, we have
-
-\begin{align*}
-\left(x-1\right)\left(x^{2}-x-6\right) & \geq0\\
-\left(x-1\right)\left(x-3\right)\left(x+2\right) & \geq0
-\end{align*}
-
-
-Thus we have the critical points $x=-2$, $x=1$ and $x=3$.
-\begin{center}
-\includegraphics[width=5cm]{\string"lib/Graphics/InequalityExample3c\string".png}
-\par\end{center}
-
-$\therefore$ the solution set is $-2\leq x\leq1$ or $x\geq3$ .
 
 \item
 $
@@ -2877,15 +2841,14 @@ Find the range of values of $x$ which satisfy the following inequalities.
 
 \begin{tasks}[label=(\alph*),label-width=3.5ex](3)
 
-\task ${\displaystyle \frac{x-2}{x+5}\geq3,\:x\neq-5}$
-\task ${\displaystyle \frac{x+1}{x-1}>\frac{6}{x},\:x\neq1\:\text{and}\:x\neq0}$
-\task ${\displaystyle \frac{5}{x-2}\geq\frac{2}{3x-4}}$
+\task ${\displaystyle \frac{x-2}{x+5}\geq3}$
+\task ${\displaystyle \frac{x+1}{x-1}>\frac{6}{x}}$
 
 \end{tasks}
 
 \textbf{\large{}Solution}{\large\par}
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\alph*),itemsep=1cm]
 
 \item
 $
@@ -2925,32 +2888,17 @@ and $x=3$.
 
 $\therefore$ the solution set is $x<0$, $1<x<2$ or $x>3$.
 
-\item
-$
-\begin{aligned}[t]
-{\displaystyle \frac{5}{x-2}} & \geq\frac{2}{3x-4}\\
-{\displaystyle \frac{5}{x-2}}-\frac{2}{3x-4} & \geq0\\
-\frac{5\left(3x-4\right)-2\left(x-2\right)}{\left(x-2\right)\left(3x-4\right)} & \geq0\\
-\frac{5\left(3x-4\right)-2\left(x-2\right)}{\left(x-2\right)\left(3x-4\right)} & \geq0\\
-\frac{13x-16}{\left(x-2\right)\left(3x-4\right)} & \geq0
-\end{aligned}
-$
-
-Thus we have the critical points ${\displaystyle x=\frac{16}{13}}$,
-$x=2$ and ${\displaystyle x=\frac{4}{3}}$.
-\begin{center}
-\includegraphics[width=5cm]{\string"lib/Graphics/InequalityExample4c\string".png}
-\par\end{center}
-
-$\therefore$ the solution set is ${\displaystyle \frac{16}{13}\leq x<\frac{4}{3}}$
-or $x>2$.
 \end{enumerate}
 \end{example}
 
-\begin{example}{}
+\newpage
+
+\begin{example}
 
 Solve ${\displaystyle 1\leq\frac{4x-4}{2x+3}<3}$ and represent the
 solutions on a number line.
+
+\medskip
 
 \textbf{Solution}
 
@@ -2969,14 +2917,21 @@ Solving ${\displaystyle 1\leq\frac{4x-4}{2x+3}}$,
 \frac{2x-7}{2x+3} & \geq0
 \end{align*}
 
+\begin{minipage}[t]{0.6\textwidth} 
+
 Thus we have the critical points ${\displaystyle x=\frac{7}{2}}$
 and ${\displaystyle x=-\frac{3}{2}}$.
-\begin{center}
-\includegraphics[width=5cm]{\string"lib/Graphics/InequalityExample6a\string".png}
-\par\end{center}
 
 $\therefore$ the solution set is ${\displaystyle x<-\frac{3}{2}}$
 or ${\displaystyle x\geq\frac{7}{2}}$.
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth} 
+\begin{center}
+\includegraphics[width=5cm,valign=t]{\string"lib/Graphics/InequalityExample6a\string".png}
+\par\end{center}
+
+\end{minipage}
 
 Solving ${\displaystyle \frac{4x-4}{2x+3}<3}$,
 \begin{align*}
@@ -2987,14 +2942,18 @@ Solving ${\displaystyle \frac{4x-4}{2x+3}<3}$,
 \frac{2x+13}{2x+3} & >0
 \end{align*}
 
+\begin{minipage}[t]{0.6\textwidth} 
 Thus we have the critical points ${\displaystyle x=-\frac{13}{2}}$
 and ${\displaystyle x=-\frac{3}{2}}$.
-\begin{center}
-\includegraphics[width=5cm]{\string"lib/Graphics/InequalityExample6b\string".png}
-\par\end{center}
 
 $\therefore$ the solution set is ${\displaystyle x<-\frac{13}{2}}$
 or ${\displaystyle x>-\frac{3}{2}}$.
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth} 
+\begin{center}
+\includegraphics[width=5cm,valign=t]{\string"lib/Graphics/InequalityExample6b\string".png}
+\par\end{center}
+\end{minipage}
 
 Representing our solution sets on a number line we have,
 \begin{center}
@@ -3007,12 +2966,14 @@ $\therefore$ the solution set is ${\displaystyle x<-\frac{13}{2}}$
 or ${\displaystyle x\geq\frac{7}{2}}$.
 \end{example}
 
-\begin{example}{}
+\newpage
+
+\begin{example}
 \begin{enumerate}[label=(\alph*)]
 
 \item Without using a calculator, solve the inequality ${\displaystyle \frac{x+1}{x}>\frac{3}{x+2}}$.
 
-\item Hence find the values of $x$ which satisfy ${\displaystyle \frac{e^{x}+1}{e^{x}}>\frac{3}{e^{x}+2}}$.
+\item Hence find the values of $x$ which satisfy ${\displaystyle \frac{\mathrm{e}^{x}+1}{\mathrm{e}^{x}}>\frac{3}{\mathrm{e}^{x}+2}}$.
 
 \end{enumerate}
 
@@ -3036,15 +2997,15 @@ consider $x\left(x+2\right)>0$.
 
 $\therefore$ the solution set is $x<-2$ or $x>0$.
 
-\item Putting $x=e^{x}$ into $\left(1\right)$ gives
+\item Putting $x=\mathrm{e}^{x}$ into $\left(1\right)$ gives
 \begin{align*}
-{\displaystyle \frac{e^{x}+1}{e^{x}}} & >\frac{3}{e^{x}+2}
+{\displaystyle \frac{\mathrm{e}^{x}+1}{\mathrm{e}^{x}}} & >\frac{3}{\mathrm{e}^{x}+2}
 \end{align*}
 
-Thus, using our results from $\left(a\right)$, we have $e^{x}>0$
-or $e^{x}<-2\;(\text{rej, }\because e^{x}>0)$ .
+Thus, using our results from $\left(a\right)$, we have $\mathrm{e}^{x}>0$
+or $\mathrm{e}^{x}<-2\;(\text{rej, }\because \mathrm{e}^{x}>0)$ .
 
-Since $e^{x}>0$ for all real values of $x$, our solution set is
+Since $\mathrm{e}^{x}>0$ for all real values of $x$, our solution set is
 $x\in\R$
 
 \end{enumerate}
@@ -3068,7 +3029,7 @@ Solve the following inequalities.
 
 \textbf{Solution}
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\alph*),itemsep=1cm]
 
 \item
 $
@@ -3104,7 +3065,7 @@ $\therefore$ the solution set is $x\in\R,\;x\neq3$.
 \end{enumerate}
 \end{example}
 
-
+\newpage
 
 \begin{example}
 
@@ -3118,7 +3079,7 @@ Solve the following inequalities.
 \end{tasks}
 
 \textbf{Solution}
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\alph*),itemsep=1cm]
 
 \item
 $
@@ -3132,11 +3093,19 @@ x^{2}+8x+12 & <0\\
 \end{aligned}
 $
 
+
+\begin{minipage}[t]{0.58\textwidth} 
+
 Thus we have the critical points $x=-2$ and $x=-6$
-\begin{center}
-\includegraphics[width=5cm]{\string"lib/Graphics/InequalityExample7a\string".png}
-\par\end{center}
+
 $\therefore$ our solution set is $-6<x<-2$.
+
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth} 
+\begin{center}
+\includegraphics[width=5cm,valign=t]{\string"lib/Graphics/InequalityExample7a\string".png}
+\par\end{center}
+\end{minipage}
 
 \item
 $
@@ -3150,13 +3119,16 @@ $
 \end{aligned}
 $
 
-Thus we have the critical points $x=-4$, ${\displaystyle x=\frac{2}{3}}$
-and $x=3$.
-\begin{center}
-\includegraphics[width=5cm]{\string"lib/Graphics/InequalityExample7b\string".png}
-\par\end{center}
+\begin{minipage}[t]{0.58\textwidth} 
+Thus we have the critical points $x=-4$, ${\displaystyle x=\frac{2}{3}}$ and $x=3$.
 
 $\therefore$ our solution set is $x<-4$ or ${\displaystyle x>\frac{2}{3}}$, $x\neq3$.
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth} 
+\begin{center}
+\includegraphics[width=5cm,valign=t]{\string"lib/Graphics/InequalityExample7b\string".png}
+\par\end{center}
+\end{minipage}
 
 \item
 $
@@ -3167,13 +3139,16 @@ x^{2}-\left|x\right|-20 & >0\\
 \end{aligned}
 $
 
-Thus we have the critical points $\left|x\right|=5\Rightarrow x=\pm5$
-,
-\begin{center}
-\includegraphics[width=5cm]{\string"lib/Graphics/InequalityExample7c\string".png}
-\par\end{center}
+\begin{minipage}[t]{0.58\textwidth} 
+Thus we have the critical points $\left|x\right|=5\Rightarrow x=\pm5$.
 
 $\therefore$ our solution set is ${\displaystyle x<-5}$ or $x>5$.
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth} 
+\begin{center}
+\includegraphics[width=5cm,valign=t]{\string"lib/Graphics/InequalityExample7c\string".png}
+\par\end{center}
+\end{minipage}
 
 \end{enumerate}
 \end{example}
@@ -3259,6 +3234,100 @@ a-b+c & =0\\
 
 We can use systems of linear equations to model real life problems.
 
+\begin{example}
+A company specializes in making toy cars. It makes three types of
+toy cars, Toy Car $A$, Toy Car $B$ and Toy Car $C$. The amount
+of materials required (in units) for each type of car is given below:
+\begin{center}
+\setlength{\extrarowheight}{2pt}%
+\begin{tabular}{|>{\centering}m{3cm}|>{\centering}m{2.8cm}|>{\centering}m{2.8cm}|>{\centering}m{2.8cm}|}
+\hline
+ & Plastic & Rubber & Metal\tabularnewline
+\hline
+Toy Car $A$ & 2 & 1 & 1\tabularnewline
+\hline
+Toy Car $B$ & 3 & 4 & 5\tabularnewline
+\hline
+Toy Car $C$ & 1 & 3 & 2\tabularnewline
+\hline
+Total amount of material available & 100 & 150 & 130\tabularnewline
+\hline
+\end{tabular}
+\par\end{center}
+
+If all the materials available are used, how many cars of each type
+does the company make?
+
+If the company makes a profit of $\$1$, $\$2$ and $\$3$ from the
+sale of each Toy Car $A$, $B$ and $C$ respectively, find the total
+profit it made if all the toy cars were sold.
+
+\Solution
+
+Let $x$, $y$ and $z$ be the number of Toy Cars $A$, $B$ and $C$
+respectively.
+
+\begin{align*}
+2x+3y+z & =100\tag{1}\\
+x+4y+3z & =150\tag{2}\\
+x+5y+2z & =130\tag{3}
+\end{align*}
+
+From GC, $x=20$, $y=10$ and $z=30$
+
+\begin{align*}
+\text{Total Profit} & =20\times\left(\$1\right)+10\times\left(\$2\right)+30\times\left(\$3\right)\\
+ & =\$130
+\end{align*}
+
+\end{example}
+
+\newpage
+
+\begin{example}
+
+A student has been saving 10 cent, 20 cent and 50 cent coins in a
+money box. When she opened the box after one month, she found the amount
+saved is $\$15$ and the number of 10 cent coins equals the total
+number of 20 cent and 50 cent coins. She also found that only half
+as many coins is needed to save the same amount using just 50 cent
+coins. Find the number of 10 cent, 20 cent and 50 cent coins in the
+money box.
+
+\Solution
+
+Let $x$, $y$ and $z$ be the number of 10 cent, 20 cents and 50
+cents coins respectively.
+
+Total amount saved is $\$15$:
+
+\[
+10x+20y+50z=1500\tag{1}
+\]
+
+The number of 10 cent coins equals the total number of 20 cent and
+50 cent coins:
+
+\[
+x=y+z
+\]
+\[
+x-y-z=0\tag{2}
+\]
+
+Only half as many coins is needed to save the same amount using just
+50 cent coins:
+
+\begin{align*}
+\left(\frac{x+y+z}{2}\right)50 & =1500\\
+x+y+z & =60\tag{3}
+\end{align*}
+
+From GC, $x=30$, $y=10$ and $z=20$
+\end{example}
+
+\newpage
+
 \begin{example}{}
 A dietitian wishes to plan a meal using three types of ingredients.
 The meal is to include 8800 micrograms $\left(\mu g\right)$ of vitamin
@@ -3319,11 +3388,11 @@ When $z=6$, $x=7$, $y=1$.
 \chapter{Sequences and Series}
 \section{Number Sequence}
 
-\centerline{\begin{minipage}{.7\textwidth} 
+\centerline{\begin{minipage}{.7\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
-A \textbf{sequence} is a an ordered list of numbers defined by a rule. 
+A \textbf{sequence} is a an ordered list of numbers defined by a rule.
 
 \medskip{}
 
@@ -3337,7 +3406,7 @@ The numbers in the sequence are called the \textbf{terms} of the sequence.
 A sequence can have finite or infinite number of terms. The following
 are examples of sequences:
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](2)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
 
 \task  $2,4,6,8,10,\ldots22$
 
@@ -3351,12 +3420,12 @@ We call sequence (b) an \textbf{infinite} sequence since it continues indefinite
 
 \medskip{}
 
-\centerline{\begin{minipage}{.7\textwidth} 
+\centerline{\begin{minipage}{.7\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
 The general term or $n\text{th}$ term of a sequence is represented
-by $u_{n}$. 
+by $u_{n}$.
 \end{tcolorbox}
 
 \end{minipage}}
@@ -3372,11 +3441,11 @@ u_{n} & =2n-1\text{ (general formula for the \ensuremath{n}th term in the sequen
 \end{align*}
 
 Unless stated otherwise, we assume the first term of the sequence
-is $u_{1}$, and that the sequence is defined for $n\in\Z^{+}$. 
+is $u_{1}$, and that the sequence is defined for $n\in\Z^{+}$.
 
 \section{Series}
 
-\centerline{\begin{minipage}{.5\textwidth} 
+\centerline{\begin{minipage}{.5\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black, boxrule=.4pt, sharpish corners]
 
@@ -3389,7 +3458,7 @@ A series can have finite or infinite number of terms. If we add the
 terms of the sequences that we saw at the start of the chapter, we
 get:
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](2)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
 
 \task  $2+4+6+8+10+\ldots+22$
 
@@ -3400,9 +3469,9 @@ get:
 For a \textbf{finite} series such as (a), the sum $S_{n}$ will be
 a finite real number.
 
-For an \textbf{infinite} series the sum $S_{n}$ may \textbf{diverge} (become infinitely large) as shown in (b). But it may also \textbf{converge} to a finite number. 
+For an \textbf{infinite} series the sum $S_{n}$ may \textbf{diverge} (become infinitely large) as shown in (b). But it may also \textbf{converge} to a finite number.
 
-This might seem strange at first. How can we add up an infinite number of terms and still get a finite number? 
+This might seem strange at first. How can we add up an infinite number of terms and still get a finite number?
 
 Well, imagine standing one meter away from a door. You walk towards the door. But with each step, you are only able to travel half the distance to the door. Your distance travelled is given by the series
 \[
@@ -3421,23 +3490,23 @@ difference between every two consecutive numbers is constant.
 u_{n+1}-u_{n}=d
 \]
 
-The constant $d$ is called the \textbf{common difference}. 
+The constant $d$ is called the \textbf{common difference}.
 
 \medskip{}
 
-The \textbf{first term} is usually denoted by $a$. 
+The \textbf{first term} is usually denoted by $a$.
 
 \medskip{}
 
-The $n\text{th}$ term of an AP is given by 
+The $n\text{th}$ term of an AP is given by
 \[
 u_{n}=a+\left(n-1\right)d
 \]
 \end{tcolorbox}
 
-For example, 
+For example,
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex] 
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
 
 \task  %
 \begin{tabular}{>{\raggedright}p{3cm}>{\raggedright}p{4.4cm}>{\raggedright}p{5cm}}
@@ -3453,17 +3522,18 @@ $30,25,20,15,10,\ldots$ & is an AP with \textbf{first term $30$} & and \textbf{c
 
 \begin{example}
 
-Given the arithmetic progression: $4,9,14,19,\ldots$, find
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex] 
+Given the arithmetic progression: $3,7,11,15,19,\ldots$, find
 
-\task  the common difference, 
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
 
-\task  the $15\text{th}$ term,
+\task  the common difference,
+
+\task  the $10\text{th}$ term,
 
 \task  the $n\text{th}$ term,
 
-\task  the value of $r$, where the $r\text{th}$ term is 139.
+\task  the value of $r$, where the $r\text{th}$ term is $351$.
 
 \end{tasks}
 
@@ -3473,33 +3543,33 @@ Given the arithmetic progression: $4,9,14,19,\ldots$, find
 
 \task Let $d$ be the common difference.
 
-$d=9-4=5$
+$d=7-3=4$
 
-\task  Let $u_{n}$ be the $n\text{th}$ term of the AP. 
+\task  Let $u_{n}$ be the $n\text{th}$ term of the AP.
 
 $
 \begin{aligned}[t]
-u_{15} & =4+\left(15-1\right)\left(5\right)\\
- & =74
+u_{10} & =3+\left(10-1\right)\left(4\right)\\
+ & =39
 \end{aligned}
 $
 
-\task  
+\task
 $
 \begin{aligned}[t]
 u_{n} & =a+\left(n-1\right)d\\
- & =4+\left(n-1\right)5\\
- & =5n-1
+ & =3+\left(n-1\right)4\\
+ & =4n-1
 \end{aligned}
 $
 
 
-\task  
+\task
 $
 \begin{aligned}[t]
-5r-1 & =139\\
-5r & =140\\
-r & =28
+4r-1 & =351\\
+4r & =352\\
+r & =88
 \end{aligned}
 $
 
@@ -3520,7 +3590,7 @@ u_{n} & =a+\left(n-1\right)d\\
  & =5n-3
 \end{align*}
 
-Since $77$ is the last term, 
+Since $77$ is the last term,
 \begin{align*}
 77 & =5n-3\\
 5n & =80\\
@@ -3555,7 +3625,7 @@ Consider the sequence $87,83,79,75,71,\ldots$, in which the general term is give
 
 \task  Which term of the sequence is $-297$?
 
-\end{tasks} 
+\end{tasks}
 
 \Solution
 
@@ -3572,7 +3642,7 @@ u_{n+1}-u_{n} & =87-4n-\left(91-4n\right)\\
 \end{align*}
 Since $u_{n+1}-u_{n}$ gives a constant, $\therefore$ we can deduce that the sequence is an AP.
 
-\task  
+\task
 $
 \begin{aligned}[t]
 u_{40} & =91-4\left(40\right)\\
@@ -3580,7 +3650,7 @@ u_{40} & =91-4\left(40\right)\\
 \end{aligned}
 $
 
-\task 
+\task
 $
 \begin{aligned}[t]
 91-4n & =-297\\
@@ -3591,7 +3661,7 @@ $
 
 $\therefore$ The $97\text{th}$ term is $-297$.
 
-\end{tasks} 
+\end{tasks}
 
 \end{example}
 
@@ -3600,7 +3670,7 @@ $\therefore$ The $97\text{th}$ term is $-297$.
 
 \section{Arithmetic Series }
 
-\centerline{\begin{minipage}{.78\textwidth} 
+\centerline{\begin{minipage}{.78\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
@@ -3621,7 +3691,7 @@ $2+5+8+\ldots+23$ & is the corresponding \textbf{arithmetic series}.\tabularnewl
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
 The \textbf{sum} of the first $n$ terms of an arithmetic series with
-first term $a$ and common difference $d$ is 
+first term $a$ and common difference $d$ is
 \[
 S_{n}=\frac{n}{2}\left[2a+\left(n-1\right)d\right]
 \]
@@ -3630,14 +3700,14 @@ S_{n}=\frac{n}{2}\left[2a+\left(n-1\right)d\right]
 \textbf{Proof}:
 
 Let $S_{n}$ denote the sum of the first $n$ terms of an arithmetic
-series with first term $a$ and common difference $d$. Then 
+series with first term $a$ and common difference $d$. Then
 
 \begin{align*}
 S_{n} & =u_{1}+u_{2}+u_{3}+\ldots+u_{n-2}+u_{n-1}+u_{n}\\
  & =a+\left(a+d\right)+\left(a+2d\right)+\ldots+\left[a+\left(n-3\right)d\right]+\left[a+\left(n-2\right)d\right]+\left[a+\left(n-1\right)d\right]\tag{1}
 \end{align*}
 
-Putting the terms in reverse order, 
+Putting the terms in reverse order,
 
 \begin{align*}
 S_{n} & =u_{n}+u_{n-1}+u_{n-2}+\ldots+u_{3}+u_{2}+u_{1}\\
@@ -3653,13 +3723,13 @@ S_{n} & =\frac{n}{2}\left[2a+\left(n-1\right)d\right]
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
 Since $u_{1}=a$ and $u_{n}=a+\left(n-1\right)d$, we can also write
-$S_{n}$ as 
+$S_{n}$ as
 \[
 S_{n}=\frac{n}{2}\left[u_{1}+u_{n}\right]
 \]
 \end{tcolorbox}
 
-Here is a simple example of the method we just used. 
+Here is a simple example of the method we just used.
 
 Consider the arithmetic series: $1+2+3+\ldots+8+9+10$.
 
@@ -3668,7 +3738,7 @@ S_{10} & =1+2+3+\ldots+8+9+10\tag{1}\\
 S_{10} & =10+9+8+\ldots+3+2+1\tag{2}
 \end{align*}
 
-$\left(1\right)+\left(2\right)$ gives 
+$\left(1\right)+\left(2\right)$ gives
 \begin{align*}
 2S_{10} & =\left(1+10\right)+\left(2+9\right)+\ldots+\left(10+1\right)\\
 2S_{10} & =10\left(11\right)\\
@@ -3677,7 +3747,7 @@ S_{10} & =\frac{110}{2}=55
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
-The $n\text{th}$ term of an arthimetic progression is 
+The $n\text{th}$ term of an arithmetic progression is
 \[
 u_{n}=S_{n}-S_{n-1}
 \]
@@ -3687,25 +3757,25 @@ u_{n}=S_{n}-S_{n-1}
 
 Find the sum of the following arithmetic series:
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex] 
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
 
 \task  $7+9+11+13+\ldots$ to 10 terms
 
 \task  $8+5+2+\ldots+\left(-73\right)$
 
-\end{tasks} 
+\end{tasks}
 
 \Solution
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex] 
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
 
-\task  
+\task
 \begin{align*}
 S_{10} & =\frac{10}{2}\left[2\left(7\right)+\left(10-1\right)\left(2\right)\right]\\
  & =160
 \end{align*}
 
-\task  First, we need to find the number of terms in the series. 
+\task  First, we need to find the number of terms in the series.
 
 Let $n$ be the number of terms in the series.
 
@@ -3719,7 +3789,7 @@ S_{28} & =\frac{28}{2}\left[8+\left(-73\right)\right]\\
  & =-910
 \end{align*}
 
-\end{tasks} 
+\end{tasks}
 
 \end{example}
 
@@ -3737,7 +3807,7 @@ The sum of the first eighteen terms is $-45$, i.e. $S_{18}=-45$.
 18a+153d & =-45\tag{1}
 \end{align*}
 
-The eighteeth term is $-45$, i.e. $u_{18}=-45$.
+The eighteenth term is $-45$, i.e. $u_{18}=-45$.
 \begin{align*}
 a+\left(18-1\right)d & =-45\\
 a+17d & =-45\tag{2}
@@ -3745,7 +3815,7 @@ a+17d & =-45\tag{2}
 
 Solving (1) and (2), $a=40$ and $d=-5$.
 
-The sum of the first hundred terms is 
+The sum of the first hundred terms is
 \begin{align*}
 S_{100} & =\frac{100}{2}\left[2\left(40\right)+\left(100-1\right)\left(-5\right)\right]\\
  & =-20750
@@ -3768,23 +3838,23 @@ The constant $r$ is called the \textbf{common ratio}.
 
 \medskip{}
 
-The \textbf{first term} is usually denoted by $a$. 
+The \textbf{first term} is usually denoted by $a$.
 
 \medskip{}
 
-The $n\text{th}$ term of a GP is given by 
+The $n\text{th}$ term of a GP is given by
 \[
 u_{n}=ar^{n-1}
 \]
 \end{tcolorbox}
 
-For example, 
+For example,
 
 \begin{tasks}[label=(\alph*),label-width=3.5ex]
 
 \task  %
 \begin{tabular}{>{\raggedright}p{3cm}>{\raggedright}p{4.2cm}>{\raggedright}p{3.8cm}>{\raggedright}p{4cm}}
-${\displaystyle 2,1,\frac{1}{2},\frac{1}{8},\ldots,\frac{1}{512}}$ & is a GP with \textbf{first term $2$} & and \textbf{common ratio ${\displaystyle \frac{1}{2}}$}.  & $\Rightarrow{\displaystyle u_{n}=2\left(\frac{1}{2}\right)^{n-1}}$\tabularnewline
+${\displaystyle 2,1,\frac{1}{2},\frac{1}{4},\frac{1}{8},\ldots,\frac{1}{512}}$ & is a GP with \textbf{first term $2$} & and \textbf{common ratio ${\displaystyle \frac{1}{2}}$}.  & $\Rightarrow{\displaystyle u_{n}=2\left(\frac{1}{2}\right)^{n-1}}$\tabularnewline
 \end{tabular}
 
 \task  %
@@ -3798,9 +3868,9 @@ ${\displaystyle \frac{1}{4},-1,4,-16,64,\ldots}$ & is a GP with \textbf{first te
 
 In a geometric progression: ${\displaystyle 9,3,1,\frac{1}{3},\ldots}$, find
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex] 
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
 
-\task  the common ratio, 
+\task  the common ratio,
 
 \task  the $n\text{th}$ term,
 
@@ -3821,7 +3891,7 @@ r=\frac{3}{9}=\frac{1}{3}
 \end{aligned}
 $
 
-\task  Let $u_{n}$ be the $n\text{th}$ term of the GP. 
+\task  Let $u_{n}$ be the $n\text{th}$ term of the GP.
 $
 \begin{aligned}[t]
 u_{n} & =ar^{n-1}\\
@@ -3829,7 +3899,7 @@ u_{n} & =ar^{n-1}\\
 \end{aligned}
 $
 
-\task 
+\task
 $
 \begin{aligned}[t]
 u_{10} & =9\left(\frac{1}{3}\right)^{9}\\
@@ -3837,7 +3907,7 @@ u_{10} & =9\left(\frac{1}{3}\right)^{9}\\
 \end{aligned}
 $
 
-\task  
+\task
 $
 \begin{aligned}[t]
 u_{n} & =\frac{1}{59049}\\
@@ -3880,7 +3950,7 @@ r^{2} & =\frac{9}{4}\\
 r=\frac{3}{2} & \text{ or }r=-\frac{3}{2}\;\text{(rej.)}
 \end{align*}
 
-Substitute ${\displaystyle r=\frac{3}{2}}$ into (1), 
+Substitute ${\displaystyle r=\frac{3}{2}}$ into (1),
 \begin{align*}
 a\left(\frac{3}{2}\right)^{2} & =9\\
 a & =4
@@ -3929,7 +3999,7 @@ deduce the sequence is a GP.
 
 \section{Finite Geometric Series}
 
-\centerline{\begin{minipage}{.78\textwidth} 
+\centerline{\begin{minipage}{.78\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
@@ -3950,7 +4020,7 @@ $1+2+4+8+16+\ldots+1024$ & is the corresponding \textbf{geometric series}.\tabul
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
 The \textbf{sum} of the first $n$ terms of a geometric series with
-first term $a$ and common ratio $r$ is 
+first term $a$ and common ratio $r$ is
 \[
 S_{n}=\frac{a\left(r^{n}-1\right)}{r-1}=\frac{a\left(1-r^{n}\right)}{1-r},r\neq1
 \]
@@ -3973,12 +4043,12 @@ S_{n} & =u_{1}+u_{2}+u_{3}+\ldots+u_{n-2}+u_{n-1}+u_{n}\\
  & =a+ar+ar^{2}+\ldots+ar^{n-3}+ar^{n-2}+ar^{n-1}\tag{1}
 \end{align*}
 
-$\left(1\right)\times r$ gives 
+$\left(1\right)\times r$ gives
 \begin{align*}
 rS_{n} & =ar+ar^{2}+\ldots+ar^{n-2}+ar^{n-1}+ar^{n}\tag{2}
 \end{align*}
 
-$\left(2\right)-\left(1\right)$ gives 
+$\left(2\right)-\left(1\right)$ gives
 \begin{align*}
 \left(r-1\right)S_{n} & =\left(\cancel{ar}-a\right)+\left(\cancel{ar^{2}}-\cancel{ar}\right)+\ldots+\left(\cancel{ar^{n-1}}-\cancel{ar^{n-2}}\right)+\left(ar^{n}-\cancel{ar^{n-1}}\right)\\
  & =ar^{n}-a\\
@@ -3988,7 +4058,7 @@ S_{n} & =\frac{a\left(r^{n}-1\right)}{r-1}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
-The $n\text{th}$ term of a geometric progression is 
+The $n\text{th}$ term of a geometric progression is
 \[
 u_{n}=S_{n}-S_{n-1}
 \]
@@ -4022,7 +4092,7 @@ owed more grain than there was in the world.
 
 Things to think about:
 
-\begin{minipage}[t]{0.5\textwidth} 
+\begin{minipage}[t]{0.5\textwidth}
 
 \medskip{}
 
@@ -4037,7 +4107,7 @@ Things to think about:
 \end{enumerate}
 
 \end{minipage}
-\begin{minipage}[t]{0.5\textwidth} 
+\begin{minipage}[t]{0.5\textwidth}
 \begin{center}
 \includegraphics[width=4cm,valign=t]{\string"lib/Graphics/ChessGrain\string".png}
 \par\end{center}
@@ -4047,7 +4117,7 @@ Things to think about:
 
 \begin{example}
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex] 
+\begin{tasks}[label=(\alph*),label-width=3.5ex]
 
 \task  Find the sum of a geometric series which has $10$ terms with a first term $5$ and a common ratio of $4$.
 
@@ -4068,7 +4138,7 @@ S_{10} & =\frac{5\left(4^{10}-1\right)}{4-1}\\
  & =1747625
 \end{align*}
 
-\task  For this series, $S_{9}=9841$ and ${\displaystyle r=\frac{1}{3}}$. 
+\task  For this series, $S_{9}=9841$ and ${\displaystyle r=\frac{1}{3}}$.
 
 \begin{align*}
 9841 & =\frac{a\left(\left(\frac{1}{3}\right)^{9}-1\right)}{\frac{1}{3}-1}\\
@@ -4090,15 +4160,15 @@ and the sum becomes infinitely large.
 For example, when $a=1$ and $r=2$, $1+2+4+8+16+\ldots$ is infinitely large.
 
 If $\left|r\right|<1$, then as $n$ becomes very large, $r^{n}$
-approaches $0$. 
+approaches $0$.
 
 We say that the series is \textbf{convergent}, and the sum to infinity
-is given by 
+is given by
 \[
 S_{n}=\frac{a}{1-r}
 \]
 
-For example, when $a=1$ and ${\displaystyle r=\frac{1}{2}}$, 
+For example, when $a=1$ and ${\displaystyle r=\frac{1}{2}}$,
 \[
 {\displaystyle 1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\ldots=\frac{1}{1-\frac{1}{2}}=2}
 \]
@@ -4120,7 +4190,7 @@ is \textbf{convergent}.
 
 \medskip{}
 
-\item The sum to infinity is given by 
+\item The sum to infinity is given by
 \[
 S_{\infty}=\frac{a}{1-r}
 \]
@@ -4138,25 +4208,25 @@ Complete the following table:
 \setlength{\extrarowheight}{12pt}
 
 \begin{tabular}{|>{\centering}p{4.5cm}|>{\centering}p{3cm}|>{\centering}m{3cm}|>{\centering}p{3.5cm}|}
-\hline 
+\hline
 Series
 
 \medskip{} & Common ratio, $r$ & Is the series
 
 convergent? & Sum to infinity, $S_{\infty}$\tabularnewline
-\hline 
+\hline
 ${\displaystyle \frac{1}{4}-\frac{3}{16}+\frac{9}{64}-\frac{27}{256}+\ldots}$
 
 \medskip{} &  &  & \tabularnewline
-\hline 
+\hline
 ${\displaystyle \frac{81}{16}+\frac{27}{4}+9+12+\ldots}$
 
 \medskip{} &  &  & \tabularnewline
-\hline 
+\hline
 $1-1+1-1+\ldots$
 
 \medskip{} &  &  & \tabularnewline
-\hline 
+\hline
 \end{tabular}
 
 \bigskip
@@ -4166,31 +4236,31 @@ $1-1+1-1+\ldots$
 \setlength{\extrarowheight}{12pt}
 
 \begin{tabular}{|>{\centering}p{4.5cm}|>{\centering}p{3cm}|>{\centering}m{3cm}|>{\centering}p{3.5cm}|}
-\hline 
+\hline
 Series
 
 \medskip{} & Common ratio, $r$ & Is the series
 
 convergent? & Sum to infinity, $S_{\infty}$\tabularnewline
-\hline 
+\hline
 ${\displaystyle \frac{1}{4}-\frac{3}{16}+\frac{9}{64}-\frac{27}{256}+\ldots}$
 
 \medskip{} & ${\displaystyle -\frac{3}{4}}$ & Yes & ${\displaystyle \frac{1}{7}}$
 
 \medskip{}\tabularnewline
-\hline 
+\hline
 ${\displaystyle \frac{81}{16}+\frac{27}{4}+9+12+\ldots}$
 
 \medskip{} & ${\displaystyle \frac{4}{3}}$ & No & Does not exist.
 
 \medskip{}\tabularnewline
-\hline 
+\hline
 $1-1+1-1+\ldots$
 
 \medskip{} & $-1$ & No & Does not exist.
 
 \medskip{}\tabularnewline
-\hline 
+\hline
 \end{tabular}
 
 \end{example}
@@ -4225,7 +4295,7 @@ The sum of the first three terms of a convergent infinite geometric series is $1
 
 \Solution
 
-Let $a$ be the first term and $r$ be the common ratio. 
+Let $a$ be the first term and $r$ be the common ratio.
 
 The sum of the first three terms is $19$, i.e. $S_{3}=19$.
 \begin{align*}
@@ -4237,7 +4307,7 @@ The sum to infinity is $27$, i.e. $S_{\infty}=27$.
 \frac{a}{1-r} & =27\tag{2}
 \end{align*}
 
-Substitute (2) into (1), 
+Substitute (2) into (1),
 \begin{align*}
 27\left(1-r^{3}\right) & =19\\
 r^{3} & =\frac{8}{27}\\
@@ -4253,7 +4323,7 @@ Substitute ${\displaystyle r=\frac{2}{3}}$ into (2), $a=9$.
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
-The $n\text{th}$ term of \textbf{any progression} is 
+The $n\text{th}$ term of \textbf{any progression} is
 \[
 u_{n}=S_{n}-S_{n-1}
 \]
@@ -4396,13 +4466,13 @@ Let us investigate the perimeter and area of von Koch's curve.
 \item  Find the number of sides of $C_{1}$, $C_{2},C_{3},C_{4}$
 and $C_{5}$.
 
-\item  Find the number of sides of the $n\text{th}$ snowflake. 
+\item  Find the number of sides of the $n\text{th}$ snowflake.
 
 \end{enumerate}
 
 \end{enumerate}
 
-It is given that $C_{1}$ has perimeter $3$ units. 
+It is given that $C_{1}$ has perimeter $3$ units.
 
 \begin{enumerate}[start=2]
 
@@ -4438,7 +4508,7 @@ $2$?
 A frog which is stuck at the bottom of a well is trying to make a
 series of vertical upward jumps on the well wall to get out. Its first
 jump is $1\,\text{m}$, but because of fatigue and over-exertion,
-each subsequent jump is $90\%$ of the distance of the previous jump. However, as the wall is wet and slippery, the frog slips down some distance after every jump is made. It slips down $0.3\,\text{m}$ after its first jump, but because it learns to grip better, each subsequent jump is $0.02\,\text{m}$ less than that of the previous slip such that by the $15\text{th}$ jump, the frog will no longer slip. 
+each subsequent jump is $90\%$ of the distance of the previous jump. However, as the wall is wet and slippery, the frog slips down some distance after every jump is made. It slips down $0.3\,\text{m}$ after its first jump, but because it learns to grip better, each subsequent jump is $0.02\,\text{m}$ less than that of the previous slip such that after the $15\text{th}$ jump, the frog will no longer slip.
 
 \begin{enumerate}[label=(\alph*)]
 
@@ -4460,7 +4530,7 @@ to climb.
 
 \begin{enumerate}[label=(\alph*)]
 
-\item  
+\item
 $
 \begin{aligned}[t]
 \text{Total Distance Covered} & =\text{Total Jumping Distance}-\text{Total Sliding Distance}\\
@@ -4470,7 +4540,7 @@ $
 \end{aligned}
 $
 
-\item  When $n=15$, 
+\item  When $n=15$,
 \begin{align*}
 \text{Total Distance Covered} & =10\left(1-0.9^{15}\right)+0.01\left(15\right)^{2}-0.311\left(15\right)\\
  & =5.5411\,\text{m}
@@ -4478,13 +4548,13 @@ $
 
 \item  $10\left(1-0.9^{n}\right)+0.01n^{2}-0.31n\geq4$
 
-From GC, $n\geq8.8715\text{ (5 s.f.)}$
+From GC, $n\geq8.4872\text{ (5 s.f.)}$
 
 Therefore the frog needs $9$ jumps to pass the $4\,\text{m}$ mark.
 
 \item  After the $15\text{th}$ jump, there will be no more sliding.
 Subsequent jumps will follow a GP with first term $0.9^{15}$ and
-common ratio $0.9$. Hence 
+common ratio $0.9$. Hence
 \begin{align*}
 \frac{0.9^{15}\left(1-0.9^{n}\right)}{1-0.9} & \geq6.5-5.5411\\
 10\left(0.9^{15}\right)\left(1-0.9^{n}\right) & \geq0.9589
@@ -4496,7 +4566,7 @@ Therefore, the least value of $n$ is $6$.
 
 $6+15=21$ jumps are needed to pass the $6.5\,\text{m}$ mark.
 
-\item 
+\item
 $
 \begin{aligned}[t]
 \text{Greatest Possible Distance} & =\frac{9^{15}}{1-0.9}+5.5411\\
@@ -4513,7 +4583,7 @@ $
 A bank has an account for investors. Interest is added to the account
 at the end of each year at a fixed rate of $5\%$ of the amount in
 the account at the beginning of that year. A man and a woman both
-invest money. 
+invest money.
 
 \begin{enumerate}[label=(\alph*)]
 
@@ -4522,7 +4592,7 @@ and then a further $\$x$ at the beginning of the second and each
 subsequent year. He also decides that he will not draw any money out
 of the account, but just leave it, and any interest, to build up.
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\roman*)]
 
 \item  How much will there be in the account at the end of 1 year,
 including the interest?
@@ -4545,11 +4615,11 @@ she will withdraw the interest as soon as it has been added. She invests $\$y$ a
 
 \begin{enumerate}[label=(\alph*)]
 
-\item 
+\item
 
 \begin{enumerate}[label=(\roman*)]
 
-\item  
+\item
 $
 \begin{aligned}[t]
 \text{Amount at the end of the 1st year} & =x+0.05x\\
@@ -4559,15 +4629,15 @@ $
 
 \item \setlength{\extrarowheight}{2pt}%
 \begin{tabular}[t]{|>{\centering}p{3cm}|>{\centering}p{4.5cm}|>{\centering}p{4.5cm}|}
-\hline 
+\hline
  & Amount (start of) & Amount (end of)\tabularnewline
-\hline 
+\hline
 1st year & $x$ & $1.05x$\tabularnewline
-\hline 
+\hline
 2nd year & $1.05x+x$ & $1.05^{2}x+1.05x$\tabularnewline
-\hline 
+\hline
 3rd year & $1.05^{2}x+1.05x+x$ & $1.05^{3}x+1.05^{2}x+1.05x$\tabularnewline
-\hline 
+\hline
 \end{tabular}
 
 $
@@ -4579,7 +4649,7 @@ $
 \end{aligned}
 $
 
-\item  
+\item
 $
 \begin{aligned}[t]
 21\left(1.05^{n}-1\right)x & \geq12x\\
@@ -4591,26 +4661,26 @@ n & \geq9.264
 $
 
 $\therefore\text{Number of complete years}=10$
- 
+
 
 \end{enumerate}
 
-\item 
-\begin{minipage}[t]{0.5\textwidth} 
+\item
+\begin{minipage}[t]{0.5\textwidth}
  \setlength{\extrarowheight}{2pt}%
 \begin{tabular}[t]{|>{\centering}p{1.5cm}|>{\centering}p{1.4cm}|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|}
-\hline 
+\hline
  & Amount (start of) & Amount (end of) & Interest earned\tabularnewline
-\hline 
+\hline
 1st year & $y$ & $1.05y$ & $0.05y$\tabularnewline
-\hline 
+\hline
 2nd year & $y+y$ & $1.05\left(2y\right)$ & $0.05\left(2y\right)$\tabularnewline
-\hline 
+\hline
 3rd year & $2y+y$ & $1.05\left(3y\right)$ & $0.05\left(3y\right)$\tabularnewline
-\hline 
+\hline
 \end{tabular}
 \end{minipage}
-\begin{minipage}[t]{0.45\textwidth} 
+\begin{minipage}[t]{0.45\textwidth}
 \vspace{.5cm}
 $
 \begin{aligned}[t]
@@ -4641,7 +4711,7 @@ S in the Greek alphabet.
 \sum_{r=1}^{n}u_{r}=u_{1}+u_{2}+u_{3}+\ldots+u_{n}
 \]
 
-Where 
+Where
 
 \begin{itemize}
 
@@ -4670,53 +4740,53 @@ $r=1,2,3,\ldots,$ up to $n$''
 
 Expand and find the sum of:
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](3)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
 
-\task  ${\displaystyle \sum_{r=1}^{5}r^{2}}$ 
+\task  ${\displaystyle \sum_{r=1}^{5}r^{2}}$
 
-\task  ${\displaystyle \sum_{r=1}^{4}\frac{\left(-1\right)^{r}}{r}}$ 
+\task  ${\displaystyle \sum_{r=1}^{4}\frac{\left(-1\right)^{r}}{r}}$
 
-\task  ${\displaystyle \sum_{r=0}^{4}r!}$ 
+\task  ${\displaystyle \sum_{r=0}^{4}r!}$
 
-\task  ${\displaystyle \sum_{r=2}^{8}\frac{\ln r}{r+1}}$ 
+\task  ${\displaystyle \sum_{r=2}^{8}\frac{\ln r}{r+1}}$
 
-\task  ${\displaystyle \sum_{r=-2}^{3}r^{3}}$ 
+\task  ${\displaystyle \sum_{r=-2}^{3}r^{3}}$
 
-\task  ${\displaystyle \sum_{r=1}^{10}5}$ 
+\task  ${\displaystyle \sum_{r=1}^{10}5}$
 
 \end{tasks}
 
 \Solution
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](2)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
 
-\task  
+\task
 $
 \begin{aligned}[t]
 \sum_{r=1}^{5}r^{2} & =1^{2}+2^{2}+3^{2}+4^{2}+5^{2}\\
  & =55
 \end{aligned}
 $
- 
 
-\task  
+
+\task
 $
 \begin{aligned}[t]
 \sum_{r=1}^{4}\frac{\left(-1\right)^{r}}{r} & =-1+\frac{1}{2}-\frac{1}{3}+\frac{1}{4}\\
  & =-\frac{7}{12}
 \end{aligned}
 $
- 
 
-\task  
+
+\task
 $
 \begin{aligned}[t]
 \sum_{r=0}^{4}r! & =0!+1!+2!+3!+4!\\
  & =34
 \end{aligned}
-$ 
+$
 
-\task  
+\task
 $
 \begin{aligned}[t]
 \sum_{r=2}^{6}\frac{\ln r}{r+1} & =\frac{\ln2}{3}+\frac{\ln3}{4}+\frac{\ln4}{5}+\frac{\ln5}{6}+\frac{\ln6}{7}\\
@@ -4724,7 +4794,7 @@ $
 \end{aligned}
 $
 
-\task  
+\task
 $
 \begin{aligned}[t]
 {\displaystyle \sum_{r=-2}^{3}r^{3}} & =\left(-2\right)^{3}+\left(-1\right)^{3}+\left(0\right)^{3}+1^{3}+2^{3}+3^{3}\\
@@ -4732,14 +4802,14 @@ $
 \end{aligned}
 $
 
-\task  
+\task
 $
 \begin{aligned}[t]
 \sum_{r=1}^{10}5 & =5+5+\ldots+5\\
  & =50
 \end{aligned}
 $
- 
+
 \end{tasks}
 
 \end{example}
@@ -4750,7 +4820,7 @@ $
 
 If we are able to find the general term of a series, we can write
 the series in $\sum$ (sigma) notation. For example, we can see that
-the general term of the series 
+the general term of the series
 \[
 \frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\ldots+\left(\frac{1}{2}\right)^{n-1}+\left(\frac{1}{2}\right)^{n}
 \]
@@ -4762,30 +4832,32 @@ the series as ${\displaystyle \sum_{r=1}^{n}\left(\frac{1}{2}\right)^{r}}$.
 For each of the following series, write down the $r\text{th}$ term
 and express the series using $\sum$ notation.
 
+\bigskip
+
 \setlength{\extrarowheight}{12pt}
 
 \begin{tabular}{|>{\centering}p{7cm}|>{\centering}p{3cm}|>{\centering}p{3cm}|}
-\hline 
+\hline
 Series
 
 \medskip{} & $r\text{th}$ term & In $\sum$ notation\tabularnewline
-\hline 
+\hline
 ${\displaystyle \frac{1}{3}+\frac{1}{9}+\frac{1}{27}+\frac{1}{81}}+\ldots$
 
 \medskip{} &  & \tabularnewline
-\hline 
+\hline
 ${\displaystyle 1-\frac{1}{2}+\frac{1}{4}-\frac{1}{8}+\ldots+\frac{1}{64}}$
 
 \medskip{} &  & \tabularnewline
-\hline 
+\hline
 $1+9+25+49+\ldots+169$
 
 \medskip{} &  & \tabularnewline
-\hline 
+\hline
 $1\times2+2\times3+3\times4+\ldots+n\left(n+1\right)$
 
 \medskip{} &  & \tabularnewline
-\hline 
+\hline
 \end{tabular}
 
 \bigskip
@@ -4797,27 +4869,27 @@ $1\times2+2\times3+3\times4+\ldots+n\left(n+1\right)$
 \setlength{\extrarowheight}{12pt}
 
 \begin{tabular}{|>{\centering}p{7cm}|>{\centering}p{3cm}|>{\centering}p{3cm}|}
-\hline 
+\hline
 Series
 
 \medskip{} & $r\text{th}$ term & In $\sum$ notation\tabularnewline
-\hline 
+\hline
 ${\displaystyle \frac{1}{3}+\frac{1}{9}+\frac{1}{27}+\frac{1}{81}}+\ldots$
 
 \medskip{} & ${\displaystyle \frac{1}{3^{r}}}$ & ${\displaystyle \sum_{r=1}^{\infty}\frac{1}{3^{r}}}$\tabularnewline
-\hline 
+\hline
 ${\displaystyle 1-\frac{1}{2}+\frac{1}{4}-\frac{1}{8}+\ldots+\frac{1}{64}}$
 
 \medskip{} & ${\displaystyle \left(-\frac{1}{2}\right)^{r}}$ & ${\displaystyle \sum_{r=0}^{6}\left(-\frac{1}{2}\right)^{r}}$\tabularnewline
-\hline 
+\hline
 $1+9+25+49+\ldots+169$
 
 \medskip{} & $\left(2r-1\right)^{2}$ & ${\displaystyle \sum_{r=1}^{7}\left(2r-1\right)^{2}}$\tabularnewline
-\hline 
+\hline
 $1\times2+2\times3+3\times4+\ldots+n\left(n+1\right)$
 
 \medskip{} & $r\left(r+1\right)$ & ${\displaystyle \sum_{r=1}^{n}r\left(r+1\right)}$\tabularnewline
-\hline 
+\hline
 \end{tabular}
 
 \end{example}
@@ -4827,7 +4899,7 @@ $1\times2+2\times3+3\times4+\ldots+n\left(n+1\right)$
 
 \section{Rules of Summation}
 
-\centerline{\begin{minipage}{.7\textwidth} 
+\centerline{\begin{minipage}{.7\textwidth}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black,boxrule=.4pt, sharpish corners]
 
@@ -4838,7 +4910,7 @@ Sum of a Constant: & ${\displaystyle \sum_{r=m}^{n}c=c\left(n-m+1\right)}$\tabul
 Difference of the Sum: & ${\displaystyle \sum_{r=m}^{n}u_{r}=\sum_{r=1}^{n}u_{r}-\sum_{r=1}^{m-1}u_{r}}$\tabularnewline
 \end{tabular}
 
-\begin{tasks}[style=itemize,label-width=3.5ex](2)  
+\begin{tasks}[style=itemize,label-width=3.5ex](2)
 
 \task  ${\displaystyle \sum_{r=1}^{n}r=\frac{n\left(n+1\right)}{2}}$
 
@@ -4846,7 +4918,7 @@ Difference of the Sum: & ${\displaystyle \sum_{r=m}^{n}u_{r}=\sum_{r=1}^{n}u_{r}
 
 \task  ${\displaystyle \sum_{r=1}^{n}r^{3}=\frac{n^{2}\left(n+1\right)^{2}}{4}}$
 
-\task  ${\displaystyle \sum_{i=1}^{n}ar^{i-1}=\frac{a\left(1-r^{n}\right)}{1-r}}$ 
+\task  ${\displaystyle \sum_{i=1}^{n}ar^{i-1}=\frac{a\left(1-r^{n}\right)}{1-r}}$
 
 \end{tasks}
 \end{tcolorbox}
@@ -4857,7 +4929,7 @@ Difference of the Sum: & ${\displaystyle \sum_{r=m}^{n}u_{r}=\sum_{r=1}^{n}u_{r}
 
 Evaluate the following sums.
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](4)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](4)
 
 \task ${\displaystyle \sum_{r=0}^{10}\left(2r+3\right)}$
 
@@ -4871,9 +4943,9 @@ Evaluate the following sums.
 
 \Solution
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](2)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
 
-\task*  \begin{minipage}[t]{0.45\textwidth} 
+\task*  \begin{minipage}[t]{0.45\textwidth}
 
 $
 \begin{aligned}[t]
@@ -4885,7 +4957,7 @@ $
 $
 
 \end{minipage}
-\begin{minipage}[t]{0.45\textwidth} 
+\begin{minipage}[t]{0.45\textwidth}
 
 Alternatively, notice that the series is an arithmetic series with
 first term $3$ and common difference $2$.
@@ -4900,7 +4972,7 @@ $
 
 \end{minipage}
 
-\task  
+\task
 $
 \begin{aligned}[t]
 \sum_{r=20}^{40}r^{3} & =\sum_{r=1}^{40}r^{3}-\sum_{r=1}^{19}r^{3}\\
@@ -4909,7 +4981,7 @@ $
 \end{aligned}
 $
 
-\task 
+\task
 $
 \begin{aligned}[t]
 \sum_{r=1}^{n}\left(3^{r-1}+2r\right) & =\sum_{r=1}^{n}3^{r-1}+\sum_{r=1}^{n}2r\\
@@ -4918,7 +4990,7 @@ $
 \end{aligned}
 $
 
-\task 
+\task
 $
 \begin{aligned}[t]
 \sum_{r=1}^{n-1}\left(r^{2}+2^{r}\right) & =\sum_{r=1}^{n-1}r^{2}+\sum_{r=1}^{n-1}2^{r}\\
@@ -4935,28 +5007,28 @@ $
 
 \begin{example}
 
-Under what conditions will the series ${\displaystyle \sum_{r=0}^{\infty}50\left(2x-1\right)^{r-1}}$ converge? 
+Under what conditions will the series ${\displaystyle \sum_{r=1}^{\infty}50\left(2x-1\right)^{r-1}}$ converge?
 
-Find ${\displaystyle \sum_{r=0}^{\infty}50\left(2x-1\right)^{r-1}}$
+Find ${\displaystyle \sum_{r=1}^{\infty}50\left(2x-1\right)^{r-1}}$
 if $x=0.3$.
 
 \Solution
 
-${\displaystyle \sum_{r=0}^{\infty}50\left(2x-1\right)^{r-1}}$ is
+${\displaystyle \sum_{r=1}^{\infty}50\left(2x-1\right)^{r-1}}$ is
 a geometric series with first term $50$ and common ratio $2x-1$.
 
-For the series to converge, $\left|2x-1\right|<1$. 
+For the series to converge, $\left|2x-1\right|<1$.
 
 \begin{align*}
 -1 & <2x-1<1\\
--2 & <2x<2\\
--1 & <x<1
+0 & <2x<2\\
+0 & <x<1
 \end{align*}
 
-If $x=0.3$, 
+If $x=0.3$,
 
 \begin{align*}
-{\displaystyle \sum_{r=0}^{\infty}50\left(2\left(0.3\right)-1\right)^{r-1}} & =\sum_{r=0}^{\infty}50\left(-0.4\right)^{r-1}\\
+{\displaystyle \sum_{r=1}^{\infty}50\left(2\left(0.3\right)-1\right)^{r-1}} & =\sum_{r=1}^{\infty}50\left(-0.4\right)^{r-1}\\
  & =\frac{50}{1-\left(-0.4\right)}\\
  & =\frac{250}{7}
 \end{align*}
@@ -5003,13 +5075,13 @@ where $A$ and $B$ are constants.
 
 Then $1=A\left(r+1\right)+Br$.
 
-Comparing Coefficients, 
+Comparing Coefficients,
 \begin{align*}
 A+B & =0\tag{1}\\
 A= & 1\tag{2}
 \end{align*}
 
-Substituting (2) into (1), 
+Substituting (2) into (1),
 
 \begin{align*}
 1+B & =0\\
@@ -5034,7 +5106,7 @@ Hence, ${\displaystyle \frac{1}{r\left(r+1\right)}=\frac{1}{r}-\frac{1}{r+1}}$.
 
 \newpage
 
-\begin{example} 
+\begin{example}
 
 Given that $f\left(r\right)=\left(r+1\right)!$, find $f\left(r\right)-f\left(r-1\right)$.
 Hence find ${\displaystyle \sum_{r=1}^{n}r!\cdot r}$.
@@ -5061,7 +5133,7 @@ f\left(r\right)-f\left(r-1\right) & =\left(r+1\right)!-r!\\
 
 \end{example}
 
-\begin{example} 
+\begin{example}
 
 Given than ${\displaystyle \frac{1}{r\left(r^{2}-1\right)}=\frac{1}{2\left(r-1\right)}-\frac{1}{r}+\frac{1}{2\left(r+1\right)}}$,
 show that ${\displaystyle \sum_{r=2}^{n}\frac{1}{r\left(r^{2}-1\right)}=\frac{1}{4}+\frac{1}{2\left(n+1\right)}-\frac{1}{2n}}$.
@@ -5094,16 +5166,16 @@ Consider the following infinite sequence
 u_{n}=\frac{n}{n+1},\:n\in\N\text{ and }n\geq1
 \]
 
-Writing the sequence out and plotting its graph, 
+Writing the sequence out and plotting its graph,
 
-\begin{minipage}{0.5\textwidth} 
+\begin{minipage}{0.5\textwidth}
 
 \[
 \frac{1}{2},\:\frac{2}{3}\:,\frac{3}{4}\:,\ldots\:,\:\frac{97}{98},\:\frac{98}{99},\:\frac{99}{100}\:,\ldots\:,\:\frac{n}{n+1},\:\ldots
 \]
 
 \end{minipage}
-\begin{minipage}{0.5\textwidth} 
+\begin{minipage}{0.5\textwidth}
 \begin{center}
 \includegraphics[width=6cm,valign=t]{\string"lib/Graphics/CovergentSequence\string".png}
 \par\end{center}
@@ -5139,7 +5211,7 @@ Otherwise, the sequence diverges.
 Find the limit of each sequence (if it exists) as $n$ approaches
 infinity.
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](3)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](3)
 
 \task  ${\displaystyle u_{n}=\frac{5n+1}{n}}$
 
@@ -5151,9 +5223,9 @@ infinity.
 
 \Solution
 
-\begin{tasks}[label=(\alph*),label-width=3.5ex](2)  
+\begin{tasks}[label=(\alph*),label-width=3.5ex](2)
 
-\task  
+\task
 $
 \begin{aligned}[t]
 \lim_{x\to\infty}u_{n} & =\lim_{x\to\infty}\frac{5n+1}{n}\\
@@ -5163,7 +5235,7 @@ $
 \end{aligned}
 $
 
-\task  
+\task
 $
 \begin{aligned}[t]
 \lim_{x\to\infty}u_{n} & =\lim_{x\to\infty}\frac{3n^{2}-n+1}{n^{2}+1}\\
@@ -5172,7 +5244,7 @@ $
 \end{aligned}
 $
 
-\task* $u_{n}=2^{r}=2+4+8+16+\ldots$
+\task* $u_{n}=2^{r}=2,4,8,16,\ldots$
 
 As $n\to\infty$, $2^{r}\to\infty$
 
@@ -5245,5 +5317,6 @@ Since the series tends to a limit of ${\displaystyle \frac{1}{4}}$
 as $n\to\infty$, the series is \textbf{convergent}.
 
 \end{example}
+
 % End document
 \end{document}
